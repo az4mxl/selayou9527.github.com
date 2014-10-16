@@ -91,7 +91,7 @@ CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏�
         <section id="main"><article id="post-css3Transforms&amp;Animations" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/16/css3Transforms&Animations/" class="article-date">
-  <time datetime="2014-10-16T08:13:32.000Z" itemprop="datePublished">Oct 16 2014</time>
+  <time datetime="2014-10-16T08:55:40.000Z" itemprop="datePublished">Oct 16 2014</time>
 </a>
     
   <div class="article-category">
@@ -669,10 +669,28 @@ CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏�
 <p>One last example, a bit more complex that the previous which just involved rotations around one axis. Here we set up a cube with six faces that rotate in order.</p>
 <p>We start by using CSS to style and place the six faces of the cube. Each side will be marked up as a div child of the ‘spinner’ element:</p>
 <p>最后一个例子比之前只是绕一个轴旋转的复杂一些，我们现在做一个旋转的立方体，我们先通过CSS放好立方体的6个面</p>
-<pre><code>&lt;style <span class="keyword">type</span>=<span class="string">"text/css"</span>&gt;
-</code></pre><p> .cubespinner div {<br>    position: absolute;<br>    width: 120px;<br>    height: 120px;<br>    border: 1px solid #ccc;<br>    background: rgba(255,255,255,0.8);<br>    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);<br>    text-align: center;<br>    line-height: 120px;<br>    font-size: 100px;<br>  }</p>
-<p>  .cubespinner .face1 { -webkit-transform: translateZ(60px);                                }<br>  .cubespinner .face2 { -webkit-transform: rotateY(90deg) translateZ(60px);                 }<br>  .cubespinner .face3 { -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);  }<br>  .cubespinner .face4 { -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px); }<br>  .cubespinner .face5 { -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); }<br>  .cubespinner .face6 { -webkit-transform: rotateX(-90deg) translateZ(60px); </p>
-<pre><code><span class="xml"><span class="css"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+
+ <span class="class">.cubespinner</span> <span class="tag">div</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">120px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">120px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#ccc</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.8</span>)</span></span>;
+    <span class="rule"><span class="attribute">box-shadow</span>:<span class="value"> inset <span class="number">0</span> <span class="number">0</span> <span class="number">20px</span> <span class="function">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>)</span></span>;
+    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">120px</span></span></span>;
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">100px</span></span></span>;
+  <span class="rule">}</span></span>
+
+  <span class="class">.cubespinner</span> <span class="class">.face1</span> <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translateZ</span>(<span class="number">60px</span>)</span></span>;                                <span class="rule">}</span></span>
+  <span class="class">.cubespinner</span> <span class="class">.face2</span> <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">90deg</span>) <span class="function">translateZ</span>(<span class="number">60px</span>)</span></span>;                 <span class="rule">}</span></span>
+  <span class="class">.cubespinner</span> <span class="class">.face3</span> <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">90deg</span>) <span class="function">rotateX</span>(<span class="number">90deg</span>) <span class="function">translateZ</span>(<span class="number">60px</span>)</span></span>;  <span class="rule">}</span></span>
+  <span class="class">.cubespinner</span> <span class="class">.face4</span> <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">180deg</span>) <span class="function">rotateZ</span>(<span class="number">90deg</span>) <span class="function">translateZ</span>(<span class="number">60px</span>)</span></span>; <span class="rule">}</span></span>
+  <span class="class">.cubespinner</span> <span class="class">.face5</span> <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">90deg</span>) <span class="function">rotateZ</span>(<span class="number">90deg</span>) <span class="function">translateZ</span>(<span class="number">60px</span>)</span></span>; <span class="rule">}</span></span>
+  <span class="class">.cubespinner</span> <span class="class">.face6</span> <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateX</span>(-<span class="number">90deg</span>) <span class="function">translateZ</span>(<span class="number">60px</span>)</span></span>; 
+
+</span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
 </code></pre><p>如果我们不希望看到背面的元素可以通过在元素上设置<code>-webkit-backface-visibility: hidden;</code></p>
 <p>接着我们设置一个关键帧动画序列来旋转立方体，让每个面轮流在前面显示</p>
 <pre><code> <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
@@ -762,7 +780,7 @@ $('br').remove();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/16/css3Transforms&Animations/" data-id="4vrd49v2b88ex9li" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/16/css3Transforms&Animations/" data-id="t4mrakioyacuzm3a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -774,9 +792,9 @@ $('br').remove();
 <nav id="article-nav">
   
   
-    <a href="/2014/10/14/jQuery deferred/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/10/14/attribute与property/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">jQuery deferred</div>
+      <div class="article-nav-title">jQuery的attr与prop</div>
     </a>
   
 </nav>
@@ -834,35 +852,11 @@ $('br').remove();
           </li>
         
           <li>
-            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/iconfont/">icon font</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/history对象/">history</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
           </li>
         
           <li>
@@ -874,15 +868,15 @@ $('br').remove();
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
           </li>
         
           <li>
             <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
           </li>
         
           <li>
@@ -898,7 +892,7 @@ $('br').remove();
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
           </li>
         
           <li>
@@ -907,6 +901,30 @@ $('br').remove();
         
           <li>
             <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
           </li>
         
       </ul>

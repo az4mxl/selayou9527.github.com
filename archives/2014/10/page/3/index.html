@@ -72,9 +72,59 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-zindex" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-media queries" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/zindex/" class="article-date">
+    <a href="/2014/10/14/media queries/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/media queries/">media queries</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们可能见过这样的代码</p>
+<pre><code>  &lt;link <span class="variable">href=</span><span class="string">"css/reset.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"screen"</span> /&gt;
+  &lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
+</code></pre><p>其中的<code>media</code>属性是指媒体类型，在CSS2中允许通过<code>media</code>属性指定CSS的作用范围，<code>media=&quot;print&quot;</code>表示css在打印的时候生效，其它时候不生效，所有媒体类型<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank" rel="external">Recognized media types</a><br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/media queries/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/media queries/" data-id="8dlapisnmu55ddcw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css容易忽略的特性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/css容易忽略的特性/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -90,7 +140,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/zindex/">z-index</a>
+      <a class="article-title" href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
     </h1>
   
 
@@ -98,17 +148,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>做页面布局的同学对z-index属性应该是很熟悉了，z-index是针对网页显示中的一个特殊属性。因为显示器是显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别。表示一个元素在叠加顺序上的上下立体关系</p>
-<p>z-index值较大的元素将叠加在z-index值较小的元素之上。对于未指定此属性的定位对象，z-index 值为正数的对象会在其之上，而 z-index 值为负数的对象在其之下<br>
+        <p>CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑</p>
+<h2 id="大小写不敏感">大小写不敏感</h2>
+<p>虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的</p>
+<pre><code><span class="class">.test</span><span class="rules">{
+    <span class="rule"><span class="attribute">background-COLOR</span>:<span class="value"><span class="hexcolor">#a00</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/zindex/#more">Read More</a>
+            <a href="/2014/10/14/css容易忽略的特性/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/zindex/" data-id="0tf7fp7iwevdk8ft" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/14/css容易忽略的特性/" data-id="3yx3em99ja5hzx7m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -120,9 +177,9 @@
 
 
   
-    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript节流与防抖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
+    <a href="/2014/10/14/javascript节流与防抖/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -138,7 +195,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+      <a class="article-title" href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
     </h1>
   
 
@@ -146,31 +203,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
-<pre><code>function tmpl(id,data){
-    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
-    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
-        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
-        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
-        .replace(/&lt;%/g,<span class="string">"');"</span>)
-        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
-        +<span class="string">"');}return p.join('');"</span>;
-    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
-    <span class="keyword">return</span> fn(data);
-}
-</code></pre>
+        <p>函数节流和函数去抖听起来很高端，实际上实现起来并不是很复杂。两个方法都是为了减少函数频繁调用的次数产生的，限看一下概念</p>
+<p><strong>函数节流(throttle)</strong> 当方法被重复调用时，只会在指定的间隔时间内执行一次</p>
+<p><strong>函数去抖(debounce)</strong> 当方法被重复调用时，如果距上次方法被调用的时间小于指定时间，推迟方法执行</p>
+<p>也就是说当函数<code>fn</code>以频率10ms/次的频率被调用1s的时候，正常情况下会被调用100次。我们设定<code>wait</code>时间为200ms，使用函数节流<code>fn</code>只会被调用5次，使用函数去抖，<code>fn</code>只会在1s后等200ms被调用一次<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
+            <a href="/2014/10/14/javascript节流与防抖/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript模版引擎优化/" data-id="j8obdxf7eka3u7ca" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript节流与防抖/" data-id="uipd68vf3jr8gg83" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -179,14 +227,14 @@
 
 
   
-    <article id="post-requestAnimationFrame" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript正则表达式2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/requestAnimationFrame/" class="article-date">
+    <a href="/2014/10/14/javascript正则表达式2/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/animation/">animation</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -197,7 +245,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+      <a class="article-title" href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
     </h1>
   
 
@@ -205,22 +253,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="requestAnimationFrame是什么">requestAnimationFrame是什么</h2>
-<blockquote>
-<p>window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN</p>
-<p>requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —— Internet Explorer Dev Center<br>
+        <p>上篇博客<a href="http://lsly1989.github.io/2014/08/24/javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F1/" target="_blank" rel="external">JavaScript 正则表达式——基本语法</a>介绍了JavaScript正则表达式的语法，有了这些基本知识，可以看看正则表达式在JavaScript的应用了，在一切开始之前，看看RegExp实例的几个属性</p>
+<p><img src="http://lsly1989.qiniudn.com/1.png" alt=""><br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/requestAnimationFrame/#more">Read More</a>
+            <a href="/2014/10/14/javascript正则表达式2/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/requestAnimationFrame/" data-id="bweyeezbq53orhtu" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式2/" data-id="bxy6zaxckt75w9o6" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
 
     </footer>
   </div>
@@ -229,14 +275,14 @@
 
 
   
-    <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript正则表达式1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/promise/" class="article-date">
+    <a href="/2014/10/14/javascript正则表达式1/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/es6/">es6</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -247,7 +293,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/promise/">promise</a>
+      <a class="article-title" href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
     </h1>
   
 
@@ -255,72 +301,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作</p>
-
+        <h2 id="创建对象">创建对象</h2>
+<p>JavaScript可以通过两种方式创建一个匹配 <code>&lt;%xxxxxx%&gt;</code> 正则表达式对象</p>
+<p><strong>构造函数</strong></p>
+<pre><code><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%]+%&gt;'</span>,g);
+</code></pre><p><strong>字面量</strong></p>
+<pre><code>var reg=/&lt;<span class="variable">%[</span>^<span class="variable">%]</span>+<span class="variable">%&gt;</span>/g;
+</code></pre><ol>
+<li>g: global, 全文搜索，不声明默认只搜索第一个结果就停止</li>
+<li>i: ignore case，忽略大小写，不声明默认大小写敏感</li>
+<li>m: mutiple lines, 多行搜索
         
           <p class="article-more-link">
-            <a href="/2014/10/14/promise/#more">Read More</a>
+            <a href="/2014/10/14/javascript正则表达式1/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/promise/" data-id="pzb1sfbtumzdj2g6" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式1/" data-id="s8ztl5ma7ptio9b3" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-npm实用命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/npm实用命令/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/npm实用命令/">npm 实用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="node升级到最新版本">node升级到最新版本</h1>
-<p>node有一个模块叫<code>n</code>，是专门用来管理node.js的版本的，在控制台升级node到最新稳定版本只需要三条命令</p>
-<pre><code> <span class="built_in">sudo</span> npm cache clean <span class="operator">-f</span>
-<span class="built_in">sudo</span> npm install -g n
-<span class="built_in">sudo</span> n stable
-</code></pre>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/npm实用命令/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/npm实用命令/" data-id="c55svs6ehvqddcez" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
 
     </footer>
   </div>
@@ -367,35 +369,11 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/iconfont/">icon font</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/history对象/">history</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
           </li>
         
           <li>
@@ -407,15 +385,15 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
           </li>
         
           <li>
             <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
           </li>
         
           <li>
@@ -431,7 +409,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
           </li>
         
           <li>
@@ -440,6 +418,30 @@
         
           <li>
             <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
           </li>
         
       </ul>

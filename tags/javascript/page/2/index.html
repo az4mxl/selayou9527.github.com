@@ -72,14 +72,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-jQuery deferred" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
+    <a href="/2014/10/14/jQuery deferred/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
   </div>
 
   </div>
@@ -90,7 +90,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+      <a class="article-title" href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
     </h1>
   
 
@@ -98,130 +98,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
-<pre><code>function tmpl(id,data){
-    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
-    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
-        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
-        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
-        .replace(/&lt;%/g,<span class="string">"');"</span>)
-        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
-        +<span class="string">"');}return p.join('');"</span>;
-    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
-    <span class="keyword">return</span> fn(data);
-}
-</code></pre>
+        <p>Deferred对象是Promise/A规范的一种实现，是jQuery1.5引入的，通过调用<code>jQuery.Deferred()</code>构造函数创建，提供了链式调用回调函数的功能，它能够注册回调函数到一个队列中, 依次调用该队列中的回调函数,并且能够将调链中上一个函数(同步或者异步)的返回状态传递到下一个回调函数中</p>
+
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
+            <a href="/2014/10/14/jQuery deferred/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript模版引擎优化/" data-id="j8obdxf7eka3u7ca" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/14/jQuery deferred/" data-id="8dtrj8s0ec2g80qu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript逗号冒号括号" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/javascript逗号冒号括号/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下</p>
-<h2 id="逗号">逗号</h2>
-<p>逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/javascript逗号冒号括号/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript逗号冒号括号/" data-id="8nxj1gkreyyqtgn0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript节流与防抖" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/javascript节流与防抖/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>函数节流和函数去抖听起来很高端，实际上实现起来并不是很复杂。两个方法都是为了减少函数频繁调用的次数产生的，限看一下概念</p>
-<p><strong>函数节流(throttle)</strong> 当方法被重复调用时，只会在指定的间隔时间内执行一次</p>
-<p><strong>函数去抖(debounce)</strong> 当方法被重复调用时，如果距上次方法被调用的时间小于指定时间，推迟方法执行</p>
-<p>也就是说当函数<code>fn</code>以频率10ms/次的频率被调用1s的时候，正常情况下会被调用100次。我们设定<code>wait</code>时间为200ms，使用函数节流<code>fn</code>只会被调用5次，使用函数去抖，<code>fn</code>只会在1s后等200ms被调用一次<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/javascript节流与防抖/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript节流与防抖/" data-id="5kqn6o6744t5k47i" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -266,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式2/" data-id="j7lsm9p1f19uyz3m" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式2/" data-id="bxy6zaxckt75w9o6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
@@ -322,10 +212,116 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式1/" data-id="6gtbr7m2wt1hryrh" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式1/" data-id="s8ztl5ma7ptio9b3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
+<pre><code>function tmpl(id,data){
+    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
+    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
+        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
+        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
+        .replace(/&lt;%/g,<span class="string">"');"</span>)
+        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
+        +<span class="string">"');}return p.join('');"</span>;
+    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
+    <span class="keyword">return</span> fn(data);
+}
+</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript模版引擎优化/" data-id="hvsk3rnmh4mm0965" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript模版引擎" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript模版引擎/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>听说Javascript模版引擎很久了，也用过ejs、handlebars等，某天无意在网上看到jQuery作者John Resig几行代码写的一个最简单的Javascript模版引擎，忍不住看了一下，原来模版引擎可以这么简单，写篇博客推倒一下大神的思路，实现个最简单的Javascript模版引擎<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/javascript模版引擎/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript模版引擎/" data-id="48r0cmm1mpk2sreq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
 
     </footer>
   </div>
@@ -372,35 +368,11 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/iconfont/">icon font</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/history对象/">history</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
           </li>
         
           <li>
@@ -412,15 +384,15 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
           </li>
         
           <li>
             <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
           </li>
         
           <li>
@@ -436,7 +408,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
           </li>
         
           <li>
@@ -445,6 +417,30 @@
         
           <li>
             <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
           </li>
         
       </ul>
