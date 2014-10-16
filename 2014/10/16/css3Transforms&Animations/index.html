@@ -91,7 +91,7 @@ CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏�
         <section id="main"><article id="post-css3Transforms&amp;Animations" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/16/css3Transforms&Animations/" class="article-date">
-  <time datetime="2014-10-16T08:55:40.000Z" itemprop="datePublished">Oct 16 2014</time>
+  <time datetime="2014-10-16T09:01:08.000Z" itemprop="datePublished">Oct 16 2014</time>
 </a>
     
   <div class="article-category">
@@ -163,8 +163,7 @@ CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏�
   <span class="rule">}</span></span>
 
 </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-</code></pre><p>The next element is the one to which the animation is applied. We do this by referring to the keyframes by name. We also define a transition timing function and set the number of iterations (or infinite in this case for perpetual motion). Each iteration will last 6 seconds.</p>
-<p>下一个要讨论的是就是动画作用的元素，我们通过keyframes的名字引用定义的关键帧，同时我们定义了一个<code>transition timing</code>方法，并且设置循环的次数（或者无限次循环）。如果希望创建更多的效果的动画，我们可以单独为每个keyframe设置<code>transition timing</code>方法</p>
+</code></pre><p>下一个要讨论的是就是动画作用的元素，我们通过keyframes的名字引用定义的关键帧，同时我们定义了一个<code>transition timing</code>方法，并且设置循环的次数（或者无限次循环）。如果希望创建更多的效果的动画，我们可以单独为每个keyframe设置<code>transition timing</code>方法</p>
 <pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
 
   <span class="id">#spinner</span> <span class="rules">{
@@ -521,8 +520,6 @@ CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏�
   <div class="stage2"><br>    <div class="wrap"><br>      <div class="item item1"></div><br>      <div class="item item2"></div><br>      <div class="item item3"></div><br>      <div class="item item4"></div><br>    </div><br>  </div>
 
 <h1 id="调整keframes的timing方法">调整keframes的timing方法</h1>
-<p>As mentioned above, using different transition timing functions can make the animation more appealing. The problem is that it’s difficult to set up unless you know exactly how many elements you’re dealing with.</p>
-<p>For this example, we’re going to re-use the above example, which we know has five sides, and set up a keyframe to display them to best effect. We’ve called the new keyframes spinner5 because it’s optimised for display five sides in sequence:</p>
 <p>上面提到过使用不同的transition timing方法可以展现不同的动画效果，问题是除非你非常了解要处理的元素数目，否则很难设置这些方法。比如我们将复用上面的例子，我们知道有5个图片，这样我们可以设置transition timing到最佳，我们创建一个新的keyframes<code>spinner5</code>来优化一下按顺序显示五个图像的动画</p>
 <pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
 
@@ -569,8 +566,7 @@ CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏�
   }
 
 </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-</code></pre><p> We then need to modify the style settings for the ‘spinner’ to reference the new keyframes and to make some changes to the timing and duration:</p>
-<p>接下来我们需要修改<code>spinner</code>的样式，来引用新的keyframes</p>
+</code></pre><p>接下来我们需要修改<code>spinner</code>的样式，来引用新的keyframes</p>
 <pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
 
   <span class="id">#spinner</span> <span class="rules">{
@@ -666,8 +662,6 @@ CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏�
 
 <p>&nbsp;</p>
 <h1 id="旋转的立方体">旋转的立方体</h1>
-<p>One last example, a bit more complex that the previous which just involved rotations around one axis. Here we set up a cube with six faces that rotate in order.</p>
-<p>We start by using CSS to style and place the six faces of the cube. Each side will be marked up as a div child of the ‘spinner’ element:</p>
 <p>最后一个例子比之前只是绕一个轴旋转的复杂一些，我们现在做一个旋转的立方体，我们先通过CSS放好立方体的6个面</p>
 <pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
 
@@ -780,7 +774,7 @@ $('br').remove();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/16/css3Transforms&Animations/" data-id="t4mrakioyacuzm3a" class="article-share-link">Share</a>
+      <a data-url="https://github.com/lsly1989/2014/10/16/css3Transforms&Animations/" data-id="uerjj6b7pvwa8z0i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -792,9 +786,9 @@ $('br').remove();
 <nav id="article-nav">
   
   
-    <a href="/2014/10/14/attribute与property/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/10/14/D2报名页面的一些小效果/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">jQuery的attr与prop</div>
+      <div class="article-nav-title">D2报名页面的一些小效果</div>
     </a>
   
 </nav>
@@ -852,11 +846,11 @@ $('br').remove();
           </li>
         
           <li>
-            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
           </li>
         
           <li>
@@ -872,11 +866,11 @@ $('br').remove();
           </li>
         
           <li>
-            <a href="/2014/10/14/promise/">promise</a>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+            <a href="/2014/10/14/promise/">promise</a>
           </li>
         
           <li>
@@ -908,11 +902,11 @@ $('br').remove();
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
           </li>
         
           <li>
