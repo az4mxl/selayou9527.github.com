@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: linux | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="靡不有初，鲜克有终">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lsly1989">
+<meta property="og:url" content="https://github.com/lsly1989//tags/linux/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="靡不有初，鲜克有终">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lsly1989">
+<meta name="twitter:description" content="靡不有初，鲜克有终">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-有趣的Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/有趣的Linux命令/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/shell/">shell</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="find命令的xargs">find命令的xargs</h1>
+<p>在Linux上find命令的曝光率很高，我们希望对find查找出的文件进行过滤或者操作怎么办呢，这时候就可以利用<code>xargs</code>了，它可以把find结果当作下一个指令的参数传入</p>
+<pre><code><span class="keyword">find</span> . -name * | xargs <span class="keyword">grep</span> <span class="string">'.'</span>
+</code></pre><p>查找文件夹下包含<code>.</code> 的文件</p>
+<pre><code><span class="title">find</span> . -name <span class="regexp">*.txt</span> | xargs rm -rf
+</code></pre><p>删除所有.txt文件</p>
+
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/有趣的Linux命令/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/有趣的Linux命令/" data-id="ad2h61jncbcms4oi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript正则表达式——相关方法 | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="上篇博客JavaScript 正则表达式——基本语法介绍了JavaScript正则表达式的语法，有了这些基本知识，可以看看正则表达式在JavaScript的应用了，在一切开始之前，看看RegExp实例的几个属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript正则表达式——相关方法">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/javascript正则表达式2/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="上篇博客JavaScript 正则表达式——基本语法介绍了JavaScript正则表达式的语法，有了这些基本知识，可以看看正则表达式在JavaScript的应用了，在一切开始之前，看看RegExp实例的几个属性">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/1.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/2.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/3.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/4.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/5.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript正则表达式——相关方法">
+<meta name="twitter:description" content="上篇博客JavaScript 正则表达式——基本语法介绍了JavaScript正则表达式的语法，有了这些基本知识，可以看看正则表达式在JavaScript的应用了，在一切开始之前，看看RegExp实例的几个属性">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-javascript正则表达式2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript正则表达式2/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript正则表达式——相关方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#regObj-test(strObj)"><span class="toc-number">1.</span> <span class="toc-text">regObj.test(strObj)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#regObj-exec(strObj)"><span class="toc-number">2.</span> <span class="toc-text">regObj.exec(strObj)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strObj-search(RegObj)"><span class="toc-number">3.</span> <span class="toc-text">strObj.search(RegObj)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strObj-match(RegObj)"><span class="toc-number">4.</span> <span class="toc-text">strObj.match(RegObj)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#非全局"><span class="toc-number">4.1.</span> <span class="toc-text">非全局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局"><span class="toc-number">4.2.</span> <span class="toc-text">全局</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strObj-replace(regObj,replaceStr)"><span class="toc-number">5.</span> <span class="toc-text">strObj.replace(regObj,replaceStr)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strObj-replace(regObj,function(){})"><span class="toc-number">6.</span> <span class="toc-text">strObj.replace(regObj,function(){})</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strObj-split(regObj)"><span class="toc-number">7.</span> <span class="toc-text">strObj.split(regObj)</span></a></li></ol>
+        </div>
+        <p>上篇博客<a href="http://lsly1989.github.io/2014/08/24/javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F1/" target="_blank" rel="external">JavaScript 正则表达式——基本语法</a>介绍了JavaScript正则表达式的语法，有了这些基本知识，可以看看正则表达式在JavaScript的应用了，在一切开始之前，看看RegExp实例的几个属性</p>
+<p><img src="http://lsly1989.qiniudn.com/1.png" alt=""><br><a id="more"></a></p>
+<p>RegExp实例对象有五个属性</p>
+<ol>
+<li><code>global</code>是否全局搜索，默认是false</li>
+<li><code>ignoreCase</code>是否大小写敏感，默认是false</li>
+<li><code>multiline</code>多行搜索，默认值是false</li>
+<li><code>lastIndex</code>是当前表达式模式首次匹配内容中最后一个字符的下一个位置，每次正则表达式成功匹配时，lastIndex属性值都会随之改变。</li>
+<li><code>source</code>正则表达式的文本字符串</li>
+</ol>
+<p>除了将正则表达式编译为内部格式从而使执行更快的<code>compile()</code>方法，对象还有两个我们常用的方法</p>
+<h2 id="regObj-test(strObj)">regObj.test(strObj)</h2>
+<p>方法用于测试字符串参数中是否存正则表达式模式，如果存在则返回true，否则返回false</p>
+<pre><code><span class="keyword">var</span> reg=<span class="regexp">/\d+\.\d{1,2}$/g</span>;
+
+reg.test(<span class="string">'123.45'</span>); <span class="comment">//true</span>
+reg.test(<span class="string">'0.2'</span>); <span class="comment">//true</span>
+
+reg.test(<span class="string">'a.34'</span>); <span class="comment">//false</span>
+reg.test(<span class="string">'34.5678'</span>); <span class="comment">//false</span>
+</code></pre><h2 id="regObj-exec(strObj)">regObj.exec(strObj)</h2>
+<p>方法用于正则表达式模式在字符串中运行查找，如果 <code>exec()</code> 找到了匹配的文本，则返回一个结果数组。否则，返回 <code>null</code>。除了数组元素和 <code>length</code> 属性之外，<code>exec()</code> 方法还返回两个属性。</p>
+<ol>
+<li><code>index</code> 属性声明的是匹配文本的第一个字符的位置</li>
+<li><code>input</code> 属性存放的是被检索的字符串 string</li>
+</ol>
+<p>正则表达式是否是全局的会对<code>exec()</code>方法结果产生影响</p>
+<ol>
+<li><p>调用<strong>非全局</strong>的 RegExp对象的 <code>exec()</code> 时，返回数组的第 0 个元素是与正则表达式相匹配的文本，第 1 个元素是与 RegExpObject 的第 1 个<em>子表达式</em>相匹配的文本（如果有的话），第 2 个元素是与 RegExp对象的第 2 个<em>子表达式</em>相匹配的文本（如果有的话），以此类推</p>
+</li>
+<li><p>调用<strong>全局</strong>的RegExp对象的 <code>exec()</code> 时，它会在 RegExp实例的 <code>lastIndex</code> 属性指定的字符处开始检索字符串 string。当 <code>exec()</code> 找到了与表达式相匹配的文本时，在匹配后，它将把 RegExp实例的 lastIndex 属性设置为匹配文本的最后一个字符的<strong>下一个</strong>位置。可以通过反复调用 <code>exec()</code> 方法来遍历字符串中的所有匹配文本。当 <code>exec()</code>再也找不到匹配的文本时，它将返回 null，并把 lastIndex 属性重置为 0</p>
+</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>var <span class="keyword">reg</span>=/\<span class="keyword">d</span>/<span class="keyword">g</span>;
+var <span class="keyword">r</span>=<span class="keyword">reg</span>.exec(<span class="string">'a1b2c3'</span>); 
+console.<span class="built_in">log</span>(<span class="keyword">reg</span>.lastIndex); //<span class="number">2</span>
+<span class="keyword">r</span>=<span class="keyword">reg</span>.exec(<span class="string">'a1b2c3'</span>);
+console.<span class="built_in">log</span>(<span class="keyword">reg</span>.lastIndex); //<span class="number">4</span>
+</code></pre><p>两次执行的结果</p>
+<table><br><tr><br><td> <img src="http://lsly1989.qiniudn.com/2.png" alt=""> </td><br><td> <img src="http://lsly1989.qiniudn.com/3.png" alt=""> </td><br></tr><br></table>
+
+<pre><code><span class="keyword">var</span> reg=<span class="regexp">/\d/g</span>;
+<span class="keyword">while</span>(r=reg.exec(<span class="string">'a1b2c3'</span>)){
+    <span class="built_in">console</span>.log(r.index+<span class="string">':'</span>+r[<span class="number">0</span>]);
+}
+</code></pre><p>可以看到结果</p>
+<pre><code>1<span class="pseudo">:1</span>
+3<span class="pseudo">:2</span>
+5<span class="pseudo">:3</span>
+</code></pre><p>除了上面的两个方法，有些字符串方法可以传入RegExp对象作为参数，进行一些复杂的操作</p>
+<h2 id="strObj-search(RegObj)">strObj.search(RegObj)</h2>
+<p><code>search()</code> 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。<code>search()</code> 方法不执行全局匹配，它将忽略标志 g。它同时忽略 regexp 的 lastIndex 属性，并且总是从字符串的开始进行检索，这意味着它总是返回 stringObject 的第一个匹配的位置</p>
+<pre><code><span class="string">'a1b2c3'</span>.search(<span class="regexp">/\d/g</span>); <span class="regexp">//</span><span class="number">1</span>
+<span class="string">'a1b2c3'</span>.search(<span class="regexp">/\d/</span>); <span class="regexp">//</span><span class="number">1</span>
+</code></pre><h2 id="strObj-match(RegObj)">strObj.match(RegObj)</h2>
+<p><code>match()</code> 方法将检索字符串 stringObject，以找到一个或多个与 regexp 匹配的文本。但regexp是否具有标志 g对结果影响很大。</p>
+<h3 id="非全局">非全局</h3>
+<p> 如果 regexp 没有标志 g，<code>match()</code> 方法就只能在 strObj 中执行一次匹配。如果没有找到任何匹配的文本， <code>match()</code> 将返回 null</p>
+<p>如果找到匹配，它将返回一个数组，其中存放了与它找到的匹配文本有关的信息。该数组的第 0 个元素存放的是匹配文本，而其余的元素存放的是与正则表达式的<strong>子表达式</strong>匹配的文本。除了这些常规的数组元素之外，返回的数组还含有两个对象属性  </p>
+<pre><code>* <span class="built_in">index</span> 属性声明的是匹配文本的起始字符在 stringObject 中的位置
+* <span class="built_in">input</span> 属性声明的是对 stringObject 的引用
+</code></pre><p>&nbsp;</p>
+<pre><code><span class="keyword">var</span> r=<span class="string">'aaa123456'</span>.match(<span class="regexp">/\d/</span>); 
+</code></pre><p><img src="http://lsly1989.qiniudn.com/4.png" alt=""></p>
+<h3 id="全局">全局</h3>
+<p>如果 regexp 具有标志 g，则 <code>match()</code> 方法将执行全局检索，找到 strObj 中的所有匹配子字符串。若没有找到任何匹配的子串，则返回 null</p>
+<p>如果找到了一个或多个匹配子串，则返回一个数组。不过全局匹配返回的数组的内容与前者大不相同，它的数组元素中存放的是 strObj 中所有的匹配子串，而且也没有 index 属性或 input 属性。</p>
+<pre><code><span class="keyword">var</span> r=<span class="string">'aaa123456'</span>.match(<span class="regexp">/\d/g</span>);
+</code></pre><p><img src="http://lsly1989.qiniudn.com/5.png" alt=""></p>
+<h2 id="strObj-replace(regObj,replaceStr)">strObj.replace(regObj,replaceStr)</h2>
+<p>关于strng对象的replace方法，我们最常用的时传入两个字符串的做法，但这种做法有个缺陷，只能replace一次</p>
+<pre><code><span class="string">'abcabcabc'</span>.<span class="built_in">replace</span>(<span class="string">'bc'</span>,<span class="string">'X'</span>);<span class="comment"> //aXabcabc</span>
+</code></pre><p>replace方法的第一个参数还可以传入RegExp对象，传入正则表达式可以时replace方法更加强大灵活</p>
+<pre><code><span class="string">'abcabcabc'</span>.replace(<span class="regexp">/bc/g</span>,<span class="string">'X'</span>); <span class="regexp">//a</span>XaXaX
+<span class="string">'abcaBcabC'</span>.replace(<span class="regexp">/bc/gi</span>,<span class="string">'X'</span>); <span class="regexp">//a</span>XaXaX
+</code></pre><p>如果replace方法的第一个参数传入的是带分组的正则表达式，我们在第二个参数中可以使用$1…$9来获取相应分组内容，比如希望把字符串 <code>1&lt;%2%&gt;34&lt;%567%&gt;89</code> 的<code>&lt;%x%&gt;</code>换为<code>$#x#$</code>，我们可以这样</p>
+<pre><code><span class="string">'1&lt;%2%&gt;34&lt;%567%&gt;89'</span>.replace(<span class="regexp">/&lt;%(\d+)%&gt;/g</span>,<span class="string">'@#$1#@'</span>); <span class="regexp">//</span><span class="string">"1<span class="variable">@#2</span>#<span class="variable">@34</span><span class="variable">@#567</span>#<span class="variable">@89</span>"</span>
+</code></pre><p>当然还有很多方式可以达到这一目的，这里只是演示一下利用分组内容，我们在第二个参数中使用 @#$1#@，其中$1表示被捕获的分组内容，在一些js模板函数中可以经常见到这种方式替换字符串</p>
+<h2 id="strObj-replace(regObj,function(){})">strObj.replace(regObj,function(){})</h2>
+<p>可以通过修改replace方法的第二个参数，使replace更加强大，在前面的介绍中，只能把所有匹配替换为固定内容，但如果我希望把一个字符串中所有数字，都用小括号包起来该怎么弄</p>
+<pre><code><span class="string">'2398rufdjg9w45hgiuerhg83ghvif'</span>.replace(<span class="regexp">/\d+/g</span>,<span class="function"><span class="keyword">function</span><span class="params">(r)</span></span>{
+    <span class="keyword">return</span> <span class="string">'('</span>+r+<span class="string">')'</span>;
+}); <span class="comment">//"(2398)rufdjg(9)w(45)hgiuerhg(83)ghvif"</span>
+</code></pre><p>把replace方法的第二个参数传入一个function，这个function会在每次匹配替换的时候调用，算是个每次替换的回调函数，我们使用了回调函数的第一个参数，也就是匹配内容，其实回调函数一共有四个参数</p>
+<ol>
+<li>第一个参数很简单，是匹配字符串</li>
+<li>第二个参数是正则表达式分组内容，没有分组则没有该参数</li>
+<li>第三个参数是匹配项在字符串中的index</li>
+<li>第四个参数则是原字符串</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code><span class="string">'2398rufdjg9w45hgiuerhg83ghvif'</span>.replace(<span class="regexp">/\d+/g</span>,<span class="function"><span class="keyword">function</span><span class="params">(a,b,c)</span></span>{
+    <span class="built_in">console</span>.log(a+<span class="string">'\t'</span>+b+<span class="string">'\t'</span>+c);
+    <span class="keyword">return</span> <span class="string">'('</span>+a+<span class="string">')'</span>;
+}); 
+
+<span class="number">2398</span>    <span class="number">0</span>    <span class="number">2398</span>    rufdjg9w45hgiuerhg83ghvif
+<span class="number">9</span>    <span class="number">10</span>    <span class="number">2398</span>    rufdjg9w45hgiuerhg83ghvif
+<span class="number">45</span>    <span class="number">12</span>    <span class="number">2398</span>    rufdjg9w45hgiuerhg83ghvif
+<span class="number">83</span>    <span class="number">22</span>    <span class="number">2398</span>    rufdjg9w45hgiuerhg83ghvif 
+</code></pre><p>这是没有分组的情况，打印出来的分别是 匹配内容、匹配项index和原字符串，看个有分组的例子，如果我们希望把一个字符串的<code>&lt;%%&gt;</code>外壳去掉，<code>&lt;%1%&gt;&lt;%2%&gt;&lt;%3%&gt;</code> 变成<code>123</code></p>
+<pre><code><span class="string">'&lt;%1%&gt;&lt;%2%&gt;&lt;%3%&gt;'</span>.replace(/&lt;<span class="variable">%(</span>[^<span class="variable">%&gt;</span>]+)<span class="variable">%&gt;</span>/g,function(a,b,c,d){
+    console.<span class="keyword">log</span>(a+<span class="string">'\t'</span>+b+<span class="string">'\t'</span>+c+<span class="string">'\t'</span>+d);
+    <span class="keyword">return</span> b;
+}) <span class="comment">//123</span>
+
+&lt;<span class="variable">%1</span><span class="variable">%&gt;</span>    <span class="number">1</span>    <span class="number">0</span>    &lt;<span class="variable">%1</span><span class="variable">%&gt;</span>&lt;<span class="variable">%2</span><span class="variable">%&gt;</span>&lt;<span class="variable">%3</span><span class="variable">%&gt;</span> 
+&lt;<span class="variable">%2</span><span class="variable">%&gt;</span>    <span class="number">2</span>    <span class="number">5</span>    &lt;<span class="variable">%1</span><span class="variable">%&gt;</span>&lt;<span class="variable">%2</span><span class="variable">%&gt;</span>&lt;<span class="variable">%3</span><span class="variable">%&gt;</span> 
+&lt;<span class="variable">%3</span><span class="variable">%&gt;</span>    <span class="number">3</span>    <span class="number">10</span>    &lt;<span class="variable">%1</span><span class="variable">%&gt;</span>&lt;<span class="variable">%2</span><span class="variable">%&gt;</span>&lt;<span class="variable">%3</span><span class="variable">%&gt;</span> 
+</code></pre><p>根据这种参数replace可以实现很多强大的功能，尤其是在复杂的字符串替换语句中经常使用</p>
+<h2 id="strObj-split(regObj)">strObj.split(regObj)</h2>
+<p>我们经常使用split方法把字符串分割为字符数组</p>
+<pre><code><span class="string">'a,b,c,d'</span>.<span class="built_in">split</span>(<span class="string">','</span>); //[<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>]
+</code></pre><p>和replace方法类似，在一些复杂的分割情况下我们可以使用正则表达式解决</p>
+<pre><code><span class="string">'a1b2c3d'</span>.split(<span class="regexp">/\d/</span>); <span class="regexp">//</span>[<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>]
+</code></pre><p>这样就可以按照数字分割字符串了，是不是很强大。看完这两篇博客基本就能对平时用到的JavaScript正则表达式游刃有余了。要求在前端把一个div中的英文段落单词首字母都换成大写，你是不是知道该怎么做了？</p>
+<script>
+$('br').remove();
+</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式2/" data-id="j7lsm9p1f19uyz3m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/javascript节流与防抖/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          函数节流与函数去抖
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/javascript正则表达式1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript正则表达式——基本语法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

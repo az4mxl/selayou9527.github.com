@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>promise | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="promise">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/promise/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/promise%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2010.31.28.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/promise%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2011.12.08.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="promise">
+<meta name="twitter:description" content="Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/promise/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/es6/">es6</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      promise
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Promise用法"><span class="toc-number">1.</span> <span class="toc-text">Promise用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#then"><span class="toc-number">2.</span> <span class="toc-text">then</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reject和catch"><span class="toc-number">3.</span> <span class="toc-text">reject和catch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Promise-all"><span class="toc-number">4.</span> <span class="toc-text">Promise.all</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Promise-resolve"><span class="toc-number">5.</span> <span class="toc-text">Promise.resolve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <p>Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作</p>
+<a id="more"></a>
+
+<h1 id="Promise用法">Promise用法</h1>
+<p>没有promise时对于异步操作尤其是node中这样的代码很常见</p>
+<pre><code><span class="function">level1</span>(){
+    <span class="comment">//do something get a</span>
+    <span class="function">level2</span>(<span class="tag">a</span>){
+        <span class="comment">// do something get b</span>
+        <span class="function">level3</span>(<span class="tag">b</span>);
+    }
+}
+</code></pre><p>这样的代码不仅在书写上丑陋不堪，而且阅读上维护性很差，这就是人们说的<code>callback hell</code>。其实这段代码无非是想表达：异步方法<code>leve1</code>执行，得到结果a，a作为参数交给异步的<code>level2</code>方法执行，得到结果b，b作为参数交给异步的<code>level3</code>方法执行，终于得到了结果</p>
+<p>如果三个方法都是同步的看起来慧简单很多</p>
+<pre><code>  <span class="keyword">var</span> a=level1();
+  <span class="keyword">var</span> b=level2(a);
+  level3(b);
+</code></pre><p>前面提到可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题，看看使用promise怎么表达上面过程</p>
+<pre><code><span class="keyword">var</span> promise=<span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something get a</span>
+    resolve(a)
+});
+
+promise.then(<span class="function"><span class="keyword">function</span><span class="params">(n)</span></span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something get b</span>
+    resolve(b);
+  });
+}).then(<span class="function"><span class="keyword">function</span><span class="params">(n)</span></span>{
+    <span class="comment">//do something</span>
+}); 
+</code></pre><p>我们首先使用<code>Promise</code>构造函数创建了一个Promise对象实例，构造函数需要一个函数作为参数，该函数有resolve、reject两个参数，首先我们看一下promise对象实例结构</p>
+<p><img src="http://lsly1989.qiniudn.com/promise%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2010.31.28.png" alt=""></p>
+<p>Promise对象实例内部有一个<code>PromiseStatus</code>来维护promise状态</p>
+<ol>
+<li>pending</li>
+<li>resolved</li>
+<li>rejected</li>
+</ol>
+<p>这时候就可以看出reslove和jeject参数的一些端倪了，两个函数用于通知promise对象状态改变，我们上面demo只演示了异步操作成功的情况</p>
+<p>这样的写法执行结果和上面是完全一样的，promise对象内方法先执行，<code>then</code>方法会将回调函数依次加入队列，内部方法<code>reslove</code>通知当前异步操作完成，改变promise状态，并传递参数到下一个回调函数中，回调函数同样返回promise对象，依此类推</p>
+<h1 id="then">then</h1>
+<p>在then方法中返回的是一个promise对象，因此then是支持链式操作的，可以添加多个回调函数，按照添加顺序执行</p>
+<pre><code><span class="keyword">var</span> promise=<span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something</span>
+    resolve(a)
+});
+
+promise.then(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something</span>
+    resolve();
+  });
+}).then(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something</span>
+    resolve();
+  });
+}).then(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something</span>
+    resolve();
+  });
+}); 
+</code></pre><h1 id="reject和catch">reject和catch</h1>
+<p>异步操作不止有成功的情况，还有失败的情况，这也就是为什么需要resolve和reject两个参数的原因，then方法实际上接收两个参数</p>
+<pre><code><span class="keyword">var</span> promise = <span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve, reject)</span> </span>{
+  <span class="comment">//do something get flag</span>
+  <span class="keyword">if</span> (flag){
+    resolve(value);
+  } <span class="keyword">else</span> {
+    reject(error);
+  }
+});
+
+promise.then(<span class="function"><span class="keyword">function</span><span class="params">(value)</span> </span>{
+  <span class="comment">// success</span>
+}, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> </span>{
+  <span class="comment">// error</span>
+});
+</code></pre><p>我们看到Promise对象实例除了then方法还有catch方法，catch是<code>then(null,reject)</code>的缩写，只是为了在语法上鲜明的表示是捕获错误使用，值得注意的是promise的错误会有“冒泡”性质，在then链的回调函数中如果错误没有被捕获，错误会一直冒泡到有捕获函数为止，为了方便我们可以把catch放到最后</p>
+<pre><code><span class="keyword">var</span> promise=<span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something</span>
+    resolve(a)
+});
+
+promise.then(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something</span>
+    resolve();
+  });
+}).then(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something</span>
+    resolve();
+  });
+}).then(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="comment">//do something</span>
+    resolve();
+  });
+}).<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(error)</span></span>{
+
+}); 
+</code></pre><h1 id="Promise-all">Promise.all</h1>
+<p>有时候我们会遇到这样的场景，两个异步函数是并发的，但只有两个都执行完成的时候才能执行第三个。以前我们需要轮训等方式实现检测两个是否全部执行完成，Promise对象提供“静态函数” all来完成需求</p>
+<blockquote>
+<p>Promise.all方法用于将多个异步操作（或Promise对象），包装成一个新的Promise对象。当这些异步操作都完成后，新的Promise对象的状态才会变为resloved；只要其中一个异步操作失败，新的Promise对象的状态就会变为rejected</p>
+</blockquote>
+<pre><code><span class="keyword">var</span> promise1=<span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+      <span class="built_in">console</span>.log(<span class="number">0</span>+<span class="string">': '</span>+<span class="built_in">Date</span>.now());
+      resolve();
+    },<span class="number">300</span>);
+});
+
+
+<span class="keyword">var</span> promise2=<span class="keyword">new</span> Promise(<span class="function"><span class="keyword">function</span><span class="params">(resolve,reject)</span></span>{
+    <span class="built_in">console</span>.log(<span class="number">1</span>+<span class="string">': '</span>+<span class="built_in">Date</span>.now());
+    resolve()
+});
+
+Promise.all([promise1,promise2]).then(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+  <span class="built_in">console</span>.log(<span class="number">2</span>+<span class="string">': '</span>+<span class="built_in">Date</span>.now());
+});
+</code></pre><p><img src="http://lsly1989.qiniudn.com/promise%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2011.12.08.png" alt=""></p>
+<h1 id="Promise-resolve">Promise.resolve</h1>
+<p>我们知道jQuery的deferred对象实现了和Promise类似的功能，我们可以通过Promise.resolve方法将类似Promise的对象转换成为Promise对象</p>
+<pre><code><span class="keyword">var</span> promise = Promise.resolve($.ajax(xxxxx));
+</code></pre><p>如果想转换的对象没有then方法，返回的Promise对象的状态是<code>resolved</code>的，回调函数会立即执行</p>
+<h1 id="参考">参考</h1>
+<p><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">Promise对象</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="external">Promise</a></p>
+<p><a href="http://www.html5rocks.com/zh/tutorials/es6/promises/" target="_blank" rel="external">JavaScript Promises</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/promise/" data-id="pzb1sfbtumzdj2g6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/requestAnimationFrame/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          requestAnimationFrame
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/npm实用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">npm 实用命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

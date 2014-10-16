@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>requestAnimationFrame | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="requestAnimationFrame是什么
+
+window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN
+requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requestAnimationFrame">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/requestAnimationFrame/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="requestAnimationFrame是什么
+
+window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN
+requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-08-28%2011.26.37.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-08-28%2010.58.48.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="requestAnimationFrame">
+<meta name="twitter:description" content="requestAnimationFrame是什么
+
+window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN
+requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-requestAnimationFrame" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/requestAnimationFrame/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/animation/">animation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      requestAnimationFrame
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#requestAnimationFrame是什么"><span class="toc-number">1.</span> <span class="toc-text">requestAnimationFrame是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PK_setTimeout"><span class="toc-number">2.</span> <span class="toc-text">PK setTimeout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对比案例"><span class="toc-number">3.</span> <span class="toc-text">对比案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用方法"><span class="toc-number">4.</span> <span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器兼容性"><span class="toc-number">5.</span> <span class="toc-text">浏览器兼容性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <h2 id="requestAnimationFrame是什么">requestAnimationFrame是什么</h2>
+<blockquote>
+<p>window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN</p>
+<p>requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —— Internet Explorer Dev Center<br><a id="more"></a></p>
+</blockquote>
+<h2 id="PK_setTimeout">PK setTimeout</h2>
+<p>乍一看和<code>setTimeout</code>没什么区别，我们先简单聊聊setTimeout问题，也就是<code>requestAnimationFrame</code>出现的原因</p>
+<p>我们没有办法通过<code>setTimeout</code> 和 <code>setInterval</code> 绘制连贯的逐帧动画，只能设置间隔时间为<code>16.7ms</code>(因为大部分显示器都是60Hz的，也就是1s绘制60次，1000/60＝16.7)，但是这样只是伪逐帧动画</p>
+<p>当动画使用分辨率为 10ms 的 JavaScript 计时器绘制动画时，计时可能不匹配，如下所示。</p>
+<p><img src="http://lsly1989.qiniudn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-08-28%2011.26.37.png" alt=""></p>
+<p>上面一行表示大多数监视器上显示的 16.7ms 显示频率，而下面一行表示通常的 10ms setTimeout。每个第三个图形都无法绘制（由红色箭头指示），因为在显示器刷新间隔之前发生了其他绘制请求。这种过度绘制的情况会导致动画断续显示，因为所有第三帧都会丢失。这种计时器分辨率的降低也会对电池使用寿命造成负面影响，并会降低其他应用的性能</p>
+<p>而且即使浏览器切换到别的选项卡或已经最小化的时候使用动画<code>setTimeout</code> 和 <code>setInterval</code> 绘制的动画仍然会被调用执行</p>
+<blockquote>
+<p>FireFox/Chrome浏览器对setInterval, setTimeout做了优化，页面处于闲置状态的时候，如果定时间隔小于1秒钟(1000ms)，则停止了定时器。与requestAnimationFrame有类似行为。但如果时间间隔大于或等于1000ms，定时器依然执行，即使页面最小化或非激活状态。  —— 张鑫旭</p>
+</blockquote>
+<p>为什么使用<code>requestAnimationFrame</code>就可以防止丢帧了呢？因为在浏览器需要更新页面显示时（而且仅在这种情况下）<code>requestAnimationFrame</code>获得通知，与浏览器的绘制时间间隔保持完全一致，并且仅使用适量的资源</p>
+<p><code>requestAnimationFrame</code>回调函数只会被传入一个<code>DOMHighResTimeStamp参数</code>，这个参数指示当前被 requestAnimationFrame 序列化的函数队列被触发的时间。因为很多个函数在这一帧被执行，所以每个函数都将被传入一个相同的时间戳(精确度在 10 µs)</p>
+<h2 id="对比案例">对比案例</h2>
+<p>写了一个简单<a href="http://lsly1989.github.io/2014/08/28/requestAnimationFrame%E9%AB%98%E6%95%88%E5%8A%A8%E7%94%BB/" target="_blank" rel="external">案例</a>对比一下requestAnimationFrame和setTimeout</p>
+<h2 id="使用方法">使用方法</h2>
+<pre><code><span class="built_in">var</span> <span class="keyword">handle</span> <span class="subst">=</span> requestAnimationFrame(renderLoop);
+cancelAnimationFrame(<span class="keyword">handle</span>);
+</code></pre><p>由于 W3C 规范尚未最后定稿，因此其他浏览器制造商已创建其自己的 requestAnimationFrame 和 cancelAnimationFrame 前缀实现，兼容的写法大概这样</p>
+<pre><code><span class="comment">// handle multiple browsers for requestAnimationFrame()</span>
+<span class="built_in">window</span>.requestAFrame = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+    <span class="keyword">return</span> <span class="built_in">window</span>.requestAnimationFrame ||
+            <span class="built_in">window</span>.webkitRequestAnimationFrame ||
+            <span class="built_in">window</span>.mozRequestAnimationFrame ||
+            <span class="built_in">window</span>.oRequestAnimationFrame ||
+            <span class="comment">// if all else fails, use setTimeout</span>
+            <span class="function"><span class="keyword">function</span> <span class="params">(callback)</span> </span>{
+                <span class="keyword">return</span> <span class="built_in">window</span>.setTimeout(callback, <span class="number">1000</span> / <span class="number">60</span>); <span class="comment">// shoot for 60 fps</span>
+            };
+})();
+
+<span class="comment">// handle multiple browsers for cancelAnimationFrame()</span>
+<span class="built_in">window</span>.cancelAFrame = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+    <span class="keyword">return</span> <span class="built_in">window</span>.cancelAnimationFrame ||
+            <span class="built_in">window</span>.webkitCancelAnimationFrame ||
+            <span class="built_in">window</span>.mozCancelAnimationFrame ||
+            <span class="built_in">window</span>.oCancelAnimationFrame ||
+            <span class="function"><span class="keyword">function</span> <span class="params">(id)</span> </span>{
+                <span class="built_in">window</span>.clearTimeout(id);
+            };
+})();
+</code></pre><h2 id="浏览器兼容性">浏览器兼容性</h2>
+<p>看看<a href="http://caniuse.com/#search=requestAnimationFrame" target="_blank" rel="external">caniuse</a>的数据</p>
+<p><img src="http://lsly1989.qiniudn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-08-28%2010.58.48.png" alt=""></p>
+<h2 id="参考">参考</h2>
+<p>MDN <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/window.requestAnimationFrame" target="_blank" rel="external">window.requestAnimationFrame</a></p>
+<p>Internet Explorer 开发人员中心 <a href="http://msdn.microsoft.com/zh-cn/library/ie/hh920765.aspx" target="_blank" rel="external">基于脚本的动画的计时控制</a></p>
+<p>张鑫旭 <a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="external">CSS3动画那么强，requestAnimationFrame还有毛线用？</a></p>
+<p>PS: 关于requestAnimationFrame和CSS3动画的对比也可以看看张鑫旭的文章</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/requestAnimationFrame/" data-id="bweyeezbq53orhtu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/javascript模版引擎优化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          简单JavaScript模版引擎优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">promise</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

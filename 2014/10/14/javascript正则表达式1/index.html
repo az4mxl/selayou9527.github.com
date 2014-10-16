@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript正则表达式——基本语法 | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="创建对象
+JavaScript可以通过两种方式创建一个匹配 &lt;%xxxxxx%&gt; 正则表达式对象
+构造函数
+var reg=new RegExp('&lt;%[^%]+%&gt;',g);
+字面量
+var reg=/&lt;%[^%]+%&gt;/g;
+
+g: global, 全文搜索，不声明默认只搜索第一个结果就停止
+i: ignore case，忽略大小写，不声明默认大小写敏感
+m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript正则表达式——基本语法">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/javascript正则表达式1/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="创建对象
+JavaScript可以通过两种方式创建一个匹配 &lt;%xxxxxx%&gt; 正则表达式对象
+构造函数
+var reg=new RegExp('&lt;%[^%]+%&gt;',g);
+字面量
+var reg=/&lt;%[^%]+%&gt;/g;
+
+g: global, 全文搜索，不声明默认只搜索第一个结果就停止
+i: ignore case，忽略大小写，不声明默认大小写敏感
+m">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22170925-c407955edac64a3c866bf516eb99de14.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22171404-eb03cac8e56f4e54a5ddfb2a6ca590cd.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22171749-8e1e82acb09d4570a741b0ff4803579b.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22172809-4e611fbc512a4569a87ee934931a569a.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22173032-31642481efd44312886806a4c8e51e76.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22174429-6636dc941e194ce6b2037313b159e58b.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22184716-639dc46360ce4f27b6df4f0a9257a73a.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22175749-a088f39d016847cbaeb196005141ceb9.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22180101-fcffa3e319314165aacf09acf95f51a4.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22182142-6b1688e29b584aa28af938a079a793d0.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22182815-593022d45eba482aaddd936f3b24beb4.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22183347-1db4325c096a43f3a5796b7d25c74b77.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/23222603-20a2c64f182a4b49b05a83ef6a3d414d.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22183600-8865bffe0f1e48e3829aad75461f9bc8.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22191434-fc2c05f77d2b4002a91032e44e49815c.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/22191951-c13dc0c8696a4021a016496b556e3545.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript正则表达式——基本语法">
+<meta name="twitter:description" content="创建对象
+JavaScript可以通过两种方式创建一个匹配 &lt;%xxxxxx%&gt; 正则表达式对象
+构造函数
+var reg=new RegExp('&lt;%[^%]+%&gt;',g);
+字面量
+var reg=/&lt;%[^%]+%&gt;/g;
+
+g: global, 全文搜索，不声明默认只搜索第一个结果就停止
+i: ignore case，忽略大小写，不声明默认大小写敏感
+m">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-javascript正则表达式1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript正则表达式1/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript正则表达式——基本语法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建对象"><span class="toc-number">1.</span> <span class="toc-text">创建对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元字符"><span class="toc-number">2.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预定义特殊字符"><span class="toc-number">3.</span> <span class="toc-text">预定义特殊字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符类"><span class="toc-number">4.</span> <span class="toc-text">字符类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#范围类"><span class="toc-number">5.</span> <span class="toc-text">范围类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预定义类"><span class="toc-number">6.</span> <span class="toc-text">预定义类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#边界匹配符"><span class="toc-number">7.</span> <span class="toc-text">边界匹配符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#量词"><span class="toc-number">8.</span> <span class="toc-text">量词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贪婪模式与非贪婪模式"><span class="toc-number">9.</span> <span class="toc-text">贪婪模式与非贪婪模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组"><span class="toc-number">10.</span> <span class="toc-text">分组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前瞻"><span class="toc-number">11.</span> <span class="toc-text">前瞻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">12.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <h2 id="创建对象">创建对象</h2>
+<p>JavaScript可以通过两种方式创建一个匹配 <code>&lt;%xxxxxx%&gt;</code> 正则表达式对象</p>
+<p><strong>构造函数</strong></p>
+<pre><code><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%]+%&gt;'</span>,g);
+</code></pre><p><strong>字面量</strong></p>
+<pre><code>var reg=/&lt;<span class="variable">%[</span>^<span class="variable">%]</span>+<span class="variable">%&gt;</span>/g;
+</code></pre><ol>
+<li>g: global, 全文搜索，不声明默认只搜索第一个结果就停止</li>
+<li>i: ignore case，忽略大小写，不声明默认大小写敏感</li>
+<li>m: mutiple lines, 多行搜索<a id="more"></a>
+
+</li>
+</ol>
+<h2 id="元字符">元字符</h2>
+<p>元字符是指在正则表达式中具有特殊意义的专有字符，可以用来规定其前导字符</p>
+<p>正则表达式让人望而却步的一个重要原因就是转义字符、字符组合太多了，学习成本很大。但是正则表达式的元字符只有几个</p>
+<p><code>(</code> <code>[</code> <code>{</code> <code>\</code> <code>^</code> <code>$</code> <code>|</code> <code>)</code> <code>*</code> <code>+</code> <code>.</code> <code>?</code></p>
+<p>并不是每个元字符都有特定含义，在不同的组合中元字符有不同的意义</p>
+<h2 id="预定义特殊字符">预定义特殊字符</h2>
+<table><br><tr><br>    <th style="width:80px;">字符</th><th>含义</th><br></tr><br><tr><br>    <td style="width:80px;">\t</td><td>水平制表符</td><br></tr><br><tr><br>    <td style="width:80px;">\r</td><td>回车符</td><br></tr><br><tr><br>    <td style="width:80px;">\n</td><td>换行符</td><br></tr><br><tr><br>    <td style="width:80px;">\f</td><td>换页符</td><br></tr><br><tr><br>    <td style="width:80px;">\cX</td><td>与X对应的控制字符(Ctrl+X)</td><br></tr><br><tr><br>    <td style="width:80px;">\v</td><td>垂直制表符</td><br></tr><br><tr><br>    <td style="width:80px;">\0</td><td>空字符</td><br></tr><br></table>
+
+<h2 id="字符类">字符类</h2>
+<p>一般情况下正则表达式一个字符(转义字符算一个)对应字符串中的一个字符，表达式<code>ab\t</code>的含义是</p>
+<p><img src="http://lsly1989.qiniudn.com/22170925-c407955edac64a3c866bf516eb99de14.png" alt=""></p>
+<p>我们可以使用元字符 <code>[]</code> 来构建一个简单的类。所谓类是指符合默写特征的一个群体，是一个泛指，而不是指特定的某个字符。我们可以使用表达式 <code>[abc]</code> 把字符a,b,c归为一类，表达式的含义如下</p>
+<p><img src="http://lsly1989.qiniudn.com/22171404-eb03cac8e56f4e54a5ddfb2a6ca590cd.png" alt=""></p>
+<p>在 <code>[]</code> 创建类的基础上我们可以利用元字符 <code>^</code> 创建<strong>反向类/负向类</strong>，反向类的意思是不属于该类的内容，表达式 <code>[^abc]</code> 表示不是字符a,b,c的内容</p>
+<p><img src="http://lsly1989.qiniudn.com/22171749-8e1e82acb09d4570a741b0ff4803579b.png" alt=""></p>
+<h2 id="范围类">范围类</h2>
+<p>按照上面的说明要是我们希望匹配单个数字那么表达式是这样的 <code>[0123456789]</code> ，如果是字母那么。。。，</p>
+<p>好麻烦，正则表达式还提供了范围类，我们可以使用 <code>x-y</code> 来连接两个字符表示从x到y的任意字符，这是个闭区间，也就是说包含x和y本身，这样匹配小写字母就很简单了 ‘a-z’</p>
+<p><img src="http://lsly1989.qiniudn.com/22172809-4e611fbc512a4569a87ee934931a569a.png" alt=""></p>
+<p>要是想匹配所有字母呢？在 <code>[]</code> 组成的类内部是可以连写的，我们还可以这样写 <code>[a-zA-Z]</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22173032-31642481efd44312886806a4c8e51e76.png" alt=""></p>
+<h2 id="预定义类">预定义类</h2>
+<p>刚才使用正则我们创建了几个类，来表示数字，字母等，但这样写也很是麻烦，正则表达式为我们提供了几个常用的<strong>预定义类</strong>来方便的匹配常见的字符集合</p>
+<table><br><tbody><br><tr><br><th>字符</th><br><th>等价类</th><br><th>含义</th><br></tr><br><tr><br><td>.</td><br><td>[^\n\r]</td><br><td>除了回车符和换行符之外的所有字符</td><br></tr><br><tr><br><td>\d</td><br><td>[0-9]</td><br><td>数字字符</td><br></tr><br><tr><br><td>\D</td><br><td>[^0-9]</td><br><td>非数字字符</td><br></tr><br><tr><br><td>\s</td><br><td>[ \t\n\x0B\f\r]</td><br><td>空白符</td><br></tr><br><tr><br><td>\S</td><br><td>[^ \t\n\x0B\f\r]</td><br><td>非空白符</td><br></tr><br><tr><br><td>\w</td><br><td>[a-zA-Z_0-9]</td><br><td>单词字符（字母、数字、下划线）</td><br></tr><br><tr><br><td>\W</td><br><td>[^a-zA-Z_0-9]</td><br><td>非单词字符</td><br></tr><br></tbody><br></table>
+
+<p>有了这些预定义类，写一些正则就很方便了，比如我们希望匹配一个 <code>ab+数字+任意字符</code> 的字符串，就可以这样写了 <code>ab\d</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22174429-6636dc941e194ce6b2037313b159e58b.png" alt=""></p>
+<h2 id="边界匹配符">边界匹配符</h2>
+<p>正则表达式还提供了几个常用的边界匹配字符</p>
+<table><br><tbody><br><tr><br><th><br>字符<br></th><br><th><br>含义<br></th><br></tr><br><tr><br><td><br>^<br></td><br><td><br>以xx开头<br></td><br></tr><br><tr><br><td><br>$<br></td><br><td><br>以xx结尾<br></td><br></tr><br><tr><br><td><br>\b<br></td><br><td><br>单词边界，指[a-zA-Z_0-9]之外的字符<br></td><br></tr><br><tr><br><td><br>\B<br></td><br><td><br>非单词边界<br></td><br></tr><br></tbody><br></table>
+
+<p>看个不负责任的邮箱正则匹配（切勿模仿，小括号后面会讲到） <code>\w+@\w+\.(com)$</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22184716-639dc46360ce4f27b6df4f0a9257a73a.png" alt=""></p>
+<h2 id="量词">量词</h2>
+<p>之前我们介绍的方法都是一一匹配的，如果我们希望匹配一个连续出现20次数字的字符串难道我们需要写成这样 <code>\d\d\d\d...</code></p>
+<p>为此正则表达式引入了一些量词，表示重复字符/类</p>
+<table><br><tbody><br><tr><br><th>字符</th><br><th>含义</th><br></tr><br><tr><br><td>?</td><br><td>出现零次或一次（最多出现一次）</td><br></tr><br><tr><br><td>+</td><br><td>出现一次或多次（至少出现一次）</td><br></tr><br><tr><br><td>*</td><br><td>出现零次或多次（任意次）</td><br></tr><br><tr><br><td>{n}</td><br><td>出现n次</td><br></tr><br><tr><br><td>{n,m}</td><br><td>出现n到m次</td><br></tr><br><tr><br><td>{n,}</td><br><td>至少出现n次</td><br></tr><br><tr><br><td>{,m}</td><br><td>最多出现m次</td><br></tr><br></tbody><br></table>
+
+<p>看几个使用量词的例子</p>
+<p><code>\w+\bByron</code> 匹配 <code>多个单词字符＋边界＋Byron</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22175749-a088f39d016847cbaeb196005141ceb9.png" alt=""></p>
+<pre><code>(/\w+\bByron).test(<span class="string">'Hi Byron'</span>); //<span class="literal">true</span>
+
+(/\w+\bByron).test(<span class="string">'Welcome Byron'</span>); //<span class="literal">true</span>
+
+(/\w+\bByron).test(<span class="string">'Byron'</span>); //<span class="literal">false</span>
+</code></pre><p> <code>\d+\.\d{1,3}</code> 匹配三位小数的数字</p>
+<p><img src="http://lsly1989.qiniudn.com/22180101-fcffa3e319314165aacf09acf95f51a4.png" alt=""></p>
+<h2 id="贪婪模式与非贪婪模式">贪婪模式与非贪婪模式</h2>
+<p>看了上面介绍的量词，也许爱思考的同学会想到关于匹配原则的一些问题，比如{3,5}这个量词，要是在句子种出现了十次，那么他是每次匹配三个还是五个，反正3、4、5都满足3～5的条件，量词在默认下是<strong>尽可能多</strong>的匹配的，也就是大家常说的贪婪模式</p>
+<pre><code><span class="string">'123456789'</span>.match(<span class="regexp">/\d{3,5}/g</span>); <span class="regexp">//</span>[<span class="string">"12345"</span>, <span class="string">"6789"</span>] 
+</code></pre><p>既然有贪婪模式，那么肯定会有非贪婪模式，让正则表达式尽可能少的匹配，也就是说一旦成功匹配不不再继续尝试，做法很简单，在量词后加上 <code>?</code> 即可</p>
+<pre><code><span class="string">'123456789'</span>.match(<span class="regexp">/\d{3,5}?/g</span>); <span class="regexp">//</span>[<span class="string">"123"</span>, <span class="string">"456"</span>, <span class="string">"789"</span>]
+</code></pre><h2 id="分组">分组</h2>
+<p>有时候我们希望使用量词的时候匹配多个字符，而不是像上面例子只是匹配一个，比如希望匹配单词<code>Byron</code>出现20次的字符串，我们如果写成 <code>Byron{20}</code> 的话匹配的是Byro＋n出现20次，怎么把Byron作为一个整体呢？使用 <code>()</code> 就可以达到次目的，我们称为分组</p>
+<p><code>(Byron){20}</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22182142-6b1688e29b584aa28af938a079a793d0.png" alt=""></p>
+<p>如果希望匹配Byron或Casper出现20次该怎么办呢？可以使用字符 <code>｜</code> 达到或的功效 <code>(Byron|Casper){20}</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22182815-593022d45eba482aaddd936f3b24beb4.png" alt=""></p>
+<p>我们看到图中有个<code>＃1</code>的东东，那是什么？使用分组的正则表达式会把匹配项也放到分组中，默认就是按数字编号分发的，各异根据编号获得捕获的分组内容，这个在一些希望具体操作第几个匹配项的函数中很有用 <code>(Byron).(ok)</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22183347-1db4325c096a43f3a5796b7d25c74b77.png" alt=""></p>
+<p>如果有分组嵌套的情况，外面的组的编号靠前 <code>((^|%&gt;)[^\t]*)</code></p>
+<p><img src="http://lsly1989.qiniudn.com/23222603-20a2c64f182a4b49b05a83ef6a3d414d.png" alt=""></p>
+<p>有时候我们不希望捕获某些分组，只需要在分组内加上 <code>?:</code> 就可以了，着并不意味着该分组内容不属于正则表达式，只是不会给这个分组加编号了而已 <code>(?:Byron).(ok)</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22183600-8865bffe0f1e48e3829aad75461f9bc8.png" alt=""></p>
+<p> 其实在C#等语言中分组还可以起名字，不过JavaScript不支持</p>
+<h2 id="前瞻">前瞻</h2>
+<table><br><tr><br><th>表达式</th><th>含义</th><br></tr><br><tr><br><td>exp1(?=exp2)</td><br><td>匹配后面是exp2的exp1</td><br></tr><br><tr><br><td>exp1(?!exp2)</td><br><td>匹配后面不是exp2的exp1</td><br></tr><br></table>
+
+<p>前瞻不是很好描述，看个例子 <code>good(?=Byron)</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22191434-fc2c05f77d2b4002a91032e44e49815c.png" alt=""></p>
+<pre><code>(<span class="regexp">/good(?=Byron)/</span>).exec(<span class="string">'goodByron123'</span>); <span class="regexp">//</span>[<span class="string">'good'</span>]
+(<span class="regexp">/good(?=Byron)/</span>).exec(<span class="string">'goodCasper123'</span>); <span class="regexp">//null</span>
+(<span class="regexp">/bad(?=Byron)/</span>).exec(<span class="string">'goodCasper123'</span>);<span class="regexp">//null</span>
+</code></pre><p>通过上面例子可以看出 <code>exp1(?=exp2)</code> 表达式会匹配<code>exp1</code>表达式，但只有其后面内容是<code>exp2</code>的时候才会匹配，也就是两个条件。exp1(?!exp2) 比较类似 <code>good(?!Byron)</code></p>
+<p><img src="http://lsly1989.qiniudn.com/22191951-c13dc0c8696a4021a016496b556e3545.png" alt=""></p>
+<pre><code>(<span class="regexp">/good(?!Byron)/</span>).exec(<span class="string">'goodByron123'</span>); <span class="regexp">//null</span>
+(<span class="regexp">/good(?!Byron)/</span>).exec(<span class="string">'goodCasper123'</span>); <span class="regexp">//</span>[<span class="string">'good'</span>]
+(<span class="regexp">/bad(?!Byron)/</span>).exec(<span class="string">'goodCasper123'</span>);<span class="regexp">//null</span>
+</code></pre><h2 id="参考">参考</h2>
+<p><a href="http://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html" target="_blank" rel="external">司徒正美 JavaScript正则表达式</a></p>
+<p><a href="http://www.regexper.com/" target="_blank" rel="external">Regexper</a></p>
+<p>PS:博客中的图都是用第二个链接做的，帮助人图形化理解正则表达式，真心不错</p>
+<script>
+$('br').remove();
+</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式1/" data-id="6gtbr7m2wt1hryrh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/javascript正则表达式2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript正则表达式——相关方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/javascript模版引擎/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">最简单的JavaScript模版引擎</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

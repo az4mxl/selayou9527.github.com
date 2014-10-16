@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>media queries | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们可能见过这样的代码
+  &lt;link href='css/reset.css' rel='stylesheet' type='text/css' media='screen' /&gt;
+  &lt;link href='css/print.css' rel='stylesheet' type='text/css' media='print' /&gt;
+其中的media属性是指媒体类型，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="media queries">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/media queries/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="我们可能见过这样的代码
+  &lt;link href='css/reset.css' rel='stylesheet' type='text/css' media='screen' /&gt;
+  &lt;link href='css/print.css' rel='stylesheet' type='text/css' media='print' /&gt;
+其中的media属性是指媒体类型，">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="media queries">
+<meta name="twitter:description" content="我们可能见过这样的代码
+  &lt;link href='css/reset.css' rel='stylesheet' type='text/css' media='screen' /&gt;
+  &lt;link href='css/print.css' rel='stylesheet' type='text/css' media='print' /&gt;
+其中的media属性是指媒体类型，">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-media queries" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/media queries/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      media queries
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#媒体类型"><span class="toc-number">2.</span> <span class="toc-text">媒体类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#所有类型"><span class="toc-number">2.1.</span> <span class="toc-text">所有类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用方式"><span class="toc-number">2.2.</span> <span class="toc-text">引用方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#媒体属性"><span class="toc-number">3.</span> <span class="toc-text">媒体属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑操作符"><span class="toc-number">4.</span> <span class="toc-text">逻辑操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#and"><span class="toc-number">4.1.</span> <span class="toc-text">and</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#not"><span class="toc-number">4.2.</span> <span class="toc-text">not</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#only"><span class="toc-number">4.3.</span> <span class="toc-text">only</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#or"><span class="toc-number">4.4.</span> <span class="toc-text">or</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#几个小例子"><span class="toc-number">5.</span> <span class="toc-text">几个小例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iphone"><span class="toc-number">5.1.</span> <span class="toc-text">iphone</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区分iPhone和iPad"><span class="toc-number">5.2.</span> <span class="toc-text">区分iPhone和iPad</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <p>我们可能见过这样的代码</p>
+<pre><code>  &lt;link <span class="variable">href=</span><span class="string">"css/reset.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"screen"</span> /&gt;
+  &lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
+</code></pre><p>其中的<code>media</code>属性是指媒体类型，在CSS2中允许通过<code>media</code>属性指定CSS的作用范围，<code>media=&quot;print&quot;</code>表示css在打印的时候生效，其它时候不生效，所有媒体类型<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank" rel="external">Recognized media types</a><br><a id="more"></a></p>
+<p>CSS3对media queries做了很大程度的拓展，简单总结一下</p>
+<h2 id="语法">语法</h2>
+<p>在CSS3的media queries中，<code>media</code>属性的值不再是一个简单的媒体类型字符串，而是表达式。 表达式由几部分组成</p>
+<ol>
+<li>媒体类型</li>
+<li>逻辑操作符</li>
+<li>媒体属性</li>
+</ol>
+<p>看几个例子</p>
+<pre><code><span class="variable">media=</span><span class="string">"(max-width: 800px)"</span>
+<span class="variable">media=</span><span class="string">"(min-width: 700px) and (orientation: landscape)"</span>
+<span class="variable">media=</span><span class="string">"tv and (min-width: 700px)"</span>
+<span class="variable">media=</span><span class="string">"only screen and (color)"</span>
+</code></pre><p>当表达式结果为真的时候，相应的样式会被应用到页面，当表达式为假的时候只会下载样式表，不会起作用</p>
+<h2 id="媒体类型">媒体类型</h2>
+<h3 id="所有类型">所有类型</h3>
+<p>我们常见的媒体类型有<code>screen</code>、<code>print</code>、<code>all</code>，实际上CSS规定的媒体类型有很多种</p>
+<table><br><thead><br><tr><br><th>类型</th><th>含义</th><br></tr><br></thead><br><tbody><br><tr><br><td>all</td><br><td>所有设备</td><br></tr><br><tr><br><td>braille</td><br><td>盲文</td><br></tr><br><tr><br><td>embossed</td><br><td>盲文打印</td><br></tr><br><tr><br><td>handheld</td><br><td>手持设备</td><br></tr><br><tr><br><td>print</td><br><td>文档打印或打印预览模式</td><br></tr><br><tr><br><td>projection</td><br><td>项目演示，比如幻灯</td><br></tr><br><tr><br><td>screen</td><br><td>彩色电脑屏幕</td><br></tr><br><tr><br><td>speech</td><br><td>演讲</td><br></tr><br><tr><br><td>tty</td><br><td>固定字母间距的网格的媒体，比如电传打字机</td><br></tr><br><tr><br><td>tv</td><br><td>电视</td><br></tr><br></tbody><br></table>
+
+<h3 id="引用方式">引用方式</h3>
+<p>对于css文件我们在引用的时候添加<code>media</code>属性即可</p>
+<pre><code>&lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
+</code></pre><p>在页面中的style片段我们将样式使用media包裹起来</p>
+<pre><code><span class="at_rule">@<span class="keyword">media</span><span class="preprocessor"> screen</span>{</span>
+    selector{rules}
+}
+</code></pre><h2 id="媒体属性">媒体属性</h2>
+<p>我们在media queries中可以使用的媒体类型包括</p>
+<table><br><thead><br><tr><br><th>属性</th><br><th>是否支持Min/Max</th><br><th>含义</th><br></tr><br></thead><br><tbody><br><tr><br><td>color</td><br><td>yes</td><br><td>每种色彩的字节数</td><br></tr><br><tr><br><td>color-index</td><br><td>yes</td><br><td>色彩表中的色彩数</td><br></tr><br><tr><br><td>device-aspect-ratio</td><br><td>yes</td><br><td>宽高比例</td><br></tr><br><tr><br><td>device-height</td><br><td>yes</td><br><td>设备屏幕的输出高度</td><br></tr><br><tr><br><td>device-width</td><br><td>yes</td><br><td>设备屏幕的输出宽度</td><br></tr><br><tr><br><td>grid</td><br><td>no</td><br><td>是否是基于格栅的设备</td><br></tr><br><tr><br><td>height</td><br><td>yes</td><br><td>渲染界面的高度</td><br></tr><br><tr><br><td>monochrome</td><br><td>yes</td><br><td>单色帧缓冲器中每像素字节</td><br></tr><br><tr><br><td>resolution</td><br><td>yes</td><br><td>分辨率</td><br></tr><br><tr><br><td>scan</td><br><td>no</td><br><td>tv媒体类型的扫描方式</td><br></tr><br><tr><br><td>width</td><br><td>yes</td><br><td>渲染界面的宽度</td><br></tr><br><tr><br><td>orientation</td><br><td>no</td><br><td>横屏或竖屏</td><br></tr><br></tbody><br></table>
+
+<p>是否支持max/min的意思是，支持的属性比如<code>device-height</code>，我们的使用的时候除了精确的定义设备高度，还可以只是指定设备最大多少或者最小多少，这样可以提供很大程度的灵活性，尤其是对于屏幕多种多样的安卓设备</p>
+<pre><code><span class="variable">media=</span><span class="string">"screen and (max-device-height=700)"</span>
+</code></pre><p>这样我们的样式就会在设备屏幕高度不大于700的情况下生效，可以看出来CSS3的media queries可以方便的适配各种设备</p>
+<p>关于每个属性的具体含义可以看看<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries#.E5.AA.92.E4.BD.93.E5.B1.9E.E6.80.A7" target="_blank" rel="external">MDN</a>上的解释</p>
+<h2 id="逻辑操作符">逻辑操作符</h2>
+<p>逻辑操作符包括</p>
+<ol>
+<li>and : 连接多个媒体查询表达式，每个表达式返回true的时候才为真</li>
+<li>not : 对一条媒体查询结果取反</li>
+<li>only : 仅在媒体查询匹配成功的情况下应用指定样式,可以通过它让选中的样式在老式浏览器中不被应用</li>
+</ol>
+<h3 id="and">and</h3>
+<p>and 关键字用于合并多个媒体属性或合并媒体属性与媒体类型。一个基本的媒体查询，即一个媒体属性与默认指定的 all媒体类型，可能像这样子：</p>
+<pre><code>@media (min-width: 700px) { <span class="keyword">...</span> }
+</code></pre><p>如果只想在横屏时应用这个，可以使用 ｀and｀ 操作符</p>
+<pre><code>(min-width: 700px) and (orientation: landscape) { <span class="keyword">...</span> }
+</code></pre><h3 id="not">not</h3>
+<p>值得注意的是<code>not</code>关键字应用于<strong>整个媒体查询</strong>，对整个媒体查询取反</p>
+<pre><code><span class="variable">@media</span> <span class="keyword">not</span> screen <span class="keyword">and</span> (color)
+</code></pre><p>等价于</p>
+<p>@media not (screen and (color))</p>
+<p>而不是</p>
+<pre><code><span class="variable">@media</span> (<span class="keyword">not</span> screen) <span class="keyword">and</span> (color)
+</code></pre><p>我们可以理解为not操作符的优先级比较低</p>
+<h3 id="only">only</h3>
+<p>only 关键字防止老旧的浏览器不支持带媒体属性的查询而应用到给定的样式：</p>
+<pre><code>&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"only screen and (color)"</span> <span class="variable">href=</span><span class="string">"example.css"</span> /&gt;
+</code></pre><p>only很多时候是用来对那些不支持Media Query但却支持Media Type的设备隐藏样式表的，Media Queries的设备，正常调用样式，此时就当only不存在；对于不支持Media Queries但又支持Media Type的设备，因为其先读only而不是screen。这样样式不会生效；另外不支持Media Qqueries的浏览器，不论是否支持only，样式都不会被采用。</p>
+<h3 id="or">or</h3>
+<p>虽然media queries没有提供<code>or</code>关键字，但是可以通过<code>,</code>实现or的功能</p>
+<pre><code>  &lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">href=</span><span class="string">"style.css"</span> <span class="variable">media=</span><span class="string">"handheld and (max-width:480px), screen and (min-width:960px)"</span> /&gt;
+</code></pre><p>上面代码中style.css样式被用在宽度小于或等于480px的手持设备上，或者被用于屏幕宽度大于或等于960px的设备上。</p>
+<h2 id="几个小例子">几个小例子</h2>
+<h3 id="iphone">iphone</h3>
+<pre><code>&lt;link <span class="variable">media=</span><span class="string">"only screen and (max-device-width: 480px)"</span> <span class="variable">href=</span><span class="string">"style.css"</span>&gt;
+</code></pre><h3 id="区分iPhone和iPad">区分iPhone和iPad</h3>
+<pre><code>&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"all and (max-device-width: 480px)"</span> <span class="variable">href=</span><span class="string">"iphone.css"</span>&gt;
+&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)"</span> <span class="variable">href=</span><span class="string">"ipad-portrait.css"</span>&gt;
+&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)"</span> <span class="variable">href=</span><span class="string">"ipad-landscape.css"</span>&gt;
+&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"all and (min-device-width: 1025px)"</span> <span class="variable">href=</span><span class="string">"ipad-landscape.css"</span>&gt;
+</code></pre><h2 id="参考">参考</h2>
+<p><a href="http://www.qianduan.net/media-type-and-media-query.html" target="_blank" rel="external">media type与media query</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries" target="_blank" rel="external">CSS媒体查询</a></p>
+<p><a href="http://www.w3cplus.com/content/css3-media-queries" target="_blank" rel="external">CSS3 Media Queries</a></p>
+<script>
+$('br').remove();
+</script>
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/media queries/" data-id="ccyvrqe13f4ze9j0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/nodejs调试/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nodejs 调试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/javascript逗号冒号括号/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于逗号、冒号、括号那点儿事儿</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

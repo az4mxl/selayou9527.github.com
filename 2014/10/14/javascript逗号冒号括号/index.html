@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于逗号、冒号、括号那点儿事儿 | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下
+逗号
+逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于逗号、冒号、括号那点儿事儿">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/javascript逗号冒号括号/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下
+逗号
+逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于逗号、冒号、括号那点儿事儿">
+<meta name="twitter:description" content="在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下
+逗号
+逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-javascript逗号冒号括号" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript逗号冒号括号/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于逗号、冒号、括号那点儿事儿
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#逗号"><span class="toc-number">1.</span> <span class="toc-text">逗号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冒号"><span class="toc-number">2.</span> <span class="toc-text">冒号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#?:运算符"><span class="toc-number">2.1.</span> <span class="toc-text">?:运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象字面量"><span class="toc-number">2.2.</span> <span class="toc-text">对象字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch语句"><span class="toc-number">2.3.</span> <span class="toc-text">switch语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label_statement"><span class="toc-number">2.4.</span> <span class="toc-text">label statement</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大括号"><span class="toc-number">3.</span> <span class="toc-text">大括号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象直接量声明"><span class="toc-number">3.1.</span> <span class="toc-text">对象直接量声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数声明或者函数直接量"><span class="toc-number">3.2.</span> <span class="toc-text">函数声明或者函数直接量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组织复合语句"><span class="toc-number">3.3.</span> <span class="toc-text">组织复合语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大括号没有带来块级作用域"><span class="toc-number">3.4.</span> <span class="toc-text">大括号没有带来块级作用域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小括号"><span class="toc-number">4.</span> <span class="toc-text">小括号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数声明或调用表达式参数表"><span class="toc-number">4.1.</span> <span class="toc-text">函数声明或调用表达式参数表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与一些关键字组成条件语句"><span class="toc-number">4.2.</span> <span class="toc-text">与一些关键字组成条件语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组运算符"><span class="toc-number">4.3.</span> <span class="toc-text">分组运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#立即调用的函数表达式"><span class="toc-number">5.</span> <span class="toc-text">立即调用的函数表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中括号"><span class="toc-number">6.</span> <span class="toc-text">中括号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组相关"><span class="toc-number">6.1.</span> <span class="toc-text">数组相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取对象属性值"><span class="toc-number">6.2.</span> <span class="toc-text">获取对象属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#看几个有意思的小题目"><span class="toc-number">6.3.</span> <span class="toc-text">看几个有意思的小题目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <p>在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下</p>
+<h2 id="逗号">逗号</h2>
+<p>逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var<br><a id="more"></a></p>
+<pre><code>var <span class="variable">a=</span><span class="number">1</span>,
+    <span class="variable">b=</span><span class="number">2</span>,
+    <span class="variable">c=</span><span class="number">3</span>;
+</code></pre><p>方法参数我们使用逗号隔开，对象属性也是逗号隔开</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">fbn</span><span class="params">(name,title)</span></span>{}
+<span class="keyword">var</span> person={
+    name:<span class="string">"Byron"</span>,
+    age:<span class="string">"24"</span>
+};
+</code></pre><p>然而我们也会遇到这样的问题，在赋值表达式中出现的逗号</p>
+<pre><code><span class="attribute">var a</span>=<span class="string">(1,2,3);</span>
+</code></pre><p>这时表达式计算结果是<strong>最后一个</strong>子表达式结果，也就是3。千万不要误会前面的子表达式不会执行，每个子表达式都会执行，只不过“返回值”是最后一个表达式结果</p>
+<pre><code><span class="keyword">var</span> a,b;
+a=(b=<span class="number">1</span>,<span class="number">2</span>);
+<span class="built_in">console</span>.log(a);<span class="comment">//2</span>
+<span class="built_in">console</span>.log(b);<span class="comment">//1</span>
+</code></pre><h2 id="冒号">冒号</h2>
+<h3 id="?:运算符">?:运算符</h3>
+<pre><code><span class="keyword">var</span> p=gender ? <span class="string">'male'</span>:female;
+</code></pre><h3 id="对象字面量">对象字面量</h3>
+<pre><code><span class="keyword">var</span> obj={
+    name:<span class="string">"Byron"</span>,
+    age:<span class="number">24</span>
+};
+</code></pre><h3 id="switch语句">switch语句</h3>
+<pre><code><span class="keyword">switch</span>(t){
+    <span class="keyword">case</span> <span class="number">1</span>:
+        <span class="built_in">console</span>.log(<span class="string">'xxx'</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">2</span>:
+        <span class="built_in">console</span>.log(<span class="string">'ooo'</span>);
+        <span class="keyword">break</span>;
+}
+</code></pre><p>相信这是大家所熟知的用法了，那么我们可以个题目</p>
+<pre><code><span class="tag">x</span><span class="pseudo">:y</span><span class="pseudo">:z</span><span class="pseudo">:1</span>,2,3;
+</code></pre><p>上面运算会不会报错？不报错运算结果是什么？很多同学初次看到这个会很惊讶，觉得肯定会出错，但结果却是3，来看看为什么</p>
+<h3 id="label_statement">label statement</h3>
+<p>其实冒号还有个作用：声明label，JavaScript中语句可以有个标签前缀，我们称之为标记语句，break或continue可以和标记的语句结合使用，控制流程。如果标签有重复，就会出错。我们上面的语句可以翻译成这样</p>
+<pre><code><span class="tag">x</span>:
+ <span class="tag">y</span>:
+  <span class="tag">z</span><span class="pseudo">:1</span>,2,3
+</code></pre><p>这样我们结合刚才说的逗号的知识就能明白为什么结果是3了，很多优化建议都是不提倡使用标签的，有没有想起C语言的goto，使用了标签控制流程，使程序相当难读懂</p>
+<pre><code><span class="keyword">var</span> x=<span class="number">1</span>;
+foo:{
+    x=<span class="number">2</span>;
+    <span class="keyword">break</span> foo;
+    x=<span class="number">3</span>;
+}
+<span class="built_in">console</span>.log(x);
+</code></pre><h2 id="大括号">大括号</h2>
+<h3 id="对象直接量声明">对象直接量声明</h3>
+<pre><code><span class="keyword">var</span> obj={
+    name:<span class="string">"Byron"</span>,
+    age:<span class="number">24</span>
+};
+</code></pre><p>整条语句使赋值语句，右值部分十个表达式，通过直接量构造出一个对象</p>
+<h3 id="函数声明或者函数直接量">函数声明或者函数直接量</h3>
+<pre><code><span class="keyword">function</span> fn1(){    
+    //....
+}  
+var fn2=<span class="keyword">function</span>(){
+    //<span class="keyword">...</span>
+};
+</code></pre><p>相信这种用法不必多说什么了</p>
+<h3 id="组织复合语句">组织复合语句</h3>
+<pre><code>with(obj){
+    //<span class="keyword">...</span>
+}
+<span class="keyword">for</span>(){
+ //<span class="keyword">...</span>
+}
+<span class="keyword">if</span>(){
+    //<span class="keyword">...</span>
+}<span class="keyword">else</span>{
+    //<span class="keyword">...</span>
+}
+</code></pre><h3 id="大括号没有带来块级作用域">大括号没有带来块级作用域</h3>
+<p>熟悉JavaScript的同学肯定对这点已经熟知了，大括号虽然能够组织复杂的语句等，是指算是同一“块”，<code>with</code>甚至提供了相近的功能，但遗憾的使JavaScript只有函数作用域，没有块作用域，在JavaScript中下面做法会声明全局变量，这个小小的知识点往往引英雄竞折腰</p>
+<ol>
+<li>在function外使用声明变量（无论是否使用var）</li>
+<li>在function内不是用var 声明变量</li>
+<li>直接赋值于window属性</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code><span class="keyword">var</span> a=<span class="number">2</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">()</span></span>{
+    b=<span class="number">3</span>;
+    <span class="built_in">window</span>.c=<span class="number">4</span>;
+}
+</code></pre><p>除了这三种剩下的就是function范围内的局部变量了，在很多JavaScript规范中都有提到，尽量提早声明变量正是由于其没有块作用域</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">(n)</span></span>{
+    <span class="keyword">if</span>(n&gt;<span class="number">1</span>){
+        <span class="keyword">var</span> a=n;
+    }<span class="keyword">else</span>{
+        <span class="keyword">var</span> b=n;
+    }
+    <span class="built_in">console</span>.log(a);
+}
+</code></pre><p>这样的代码在很多语言中有语法错误，因为if和else的大括号有块作用域，变量a、b在自己对应块作用域中，出了块就访问不到了。但在JavaScript中，没有块作用域，所以我们在if、else内声明的变量console.log依然能够访问，这确实是糟糕的设计，为了减少错误可能，尽量把变量声明提前。</p>
+<p>很多笔试题目正是针对这方面知识出题的</p>
+<pre><code>{a:<span class="number">1</span>};
+<span class="keyword">var</span> x={a:<span class="number">1</span>};
+{a:<span class="number">1</span>,b:<span class="number">2</span>};
+<span class="keyword">var</span> y={a:<span class="number">1</span>,b:<span class="number">2</span>};
+</code></pre><p>亲自试试是不是发现很惊讶，我们分析一下</p>
+<p><code>{a:1}</code> JavaScript有传说中的<strong>语句优先</strong>，也就是当大括号既可以被理解为复合语句块也可以被理解为对象直接量的时候，JavaScript会将其理解为复合语句快。<code>{a:1}</code>其实就是 <code>a: 1</code>，想想冒号的作用是不是知道为什么返回值是1了。</p>
+<p><code>var x={a:1}</code> 当<code>{a:1}</code> 作为右值出现的时候，明显就不是语句，而是直接量表达式了，所以把大括号当作对象直接量语法处理，结果是个对象。</p>
+<p><code>{a:1,b:2}</code>; 看了上面这个就简单了，可以翻译为：<code>a:1,b:2</code> 结合逗号和冒号作用，结果似乎显而易见了，就是2嘛。然而其实报错了，这是为什么？在逗号运算符后面必须是表达式，而标签语句是个label statement，是语句，所以就报错了。</p>
+<p>了解了这些知识我们再来试几个题目（看答案在控制台上，不要试图alert）</p>
+<pre><code><span class="rules">{<span class="rule"><span class="attribute">foo</span>:<span class="value">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span></span></span>}<span class="attr_selector">[0]</span>;
+<span class="rules">{<span class="rule"><span class="attribute">a</span>:<span class="value"><span class="number">1</span></span></span></span>}+2;
+2+<span class="rules">{<span class="rule"><span class="attribute">a</span>:<span class="value"><span class="number">1</span></span></span></span>};
+</code></pre><p>不知道小伙伴儿们做对了没有，这几个题目核心一样，大括号虽然看起来没什么作用，但起到了语句分隔符作用，{foo:[1,2,3]}[0]可以理解为</p>
+<pre><code><span class="rules">{<span class="rule"><span class="attribute">foo</span>:<span class="value">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span></span></span>};
+<span class="attr_selector">[0]</span>;
+</code></pre><p>所以返回值是[0]，同样{a:1}+2变为</p>
+<pre><code><span class="rules">{<span class="rule"><span class="attribute">a</span>:<span class="value"><span class="number">1</span></span></span></span>};
++2
+</code></pre><p>但是！为什么<code>2+{a:1}</code>就不一样了呢？这时加法运算符导致的，加号是左结合的，{}被解析为表达式（得是表达式相加嘛），根据数据类型知识，对象<code>{a:1}</code>转换为<code>NaN</code></p>
+<h2 id="小括号">小括号</h2>
+<p>在JavaScript中小括号有几种用法</p>
+<h3 id="函数声明或调用表达式参数表">函数声明或调用表达式参数表</h3>
+<p>这个好理解，函数定义的时候需要用小括号将其参数包裹，用逗号隔开，调用的时候也一样</p>
+<pre><code><span class="keyword">function</span> fn(name,age){
+    //<span class="keyword">...</span>
+}
+fn(<span class="string">'Byron'</span>,<span class="number">24</span>);
+var f=new fn(<span class="string">'Byron'</span>,<span class="number">24</span>)
+</code></pre><h3 id="与一些关键字组成条件语句">与一些关键字组成条件语句</h3>
+<p>我们常见的if、switch、while中的小括号就是干这个用的</p>
+<pre><code><span class="keyword">if</span>(a&gt;<span class="number">0</span>){
+    //<span class="keyword">...</span>
+}
+<span class="keyword">while</span>(i&lt;len){
+    //<span class="keyword">...</span>
+}
+<span class="keyword">for</span>(var i=<span class="number">0</span>;i&lt;len;i++){
+    //<span class="keyword">...</span>
+}
+</code></pre><h3 id="分组运算符">分组运算符</h3>
+<p>分组运算符内部只能包含表达式，可以改变运算符优先级，舍弃一些可能的语法树，最常见的</p>
+<pre><code><span class="attribute">var x</span>=<span class="string">()1+2)*3;</span>
+</code></pre><p>相信不用多解释，很多同学会认为小括号有强制表达式运算的功能，其实这时片面的理解，这只是改变了运算符优先级，生成新的语法树后的结果。</p>
+<p>对于简单的json字符串转为对象的时候，因为浏览器兼容性原因，不能使用JSON对象，又懒得引入json2，所以就会用eval()处理，大概写法这样</p>
+<pre><code>var jsonStr=<span class="keyword">...</span>;
+var jsonObj=eval(<span class="string">'('</span> + jsonStr + <span class="string">')'</span>);
+</code></pre><p>很多同学会问，为什么还要加上个小括号呢？像我们上面解释的大括号的作用，json字符串 “{a:1,b:2}” 这样的格式会被理解为语句，也就是传说中的label statement，语法树是这样的</p>
+<pre><code><span class="rules">{
+    <span class="rule"><span class="attribute">a</span>:<span class="value"><span class="number">1</span>,
+    b:<span class="number">2</span>
+</span></span></span>}
+</code></pre><p>上面提到过逗号运算符不能在label statement后面，所以会报错，而加上括号后由于分组运算符只能包含表达式，所以{}变成直接量语法，这样就是我们希望的内容了</p>
+<h2 id="立即调用的函数表达式">立即调用的函数表达式</h2>
+<p>再来回头看看我们所谓的立即执行函数，一般有两种写法</p>
+<pre><code>(<span class="function"><span class="keyword">function</span><span class="params">()</span><span class="comment">{}</span>)<span class="params">()</span>;</span>
+(<span class="function"><span class="keyword">function</span><span class="params">()</span><span class="comment">{}</span><span class="params">()</span>);</span>
+!<span class="function"><span class="keyword">function</span><span class="params">()</span><span class="comment">{}</span><span class="params">()</span>;</span>
+</code></pre><p>搜了很多资料，终于看到了靠谱解释,总结一下，首先我们需要搞清楚函数表达式和函数声明区别，ECMAScript规范中定义的相当模糊：</p>
+<blockquote>
+<p>函数声明必须带有标示符（Identifier）（就是大家常说的函数名称），而函数表达式则可以省略这个标示符：</p>
+<p>　　函数声明:</p>
+<p>　　function 函数名称 (参数：可选){ 函数体 }</p>
+<p>　　函数表达式：</p>
+<p>　　function 函数名称（可选）(参数：可选){ 函数体 }</p>
+</blockquote>
+<p>其实我们常用的区分方式是根据上下文，如果function fn(){}作为右值出现（赋值表达式右边）那么就是表达式，否则就是函数声明。有几种看起来不常规的方式需要我们注意</p>
+<pre><code><span class="keyword">new</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">()</span><span class="comment">{}</span>;</span> <span class="comment">//表达式，因为在new 表达式中</span>
+(<span class="function"><span class="keyword">function</span><span class="params">()</span><span class="comment">{}</span><span class="params">()</span>);</span><span class="comment">//表达式，在分组运算符中</span>
+</code></pre><p>这样我们就能理解第二种写法了，就是利用分组运算符改变了语法树。同样第三种写法其实是利用了一元运算符后面跟表达式的原理，我们也可以写成</p>
+<pre><code>+<span class="function"><span class="keyword">function</span><span class="params">()</span>{}<span class="params">()</span></span>
+-<span class="function"><span class="keyword">function</span><span class="params">()</span>{}<span class="params">()</span></span>
+~<span class="function"><span class="keyword">function</span><span class="params">()</span>{}<span class="params">()</span></span>
+</code></pre><p>知乎上<a href="http://www.zhihu.com/people/ambar" target="_blank" rel="external">长天之云</a>甚至写出了这么多</p>
+<pre><code>( <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span> );</span>
+( <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span> )<span class="params">()</span>;</span>
+[ <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span> ];</span>
+<span class="comment">////////////////////////////////</span>
+~ <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+! <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
++ <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+- <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+<span class="comment">////////////////////////////////</span>
+delete <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+typeof <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+void <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+<span class="keyword">new</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+<span class="keyword">new</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span>;</span>
+<span class="comment">/////////////////////////////////</span>
+<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+<span class="comment">/////////////////////////////////</span>
+<span class="number">1</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+<span class="number">1</span> ^ <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+<span class="number">1</span> &gt; <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">{}</span><span class="params">()</span>;</span>
+</code></pre><p>所以我们应该称立即执行函数为<strong>立即调用的函数表达式</strong>！</p>
+<h2 id="中括号">中括号</h2>
+<p>相对而言中括号是个最简单的符号了，一般有几种语义</p>
+<h3 id="数组相关">数组相关</h3>
+<p>我们知道数组可以通过中括号来直接量实例化</p>
+<pre><code><span class="attribute">var a</span>=<span class="string">[1,2,3];</span>
+</code></pre><h3 id="获取对象属性值">获取对象属性值</h3>
+<p>这也是很常见的用法</p>
+<pre><code><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];
+<span class="keyword">var</span> b={name:<span class="string">'Byron'</span>};
+a[<span class="number">2</span>];
+b[<span class="string">'name'</span>];
+</code></pre><h3 id="看几个有意思的小题目">看几个有意思的小题目</h3>
+<pre><code>[<span class="link_label">1,2,3,4,5</span>][<span class="link_reference">0..toString.length</span>];//0.等同于0.0
+'foo'.split('') + [];
+</code></pre><h2 id="参考">参考</h2>
+<p><a href="http://james.padolsey.com/javascript/another-javascript-quiz/" target="_blank" rel="external">Another JavaScript quiz</a></p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2013/05/%E7%90%86%E8%A7%A3another-javascript-quiz-%E9%A2%98%E7%9B%AE/" target="_blank" rel="external">我是如何理解”Another JavaScript quiz”中的题目</a></p>
+<p><a href="http://www.zhihu.com/question/20249179" target="_blank" rel="external">JavaScript 匿名函数有哪几种执行方式?</a></p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/29/2290308.html" target="_blank" rel="external">深入理解JavaScript系列（2）：揭秘命名函数表达式</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/javascript逗号冒号括号/" data-id="8nxj1gkreyyqtgn0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/media queries/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          media queries
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/javascript节流与防抖/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">函数节流与函数去抖</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

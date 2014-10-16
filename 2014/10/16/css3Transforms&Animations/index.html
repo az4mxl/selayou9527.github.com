@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS 3D Transforms and Animations[译] | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文链接 CSS: 3D Transforms and Animations.
+CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏览器的实现现在也在变得明朗起来。CSS3 animation and 2D transforms 已经被Safari, Firefox, Opera 甚至是 IE 10 实现了，但是本文中我们更进一步讨论一下使用keyfram">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 3D Transforms and Animations[译]">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/16/css3Transforms&Animations/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="原文链接 CSS: 3D Transforms and Animations.
+CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏览器的实现现在也在变得明朗起来。CSS3 animation and 2D transforms 已经被Safari, Firefox, Opera 甚至是 IE 10 实现了，但是本文中我们更进一步讨论一下使用keyfram">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach1.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach2.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach3.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach4.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach5.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach1.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach2.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach3.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach4.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach5.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach1.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach2.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach3.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach4.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssbeach5.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 3D Transforms and Animations[译]">
+<meta name="twitter:description" content="原文链接 CSS: 3D Transforms and Animations.
+CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏览器的实现现在也在变得明朗起来。CSS3 animation and 2D transforms 已经被Safari, Firefox, Opera 甚至是 IE 10 实现了，但是本文中我们更进一步讨论一下使用keyfram">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-css3Transforms&amp;Animations" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/16/css3Transforms&Animations/" class="article-date">
+  <time datetime="2014-10-16T08:13:32.000Z" itemprop="datePublished">Oct 16 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS 3D Transforms and Animations[译]
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置keyframes"><span class="toc-number">1.</span> <span class="toc-text">设置keyframes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为动画设置stage"><span class="toc-number">2.</span> <span class="toc-text">为动画设置stage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#页面上旋转一个元素"><span class="toc-number">3.</span> <span class="toc-text">页面上旋转一个元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建图片轮播"><span class="toc-number">4.</span> <span class="toc-text">创建图片轮播</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#旋转多边形"><span class="toc-number">5.</span> <span class="toc-text">旋转多边形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调整keframes的timing方法"><span class="toc-number">6.</span> <span class="toc-text">调整keframes的timing方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#旋转的立方体"><span class="toc-number">7.</span> <span class="toc-text">旋转的立方体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">8.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <p>原文链接 <a href="http://www.the-art-of-web.com/css/3d-transforms/" target="_blank" rel="external">CSS: 3D Transforms and Animations</a>.</p>
+<p>CSS 3D Transforms 最早是由Safari/WebKit团队数年前实现的，其它浏览器的实现现在也在变得明朗起来。<a href="http://www.the-art-of-web.com/css/css-animation/" target="_blank" rel="external">CSS3 animation and 2D transforms</a> 已经被Safari, Firefox, Opera 甚至是 IE 10 实现了，但是本文中我们更进一步讨论一下使用<code>keyframes</code>来建立重复的3动画效果</p>
+<a id="more"></a>
+
+<h1 id="设置keyframes">设置keyframes</h1>
+<p>什么是keyframes？</p>
+<p>一个包含着CSS样式的<code>@-webkit-keyframe</code>块被称为<code>keyframes</code>。keyframes定义了某个时刻作用于动画上的样式，浏览器动画引擎会在keyframes中流畅的应用CSS样式（其实keyframes也就是我们说的关键帧，和拍电影一样，定义几个关键帧状态，连起来使它们平缓过渡就是动画了）</p>
+<p>这听起来可能很复杂，其实就是，我们先看一个最简单的例子。 这里定义的keyframes只是简单的绕Y轴（指向页面上面的方向）逆时针旋转一个元素或者一组元素</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+
+  <span class="comment">/* WebKit and Opera browsers */</span>
+  <span class="at_rule">@<span class="keyword">-webkit-keyframes</span> spinner </span>{
+    <span class="tag">from</span> <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>)</span></span>;    <span class="rule">}</span></span>
+    <span class="tag">to</span>   <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>; <span class="rule">}</span></span>
+  }
+
+  <span class="comment">/* all other browsers */</span>
+  <span class="at_rule">@<span class="keyword">keyframes</span> spinner </span>{
+    <span class="tag">from</span> <span class="rules">{
+      <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>)</span></span>;
+    <span class="rule">}</span></span>
+    <span class="tag">to</span> <span class="rules">{
+      <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>;
+    <span class="rule">}</span></span>
+  }
+
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>在这个例子中keyframes被命名为<code>spinner</code>以便以后引用。在from和to之间还可以附加若干步骤，每个步骤在from／to的地方使用百分比，它们也可以包含不同的样式和transformation（实际上from就是0%，头就是100%）</p>
+<h1 id="为动画设置stage">为动画设置stage</h1>
+<p>stage就是发生动画的元素的容器（俗称舞台），移动和旋转等动画将会作用于舞台上相关的元素，但是舞台本身还是占原来位置，相对于页面使fixed的。可选的<code>perspective</code>属性定义了视角离页面有多远（z轴方向），距离越远，3D效果越不明显，如果不写这个属性，就不会有视角效果</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+
+  <span class="id">#stage</span> <span class="rules">{
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">1em</span> auto</span></span>;
+    <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1200px</span></span></span>;
+    <span class="rule"><span class="attribute">-moz-perspective</span>:<span class="value"> <span class="number">1200px</span></span></span>;
+    <span class="rule"><span class="attribute">-ms-perspective</span>:<span class="value"> <span class="number">1200px</span></span></span>;
+    <span class="rule"><span class="attribute">perspective</span>:<span class="value"> <span class="number">1200px</span></span></span>;
+  <span class="rule">}</span></span>
+
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>The next element is the one to which the animation is applied. We do this by referring to the keyframes by name. We also define a transition timing function and set the number of iterations (or infinite in this case for perpetual motion). Each iteration will last 6 seconds.</p>
+<p>下一个要讨论的是就是动画作用的元素，我们通过keyframes的名字引用定义的关键帧，同时我们定义了一个<code>transition timing</code>方法，并且设置循环的次数（或者无限次循环）。如果希望创建更多的效果的动画，我们可以单独为每个keyframe设置<code>transition timing</code>方法</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+
+  <span class="id">#spinner</span> <span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-animation-name</span>:<span class="value"> spinner</span></span>;
+    <span class="rule"><span class="attribute">-webkit-animation-timing-function</span>:<span class="value"> linear</span></span>;
+    <span class="rule"><span class="attribute">-webkit-animation-iteration-count</span>:<span class="value"> infinite</span></span>;
+    <span class="rule"><span class="attribute">-webkit-animation-duration</span>:<span class="value"> <span class="number">6s</span></span></span>;
+
+    <span class="rule"><span class="attribute">animation-name</span>:<span class="value"> spinner</span></span>;
+    <span class="rule"><span class="attribute">animation-timing-function</span>:<span class="value"> linear</span></span>;
+    <span class="rule"><span class="attribute">animation-iteration-count</span>:<span class="value"> infinite</span></span>;
+    <span class="rule"><span class="attribute">animation-duration</span>:<span class="value"> <span class="number">6s</span></span></span>;
+
+    <span class="rule"><span class="attribute">-webkit-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+    <span class="rule"><span class="attribute">-moz-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+    <span class="rule"><span class="attribute">-ms-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+    <span class="rule"><span class="attribute">transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+  <span class="rule">}</span></span>
+
+  <span class="id">#spinner</span><span class="pseudo">:hover</span> <span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-animation-play-state</span>:<span class="value"> paused</span></span>;
+    <span class="rule"><span class="attribute">animation-play-state</span>:<span class="value"> paused</span></span>;
+  <span class="rule">}</span></span>
+
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>鼠标悬停元素（俗称hover）会暂停动画，这个属性值（running|paused）也可以通过JavaScript切换来控制动画的状态</p>
+<p><code>preserve-3d</code>设置非常重要，不设置的话会让元素否则所有的子元素都会在一个平面上渲染。Chrome 12之前的版本perspective和preserve-3d属性都不会被识别，所有的3D动画都是平面的，在后续的版本中得到了解决。可以通过设置timing function为’ease-in-out’并且添加一个新属性<code>-webkit-animation-direction: alternate</code>来实现一个有意思的效果，动画会在奇数次数（1、3、5 ）正常播放，而在偶数次数（2、4、6 ）反向播放</p>
+<h1 id="页面上旋转一个元素">页面上旋转一个元素</h1>
+<p>现在我们已经掌握了在页面上放置一个元素并且旋转它的知识，可以看一下</p>
+<style type="text/css">
+
+  /* WebKit and Opera browsers */
+  @-webkit-keyframes spinner {
+    from { -webkit-transform: rotateY(0deg);    }
+    to   { -webkit-transform: rotateY(-360deg); }
+  }
+
+  /* all other browsers */
+  @keyframes spinner {
+    from {
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
+    to {
+      -moz-transform: rotateY(-360deg);
+      -ms-transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
+    }
+  }
+
+  #stage {
+    margin: 1em auto;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    perspective: 1200px;
+  }
+
+  #spinner {
+    -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  #spinner:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
+</style>
+
+<div id="stage" style="background: rgba(0,0,0,0.5);"><br>  <p id="spinner" style="background: rgba(0,0,0,0.5); text-align: center; color: #fff;">Stop, I’m getting dizzy!</p><br></div>
+
+
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"stage"</span> <span class="attribute">style</span>=<span class="value">"background: rgba(0,0,0,0.5);"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">id</span>=<span class="value">"spinner"</span> <span class="attribute">style</span>=<span class="value">"background: rgba(0,0,0,0.5); text-align: center; color: #fff;"</span>&gt;</span>Stop, I'm getting dizzy!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>为了更好的看清3D效果，舞台和P元素都被设置了半透明背景，旋转默认的轴心是舞台中央，我们也可以通过<code>transform-origin</code>属性改变轴心</p>
+<h1 id="创建图片轮播">创建图片轮播</h1>
+<p>作为演示，我们将要做一个围绕y轴旋转的相册，效果类似有幻灯机，如果在图片元素上设置了<code>-webkit-backface-visibility: hidden;</code> ，那么任何背离屏幕的元素会被隐藏</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+    <span class="at_rule">@<span class="keyword">-webkit-keyframes</span> spinner </span>{
+      <span class="tag">from</span> <span class="rules">{
+        <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>)</span></span>;
+      <span class="rule">}</span></span>
+      <span class="tag">to</span> <span class="rules">{
+        <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>;
+      <span class="rule">}</span></span>
+    }
+
+    <span class="class">.stage</span> <span class="rules">{
+      <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">1em</span> auto</span></span>;
+      <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1200px</span></span></span>;
+    <span class="rule">}</span></span>
+
+    <span class="class">.spinner</span> <span class="rules">{
+      <span class="rule"><span class="attribute">-webkit-animation-name</span>:<span class="value"> spinner</span></span>;
+      <span class="rule"><span class="attribute">-webkit-animation-timing-function</span>:<span class="value"> linear</span></span>;
+      <span class="rule"><span class="attribute">-webkit-animation-iteration-count</span>:<span class="value"> infinite</span></span>;
+      <span class="rule"><span class="attribute">-webkit-animation-duration</span>:<span class="value"> <span class="number">6s</span></span></span>;
+      <span class="rule"><span class="attribute">-webkit-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+    <span class="rule">}</span></span>
+    <span class="class">.spinner</span><span class="pseudo">:hover</span> <span class="rules">{
+      <span class="rule"><span class="attribute">-webkit-animation-play-state</span>:<span class="value"> paused</span></span>;
+    <span class="rule">}</span></span>
+
+    <span class="class">.spinner</span> <span class="tag">img</span> <span class="rules">{
+      <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+      <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#ccc</span></span></span>;
+      <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.8</span>)</span></span>;
+      <span class="rule"><span class="attribute">box-shadow</span>:<span class="value"> inset <span class="number">0</span> <span class="number">0</span> <span class="number">20px</span> <span class="function">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>)</span></span>;
+    <span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>&nbsp;</p>
+<pre><code>&lt;div <span class="variable">class=</span><span class="string">"stage"</span> <span class="variable">style=</span><span class="string">"padding-left: 180px; height: 160px;"</span>&gt;
+  &lt;div <span class="variable">class=</span><span class="string">"spinner"</span> <span class="variable">style=</span><span class="string">"-webkit-transform-origin: 180px 0 0;"</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(0deg) translateX(180px); padding: 0 0 0 160px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach1.jpg"</span> <span class="variable">width=</span><span class="string">"200"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(-72deg) translateX(180px); padding: 0 0 0 147px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach2.jpg"</span> <span class="variable">width=</span><span class="string">"213"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(-144deg) translateX(180px); padding: 0 0 0 120px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach3.jpg"</span> <span class="variable">width=</span><span class="string">"240"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(-216deg) translateX(180px); padding: 0 0 0 147px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach4.jpg"</span> <span class="variable">width=</span><span class="string">"213"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(-288deg) translateX(180px); padding: 0 0 0 122px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach5.jpg"</span> <span class="variable">width=</span><span class="string">"238"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>为了让事情简单一些，所有的图片一样高，我们只需要调整内边距来把它们组合在中轴。如果高度不同的话还要调整纵向的间距</p>
+<p>看看效果</p>
+<style>
+    @-webkit-keyframes spinner {
+      from {
+        -webkit-transform: rotateY(0deg);
+      }
+      to {
+        -webkit-transform: rotateY(-360deg);
+      }
+    }
+
+    .stage {
+      margin: 1em auto;
+      -webkit-perspective: 1200px;
+    }
+
+    .spinner {
+      -webkit-animation-name: spinner;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-duration: 6s;
+      -webkit-transform-style: preserve-3d;
+    }
+    .spinner:hover {
+      -webkit-animation-play-state: paused;
+    }
+
+    .spinner img {
+      position: absolute;
+      border: 1px solid #ccc;
+      background: rgba(255,255,255,0.8);
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="stage" style="padding-left: 200px; height: 160px;"><br>  <div class="spinner" style="-webkit-transform-origin: 180px 0 0;"><br>    <img style="-webkit-transform: rotateY(0deg) translateX(180px); padding: 0 0 0 160px;" src="http://lsly1989.qiniudn.com/cssbeach1.jpg" width="200" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(-72deg) translateX(180px); padding: 0 0 0 147px;" src="http://lsly1989.qiniudn.com/cssbeach2.jpg" width="213" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(-144deg) translateX(180px); padding: 0 0 0 120px;" src="http://lsly1989.qiniudn.com/cssbeach3.jpg" width="240" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(-216deg) translateX(180px); padding: 0 0 0 147px;" src="http://lsly1989.qiniudn.com/cssbeach4.jpg" width="213" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(-288deg) translateX(180px); padding: 0 0 0 122px;" src="http://lsly1989.qiniudn.com/cssbeach5.jpg" width="238" height="160" alt=""><br>  </div><br></div>
+
+
+<p>看CSS代码就知道了效果得在Chrome看，原理很简单，每个图片延Y轴旋转一定的角度，然后容器6s为周期旋转，有兴趣同学可以看看PHP动态处理的方式</p>
+<pre><code><span class="php"><span class="preprocessor">&lt;?PHP</span>
+  <span class="comment">// Original PHP code by Chirp Internet: www.chirp.com.au</span>
+  <span class="comment">// Please acknowledge use of this code by including this header.</span>
+
+  <span class="variable">$size</span> = <span class="keyword">array</span>();
+  <span class="variable">$rotation</span> = <span class="variable">$maxw</span> = <span class="variable">$maxh</span> = <span class="number">0</span>;
+
+  <span class="comment">// identify images to display</span>
+  <span class="variable">$dirlist</span> = glob(<span class="string">"images/beach*.jpg"</span>);
+  <span class="variable">$num</span> = count(<span class="variable">$dirlist</span>);
+
+  <span class="comment">// calculate the largest image dimensions</span>
+  <span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$num</span>; <span class="variable">$i</span>++) {
+    <span class="variable">$img</span> = <span class="variable">$dirlist</span>[<span class="variable">$i</span>];
+    <span class="variable">$size</span>[<span class="variable">$i</span>] = getimagesize(<span class="variable">$img</span>);
+    <span class="keyword">if</span>(<span class="variable">$size</span>[<span class="variable">$i</span>][<span class="number">0</span>] &gt; <span class="variable">$maxw</span>) <span class="variable">$maxw</span> = <span class="variable">$size</span>[<span class="variable">$i</span>][<span class="number">0</span>];
+    <span class="keyword">if</span>(<span class="variable">$size</span>[<span class="variable">$i</span>][<span class="number">1</span>] &gt; <span class="variable">$maxh</span>) <span class="variable">$maxh</span> = <span class="variable">$size</span>[<span class="variable">$i</span>][<span class="number">1</span>];
+  }
+
+  <span class="comment">// display the carousel html</span>
+  <span class="keyword">echo</span> <span class="string">"&lt;div class=\"stage\" style=\"padding-left: "</span>,(<span class="variable">$maxw</span>*<span class="number">3</span>/<span class="number">4</span>),<span class="string">"px; height: {$maxh}px;\"&gt;\n"</span>;
+  <span class="keyword">echo</span> <span class="string">"&lt;div id=\"spinner\" style=\"-webkit-transform-origin: "</span>,(<span class="variable">$maxw</span>*<span class="number">3</span>/<span class="number">4</span>),<span class="string">"px 0 0;\"&gt;\n"</span>;
+  <span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$num</span>; <span class="variable">$i</span>++) {
+    <span class="variable">$img</span> = <span class="variable">$dirlist</span>[<span class="variable">$i</span>];
+    <span class="variable">$padleft</span> = (<span class="variable">$maxw</span> - <span class="variable">$size</span>[<span class="variable">$i</span>][<span class="number">0</span>]);
+    <span class="variable">$padh</span> = (<span class="variable">$maxh</span> - <span class="variable">$size</span>[<span class="variable">$i</span>][<span class="number">1</span>]) / <span class="number">2</span>;
+    <span class="keyword">echo</span> <span class="string">"&lt;img style=\"-webkit-transform: rotateY(-"</span>,round(<span class="variable">$rotation</span>,<span class="number">1</span>),<span class="string">"deg) translateX("</span>,(<span class="variable">$maxw</span>*<span class="number">3</span>/<span class="number">4</span>),<span class="string">"px); padding: {$padh}px 0 {$padh}px "</span>,(<span class="variable">$padleft</span> + <span class="variable">$maxw</span>/<span class="number">2</span>),<span class="string">"px;\" src=\"$img\" {$size[$i][3]} alt=\"\"&gt;\n"</span>;
+    <span class="variable">$rotation</span> += <span class="number">360</span> / <span class="variable">$num</span>;
+  }
+  <span class="keyword">echo</span> <span class="string">"&lt;/div&gt;\n"</span>;
+  <span class="keyword">echo</span> <span class="string">"&lt;/div&gt;\n\n"</span>;
+<span class="preprocessor">?&gt;</span></span>
+</code></pre><p>这段代码展示了设置图片居中，并且任意数量的图片都可以</p>
+<h1 id="旋转多边形">旋转多边形</h1>
+<p>利用当前的样式，我们稍作修改，我们可以做出在旋转多边形上的相册</p>
+<div class="stage" style="width: 240px; height: 160px;"><br>  <div class="spinner"><br>    <img style="-webkit-transform: rotateY(0deg) translateZ(165px); -moz-transform: rotateY(0deg) translateZ(165px); -ms-transform: rotateY(0deg) translateZ(165px); padding: 0px 20px;" src="http://lsly1989.qiniudn.com/cssbeach1.jpg" width="200" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(72deg) translateZ(165px); -moz-transform: rotateY(72deg) translateZ(165px); -ms-transform: rotateY(72deg) translateZ(165px); padding: 0px 13.5px;" src="http://lsly1989.qiniudn.com/cssbeach2.jpg" width="213" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(144deg) translateZ(165px); -moz-transform: rotateY(144deg) translateZ(165px); -ms-transform: rotateY(144deg) translateZ(165px); padding: 0px 0px;" src="http://lsly1989.qiniudn.com/cssbeach3.jpg" width="240" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(216deg) translateZ(165px); -moz-transform: rotateY(216deg) translateZ(165px); -ms-transform: rotateY(216deg) translateZ(165px); padding: 0px 13.5px;" src="http://lsly1989.qiniudn.com/cssbeach4.jpg" width="213" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(288deg) translateZ(165px); -moz-transform: rotateY(288deg) translateZ(165px); -ms-transform: rotateY(288deg) translateZ(165px); padding: 0px 1px;" src="http://lsly1989.qiniudn.com/cssbeach5.jpg" width="238" height="160" alt=""><br>  </div><br></div>
+
+<p>&nbsp;</p>
+<pre><code>&lt;div <span class="variable">class=</span><span class="string">"stage"</span> <span class="variable">style=</span><span class="string">"width: 240px; height: 160px;"</span>&gt;
+  &lt;div <span class="variable">class=</span><span class="string">"spinner"</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(0deg) translateZ(165px); -moz-transform: rotateY(0deg) translateZ(165px); -ms-transform: rotateY(0deg) translateZ(165px); padding: 0px 20px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach1.jpg"</span> <span class="variable">width=</span><span class="string">"200"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(72deg) translateZ(165px); -moz-transform: rotateY(72deg) translateZ(165px); -ms-transform: rotateY(72deg) translateZ(165px); padding: 0px 13.5px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach2.jpg"</span> <span class="variable">width=</span><span class="string">"213"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(144deg) translateZ(165px); -moz-transform: rotateY(144deg) translateZ(165px); -ms-transform: rotateY(144deg) translateZ(165px); padding: 0px 0px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach3.jpg"</span> <span class="variable">width=</span><span class="string">"240"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(216deg) translateZ(165px); -moz-transform: rotateY(216deg) translateZ(165px); -ms-transform: rotateY(216deg) translateZ(165px); padding: 0px 13.5px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach4.jpg"</span> <span class="variable">width=</span><span class="string">"213"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+    &lt;img <span class="variable">style=</span><span class="string">"-webkit-transform: rotateY(288deg) translateZ(165px); -moz-transform: rotateY(288deg) translateZ(165px); -ms-transform: rotateY(288deg) translateZ(165px); padding: 0px 1px;"</span> <span class="variable">src=</span><span class="string">"http://lsly1989.qiniudn.com/cssbeach5.jpg"</span> <span class="variable">width=</span><span class="string">"238"</span> <span class="variable">height=</span><span class="string">"160"</span> <span class="variable">alt=</span><span class="string">""</span>&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>我们只是更新了最后一部分的代码</p>
+<pre><code>&lt;?PHP
+  // display the rotating polygon
+  <span class="variable">$radius</span> = floor(<span class="variable">$maxw</span> / (<span class="number">2</span> * tan(deg2rad(<span class="number">180</span>/<span class="variable">$num</span>))));
+  <span class="built_in">echo</span> <span class="string">"&lt;div id=\"stage\" style=\"width: {<span class="variable">$maxw</span>}px; height: {<span class="variable">$maxh</span>}px;\"&gt;\n"</span>;
+  <span class="built_in">echo</span> <span class="string">"&lt;div id=\"spinner\"&gt;\n"</span>;
+  <span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$num</span>; <span class="variable">$i</span>++) {
+    <span class="variable">$img</span> = <span class="variable">$dirlist</span>[<span class="variable">$i</span>];
+    <span class="variable">$padw</span> = (<span class="variable">$maxw</span> - <span class="variable">$size</span>[<span class="variable">$i</span>][<span class="number">0</span>]) / <span class="number">2</span>;
+    <span class="variable">$padh</span> = (<span class="variable">$maxh</span> - <span class="variable">$size</span>[<span class="variable">$i</span>][<span class="number">1</span>]) / <span class="number">2</span>;
+    <span class="built_in">echo</span> <span class="string">"&lt;img style=\"-webkit-transform: rotateY("</span>,round(<span class="variable">$rotation</span>, <span class="number">1</span>),<span class="string">"deg) translateZ({<span class="variable">$radius</span>}px); padding: {<span class="variable">$padh</span>}px {<span class="variable">$padw</span>}px;\" src=\"<span class="variable">$img</span>\" {<span class="variable">$size</span>[<span class="variable">$i</span>][3]} alt=\"\"&gt;"</span>;
+    <span class="variable">$rotation</span> += <span class="number">360</span> / <span class="variable">$num</span>;
+  }
+  <span class="built_in">echo</span> <span class="string">"&lt;/div&gt;\n"</span>;
+  <span class="built_in">echo</span> <span class="string">"&lt;/div&gt;\n"</span>;
+?&gt;
+</code></pre><p>感觉有些疑惑的同学可以看个简单的（Chrome。。。）</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"stage2"</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"wrap"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item item1"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item item2"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item item3"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item item4"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+  &lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>&nbsp;</p>
+<pre><code><span class="at_rule">@<span class="keyword">-webkit-keyframes</span> t</span>{
+  <span class="tag">from</span> <span class="rules">{
+    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>)</span></span>;
+  <span class="rule">}</span></span>
+  <span class="tag">to</span> <span class="rules">{
+    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>;
+  <span class="rule">}</span></span>
+}
+
+<span class="class">.stage2</span><span class="rules">{
+  <span class="rule"><span class="attribute">perspective</span>:<span class="value"> <span class="number">1200px</span></span></span>;
+  <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">30px</span> <span class="number">200px</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.wrap</span><span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">200px</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">60px</span></span></span>;
+  <span class="rule"><span class="attribute">-webkit-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+  <span class="rule"><span class="attribute">-webkit-animation-name</span>:<span class="value"> t</span></span>;
+  <span class="rule"><span class="attribute">-webkit-animation-timing-function</span>:<span class="value"> linear</span></span>;
+  <span class="rule"><span class="attribute">-webkit-animation-iteration-count</span>:<span class="value"> infinite</span></span>;
+  <span class="rule"><span class="attribute">-webkit-animation-duration</span>:<span class="value"> <span class="number">6s</span></span></span>;
+  <span class="rule"><span class="attribute">-webkit-transform-origin</span>:<span class="value"><span class="number">100px</span> <span class="number">0px</span> -<span class="number">100px</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.item</span><span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">200px</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">60px</span></span></span>;
+  <span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;
+  <span class="rule"><span class="attribute">opacity</span>:<span class="value"><span class="number">0.7</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.item1</span><span class="rules">{
+  <span class="rule"><span class="attribute">background</span>:<span class="value">red</span></span>;
+  <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>) <span class="function">translateX</span>(<span class="number">0px</span>) <span class="function">translateZ</span>(<span class="number">0px</span>)</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.item2</span><span class="rules">{
+  <span class="rule"><span class="attribute">background</span>:<span class="value">orange</span></span>;
+  <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">90deg</span>) <span class="function">translateX</span>(<span class="number">100px</span>) <span class="function">translateZ</span>(<span class="number">100px</span>)</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.item3</span><span class="rules">{
+  <span class="rule"><span class="attribute">background</span>:<span class="value">blue</span></span>;
+  <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>) <span class="function">translateX</span>(<span class="number">0px</span>) <span class="function">translateZ</span>(-<span class="number">200px</span>)</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.item4</span><span class="rules">{
+  <span class="rule"><span class="attribute">background</span>:<span class="value">green</span></span>;
+  <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">90deg</span>) <span class="function">translateX</span>(-<span class="number">100px</span>)<span class="function">translateZ</span>(<span class="number">100px</span>)</span></span>;
+<span class="rule">}</span></span>
+</code></pre>  <style>
+  @-webkit-keyframes t{
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+.stage2{
+  perspective: 1200px;
+  margin:30px 200px;
+}
+
+.wrap{
+  width:200px;
+  height:60px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-animation-name: t;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 6s;
+  -webkit-transform-origin:100px 0px -100px;
+}
+
+.item{
+  width:200px;
+  height:60px;
+  position:absolute;
+  opacity:0.7;
+}
+
+.item1{
+  background:red;
+  -webkit-transform: rotateY(0deg) translateX(0px) translateZ(0px);
+}
+
+.item2{
+  background:orange;
+  -webkit-transform: rotateY(90deg) translateX(100px) translateZ(100px);
+}
+
+.item3{
+  background:blue;
+  -webkit-transform: rotateY(0deg) translateX(0px) translateZ(-200px);
+}
+
+.item4{
+  background:green;
+  -webkit-transform: rotateY(-90deg) translateX(-100px)translateZ(100px);
+}
+  </style>  
+
+  <div class="stage2"><br>    <div class="wrap"><br>      <div class="item item1"></div><br>      <div class="item item2"></div><br>      <div class="item item3"></div><br>      <div class="item item4"></div><br>    </div><br>  </div>
+
+<h1 id="调整keframes的timing方法">调整keframes的timing方法</h1>
+<p>As mentioned above, using different transition timing functions can make the animation more appealing. The problem is that it’s difficult to set up unless you know exactly how many elements you’re dealing with.</p>
+<p>For this example, we’re going to re-use the above example, which we know has five sides, and set up a keyframe to display them to best effect. We’ve called the new keyframes spinner5 because it’s optimised for display five sides in sequence:</p>
+<p>上面提到过使用不同的transition timing方法可以展现不同的动画效果，问题是除非你非常了解要处理的元素数目，否则很难设置这些方法。比如我们将复用上面的例子，我们知道有5个图片，这样我们可以设置transition timing到最佳，我们创建一个新的keyframes<code>spinner5</code>来优化一下按顺序显示五个图像的动画</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+
+  <span class="at_rule">@<span class="keyword">-webkit-keyframes</span> spinner5 </span>{
+    <span class="tag">from</span>,15% <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0deg</span>)</span></span>;    <span class="rule">}</span></span>
+    20%,35%  <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">72deg</span>)</span></span>;  <span class="rule">}</span></span>
+    40%,55%  <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">144deg</span>)</span></span>; <span class="rule">}</span></span>
+    60%,75%  <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">216deg</span>)</span></span>; <span class="rule">}</span></span>
+    80%,95%  <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">288deg</span>)</span></span>; <span class="rule">}</span></span>
+    <span class="tag">to</span>       <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>; <span class="rule">}</span></span>
+  }
+
+  <span class="at_rule">@<span class="keyword">keyframes</span> spinner5 </span>{
+    <span class="tag">from</span>,15% <span class="rules">{
+      <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0</span>)</span></span>;
+      <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0</span>)</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">0</span>)</span></span>;
+    <span class="rule">}</span></span>
+    20%,35%  <span class="rules">{
+      <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">72deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">72deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">72deg</span>)</span></span>;
+    <span class="rule">}</span></span>
+    40%,55%  <span class="rules">{
+      <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">144deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">144deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">144deg</span>)</span></span>;
+    <span class="rule">}</span></span>
+    60%,75%  <span class="rules">{
+      <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">216deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">216deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">216deg</span>)</span></span>;
+    <span class="rule">}</span></span>
+    80%,95%  <span class="rules">{
+      <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">288deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">288deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">288deg</span>)</span></span>;
+    <span class="rule">}</span></span>
+    <span class="tag">to</span> <span class="rules">{
+      <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">360deg</span>)</span></span>;
+    <span class="rule">}</span></span>
+  }
+
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p> We then need to modify the style settings for the ‘spinner’ to reference the new keyframes and to make some changes to the timing and duration:</p>
+<p>接下来我们需要修改<code>spinner</code>的样式，来引用新的keyframes</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+
+  <span class="id">#spinner</span> <span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-animation-name</span>:<span class="value"> spinner5</span></span>;
+    <span class="rule"><span class="attribute">-webkit-animation-timing-function</span>:<span class="value"> ease-out</span></span>;
+    <span class="rule"><span class="attribute">-webkit-animation-iteration-count</span>:<span class="value"> infinite</span></span>;
+    <span class="rule"><span class="attribute">-webkit-animation-duration</span>:<span class="value"> <span class="number">20s</span></span></span>;
+
+    <span class="rule"><span class="attribute">animation-name</span>:<span class="value"> spinner5</span></span>;
+    <span class="rule"><span class="attribute">animation-timing-function</span>:<span class="value"> ease-out</span></span>;
+    <span class="rule"><span class="attribute">animation-iteration-count</span>:<span class="value"> infinite</span></span>;
+    <span class="rule"><span class="attribute">animation-duration</span>:<span class="value"> <span class="number">20s</span></span></span>;
+
+    <span class="rule"><span class="attribute">-webkit-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+    <span class="rule"><span class="attribute">-moz-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+    <span class="rule"><span class="attribute">-ms-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+    <span class="rule"><span class="attribute">transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+  <span class="rule">}</span></span>
+
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>   
+</code></pre><p>我们可以看到结果用户体验好多了，在20秒期间每个图片旋转3秒，停留1秒</p>
+ <style type="text/css">
+
+  @-webkit-keyframes spinner5 {
+    from,15% { -webkit-transform: rotateY(0deg);    }
+    20%,35%  { -webkit-transform: rotateY(-72deg);  }
+    40%,55%  { -webkit-transform: rotateY(-144deg); }
+    60%,75%  { -webkit-transform: rotateY(-216deg); }
+    80%,95%  { -webkit-transform: rotateY(-288deg); }
+    to       { -webkit-transform: rotateY(-360deg); }
+  }
+
+  @keyframes spinner5 {
+    from,15% {
+      -moz-transform: rotateY(0);
+      -ms-transform: rotateY(0);
+      transform: rotateY(0);
+    }
+    20%,35%  {
+      -moz-transform: rotateY(-72deg);
+      -ms-transform: rotateY(-72deg);
+      transform: rotateY(-72deg);
+    }
+    40%,55%  {
+      -moz-transform: rotateY(-144deg);
+      -ms-transform: rotateY(-144deg);
+      transform: rotateY(-144deg);
+    }
+    60%,75%  {
+      -moz-transform: rotateY(-216deg);
+      -ms-transform: rotateY(-216deg);
+      transform: rotateY(-216deg);
+    }
+    80%,95%  {
+      -moz-transform: rotateY(-288deg);
+      -ms-transform: rotateY(-288deg);
+      transform: rotateY(-288deg);
+    }
+    to {
+      -moz-transform: rotateY(-360deg);
+      -ms-transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
+    }
+  }
+  .spinner2 {
+    -webkit-animation-name: spinner5;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 20s;
+
+      animation-name: spinner5;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+
+       -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+.spinner2 img {
+      position: absolute;
+      border: 1px solid #ccc;
+      background: rgba(255,255,255,0.8);
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    }
+
+</style>
+
+<p>&nbsp;</p>
+<div class="stage" style="width: 240px; height: 160px;"><br>  <div class="spinner2"><br>    <img style="-webkit-transform: rotateY(0deg) translateZ(165px); -moz-transform: rotateY(0deg) translateZ(165px); -ms-transform: rotateY(0deg) translateZ(165px); padding: 0px 20px;" src="http://lsly1989.qiniudn.com/cssbeach1.jpg" width="200" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(72deg) translateZ(165px); -moz-transform: rotateY(72deg) translateZ(165px); -ms-transform: rotateY(72deg) translateZ(165px); padding: 0px 13.5px;" src="http://lsly1989.qiniudn.com/cssbeach2.jpg" width="213" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(144deg) translateZ(165px); -moz-transform: rotateY(144deg) translateZ(165px); -ms-transform: rotateY(144deg) translateZ(165px); padding: 0px 0px;" src="http://lsly1989.qiniudn.com/cssbeach3.jpg" width="240" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(216deg) translateZ(165px); -moz-transform: rotateY(216deg) translateZ(165px); -ms-transform: rotateY(216deg) translateZ(165px); padding: 0px 13.5px;" src="http://lsly1989.qiniudn.com/cssbeach4.jpg" width="213" height="160" alt=""><br>    <img style="-webkit-transform: rotateY(288deg) translateZ(165px); -moz-transform: rotateY(288deg) translateZ(165px); -ms-transform: rotateY(288deg) translateZ(165px); padding: 0px 1px;" src="http://lsly1989.qiniudn.com/cssbeach5.jpg" width="238" height="160" alt=""><br>  </div><br></div> 
+
+<p>&nbsp;</p>
+<h1 id="旋转的立方体">旋转的立方体</h1>
+<p>One last example, a bit more complex that the previous which just involved rotations around one axis. Here we set up a cube with six faces that rotate in order.</p>
+<p>We start by using CSS to style and place the six faces of the cube. Each side will be marked up as a div child of the ‘spinner’ element:</p>
+<p>最后一个例子比之前只是绕一个轴旋转的复杂一些，我们现在做一个旋转的立方体，我们先通过CSS放好立方体的6个面</p>
+<pre><code>&lt;style <span class="keyword">type</span>=<span class="string">"text/css"</span>&gt;
+</code></pre><p> .cubespinner div {<br>    position: absolute;<br>    width: 120px;<br>    height: 120px;<br>    border: 1px solid #ccc;<br>    background: rgba(255,255,255,0.8);<br>    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);<br>    text-align: center;<br>    line-height: 120px;<br>    font-size: 100px;<br>  }</p>
+<p>  .cubespinner .face1 { -webkit-transform: translateZ(60px);                                }<br>  .cubespinner .face2 { -webkit-transform: rotateY(90deg) translateZ(60px);                 }<br>  .cubespinner .face3 { -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);  }<br>  .cubespinner .face4 { -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px); }<br>  .cubespinner .face5 { -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); }<br>  .cubespinner .face6 { -webkit-transform: rotateX(-90deg) translateZ(60px); </p>
+<pre><code><span class="xml"><span class="css"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span>
+</code></pre><p>如果我们不希望看到背面的元素可以通过在元素上设置<code>-webkit-backface-visibility: hidden;</code></p>
+<p>接着我们设置一个关键帧动画序列来旋转立方体，让每个面轮流在前面显示</p>
+<pre><code> <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+
+  <span class="at_rule">@<span class="keyword">-webkit-keyframes</span> spincube </span>{
+  <span class="tag">from</span>,<span class="tag">to</span>  <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateX</span>(<span class="number">0deg</span>) <span class="function">rotateY</span>(<span class="number">0deg</span>) <span class="function">rotateZ</span>(<span class="number">0deg</span>)</span></span>; <span class="rule">}</span></span>
+  16%      <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">90deg</span>)</span></span>;                           <span class="rule">}</span></span>
+  33%      <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">90deg</span>) <span class="function">rotateZ</span>(<span class="number">90deg</span>)</span></span>;            <span class="rule">}</span></span>
+  50%      <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(-<span class="number">180deg</span>) <span class="function">rotateZ</span>(<span class="number">90deg</span>)</span></span>;           <span class="rule">}</span></span>
+  66%      <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">90deg</span>) <span class="function">rotateX</span>(<span class="number">90deg</span>)</span></span>;             <span class="rule">}</span></span>
+  83%      <span class="rules">{ <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateX</span>(<span class="number">90deg</span>)</span></span>;                            <span class="rule">}</span></span>
+}
+
+<span class="class">.cubespinner</span> <span class="rules">{
+  <span class="rule"><span class="attribute">-webkit-animation-name</span>:<span class="value"> spincube</span></span>;
+  <span class="rule"><span class="attribute">-webkit-animation-timing-function</span>:<span class="value"> ease-in-out</span></span>;
+  <span class="rule"><span class="attribute">-webkit-animation-iteration-count</span>:<span class="value"> infinite</span></span>;
+  <span class="rule"><span class="attribute">-webkit-animation-duration</span>:<span class="value"> <span class="number">12s</span></span></span>;
+  <span class="rule"><span class="attribute">-webkit-transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+  <span class="rule"><span class="attribute">-webkit-transform-origin</span>:<span class="value"> <span class="number">60px</span> <span class="number">60px</span> <span class="number">0</span></span></span>;
+<span class="rule">}</span></span>
+  </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>HTML结构是这样的</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"stage"</span> style=<span class="string">"width: 120px; height: 120px;"</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"cubespinner"</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"face1"</span>&gt;<span class="number">1</span>&lt;/<span class="keyword">div</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"face2"</span>&gt;<span class="number">2</span>&lt;/<span class="keyword">div</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"face3"</span>&gt;<span class="number">3</span>&lt;/<span class="keyword">div</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"face4"</span>&gt;<span class="number">4</span>&lt;/<span class="keyword">div</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"face5"</span>&gt;<span class="number">5</span>&lt;/<span class="keyword">div</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"face6"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+  &lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>每次旋转会用时两秒</p>
+<style type="text/css">
+
+  .cubespinner div {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ccc;
+    background: rgba(255,255,255,0.8);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    text-align: center;
+    line-height: 120px;
+    font-size: 100px;
+  }
+
+  .cubespinner .face1 { -webkit-transform: translateZ(60px);                                }
+  .cubespinner .face2 { -webkit-transform: rotateY(90deg) translateZ(60px);                 }
+  .cubespinner .face3 { -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);  }
+  .cubespinner .face4 { -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px); }
+  .cubespinner .face5 { -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); }
+  .cubespinner .face6 { -webkit-transform: rotateX(-90deg) translateZ(60px);                }
+
+
+  @-webkit-keyframes spincube {
+    from,to  { -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    16%      { -webkit-transform: rotateY(-90deg);                           }
+    33%      { -webkit-transform: rotateY(-90deg) rotateZ(90deg);            }
+    50%      { -webkit-transform: rotateY(-180deg) rotateZ(90deg);           }
+    66%      { -webkit-transform: rotateY(90deg) rotateX(90deg);             }
+    83%      { -webkit-transform: rotateX(90deg);                            }
+  }
+
+  .cubespinner {
+    -webkit-animation-name: spincube;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 12s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: 60px 60px 0;
+  }
+</style>
+
+<div class="stage" style="width: 120px; height: 120px;"><br><div class="cubespinner"><br><div class="face1">1</div><br><div class="face2">2</div><br><div class="face3">3</div><br><div class="face4">4</div><br><div class="face5">5</div><br><div class="face6">6</div><br></div><br></div>
+
+
+<p>&nbsp;</p>
+<p>点击<a href="http://www.the-art-of-web.com/css/rotating-cube/" target="_blank" rel="external">这里</a>下载demo </p>
+<h1 id="参考">参考</h1>
+<p><a href="http://www.the-art-of-web.com/css/3d-transforms/" target="_blank" rel="external">CSS: 3D Transforms and Animations</a></p>
+<script>
+$('a').removeClass('fancybox');
+$('br').remove();
+</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/16/css3Transforms&Animations/" data-id="4vrd49v2b88ex9li" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/10/14/jQuery deferred/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jQuery deferred</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

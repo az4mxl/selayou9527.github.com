@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>容易被忽略CSS特性 | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑
+大小写不敏感
+虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的
+.test{
+    background-COLOR:#a00;
+    width:100px;
+    height: 100px;
+}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="容易被忽略CSS特性">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/css容易忽略的特性/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑
+大小写不敏感
+虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的
+.test{
+    background-COLOR:#a00;
+    width:100px;
+    height: 100px;
+}">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/1a.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/2a.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/3a.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/4a.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/5a.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/6a.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="容易被忽略CSS特性">
+<meta name="twitter:description" content="CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑
+大小写不敏感
+虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的
+.test{
+    background-COLOR:#a00;
+    width:100px;
+    height: 100px;
+}">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-css容易忽略的特性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/css容易忽略的特性/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      容易被忽略CSS特性
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#大小写不敏感"><span class="toc-number">1.</span> <span class="toc-text">大小写不敏感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器优先级"><span class="toc-number">2.</span> <span class="toc-text">选择器优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行内(inline)元素的一些属性"><span class="toc-number">3.</span> <span class="toc-text">行内(inline)元素的一些属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些互斥的元素"><span class="toc-number">4.</span> <span class="toc-text">一些互斥的元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#font-size单位"><span class="toc-number">5.</span> <span class="toc-text">font-size单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#:checked_选择器范围"><span class="toc-number">6.</span> <span class="toc-text">:checked 选择器范围</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并不是所有图片都会被加载"><span class="toc-number">7.</span> <span class="toc-text">并不是所有图片都会被加载</span></a></li></ol>
+        </div>
+        <p>CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑</p>
+<h2 id="大小写不敏感">大小写不敏感</h2>
+<p>虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的</p>
+<pre><code><span class="class">.test</span><span class="rules">{
+    <span class="rule"><span class="attribute">background-COLOR</span>:<span class="value"><span class="hexcolor">#a00</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre><p><a id="more"></a><br><img src="http://lsly1989.qiniudn.com/1a.png" alt=""></p>
+<p>虽然把background-color写为了background-COLOR，但仍然会生效，之所以写成小写是因为xhtml标准的关系，但是即使不是xhtml还是写成小写比较好，美观、易读而且可以应对可能的转换需求</p>
+<h2 id="选择器优先级">选择器优先级</h2>
+<p>当两个规则都作用到了同一个html元素上时，如果定义的属性有冲突，那么应该用谁的值的，CSS有一套优先级的定义。</p>
+<p><strong>不同级别</strong></p>
+<ol>
+<li>在属性后面使用 !important 会覆盖页面内任何位置定义的元素样式。</li>
+<li>作为style属性写在元素内的样式</li>
+<li>id选择器</li>
+<li>类选择器</li>
+<li>标签选择器</li>
+<li>通配符选择器</li>
+<li>浏览器自定义或继承</li>
+</ol>
+<p><strong>同一级别</strong></p>
+<p>同一级别中后写的会覆盖先写的样式</p>
+<p>上面的级别还是很容易看懂的，但是有时候有些规则是多个级别的组合，像这样</p>
+<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+        <span class="tag">div</span><span class="class">.test</span><span class="rules">{
+            <span class="rule"><span class="attribute">background-COLOR</span>:<span class="value"><span class="hexcolor">#a00</span></span></span>;
+            <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+            <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+        <span class="rule">}</span></span>
+
+        <span class="class">.test</span><span class="class">.test2</span><span class="rules">{
+            <span class="rule"><span class="attribute">background-COLOR</span>:<span class="value"><span class="hexcolor">#0e0</span></span></span>;
+            <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+            <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+        <span class="rule">}</span></span>
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"test test2"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><p>到底div是应用那条规则呢，有个简单的计算方法（权值实际并不是按十进制，用数字表示只是说明思想，一万个class也不如一个id权值高）</p>
+<ul>
+<li>内联样式表的权值为 1000</li>
+<li>ID 选择器的权值为 100</li>
+<li>Class 类选择器的权值为 10</li>
+<li>HTML 标签选择器的权值为 1</li>
+</ul>
+<p>我们可以把选择器中规则对应做加法，比较权值，如果权值相同那就后面的覆盖前面的了，div.class的权值是1+10=11，而.test1 .test2的权值是10+10=20，所以div会应用.test1 .test2变成绿色</p>
+<p><img src="http://lsly1989.qiniudn.com/2a.png" alt=""></p>
+<h2 id="行内(inline)元素的一些属性">行内(inline)元素的一些属性</h2>
+<p>并不是所有的属性对行内元素都能够生效</p>
+<ol>
+<li>行内元素不会应用width属性，其长度是由内容撑开的</li>
+<li>行内元素不会应用height属性，其高度也是由内容撑开的，但是高度可以通过line-height调节</li>
+<li>行内元素的padding属性只用padding-left和padding-right生效，padding-top和padding-bottom会改变元素范围，但不会对其它元素造成影响</li>
+<li>行内元素的margin属性只有margin-left和margin-right有效，margin-top和margin-bottom无效</li>
+<li>行内元素的overflow属性无效，这个不用多说了</li>
+<li>行内元素的vertical-align属性无效（height属性无效）</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background-color: #a44;"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"padding:4px; margin:8px; height: 500px; width:1000px; background-color:#0e0;"</span>&gt;</span>123456789123456789<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background-color: #a44;"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"padding:4px; margin:8px; height: 500px; width:1000px; background-color:#0a0;"</span>&gt;</span>123456789<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p><img src="http://lsly1989.qiniudn.com/3a.png" alt=""></p>
+<p>通过例子可以看出，我们对span设置的width和height属性并没有生效，margin-top和margin-bottom无效，padding-top和padding-bottom会改变元素范围（背景区域变大了），但并没有影响下面元素位置</p>
+<h2 id="一些互斥的元素">一些互斥的元素</h2>
+<ol>
+<li>对于absolute和fixed定位的(固定大小，设置了width和height属性)元素，如果设置了top和left属性，那么设置bottom和right值就没有作用了，应该是top和left优先级高，否则同时写了浏览器怎么知道按照谁定位</li>
+<li>对于absolute和fixed定位的元素，如果设置了top、left、bottom、right的值后margin属性也就不起作用了</li>
+<li>对于absolute和fixed定位的元素，如果设置了top、left、bottom、right的值后float属性同样会失效</li>
+<li>块元素如果设置了float属性或者是absolute、fixed定位，那么vertical-align属性不再起作用 </li>
+</ol>
+<h2 id="font-size单位">font-size单位</h2>
+<p>我们在写字体的尺寸的时候常用的单位有</p>
+<ol>
+<li>px</li>
+<li>pt</li>
+<li>em</li>
+<li>rem</li>
+</ol>
+<p>这些字体分别有什么含义？</p>
+<ol>
+<li><p><code>px</code> 是pixel缩写，是基于像素的单位.在浏览网页过程中，屏幕上的文字、图片等会随屏幕的分辨率变化而变化，一个100px宽度大小的图片，在800×600分辨率下，要占屏幕宽度的1/8，但在1024×768下，则只占约1/10。所以如果在定义字体大小时，使用px作为单位，那一旦用户改变显示器分辨率从800到1024，用户实际看到的文字就要变“小”（自然长度单位），甚至会看不清，影响浏览</p>
+</li>
+<li><p><code>pt</code> 是point(磅)缩写，是一种固定长度的度量单位,大小为1/72英寸。如果在web上使用pt做单位的文字，字体的大小在不同屏幕（同样分辨率）下一样，这样可能会对排版有影响，但在Word中使用pt相当方便。因为使用Word主要目的都不是为了屏幕浏览，而是输出打印。当打印到实体时，pt作为一个自然长度单位就方便实用了：比如Word中普通的文档都用“宋体 9pt”，标题用“黑体 16pt”等等，无论电脑怎么设置，打印出来永远就是这么大</p>
+</li>
+<li><p><code>em</code> 是相对单位，是一个相对长度单位，最初是指字母M的宽度，所以叫em，现指的是字符宽度的倍数，用法类似百分比，如：0.8em, 1.2em,2em等。通常1em=16px（浏览器默认字体大小16px），em是指父元素的字体大小。在一个页面上给定了一个父元素的字体大小,这样就可以通过调整一个元素来成比例的改变所有元素大小.它可以自由缩放,比如用来制作可伸缩的样式表。类似还有ex的概念，ex 相对于字符“x”的高度，此高度通常为字体尺寸的一半</p>
+</li>
+<li><p><code>rem</code> rem是CSS新增的，em是相对于其父元素来设置字体大小的，这样就会存在一个问题，进行任何元素设置，都有可能需要知道他父元素的大小，在多次使用时，就会带来无法预知的错误风险。而rem是相对于根元素<html>(r:root)，使用rem我们只需要在根元素确定一个参考值，然后就可以控制整个html页面所有字体了</html></p>
+</li>
+</ol>
+<h2 id=":checked_选择器范围">:checked 选择器范围</h2>
+<p>我们知道:checked会选择被选中的checkbox和radio，看个例子</p>
+<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+        <span class="pseudo">:checked</span><span class="rules">{
+            <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>;
+        <span class="rule">}</span></span>
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"t1"</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">checked</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"t3"</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">checked</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">select</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">id</span>=<span class="value">"t2"</span>&gt;</span>test<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">id</span>=<span class="value">"t4"</span>&gt;</span>test2<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">select</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><p><img src="http://lsly1989.qiniudn.com/4a.png" alt=""></p>
+<p>对于前两个margin变成10px我们不奇怪，但是当我们看select的option的时候会发现被选中的option的margin也变成了10px，没有被选中的option则没有变化！</p>
+<p><img src="http://lsly1989.qiniudn.com/5a.png" alt=""></p>
+<p>是的<code>:checked</code>也会选择被选中的option</p>
+<h2 id="并不是所有图片都会被加载">并不是所有图片都会被加载</h2>
+<p>我们知道写在页面上的img标签，无论显示与否，图片都会被加载（所以试图通过对图片display:none来达到节省网络流量的做法就省省吧。。。），我们也经常使用backgroung-image等css属性为页面添加图片，这些图片是不是一定会被加载呢，看个例子</p>
+<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+        <span class="class">.useless</span><span class="rules">{
+            <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(images/<span class="number">0</span>.jpg)</span></span>;
+        <span class="rule">}</span></span>
+        <span class="class">.hidden</span><span class="rules">{
+            <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(images/<span class="number">1</span>.jpg)</span></span>;
+        <span class="rule">}</span></span>
+        <span class="class">.none</span><span class="rules">{
+            <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(images/<span class="number">2</span>.jpg)</span></span>;
+        <span class="rule">}</span></span>
+        <span class="class">.parentHidden</span><span class="rules">{
+            <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(images/<span class="number">3</span>.jpg)</span></span>;
+        <span class="rule">}</span></span>
+        <span class="class">.parentNone</span><span class="rules">{
+            <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(images/<span class="number">4</span>.jpg)</span></span>;
+        <span class="rule">}</span></span>
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"hidden"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"none"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"visibility:hidden;"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parentHidden"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"display:none;"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parentNone"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"display:none"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"images/5.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><p>看一下网络监视情况（怎么柳岩的照片变小后感觉怪怪的。。。）</p>
+<p><img src="http://lsly1989.qiniudn.com/6a.png" alt=""></p>
+<p>我们可以发现图片0和4没有被下载，0是<strong>没有用到</strong>的CSS，4是<strong>父容器的display被设为none</strong>的情况，这两种情况下的CSS引用的图片是不会被加载的，而父容器设置visibility属性为hidden仍然会加载图片，不要搞混了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/css容易忽略的特性/" data-id="ne6oyh7fred5d4t4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/history对象/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          history
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/canvas简单介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Canvas简单介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

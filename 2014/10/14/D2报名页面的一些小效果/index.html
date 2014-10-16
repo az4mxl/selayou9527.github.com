@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>D2报名页面的一些小效果 | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近看到了阿里巴巴D2前段论坛的报名页面，有几个有意思的小技巧，都是关于CSS3的，总结一下，万一哪天也用到了呢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="D2报名页面的一些小效果">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/D2报名页面的一些小效果/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="最近看到了阿里巴巴D2前段论坛的报名页面，有几个有意思的小技巧，都是关于CSS3的，总结一下，万一哪天也用到了呢">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="D2报名页面的一些小效果">
+<meta name="twitter:description" content="最近看到了阿里巴巴D2前段论坛的报名页面，有几个有意思的小技巧，都是关于CSS3的，总结一下，万一哪天也用到了呢">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-D2报名页面的一些小效果" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/D2报名页面的一些小效果/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      D2报名页面的一些小效果
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#图片hover变大"><span class="toc-number">1.</span> <span class="toc-text">图片hover变大</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#元素翻滚而出"><span class="toc-number">2.</span> <span class="toc-text">元素翻滚而出</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#闪闪发光的logo"><span class="toc-number">2.1.</span> <span class="toc-text">闪闪发光的logo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
+        </div>
+        <p>最近看到了阿里巴巴D2前段论坛的<a href="http://d2forum.alibaba-inc.com/" target="_blank" rel="external">报名页面</a>，有几个有意思的小技巧，都是关于CSS3的，总结一下，万一哪天也用到了呢<br><a id="more"></a></p>
+<h1 id="图片hover变大">图片hover变大</h1>
+<p>也就是照片墙部分，这个不了解css3的情况下我们会用个固定尺寸的父元素把图片保卫起来，然后把图片设置为绝对定位，hover的时候是用jQuery Animation等方式修改图片的尺寸和位置，使图片变大并且保持居中</p>
+<p>有了CSS3后一切都简单了起来</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"c"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="class">.a</span><span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;
+  <span class="rule"><span class="attribute">background</span>:<span class="value">red</span></span>;
+  <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">10px</span></span></span>;
+  <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.a</span><span class="pseudo">:hover</span><span class="rules">{
+  <span class="rule"><span class="attribute">background</span>:<span class="value">blue</span></span>;
+  <span class="rule"><span class="attribute">transform</span>:<span class="value"><span class="function">scale</span>(<span class="number">1.5</span>)</span></span>;
+  <span class="rule"><span class="attribute">transition</span>:<span class="value"> all <span class="number">0.5s</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.c</span><span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">450px</span></span></span>;
+  <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><div style="height:20px;">&nbsp;</div><br><div class="c"><br>    <div class="a"></div><br>    <div class="a"></div><br>    <div class="a"></div><br>    <div class="a"></div><br>    <div class="a"></div><br>    <div class="a"></div><br>    <div class="a"></div><br>    <div class="a"></div><br>    <div class="a"></div><br></div>
+
+<style>
+
+.a{
+  width:100px;
+  height:100px;
+  background:red;
+  margin:10px;
+  float:left;
+}
+
+.a:hover{
+  background:blue;
+  transform:scale(1.5);
+  transition: all 0.5s;
+}
+
+.c{
+  width:450px;
+  overflow:hidden;
+}
+
+</style>
+
+<p>抛开兼容性问题不谈，使用CSS3的好处还是很多的</p>
+<ol>
+<li>代码看起来精简了很多</li>
+<li>CSS3放大元素后还是占原来的位置，不用外层占位</li>
+<li>CSS3可以控制变化的原点（默认中心），我们不用显式控制元素位置</li>
+<li>CSS3动画看起来更流畅</li>
+</ol>
+<h1 id="元素翻滚而出">元素翻滚而出</h1>
+<div class="a1"></div>
+
+<style>
+.a1{
+  height:60px;
+  background:#f0f000;
+  margin:30px;
+  transform-origin: 105% 0;
+  transform: rotateY(90deg) rotateX(-90deg);
+  transition: all 1.5s;
+}
+
+.b1{
+   transform: rotate(0);
+}
+</style>
+
+<p><input id="1" type="button" value="显示动画">  &nbsp;&nbsp;&nbsp;&nbsp;<input id="2" type="button" value="重置"> </p>
+<script>
+$('#1').on('click',function(e){
+    $('.a1').addClass('b1');
+});
+
+$('#2').on('click',function(e){
+    $('.a1').removeClass('b1');
+});
+</script>
+
+<p>这个效果一看知道是用CSS3做的，但具体怎么做的很多人却说不出来，其实做法很简单，看代码</p>
+<pre><code><span class="class">.a1</span><span class="rules">{
+  <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">60px</span></span></span>;
+  <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#f0f000</span></span></span>;
+  <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">30px</span></span></span>;
+  <span class="rule"><span class="attribute">transform-origin</span>:<span class="value"> <span class="number">105%</span> <span class="number">0</span></span></span>;
+  <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">90deg</span>) <span class="function">rotateX</span>(-<span class="number">90deg</span>)</span></span>;
+  <span class="rule"><span class="attribute">transition</span>:<span class="value"> all <span class="number">1.5s</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>我们一开始把div旋转，修改<code>transform-origin</code>到右上角，点击按钮的时候添加一个class</p>
+<pre><code><span class="class">.b1</span><span class="rules">{
+   <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">0</span>)</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>把旋转置为0，利用<code>transition</code>属性，就可以看到我们的动画效果了</p>
+<h2 id="闪闪发光的logo">闪闪发光的logo</h2>
+<p><div class="a2"><br>    <div class="b2"></div><br></div></p>
+<style>
+    .a2{
+      position:relative;
+      width:300px;
+      height:60px;
+     background:url(http://lsly1989.qiniudn.com/xxxasddbgfbTB194jGGpXXXXaTXXXXUg7ELXXX-300-60.png);
+    }
+
+    .a2:hover .b2{
+      left:350px;
+      transition:0.5s;
+    }
+
+    .b2{
+      position:absolute;
+      top:0;
+      left:-350px;
+      width:300px;
+      height:60px;
+      transform:skewx(-35deg);
+      background:linear-gradient(0deg,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0));
+    }
+</style>
+
+
+<p>这个效果也是利用CSS3的transition做的，div在hover的时候添加一个遮罩层，看看遮罩层怎么做的</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a2"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"b2"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+    <span class="class">.a2</span><span class="rules">{
+      <span class="rule"><span class="attribute">position</span>:<span class="value">relative</span></span>;
+      <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">300px</span></span></span>;
+      <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">60px</span></span></span>;
+     <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">url</span>(http://lsly1989.qiniudn.com/xxxasddbgfbTB194jGGpXXXXaTXXXXUg7ELXXX-<span class="number">300</span>-<span class="number">60</span>.png)</span></span>;
+    <span class="rule">}</span></span>
+
+    <span class="class">.a2</span><span class="pseudo">:hover</span> <span class="class">.b2</span><span class="rules">{
+      <span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">350px</span></span></span>;
+      <span class="rule"><span class="attribute">transition</span>:<span class="value"><span class="number">0.5s</span></span></span>;
+    <span class="rule">}</span></span>
+
+    <span class="class">.b2</span><span class="rules">{
+      <span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;
+      <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;
+      <span class="rule"><span class="attribute">left</span>:<span class="value">-<span class="number">350px</span></span></span>;
+      <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">300px</span></span></span>;
+      <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">60px</span></span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"><span class="function">skewx</span>(-<span class="number">35deg</span>)</span></span>;
+      <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">linear-gradient</span>(<span class="number">0deg</span>,<span class="function">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>),<span class="function">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.8</span>),<span class="function">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>))</span></span>;
+    <span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>遮罩层使用了css3的线性渐变，hover的时候transition移动遮罩层搞定</p>
+<h1 id="最后">最后</h1>
+<p>看起来很炫的效果原来这么简单就可以实现了，看来要好好啃啃CSS3了</p>
+<p>其实页面banner部分还是个动画，不过得使用一些js，以后有时间分析一下</p>
+<script>
+$('br').remove();
+</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/D2报名页面的一些小效果/" data-id="48l63uzckzn9modb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码/">源码</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/canvas简单介绍/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Canvas简单介绍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/attribute与property/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jQuery的attr与prop</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

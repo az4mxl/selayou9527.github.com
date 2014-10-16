@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Canvas简单介绍 | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="初识canvas
+canvas是html5引入的新标签，可以通过Javascript API 在HTML上绘制图形、图像，在页面上创建canvas只需要使用canvas标签就行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas简单介绍">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/14/canvas简单介绍/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="初识canvas
+canvas是html5引入的新标签，可以通过Javascript API 在HTML上绘制图形、图像，在页面上创建canvas只需要使用canvas标签就行">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/2sd.jpg">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/Screen-Shot-2014-06-14-at-13.15.06.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/Screen-Shot-2014-06-14-at-14.05.56.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/Screen-Shot-2014-06-14-at-14.35.27.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/Screen-Shot-2014-06-14-at-14.33.541.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas简单介绍">
+<meta name="twitter:description" content="初识canvas
+canvas是html5引入的新标签，可以通过Javascript API 在HTML上绘制图形、图像，在页面上创建canvas只需要使用canvas标签就行">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-canvas简单介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/canvas简单介绍/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/animation/">animation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Canvas简单介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#初识canvas"><span class="toc-number">1.</span> <span class="toc-text">初识canvas</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于尺寸"><span class="toc-number">1.1.</span> <span class="toc-text">关于尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坐标系"><span class="toc-number">1.2.</span> <span class="toc-text">坐标系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#即时模式"><span class="toc-number">1.3.</span> <span class="toc-text">即时模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识"><span class="toc-number">2.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#canvas对象方法"><span class="toc-number">2.1.</span> <span class="toc-text">canvas对象方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#canvasRenderingContext2D对象"><span class="toc-number">2.2.</span> <span class="toc-text">canvasRenderingContext2D对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画几个线条"><span class="toc-number">3.</span> <span class="toc-text">画几个线条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形和圆、弧"><span class="toc-number">4.</span> <span class="toc-text">矩形和圆、弧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变形"><span class="toc-number">5.</span> <span class="toc-text">变形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画布状态保存与恢复"><span class="toc-number">6.</span> <span class="toc-text">画布状态保存与恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画布编辑区"><span class="toc-number">7.</span> <span class="toc-text">画布编辑区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正弦、余弦曲线"><span class="toc-number">8.</span> <span class="toc-text">正弦、余弦曲线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时钟"><span class="toc-number">9.</span> <span class="toc-text">时钟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渐变"><span class="toc-number">10.</span> <span class="toc-text">渐变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制文字"><span class="toc-number">11.</span> <span class="toc-text">绘制文字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#填充图案"><span class="toc-number">12.</span> <span class="toc-text">填充图案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合成"><span class="toc-number">13.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制图像"><span class="toc-number">14.</span> <span class="toc-text">绘制图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">15.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <h2 id="初识canvas">初识canvas</h2>
+<p>canvas是html5引入的新标签，可以通过Javascript API 在HTML上绘制图形、图像，在页面上创建canvas只需要使用canvas标签就行<br><a id="more"></a></p>
+<h3 id="关于尺寸">关于尺寸</h3>
+<ol>
+<li><p>canvas有两套尺寸，一个是canvas元素本身大小，一个是绘图面(drawing surface)大小，默认是<code>300x150</code></p>
+</li>
+<li><p>当设置元素的width与height属性时，实际上是同时修改了该元素本身的大小与元素绘图表面的大小</p>
+</li>
+<li><p>如果是通过CSS来设定canvas元素的大小，那么只会改变元素本身的大小，而不会影响到绘图面</p>
+</li>
+<li><p>当canvas元素的大小与绘图面的大小不同时，浏览器就会对绘图面进行缩放，使其符合元素的大小</p>
+</li>
+</ol>
+<h3 id="坐标系">坐标系</h3>
+<ol>
+<li><p>2D渲染上下文采用平面的笛卡尔坐标系统，左上角是原点(0,0)，向右移动的时候x轴增加，向下移动的时候y轴增加</p>
+</li>
+<li><p>画圆弧的时候默认坐标系<strong>顺时针</strong></p>
+</li>
+</ol>
+<p><img src="http://lsly1989.qiniudn.com/2sd.jpg" alt=""></p>
+<h3 id="即时模式">即时模式</h3>
+<p>不同于SVG基于DOM，canvas是逐像素进行渲染的，而且是即时模式，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象</p>
+<h2 id="基础知识">基础知识</h2>
+<h3 id="canvas对象方法">canvas对象方法</h3>
+<ol>
+<li><code>canvas.getContext(&#39;2d&#39;)</code> 获取canvasRenderingContext2D对象</li>
+<li><code>canvas.toDataURL(mime,quality)</code> 获取canvas 图像的url引用</li>
+<li><code>canvas.toBlob(callback,mime,quality)</code> Blob对象类似于File对象,包含了文件的原始数据,canvas元素可以使用toBlob()方法将图片内容导出成为一个图片类型的Blob对象</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>&lt;canvas id=<span class="string">"basic-1"</span>&gt;&lt;/canvas&gt;
+&lt;img id=<span class="string">"logo"</span> /&gt;
+
+<span class="keyword">var</span> canvas= document.getElementById(<span class="string">'basic-1'</span>),
+    ctx=canvas5.getContext(<span class="string">'2d'</span>);
+<span class="keyword">var</span> img=<span class="keyword">new</span> Image();
+img.src=<span class="string">'logo.png'</span>;
+img.onload=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    ctx.drawImage(img,<span class="number">0</span>,<span class="number">0</span>,<span class="number">300</span>,<span class="number">150</span>);
+    document.getElementById(<span class="string">'logo'</span>).src=canvas.toDataURL(<span class="string">'jpg'</span>);
+};
+</code></pre><p><img src="http://lsly1989.qiniudn.com/Screen-Shot-2014-06-14-at-13.15.06.png" alt=""></p>
+<h3 id="canvasRenderingContext2D对象">canvasRenderingContext2D对象</h3>
+<p>使用<code>canvas.getContext(&#39;2d&#39;)</code> 得到的是一个<code>canvasRenderingContext2D</code>对象，绘画的属性和方法都是基于这个对象的，对象有几个重要属性</p>
+<ol>
+<li>canvas</li>
+<li>fillStyle：填充路径的当前的颜色、模式或渐变</li>
+<li>strokeStyle：画笔（绘制）路径的颜色、模式和渐变</li>
+<li>globalAlpha：画布上绘制的内容的不透明度</li>
+<li>globalCompositeOperation：指定颜色如何与画布上已有的颜色组合</li>
+<li>font</li>
+<li>textAlign</li>
+<li>textBaseline</li>
+<li>shadowBlur</li>
+<li>shadowColor</li>
+<li>shadowOffsetX</li>
+<li>shadowOffsetY</li>
+<li>lineWidth</li>
+<li>lineCap：线条的末端如何绘制</li>
+<li>lineJoin：两条线条如何连接</li>
+<li>miterLimit：当 lineJoin 属性为 “miter” 时，斜连接长度和线条宽度的最大比率</li>
+</ol>
+<h2 id="画几个线条">画几个线条</h2>
+<p>主要使用方法(ctx为canvasRenderingContext2D对象)</p>
+<ol>
+<li>ctx.moveTo(x,y)</li>
+<li>ctx.lineTo(x,y)</li>
+<li>ctx.beginPath()</li>
+<li>ctx.closePath()</li>
+<li>ctx.stroke()</li>
+<li>ctx.fill()</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>ctx.<span class="variable">lineWidth=</span><span class="number">10</span>;
+ctx.<span class="variable">strokeStyle=</span>'<span class="comment">#0e0';</span>
+ctx.<span class="variable">fillStyle=</span>'<span class="comment">#f00';</span>
+ctx.<span class="variable">globalAlpha=</span>'<span class="number">0.6</span>';
+ctx.<span class="variable">shadowBlur=</span><span class="number">3</span>;
+ctx.<span class="variable">shadowColor=</span>'<span class="comment">#000';</span>
+ctx.<span class="variable">shadowOffsetX=</span><span class="number">15</span>;
+ctx.<span class="variable">shadowOffsetY=</span><span class="number">5</span>;
+
+ctx.moveTo(<span class="number">20</span>,<span class="number">20</span>);
+ctx.lineTo(<span class="number">200</span>,<span class="number">20</span>);
+ctx.lineTo(<span class="number">200</span>,<span class="number">200</span>);
+ctx.lineTo(<span class="number">20</span>,<span class="number">20</span>);
+ctx.stroke();
+
+ctx.beginPath()
+ctx.moveTo(<span class="number">250</span>,<span class="number">20</span>);
+ctx.lineTo(<span class="number">400</span>,<span class="number">20</span>);
+ctx.lineTo(<span class="number">400</span>,<span class="number">200</span>);
+ctx.lineTo(<span class="number">250</span>,<span class="number">20</span>);
+ctx.fill();
+
+ctx.moveTo(<span class="number">450</span>,<span class="number">20</span>);
+ctx.lineTo(<span class="number">600</span>,<span class="number">20</span>);
+ctx.lineTo(<span class="number">600</span>,<span class="number">200</span>);
+ctx.closePath();
+ctx.stroke();
+</code></pre><canvas id="canvas1" width="640" height="250">
+
+<p></p></canvas><p></p>
+<script>
+var canvas1= document.getElementById('canvas1'),
+    ctx=canvas1.getContext('2d');
+    ctx.lineWidth=10;
+    ctx.strokeStyle='#0e0';
+    ctx.fillStyle='#f00';
+    ctx.globalAlpha='0.6';
+    ctx.shadowBlur=3;
+    ctx.shadowColor='#000';
+    ctx.shadowOffsetX=15;
+    ctx.shadowOffsetY=5;
+
+    ctx.moveTo(20,20);
+    ctx.lineTo(200,20);
+    ctx.lineTo(200,200);
+    ctx.lineTo(20,20);
+    ctx.stroke();
+
+    ctx.beginPath()
+    ctx.moveTo(250,20);
+    ctx.lineTo(400,20);
+    ctx.lineTo(400,200);
+    ctx.lineTo(250,20);
+    ctx.fill();
+
+    ctx.moveTo(450,20);
+    ctx.lineTo(600,20);
+    ctx.lineTo(600,200);
+    ctx.closePath();
+    ctx.stroke();
+</script>
+
+<pre><code>ctx.lineWidth=<span class="number">30</span>;
+
+ctx.moveTo(<span class="number">0</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">100</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">100</span>,<span class="number">150</span>);
+ctx.<span class="keyword">stroke</span>();
+
+ctx.moveTo(<span class="number">150</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">250</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">250</span>,<span class="number">150</span>);
+ctx.lineJoin=<span class="string">'round'</span>; <span class="comment">//line join</span>
+ctx.<span class="keyword">stroke</span>();
+
+ctx.moveTo(<span class="number">300</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">400</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">400</span>,<span class="number">150</span>);
+ctx.lineJoin=<span class="string">'bevel'</span>; <span class="comment">//line join</span>
+ctx.<span class="keyword">stroke</span>();
+
+ctx.beginPath()
+ctx.moveTo(<span class="number">450</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">550</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">460</span>,<span class="number">150</span>);
+ctx.lineJoin=<span class="string">'miter'</span>; <span class="comment">//line join</span>
+ctx.miterLimit=<span class="number">1</span>;
+ctx.<span class="keyword">stroke</span>();
+
+ctx.lineCap=<span class="string">'round'</span> <span class="comment">//line cap</span>
+ctx.moveTo(<span class="number">50</span>,<span class="number">170</span>);
+ctx.lineTo(<span class="number">200</span>,<span class="number">170</span>);
+ctx.<span class="keyword">stroke</span>();
+</code></pre><canvas id="canvas2" width="640" height="250">
+
+<p></p></canvas><p></p>
+<script>
+var canvas2= document.getElementById('canvas2'),
+    ctx=canvas2.getContext('2d');
+    ctx.lineWidth=30;
+
+ctx.moveTo(0,50);
+ctx.lineTo(100,50);
+ctx.lineTo(100,150);
+ctx.stroke();
+
+ctx.moveTo(150,50);
+ctx.lineTo(250,50);
+ctx.lineTo(250,150);
+ctx.lineJoin='round';
+ctx.stroke();
+
+ctx.moveTo(300,50);
+ctx.lineTo(400,50);
+ctx.lineTo(400,150);
+ctx.lineJoin='bevel';
+ctx.stroke();
+
+ctx.beginPath()
+ctx.moveTo(450,50);
+ctx.lineTo(550,50);
+ctx.lineTo(460,150);
+ctx.lineJoin='miter';
+ctx.miterLimit=1;
+ctx.stroke();
+
+ctx.lineCap='round'
+ctx.moveTo(50,170);
+ctx.lineTo(200,170);
+ctx.stroke();
+</script>
+
+<h2 id="矩形和圆、弧">矩形和圆、弧</h2>
+<p>Canvas提供了一些专门绘制矩形和圆的API</p>
+<ol>
+<li><code>ctx.fillRect(x,y,width,height)</code> ：绘制实心矩形</li>
+<li><code>ctx.strokeRect(x,y,width,height)</code> ：绘制空心，仅绘制边框</li>
+<li><code>ctx.clearRect(x,y,width,height)</code> ：清除矩形区域内容</li>
+<li><code>ctx.arc(x,y,radius,startAngle,endAngle,direction)</code> :绘制圆弧，默认顺时针绘制，当最后一个参数设为true的时候逆时针绘制</li>
+<li><code>ctx.arcTo(x1,y1,x2,y2,radius)</code> :绘制两条直线之间的切线</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);
+
+ctx.strokeRect(<span class="number">150</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);
+
+ctx.fillRect(<span class="number">300</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);
+ctx.clearRect(<span class="number">325</span>,<span class="number">25</span>,<span class="number">50</span>,<span class="number">50</span>);
+
+ctx.arc(<span class="number">475</span>,<span class="number">50</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI/<span class="number">2</span>,<span class="literal">true</span>);
+ctx.stroke();
+
+ctx.moveTo(<span class="number">600</span>,<span class="number">0</span>);
+ctx.arcTo(<span class="number">700</span>,<span class="number">0</span>,<span class="number">700</span>,<span class="number">100</span>,<span class="number">50</span>);
+ctx.lineTo(<span class="number">700</span>,<span class="number">0</span>)
+ctx.stroke();
+</code></pre><canvas id="canvas3" width="640" height="100" style="margin-top:20px;">
+
+<p></p></canvas><p></p>
+<script>
+var canvas3= document.getElementById('canvas3'),
+    ctx=canvas3.getContext('2d');
+
+ctx.fillRect(0,0,100,100);
+
+ctx.strokeRect(150,0,100,100);
+
+ctx.fillRect(300,0,100,100);
+ctx.clearRect(325,25,50,50);
+
+ctx.arc(475,50,50,0,Math.PI/2,true);
+ctx.stroke();
+
+ctx.moveTo(600,0);
+ctx.arcTo(700,0,700,100,50);
+ctx.lineTo(700,0)
+ctx.stroke();
+</script>
+
+<h2 id="变形">变形</h2>
+<p>Canvas中的变形和CSS3十分类似，包括平移、缩放、旋转和倾斜，对画布的作用都是调用后生效，所以需要先设置变形效果，然后再绘制</p>
+<ol>
+<li>ctx.translate(x,y)</li>
+<li>ctx.scale(x,y)</li>
+<li>ctx.rotate(angle)</li>
+<li>ctx.transform(a,b,c,d,e,f)<ul>
+<li>a:水平缩放</li>
+<li>b:水平倾斜</li>
+<li>c:垂直倾斜</li>
+<li>d:垂直缩放</li>
+<li>e:水平移动</li>
+<li>f:垂直移动</li>
+</ul>
+</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>ctx.save();
+ctx.translate(<span class="number">100</span>,<span class="number">50</span>);
+ctx.<span class="keyword">rotate</span>(Math.PI/<span class="number">30</span>)
+ctx.<span class="keyword">scale</span>(<span class="number">1.5</span>,<span class="number">1.5</span>)
+ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">100</span>);
+ctx.restore();
+ctx.transform(<span class="number">1.5</span>,<span class="number">0.3</span>,<span class="number">0.3</span>,<span class="number">1.5</span>,-<span class="number">50</span>,-<span class="number">50</span>)
+ctx.fillRect(<span class="number">200</span>,<span class="number">200</span>,<span class="number">100</span>,<span class="number">50</span>);
+</code></pre><canvas id="canvas4" width="640" height="440">
+
+<p></p></canvas><p></p>
+<script>
+var canvas4= document.getElementById('canvas4'),
+    ctx=canvas4.getContext('2d');
+ctx.save();
+ctx.translate(100,50);
+ctx.rotate(Math.PI/30)
+ctx.scale(1.5,1.5)
+ctx.fillRect(0,0,200,100);
+ctx.restore();
+ctx.transform(1.5,0.3,0.3,1.5,-50,-50)
+ctx.fillRect(200,200,100,50);
+</script>
+
+<h2 id="画布状态保存与恢复">画布状态保存与恢复</h2>
+<p>使用<code>save()</code>方法可以保存当前绘图环境的属性，包括context对象属性、坐标变换、剪辑区域，但是不包括当前的路径，使用<code>restore()</code>方法可以恢复环境，可以嵌套使用，原理类似堆栈</p>
+<pre><code>ctx.<span class="variable">fillStyle=</span>'<span class="comment">#f00';</span>
+ctx.save();
+ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);
+ctx.<span class="variable">fillStyle=</span>'<span class="comment">#0f0';</span>
+ctx.fillRect(<span class="number">150</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);
+ctx.restore();
+ctx.fillRect(<span class="number">300</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);  
+</code></pre><canvas id="canvas5" width="640" height="120">
+
+<p></p></canvas><p></p>
+<script>
+var canvas5= document.getElementById('canvas5'),
+    ctx=canvas5.getContext('2d');
+ctx.fillStyle='#f00';
+ctx.save();
+ctx.fillRect(10,10,100,100);
+ctx.fillStyle='#0f0';
+ctx.fillRect(150,10,100,100);
+ctx.restore();
+ctx.fillRect(300,10,100,100);  
+</script>
+
+<h2 id="画布编辑区">画布编辑区</h2>
+<p>可以使用<code>clip()</code>方法，使画布修改只在指定区域有效，一旦剪辑了某个区域，则所有之后的绘图都会被限制在被剪切的区域内（不能访问画布上的其他区域）。也可以在使用 <code>clip()</code> 方法前通过使用 <code>save()</code> 方法对当前画布区域进行保存，并在以后的任意时间对其通过 <code>restore()</code> 方法恢复</p>
+<pre><code><span class="comment">// 剪切矩形区域</span>
+ctx.rect(<span class="number">50</span>,<span class="number">20</span>,<span class="number">200</span>,<span class="number">120</span>);
+ctx.<span class="keyword">stroke</span>();
+ctx.<span class="keyword">clip</span>();
+<span class="comment">// 在 clip() 之后绘制绿色矩形</span>
+ctx.fillStyle=<span class="string">"green"</span>;
+ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">150</span>,<span class="number">100</span>);
+</code></pre><p><canvas id="canvas6" width="640" height="170"></canvas></p>
+<script>
+var canvas6= document.getElementById('canvas6'),
+    ctx=canvas6.getContext('2d');
+// 剪切矩形区域
+ctx.rect(50,20,200,120);
+ctx.stroke();
+ctx.clip();
+// 在 clip() 之后绘制绿色矩形
+ctx.fillStyle="green";
+ctx.fillRect(0,0,150,100);
+</script>
+
+<h2 id="正弦、余弦曲线">正弦、余弦曲线</h2>
+<pre><code>ctx.beginPath();
+ctx.moveTo(<span class="number">0</span>,<span class="number">0</span>);
+ctx.lineTo(<span class="number">0</span>,<span class="number">90</span>);
+ctx.lineTo(<span class="number">1000</span>,<span class="number">90</span>);
+ctx.moveTo(<span class="number">0</span>,<span class="number">90</span>);
+<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) {
+    ctx.lineTo(i,-<span class="built_in">Math</span>.sin(<span class="built_in">Math</span>.PI/<span class="number">180</span>*i)*<span class="number">90</span>+<span class="number">90</span>);
+};
+ctx.moveTo(<span class="number">0</span>,<span class="number">90</span>);
+<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) {
+    ctx.lineTo(i,-<span class="built_in">Math</span>.cos(<span class="built_in">Math</span>.PI/<span class="number">180</span>*i)*<span class="number">90</span>+<span class="number">90</span>);
+};
+ctx.stroke();
+</code></pre><p><canvas id="canvas7" width="700" height="200"></canvas></p>
+<script>
+var canvas7= document.getElementById('canvas7'),
+    ctx=canvas7.getContext('2d');
+
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(0,90);
+    ctx.lineTo(1000,90);
+    ctx.moveTo(0,90);
+    for (var i = 0; i < 1000; i++) {
+        ctx.lineTo(i,-Math.sin(Math.PI/180*i)*90+90);
+    };
+    ctx.moveTo(0,90);
+    for (i = 0; i < 1000; i++) {
+        ctx.lineTo(i,-Math.cos(Math.PI/180*i)*90+90);
+    };
+    ctx.stroke();    
+</script>
+
+<h2 id="时钟">时钟</h2>
+<p>只要我们熟悉三角函数，可以轻松使用canvas画出个时钟</p>
+<pre><code><span class="keyword">var</span> canvas_w=<span class="built_in">document</span>.getElementById(<span class="string">'canvas_w'</span>),
+        ctx_w=canvas_w.getContext(<span class="string">'2d'</span>);
+
+<span class="keyword">var</span> FONT_HEIGHT=<span class="number">15</span>,
+    MARGIN=<span class="number">35</span>,
+    HAND_TRUNCATION=canvas_w.width/<span class="number">25</span>,
+    HOUR_HAND_TRUNCATION=canvas_w.width/<span class="number">10</span>,
+    NUMERAL_SPACING=<span class="number">20</span>,
+    RADIUS=canvas_w.width/<span class="number">2</span>-MARGIN,
+    HAND_RADIUS=RADIUS+NUMERAL_SPACING;
+
+<span class="function"><span class="keyword">function</span> <span class="title">drawCircle</span><span class="params">()</span></span>{
+    ctx_w.beginPath();
+    ctx_w.arc(canvas_w.width/<span class="number">2</span>,canvas_w.height/<span class="number">2</span>,RADIUS,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">true</span>);
+    ctx_w.stroke();
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">drawNumerals</span><span class="params">()</span></span>{
+    <span class="keyword">var</span> numerals=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>],
+        angle=<span class="number">0</span>,
+        numeralWidth=<span class="number">0</span>;
+
+    numerals.forEach(<span class="function"><span class="keyword">function</span><span class="params">(numeral)</span></span>{
+        angle=<span class="built_in">Math</span>.PI/<span class="number">6</span>*(numeral-<span class="number">3</span>);
+        numeralWidth=ctx_w.measureText(numeral).width;
+        ctx_w.fillText(numeral,
+            canvas_w.width/<span class="number">2</span>+<span class="built_in">Math</span>.cos(angle)*HAND_RADIUS-numeralWidth/<span class="number">2</span>,
+            canvas_w.height/<span class="number">2</span>+<span class="built_in">Math</span>.sin(angle)*HAND_RADIUS+FONT_HEIGHT/<span class="number">3</span>);
+        }
+    );
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">drawCenter</span><span class="params">()</span></span>{
+    ctx_w.beginPath();
+    ctx_w.arc(canvas_w.width/<span class="number">2</span>,canvas_w.height/<span class="number">2</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">true</span>);
+    ctx_w.fill();
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">drawHand</span><span class="params">(loc,isHour)</span></span>{
+    <span class="keyword">var</span> angle=<span class="built_in">Math</span>.PI*<span class="number">2</span>*(loc/<span class="number">60</span>)-<span class="built_in">Math</span>.PI/<span class="number">2</span>,
+        handRadius=isHour? RADIUS-HAND_TRUNCATION-HOUR_HAND_TRUNCATION
+                         : RADIUS-HAND_TRUNCATION;
+    ctx_w.moveTo(canvas_w.width/<span class="number">2</span>,canvas_w.height/<span class="number">2</span>);
+    ctx_w.lineTo(canvas_w.width/<span class="number">2</span>+<span class="built_in">Math</span>.cos(angle)*handRadius,
+                canvas_w.height/<span class="number">2</span>+<span class="built_in">Math</span>.sin(angle)*handRadius);
+    ctx_w.stroke();
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">drawHands</span><span class="params">()</span></span>{
+    <span class="keyword">var</span> date=<span class="keyword">new</span> <span class="built_in">Date</span>(),
+        hour=date.getHours();
+
+    hour=hour&gt;<span class="number">12</span>? hour-<span class="number">12</span> : hour;
+    drawHand(hour*<span class="number">5</span>+(date.getMinutes()/<span class="number">60</span>)*<span class="number">5</span>,<span class="literal">true</span>);
+    drawHand(date.getMinutes(),<span class="literal">false</span>);
+    drawHand(date.getSeconds(),<span class="literal">false</span>);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">drawClock</span><span class="params">()</span></span>{
+    ctx_w.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas_w.width,canvas_w.height);
+
+    drawCircle();
+    drawCenter();
+    drawHands();
+    drawNumerals();
+}
+
+ctx_w.font=FONT_HEIGHT+<span class="string">'px Arial'</span>;
+loop=setInterval(drawClock,<span class="number">1000</span>);
+</code></pre><p><canvas id="canvas_w" width="300" height="300"></canvas></p>
+<script>
+var canvas_w=document.getElementById('canvas_w'),
+        ctx_w=canvas_w.getContext('2d');
+
+var FONT_HEIGHT=15,
+    MARGIN=35,
+    HAND_TRUNCATION=canvas_w.width/25,
+    HOUR_HAND_TRUNCATION=canvas_w.width/10,
+    NUMERAL_SPACING=20,
+    RADIUS=canvas_w.width/2-MARGIN,
+    HAND_RADIUS=RADIUS+NUMERAL_SPACING;
+
+function drawCircle(){
+    ctx_w.beginPath();
+    ctx_w.arc(canvas_w.width/2,canvas_w.height/2,RADIUS,0,Math.PI*2,true);
+    ctx_w.stroke();
+}
+
+function drawNumerals(){
+    var numerals=[1,2,3,4,5,6,7,8,9,10,11,12],
+        angle=0,
+        numeralWidth=0;
+
+    numerals.forEach(function(numeral){
+        angle=Math.PI/6*(numeral-3);
+        numeralWidth=ctx_w.measureText(numeral).width;
+        ctx_w.fillText(numeral,
+            canvas_w.width/2+Math.cos(angle)*HAND_RADIUS-numeralWidth/2,
+            canvas_w.height/2+Math.sin(angle)*HAND_RADIUS+FONT_HEIGHT/3);
+        }
+    );
+}
+
+function drawCenter(){
+    ctx_w.beginPath();
+    ctx_w.arc(canvas_w.width/2,canvas_w.height/2,5,0,Math.PI*2,true);
+    ctx_w.fill();
+}
+
+function drawHand(loc,isHour){
+    var angle=Math.PI*2*(loc/60)-Math.PI/2,
+        handRadius=isHour? RADIUS-HAND_TRUNCATION-HOUR_HAND_TRUNCATION
+                         : RADIUS-HAND_TRUNCATION;
+    ctx_w.moveTo(canvas_w.width/2,canvas_w.height/2);
+    ctx_w.lineTo(canvas_w.width/2+Math.cos(angle)*handRadius,
+                canvas_w.height/2+Math.sin(angle)*handRadius);
+    ctx_w.stroke();
+}
+
+function drawHands(){
+    var date=new Date(),
+        hour=date.getHours();
+
+    hour=hour>12? hour-12 : hour;
+    drawHand(hour*5+(date.getMinutes()/60)*5,true);
+    drawHand(date.getMinutes(),false);
+    drawHand(date.getSeconds(),false);
+}
+
+function drawClock(){
+    ctx_w.clearRect(0,0,canvas_w.width,canvas_w.height);
+
+    drawCircle();
+    drawCenter();
+    drawHands();
+    drawNumerals();
+}
+
+ctx_w.font=FONT_HEIGHT+'px Arial';
+loop=setInterval(drawClock,1000);
+
+</script>
+
+<h2 id="渐变">渐变</h2>
+<p>canvas提供两种形式的渐变：线性渐变和放射渐变，分别对应API</p>
+<ol>
+<li>ctx.createLinearGradient(x1,y1,x2,y2)</li>
+<li>ctx.createRadialGradient(x1,y1,r1,x2,y2,r2)</li>
+</ol>
+<p>两个方法生成的gradient对象只有唯一方法<code>gradient.addColorStop(posRate,color)</code></p>
+<pre><code>var <span class="variable">g1=</span>ctx.createLinearGradient(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);
+g1.addColorStop(<span class="number">0</span>,'<span class="comment">#f00');</span>
+g1.addColorStop(<span class="number">0.5</span>,'<span class="comment">#ff0');</span>
+g1.addColorStop(<span class="number">1</span>,'<span class="comment">#000');</span>
+
+ctx.<span class="variable">fillStyle=</span>g1;
+ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);
+
+var <span class="variable">g2=</span>ctx.createRadialGradient(<span class="number">250</span>,<span class="number">100</span>,<span class="number">50</span>,<span class="number">250</span>,<span class="number">0</span>,<span class="number">10</span>);
+g2.addColorStop(<span class="number">0</span>,'<span class="comment">#f00');</span>
+g2.addColorStop(<span class="number">0.5</span>,'<span class="comment">#ff0');</span>
+g2.addColorStop(<span class="number">1</span>,'<span class="comment">#00f');</span>
+
+ctx.<span class="variable">fillStyle=</span>g2;
+ctx.fillRect(<span class="number">200</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);
+</code></pre><p><canvas id="canvas8" width="700" height="120"></canvas></p>
+<script>
+var canvas8= document.getElementById('canvas8'),
+    ctx=canvas8.getContext('2d');
+var g1=ctx.createLinearGradient(0,0,100,100);
+g1.addColorStop(0,'#f00');
+g1.addColorStop(0.5,'#ff0');
+g1.addColorStop(1,'#000');
+
+ctx.fillStyle=g1;
+ctx.fillRect(0,0,100,100);
+
+var g2=ctx.createRadialGradient(250,100,50,250,0,10);
+g2.addColorStop(0,'#f00');
+g2.addColorStop(0.5,'#ff0');
+g2.addColorStop(1,'#00f');
+
+ctx.fillStyle=g2;
+ctx.fillRect(200,0,100,100);
+</script>
+
+<h2 id="绘制文字">绘制文字</h2>
+<p>文字相关的主要API有</p>
+<ol>
+<li>strokeText(text,x,y)</li>
+<li>fillText(text,x,y)</li>
+<li>mesureText(text)</li>
+<li>font</li>
+<li>textAlign</li>
+<li>textBaseline</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>var <span class="keyword">circle</span>={
+    x:canvas13.width/<span class="number">2</span>,
+    y:canvas13.height/<span class="number">2</span>,
+    radius:<span class="number">200</span>
+};
+
+function drawCircleText(<span class="keyword">text</span>,startAngle,endAngle){
+    var radius=<span class="keyword">circle</span>.radius,
+        angleDecrement=(startAngle-endAngle)/(<span class="keyword">text</span>.length-<span class="number">1</span>),
+        <span class="keyword">angle</span>=parseFloat(startAngle),
+        index=<span class="number">0</span>,
+        <span class="keyword">character</span>;
+
+    ctx.save();
+    ctx.fillStyle=<span class="string">'rgba(0,0,0,0.4)'</span>;
+    ctx.strokeStyle=<span class="string">'rgba(0,0,0,0.4)'</span>;
+    ctx.font=<span class="string">'60px Arial'</span>;
+
+    <span class="keyword">while</span>(index&lt;<span class="keyword">text</span>.length){
+        <span class="keyword">character</span>=<span class="keyword">text</span>.charAt(index);
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(<span class="keyword">circle</span>.x+Math.<span class="keyword">cos</span>(<span class="keyword">angle</span>)<span class="variable">*radius</span>,
+                      <span class="keyword">circle</span>.y-Math.<span class="keyword">sin</span>(<span class="keyword">angle</span>)<span class="variable">*radius</span>);
+        ctx.<span class="keyword">rotate</span>(Math.PI/<span class="number">2</span>-<span class="keyword">angle</span>);
+        ctx.fillText(<span class="keyword">character</span>,<span class="number">0</span>,<span class="number">0</span>);
+        ctx.strokeText(<span class="keyword">character</span>,<span class="number">0</span>,<span class="number">0</span>);
+        <span class="keyword">angle</span>-=angleDecrement;
+        index++;
+        ctx.restore();
+    }
+}
+
+ctx.textAlign=<span class="string">'center'</span>;
+ctx.textBaseline=<span class="string">'middle'</span>;
+drawCircleText(<span class="string">"Hello this is a circle text"</span>,Math.PI<span class="variable">*2</span>,Math.PI/<span class="number">8</span>);
+</code></pre><p><canvas id="canvas9" width="700" height="500"></canvas></p>
+<script>
+var canvas9= document.getElementById('canvas9'),
+    ctx=canvas9.getContext('2d');
+
+var circle={
+    x:canvas9.width/2,
+    y:canvas9.height/2,
+    radius:200
+};
+
+function drawCircleText(text,startAngle,endAngle){
+    var radius=circle.radius,
+        angleDecrement=(startAngle-endAngle)/(text.length-1),
+        angle=parseFloat(startAngle),
+        index=0,
+        character;
+
+    ctx.save();
+    ctx.fillStyle='rgba(0,0,0,0.4)';
+    ctx.strokeStyle='rgba(0,0,0,0.4)';
+    ctx.font='60px Arial';
+
+    while(index<text.length){
+        character=text.charAt(index);
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(circle.x+Math.cos(angle)*radius,
+                      circle.y-Math.sin(angle)*radius);
+        ctx.rotate(Math.PI/2-angle);
+        ctx.fillText(character,0,0);
+        ctx.strokeText(character,0,0);
+        angle-=angleDecrement;
+        index++;
+        ctx.restore();
+    }
+}
+
+ctx.textAlign='center';
+ctx.textBaseline='middle';
+drawCircleText("Hello this is a circle text",Math.PI*2,Math.PI/8);    
+</script>
+
+
+<h2 id="填充图案">填充图案</h2>
+<p>可以使用<code>createPattern(img,repeat)</code>方法将图片、canvas、视频的一帧填充到canvas，填充效果和css设置背景图片类似</p>
+<pre><code><span class="keyword">var</span> img14=<span class="keyword">new</span> Image();
+img14.src=<span class="string">'tao.gif'</span>;
+img14.onload=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">var</span> pattern=ctx.createPattern(img14,<span class="string">'repeat'</span>);
+    ctx.fillStyle=pattern;
+    ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">800</span>,<span class="number">300</span>);
+};
+</code></pre><p><img src="http://lsly1989.qiniudn.com/Screen-Shot-2014-06-14-at-14.05.56.png" alt=""></p>
+<h2 id="合成">合成</h2>
+<p><code>globalCompositeOperation</code> 属性设置或返回如何将一个源（新的）图像绘制到目标（已有）的图像上，也就是两个图像重叠的时候如何决定覆盖关系</p>
+<table class="dataintable"><br><tbody><br><tr><br><th style="width:20%;">值</th><br><th>描述</th><br></tr><br><tr><br><td>source-over</td><br><td>默认。在目标图像上显示源图像。</td><br></tr><br><tr><br><td>source-atop</td><br><td>在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。</td><br></tr><br><tr><br><td>source-in</td><br><td>在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。</td><br></tr><br><tr><br><td>source-out</td><br><td>在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。</td><br></tr><br><tr><br><td>destination-over</td><br><td>在源图像上方显示目标图像。</td><br></tr><br><tr><br><td>destination-atop</td><br><td>在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。</td><br></tr><br><tr><br><td>destination-in</td><br><td>在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。</td><br></tr><br><tr><br><td>destination-out</td><br><td>在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。</td><br></tr><br><tr><br><td>lighter</td><br><td>显示源图像 + 目标图像。</td><br></tr><br><tr><br><td>copy</td><br><td>显示源图像。忽略目标图像。</td><br></tr><br><tr><br><td>source-over</td><br><td>使用异或操作对源图像与目标图像进行组合。</td><br></tr><br></tbody><br></table>
+
+<p><img src="http://lsly1989.qiniudn.com/Screen-Shot-2014-06-14-at-14.35.27.png" alt=""></p>
+<h2 id="绘制图像">绘制图像</h2>
+<p>绘制图像一般会用到几个方法</p>
+<ol>
+<li>ctx.drawImage(image,dx,dy[,dw,dh])</li>
+<li>ctx.drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh)</li>
+<li>ctx.getImageData(x,y,w,h)</li>
+<li>ctx.putImageData(imageData,dx,dy[,x,y,w,h])</li>
+</ol>
+<p>前两个好理解，把图片画到画布指定位置，同事可以自定义图片尺寸，getImageData和putImageData是canvas提供的修改图片的两大利器，通过getImageData方法和putImageData方法，可以处理每个像素，进而操作图像内容<br>假定filter是一个处理像素的函数，那么整个对Canvas的处理流程，可以用下面的代码表示</p>
+<pre><code><span class="keyword">if</span> (<span class="keyword">canvas</span>.width &gt; <span class="number">0</span> &amp;&amp; <span class="keyword">canvas</span>.height &gt; <span class="number">0</span>) {
+    var imageData = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">canvas</span>.width, <span class="keyword">canvas</span>.height);
+    <span class="keyword">filter</span>(imageData);
+    ctx.putImageData(imageData, <span class="number">0</span>, <span class="number">0</span>);
+}
+</code></pre><p>使用这两个方法我们可以做出放大镜，或者是美化照片的的各种效果。复古效果是将红、绿、蓝三个像素，分别取这三个值的某种加权平均值，使得图像有一种古旧的效果</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">sepia</span> <span class="params">(pixels)</span> </span>{
+    <span class="keyword">var</span> d = pixels.data;
+    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; d.length; i += <span class="number">4</span>) {
+      <span class="keyword">var</span> r = d[i];
+      <span class="keyword">var</span> g = d[i + <span class="number">1</span>];
+      <span class="keyword">var</span> b = d[i + <span class="number">2</span>];
+      d[i]     = (r * <span class="number">0.393</span>)+(g * <span class="number">0.769</span>)+(b * <span class="number">0.189</span>); <span class="comment">// red</span>
+      d[i + <span class="number">1</span>] = (r * <span class="number">0.349</span>)+(g * <span class="number">0.686</span>)+(b * <span class="number">0.168</span>); <span class="comment">// green</span>
+      d[i + <span class="number">2</span>] = (r * <span class="number">0.272</span>)+(g * <span class="number">0.534</span>)+(b * <span class="number">0.131</span>); <span class="comment">// blue</span>
+    }
+    <span class="keyword">return</span> pixels;
+}
+</code></pre><p><img src="http://lsly1989.qiniudn.com/Screen-Shot-2014-06-14-at-14.33.541.png" alt=""></p>
+<h2 id="参考">参考</h2>
+<p>阮一峰  <a href="http://javascript.ruanyifeng.com/htmlapi/canvas.html" target="_blank" rel="external">Canvas API</a></p>
+<script>
+$('br').remove();
+</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/14/canvas简单介绍/" data-id="1kw2mt7pt0nv8r2m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/14/css容易忽略的特性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          容易被忽略CSS特性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/14/D2报名页面的一些小效果/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">D2报名页面的一些小效果</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
