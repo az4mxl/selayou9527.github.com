@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Intro to CSS 3D transforms[翻译部分] | lsly1989</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文地址：Intro to CSS 3D transforms，本文只是翻译了其中的一部分，省去了作者写文章的原因浏览器兼容部分（已经过时）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intro to CSS 3D transforms[翻译部分]">
+<meta property="og:url" content="https://github.com/lsly1989//2014/10/17/Intro to CSS 3D transforms/">
+<meta property="og:site_name" content="lsly1989">
+<meta property="og:description" content="原文地址：Intro to CSS 3D transforms，本文只是翻译了其中的一部分，省去了作者写文章的原因浏览器兼容部分（已经过时）">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/cssdiagram.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/csscalc.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intro to CSS 3D transforms[翻译部分]">
+<meta name="twitter:description" content="原文地址：Intro to CSS 3D transforms，本文只是翻译了其中的一部分，省去了作者写文章的原因浏览器兼容部分（已经过时）">
+
+  
+    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lsly1989</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/lsly1989/">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-Intro to CSS 3D transforms" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/17/Intro to CSS 3D transforms/" class="article-date">
+  <time datetime="2014-10-17T02:35:17.000Z" itemprop="datePublished">Oct 17 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Intro to CSS 3D transforms[翻译部分]
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Perspective"><span class="toc-number">1.</span> <span class="toc-text">Perspective</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3D变形方法"><span class="toc-number">2.</span> <span class="toc-text">3D变形方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#立方体"><span class="toc-number">3.</span> <span class="toc-text">立方体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#旋转木马"><span class="toc-number">4.</span> <span class="toc-text">旋转木马</span></a></li></ol>
+        </div>
+        <p>原文地址：<a href="http://desandro.github.io/3dtransforms/" target="_blank" rel="external">Intro to CSS 3D transforms</a>，本文只是翻译了其中的一部分，省去了作者写文章的原因浏览器兼容部分（已经过时）<br><a id="more"></a></p>
+<h1 id="Perspective">Perspective</h1>
+<p>元素需要设置需要设置<code>perspective</code>来激活3D效果，可以通过两种方式实现</p>
+<ul>
+<li><p>在transform属性中使用perspective方法</p>
+<pre><code>  <span class="attribute">transform</span><span class="value">: <span class="function">perspective</span>( <span class="number">600px</span> );</span>
+</code></pre></li>
+<li><p>直接使用perspective属性</p>
+<pre><code>  <span class="attribute">perspective</span>: <span class="string">600px;</span>
+</code></pre></li>
+</ul>
+<p>NOTE：出于代码简介的目的，demo中的CSS样式没有使用浏览器前缀，在实际使用中需要使用-webkit-perspective, -moz-perspective, 等</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+    <span class="class">.container</span> <span class="rules">{
+        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>;
+        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>;
+        <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#CCC</span></span></span>;
+        <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto <span class="number">40px</span></span></span>;
+    <span class="rule">}</span></span>
+    <span class="class">.box</span> <span class="rules">{
+        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;
+        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;
+    <span class="rule">}</span></span>
+    <span class="id">#red1</span> <span class="class">.box</span> <span class="rules">{
+      <span class="rule"><span class="attribute">background-color</span>:<span class="value"> red</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">perspective</span>( <span class="number">600px</span> ) <span class="function">rotateY</span>( <span class="number">45deg</span> )</span></span>;
+    <span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"red1"</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box red"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+</code></pre><p>&nbsp;</p>
+<style>
+    .container {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #CCC;
+        margin: 0 auto 40px;
+    }
+    .box {
+        width: 100%;
+        height: 100%;
+    }
+    #red1 .box {
+      background-color: red;
+      transform: perspective( 600px ) rotateY( 45deg );
+    }
+</style>
+<section id="red1" class="container">
+    <div class="box red"></div>
+</section>
+
+    <style>
+        #blue1{
+            perspective: 600px;
+        }
+        #blue1 .box {
+          background-color: blue;
+          transform: rotateY( 45deg );
+        }
+    </style>
+
+<pre><code>&lt;section <span class="property">id</span>=<span class="string">"blue1"</span> <span class="type">class</span>=<span class="string">"container"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box blue1"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+&lt;/section&gt;
+</code></pre><p>&nbsp;</p>
+<style>
+    #blue1{
+        perspective: 600px;
+    }
+    #blue1 .box {
+      background-color: blue;
+      transform: rotateY( 45deg );
+    }
+</style>
+
+<section id="blue1" class="container"><br>    <div class="box blue1"></div><br></section>
+
+
+<p>这两种方式都会触发3D效果，但是有一点不同：第一种方式直接在一个元素上触发3D变形，但是当多个元素的时候变形效果和预期会有所不同，如果使用同样的方法作用于不同位置的元素的时候，每个元素会有自己的轴心，为了解决这个问题，需要在父元素使用perspective属性，这样每个子元素都共享相同的3D空间</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+    <span class="id">#red2</span> <span class="tag">figure</span> <span class="rules">{
+      <span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">perspective</span>( <span class="number">400px</span> ) <span class="function">rotateY</span>(<span class="number">45deg</span>)</span></span>;
+    <span class="rule">}</span></span>
+    <span class="class">.container</span> <span class="tag">figure</span> <span class="rules">{
+        <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">55px</span></span></span>;
+        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">55px</span></span></span>;
+        <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;
+        <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5px</span></span></span>;
+    <span class="rule">}</span></span>
+
+    <span class="id">#red2</span> <span class="tag">figure</span> <span class="rules">{
+        <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#F00</span></span></span>;
+        <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">perspective</span>( <span class="number">400px</span> ) <span class="function">rotateY</span>( <span class="number">45deg</span> )</span></span>;
+        <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">perspective</span>( <span class="number">400px</span> ) <span class="function">rotateY</span>( <span class="number">45deg</span> )</span></span>;
+        <span class="rule"><span class="attribute">-o-transform</span>:<span class="value"> <span class="function">perspective</span>( <span class="number">400px</span> ) <span class="function">rotateY</span>( <span class="number">45deg</span> )</span></span>;
+        <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">perspective</span>( <span class="number">400px</span> ) <span class="function">rotateY</span>( <span class="number">45deg</span> )</span></span>;
+    <span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"red2"</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+</code></pre><p>&nbsp;    </p>
+<style>
+    #red2 figure {
+      background: red;
+      transform: perspective( 400px ) rotateY(45deg);
+    }
+    .container figure {
+        display: block;
+        width: 55px;
+        height: 55px;
+        float: left;
+        margin: 5px;
+    }
+
+    #red2 figure {
+        background: #F00;
+        -webkit-transform: perspective( 400px ) rotateY( 45deg );
+        -moz-transform: perspective( 400px ) rotateY( 45deg );
+        -o-transform: perspective( 400px ) rotateY( 45deg );
+        transform: perspective( 400px ) rotateY( 45deg );
+    }
+</style>
+
+<section id="red2" class="container"><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br></section>
+
+
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+    <span class="id">#blue2</span> <span class="rules">{
+      <span class="rule"><span class="attribute">perspective</span>:<span class="value"> <span class="number">400px</span></span></span>;
+    <span class="rule">}</span></span>
+
+    <span class="id">#blue2</span> <span class="tag">figure</span> <span class="rules">{
+      <span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;
+      <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">45deg</span> )</span></span>;
+    <span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"blue2"</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span><span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+</code></pre><p>&nbsp;</p>
+<style>
+    #blue2 {
+      perspective: 400px;
+    }
+
+    #blue2 figure {
+      background: blue;
+      transform: rotateY( 45deg );
+    }
+</style>
+
+<section id="blue2" class="container"><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br>    <figure></figure><br></section>    
+
+
+<p>perspective属性的值决定了3D效果的强烈程度，可以认为是观察者到页面的距离。值越大距离越远，视觉上的3D效果就会相应的减弱。perspective: 2000px; 会产生一个好像我们使用望远镜看远方物体的3D效果，perspective: 100px;会产生一个小昆虫看大象的效果。</p>
+<p>3D效果默认轴心是元素中央，可以通过<code>perspective-origin</code>来修改轴心</p>
+<pre><code><span class="attribute">perspective-origin</span>: <span class="string">25% 75%;</span>
+</code></pre><p><a href="http://desandro.github.io/3dtransforms/examples/perspective-03.html" target="_blank" rel="external">点击这里</a>看一下作者写的一个有意思的立方体旋转页面</p>
+<h1 id="3D变形方法">3D变形方法</h1>
+<p>作为一个web者，可能很熟悉两个方向：X &amp; Y，表示元素的水平方向和垂直方向，在perspective激活的3D空间中我们可以在X、Y、Z三个坐标轴上对元素进行变形处理。3D变形使用的变形方法和2D变形一样，如果熟悉<a href="http://www.w3.org/TR/css3-transforms/#transform-functions" target="_blank" rel="external">2D变形方法</a>很容易掌握3D变形</p>
+<ul>
+<li>rotateX( angle )</li>
+<li>rotateY( angle )</li>
+<li>rotateZ( angle )</li>
+<li>translateZ( tz )</li>
+<li>scaleZ( sz )</li>
+</ul>
+<p>translateX()方法使元素延X轴移动，translateZ()使元素延Z轴（在3D空间中方向从前到后）移动。正值使元素离观察者更近，负值使元素变远。</p>
+<style>
+    .container2 {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
+      margin: 0 auto 60px;
+      position: relative;
+      -webkit-perspective: 600px;
+         -moz-perspective: 600px;
+           -o-perspective: 600px;
+              perspective: 600px;
+    }
+
+    .panel {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0.7;
+      color: white;
+      background: red;
+    }
+
+    #translate-z-negative .panel {
+      -webkit-transform: translateZ( -200px );
+         -moz-transform: translateZ( -200px );
+           -o-transform: translateZ( -200px );
+              transform: translateZ( -200px );
+    }
+
+    #translate-z-positive .panel {
+      -webkit-transform: translateZ( 200px );
+         -moz-transform: translateZ( 200px );
+           -o-transform: translateZ( 200px );
+              transform: translateZ( 200px );
+    }
+
+    #rotate-x .panel {
+      -webkit-transform: rotateX( 45deg );
+         -moz-transform: rotateX( 45deg );
+           -o-transform: rotateX( 45deg );
+              transform: rotateX( 45deg );
+    }
+
+    #rotate-y .panel {
+      -webkit-transform: rotateY( 45deg );
+         -moz-transform: rotateY( 45deg );
+           -o-transform: rotateY( 45deg );
+              transform: rotateY( 45deg );
+    }
+
+    #rotate-z .panel {
+      -webkit-transform: rotateZ( 45deg );
+         -moz-transform: rotateZ( 45deg );
+           -o-transform: rotateZ( 45deg );
+              transform: rotateZ( 45deg );
+    }
+</style>
+
+<div id="translate-z-negative" class="container2"><br>    <div class="panel">translateZ( -200px )</div><br>  </div>
+
+  <div id="translate-z-positive" class="container2"><br>    <div class="panel">translateZ( 200px )</div><br>  </div>
+
+  <div id="rotate-x" class="container2"><br>    <div class="panel">rotateX( 45deg )</div><br>  </div>
+
+  <div id="rotate-y" class="container2"><br>    <div class="panel">rotateY( 45deg )</div><br>  </div>
+
+  <div id="rotate-z" class="container2"><br>    <div class="panel">rotateZ( 45deg )</div><br>  </div>
+
+
+<p>有几个变形方法的缩写，这些方法需要把三个参数写全</p>
+<ul>
+<li>translate3d( tx, ty, tz )</li>
+<li>scale3d( sx, sy, sz )</li>
+<li>rotate3d( rx, ry, rz, angle )</li>
+</ul>
+<p>Pro-tip: fn3d()变形方法可以触发硬件加速<a href="http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/" target="_blank" rel="external">HTML5 buzzwords in action</a></p>
+<blockquote>
+<p>任意3D操作会触发硬件加速，甚至可能变形只用到了2D的，或者没有做任何事情（比如translate3d(0,0,0)）。需要注意的是这只是当前的表现，未来可能变化（这也是为什么我们没有写文档或者鼓励这么做），但是这在很多场景下非常有用，可以显著的提高渲染性能</p>
+</blockquote>
+<h1 id="立方体">立方体</h1>
+<p>创建六个面</p>
+<pre><code><span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"cube"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span> <span class="attribute">class</span>=<span class="value">"front"</span>&gt;</span>1<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span> <span class="attribute">class</span>=<span class="value">"back"</span>&gt;</span>2<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span>3<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span>4<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span> <span class="attribute">class</span>=<span class="value">"top"</span>&gt;</span>5<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span> <span class="attribute">class</span>=<span class="value">"bottom"</span>&gt;</span>6<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+</code></pre><p>为6个面设置基本的位置和尺寸样式</p>
+<pre><code><span class="class">.container</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>;
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
+  <span class="rule"><span class="attribute">perspective</span>:<span class="value"> <span class="number">1000px</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="id">#cube</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+  <span class="rule"><span class="attribute">transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+<span class="rule">}</span></span>
+
+<span class="id">#cube</span> <span class="tag">figure</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">196px</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">196px</span></span></span>;
+  <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">2px</span> solid black</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>1、2是前后面，3、4是左右，5、6是上下</p>
+<pre><code><span class="id">#cube</span> <span class="class">.front</span>  <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(   <span class="number">0deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.back</span>   <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>( <span class="number">180deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.right</span>  <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(  <span class="number">90deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.left</span>   <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( -<span class="number">90deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.top</span>    <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>(  <span class="number">90deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.bottom</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>( -<span class="number">90deg</span> )</span></span>; <span class="rule">}</span></span>
+</code></pre><p>我们可以移除#cube .front样式声明，只用前面是可见的，上、下、左、右面与视角平行，所以看不到。需要从中心位置移动它们才可以看得到，每个面都是200px宽，每个面都需要从立方体中心移动100px；</p>
+<pre><code><span class="id">#cube</span> <span class="class">.front</span>  <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(   <span class="number">0deg</span> ) <span class="function">translateZ</span>( <span class="number">100px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.back</span>   <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>( <span class="number">180deg</span> ) <span class="function">translateZ</span>( <span class="number">100px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.right</span>  <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(  <span class="number">90deg</span> ) <span class="function">translateZ</span>( <span class="number">100px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.left</span>   <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( -<span class="number">90deg</span> ) <span class="function">translateZ</span>( <span class="number">100px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.top</span>    <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>(  <span class="number">90deg</span> ) <span class="function">translateZ</span>( <span class="number">100px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span> <span class="class">.bottom</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>( -<span class="number">90deg</span> ) <span class="function">translateZ</span>( <span class="number">100px</span> )</span></span>; <span class="rule">}</span></span>
+</code></pre><p>需要注意的是translateZ方法在rotate方法之后，变形方法的顺序很重要，吸收一会儿屌丝们，每面都先按自己的方向旋转，然后向外移动一个向量。</p>
+<p>为了用户看清楚，我们的3D变形不应该在扭曲不是active的面，但是我们延Z轴移动的时候，这种情况就难以避免。为了保持3D变形的瞬间，Safari先组合元素，然后再应用变形，因此文本会保持变形之前的样式，在3D变形中经常会出现显著的像素变化</p>
+ <style media="screen">
+    .ex {
+      text-align: center;
+      line-height: 60px;
+      margin: 0;
+      white-space: pre;
+    }
+
+    .font-size {
+      font-size: 2.5em;
+    }
+
+    .scale {
+      -webkit-transform: scale(2.5);
+         -moz-transform: scale(2.5);
+           -o-transform: scale(2.5);
+              transform: scale(2.5);
+    }
+
+    .perspective {
+      -webkit-transform: perspective(1200px) translateZ(700px);
+         -moz-transform: perspective(1200px) translateZ(700px);
+           -o-transform: perspective(1200px) translateZ(700px);
+              transform: perspective(1200px) translateZ(700px);
+    }
+  </style>
+
+  <p class="ex font-size">font-size: 2.5em</p><br>  <p class="ex scale">transform: scale(2.5);</p><br>  <p class="ex perspective">transform: perspective(1200) translateZ(700px);</p>
+
+<p>通过<a href="http://desandro.github.io/3dtransforms/examples/perspective-03.html" target="_blank" rel="external">之前例子</a>可以发现无论perspective的值多小，或者变形的轴心在哪里，面1永远回到初始位置，好像3D变形对它没影响</p>
+<p>为了解决变形和像素保留问题，我们可以向后推一下3D对象，这样前面就会Z轴后移</p>
+<pre><code><span class="id">#cube</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateZ</span>( -<span class="number">100px</span> )</span></span>; <span class="rule">}</span></span>
+</code></pre><p>为了显示每个面，我们需要一个旋转立方体的样式，变形和当前面的方向相反，我们在#box 上切换必要的类来应用变形</p>
+<pre><code><span class="id">#cube</span><span class="class">.show-front</span>  <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateZ</span>( -<span class="number">100px</span> ) <span class="function">rotateY</span>(    <span class="number">0deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span><span class="class">.show-back</span>   <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateZ</span>( -<span class="number">100px</span> ) <span class="function">rotateX</span>( -<span class="number">180deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span><span class="class">.show-right</span>  <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateZ</span>( -<span class="number">100px</span> ) <span class="function">rotateY</span>(  -<span class="number">90deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span><span class="class">.show-left</span>   <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateZ</span>( -<span class="number">100px</span> ) <span class="function">rotateY</span>(   <span class="number">90deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span><span class="class">.show-top</span>    <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateZ</span>( -<span class="number">100px</span> ) <span class="function">rotateX</span>(  -<span class="number">90deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#cube</span><span class="class">.show-bottom</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateZ</span>( -<span class="number">100px</span> ) <span class="function">rotateX</span>(   <span class="number">90deg</span> )</span></span>; <span class="rule">}</span></span>
+</code></pre><p>需要注意变形方法的顺序变了，我们先向后推元素，然后再旋转，再添加transition属性就完成了</p>
+<pre><code><span class="id">#cube</span> <span class="rules">{ <span class="rule"><span class="attribute">transition</span>:<span class="value"> transform <span class="number">1s</span></span></span>; <span class="rule">}</span></span>
+</code></pre><p><a href="http://desandro.github.io/3dtransforms/examples/cube-02-show-sides.html" target="_blank" rel="external">效果demo</a></p>
+<h1 id="旋转木马">旋转木马</h1>
+<p>和创建立方体类似，我们创建一个9个面的旋转木马</p>
+<pre><code><span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"carousel"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>1<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>2<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>3<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>4<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>5<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>6<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>7<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>8<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">figure</span>&gt;</span>9<span class="tag">&lt;/<span class="title">figure</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+</code></pre><p>现在应用一下基本的布局样式，给每个#carousel子元素面板20px的间距，这样每个面板的空间为210px</p>
+<pre><code><span class="class">.container</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">210px</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">140px</span></span></span>;
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
+  <span class="rule"><span class="attribute">perspective</span>:<span class="value"> <span class="number">1000px</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="id">#carousel</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+  <span class="rule"><span class="attribute">transform-style</span>:<span class="value"> preserve-<span class="number">3</span>d</span></span>;
+<span class="rule">}</span></span>
+
+<span class="id">#carousel</span> <span class="tag">figure</span> <span class="rules">{
+  <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">186px</span></span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">116px</span></span></span>;
+  <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">10px</span></span></span>;
+  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">10px</span></span></span>;
+  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">2px</span> solid black</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>下一步需要旋转每个面，9个面板，如果等分的话每个面板需要旋转40deg相对下一个</p>
+<pre><code><span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(1)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(   <span class="number">0deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(2)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(  <span class="number">40deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(3)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(  <span class="number">80deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(4)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">120deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(5)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">160deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(6)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">200deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(7)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">240deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(8)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">280deg</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(9)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">320deg</span> )</span></span>; <span class="rule">}</span></span>
+</code></pre><p>现在外移元素，我们需要计算外移的距离，画一个草图，我们发现只有两个已知数：每个面板的宽度是210px，每个面板相对下一个旋转了40deg。拿出任意一个三角形都是右边的样子</p>
+<p><img src="http://lsly1989.qiniudn.com/cssdiagram.png" alt=""></p>
+<p>我们可以通过正切函数算出r</p>
+<p><img src="http://lsly1989.qiniudn.com/csscalc.png" alt="image"></p>
+<p>这样我们就知道知道需要移动288px</p>
+<pre><code><span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(1)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(   <span class="number">0deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(2)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(  <span class="number">40deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(3)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(  <span class="number">80deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(4)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">120deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(5)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">160deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(6)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">200deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(7)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">240deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(8)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">280deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+<span class="id">#carousel</span> <span class="tag">figure</span><span class="pseudo">:nth-child(9)</span> <span class="rules">{ <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>( <span class="number">320deg</span> ) <span class="function">translateZ</span>( <span class="number">288px</span> )</span></span>; <span class="rule">}</span></span>
+</code></pre><p>如果需要改变面板的宽度或者数量，我们只需要应用一下公式就可以了，在JavaScript中</p>
+<pre><code><span class="keyword">var</span> tz = <span class="built_in">Math</span>.round( ( panelSize / <span class="number">2</span> ) / 
+  <span class="built_in">Math</span>.tan( ( ( <span class="built_in">Math</span>.PI * <span class="number">2</span> ) / numberOfPanels ) / <span class="number">2</span> ) );
+<span class="comment">// or simplified to</span>
+<span class="keyword">var</span> tz = <span class="built_in">Math</span>.round( ( panelSize / <span class="number">2</span> ) / 
+  <span class="built_in">Math</span>.tan( <span class="built_in">Math</span>.PI / numberOfPanels ) );
+</code></pre><p>最后我们需要再旋转木马上应用些变形</p>
+<pre><code><span class="attribute">transform</span><span class="value">: <span class="function">translateZ</span>( -<span class="number">288px</span> ) <span class="function">rotateY</span>( -<span class="number">160deg</span> );</span>
+</code></pre><p><a class="jsbin-embed" href="http://jsbin.com/monavodopaxa/1/embed?output" target="_blank" rel="external">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+<script>
+    $('br').remove();
+</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/lsly1989/2014/10/17/Intro to CSS 3D transforms/" data-id="3ca2j7jvy36q9eis" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/10/16/css3Transforms&Animations/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS 3D Transforms and Animations[译]</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.50px;">canvas</a><a href="/tags/css/" style="font-size: 15.00px;">css</a><a href="/tags/css3/" style="font-size: 17.50px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.50px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nodejs/" style="font-size: 12.50px;">nodejs</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.50px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.50px;">正则表达式</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/17/Intro to CSS 3D transforms/">Intro to CSS 3D transforms[翻译部分]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/history对象/">history</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Byron Sun<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
