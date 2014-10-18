@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>lsly1989</title>
+  <title>色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="靡不有初，鲜克有终">
 <meta property="og:type" content="website">
-<meta property="og:title" content="lsly1989">
-<meta property="og:url" content="https://github.com/lsly1989//page/3/">
-<meta property="og:site_name" content="lsly1989">
+<meta property="og:title" content="色拉油的技术博客">
+<meta property="og:url" content="https://github.com/selayou9527//page/3/">
+<meta property="og:site_name" content="色拉油的技术博客">
 <meta property="og:description" content="靡不有初，鲜克有终">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lsly1989">
+<meta name="twitter:title" content="色拉油的技术博客">
 <meta name="twitter:description" content="靡不有初，鲜克有终">
 
   
-    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="色拉油的技术博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -34,7 +34,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">lsly1989</a>
+        <a href="/" id="logo">色拉油的技术博客</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -61,7 +61,7 @@
           <input name=tn type=hidden value="bds">
           <input name=cl type=hidden value="3">
           <input name=ct type=hidden value="2097152">
-          <input type="hidden" name="si" value="github.com/lsly1989/">
+          <input type="hidden" name="si" value="github.com/selayou9527/">
         </form>
       </div>
     </div>
@@ -72,9 +72,106 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-javascript节流与防抖" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nodejs调试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript节流与防抖/" class="article-date">
+    <a href="/2014/10/14/nodejs调试/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>nodejs的调试问题困扰了很多刚热门的同学，仿佛又回到了<code>alert</code>时代，区别仅仅是换做了<code>console.log</code>，这让习惯了强大的Eclipse、Visual Studio的我们情何以堪。 其实nodejs本身也支持调试，简单介绍一下几种方法<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/nodejs调试/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/nodejs调试/" data-id="3mydm0zpcg78s3ob" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-media queries" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/media queries/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/media queries/">media queries</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们可能见过这样的代码</p>
+<pre><code>  &lt;link <span class="variable">href=</span><span class="string">"css/reset.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"screen"</span> /&gt;
+  &lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
+</code></pre><p>其中的<code>media</code>属性是指媒体类型，在CSS2中允许通过<code>media</code>属性指定CSS的作用范围，<code>media=&quot;print&quot;</code>表示css在打印的时候生效，其它时候不生效，所有媒体类型<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank" rel="external">Recognized media types</a><br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/media queries/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="9l8sqpgojqe2t84y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-attribute与property" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/attribute与property/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -90,7 +187,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+      <a class="article-title" href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
     </h1>
   
 
@@ -98,123 +195,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>函数节流和函数去抖听起来很高端，实际上实现起来并不是很复杂。两个方法都是为了减少函数频繁调用的次数产生的，限看一下概念</p>
-<p><strong>函数节流(throttle)</strong> 当方法被重复调用时，只会在指定的间隔时间内执行一次</p>
-<p><strong>函数去抖(debounce)</strong> 当方法被重复调用时，如果距上次方法被调用的时间小于指定时间，推迟方法执行</p>
-<p>也就是说当函数<code>fn</code>以频率10ms/次的频率被调用1s的时候，正常情况下会被调用100次。我们设定<code>wait</code>时间为200ms，使用函数节流<code>fn</code>只会被调用5次，使用函数去抖，<code>fn</code>只会在1s后等200ms被调用一次<br>
+        <p>Query1.6中新添加了一个prop方法，看起来和用起来都和attr方法一样，这两个方法有什么区别呢？这要从HTMl 的attribute与property区别说起，attr与prop正是这两个东西的缩写。<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript节流与防抖/#more">Read More</a>
+            <a href="/2014/10/14/attribute与property/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript节流与防抖/" data-id="7hg1n5dkpg4hdjv0" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/attribute与property/" data-id="rwg10zkydwxvul4f" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript正则表达式2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/javascript正则表达式2/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上篇博客<a href="http://lsly1989.github.io/2014/08/24/javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F1/" target="_blank" rel="external">JavaScript 正则表达式——基本语法</a>介绍了JavaScript正则表达式的语法，有了这些基本知识，可以看看正则表达式在JavaScript的应用了，在一切开始之前，看看RegExp实例的几个属性</p>
-<p><img src="http://lsly1989.qiniudn.com/1.png" alt=""><br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/javascript正则表达式2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript正则表达式2/" data-id="qz9piau0b272ddxa" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-有趣的Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/有趣的Linux命令/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/shell/">shell</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="find命令的xargs">find命令的xargs</h1>
-<p>在Linux上find命令的曝光率很高，我们希望对find查找出的文件进行过滤或者操作怎么办呢，这时候就可以利用<code>xargs</code>了，它可以把find结果当作下一个指令的参数传入</p>
-<pre><code><span class="keyword">find</span> . -name * | xargs <span class="keyword">grep</span> <span class="string">'.'</span>
-</code></pre><p>查找文件夹下包含<code>.</code> 的文件</p>
-<pre><code><span class="title">find</span> . -name <span class="regexp">*.txt</span> | xargs rm -rf
-</code></pre><p>删除所有.txt文件</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/有趣的Linux命令/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/有趣的Linux命令/" data-id="8akmjj78c86dl8g7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -258,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript模版引擎/" data-id="93ff5a2gzk6noxp0" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="gbrp5moql1wgbo3n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
@@ -270,9 +263,9 @@
 
 
   
-    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript正则表达式1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
+    <a href="/2014/10/14/javascript正则表达式1/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -288,7 +281,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+      <a class="article-title" href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
     </h1>
   
 
@@ -296,31 +289,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
-<pre><code>function tmpl(id,data){
-    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
-    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
-        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
-        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
-        .replace(/&lt;%/g,<span class="string">"');"</span>)
-        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
-        +<span class="string">"');}return p.join('');"</span>;
-    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
-    <span class="keyword">return</span> fn(data);
-}
-</code></pre>
+        <h2 id="创建对象">创建对象</h2>
+<p>JavaScript可以通过两种方式创建一个匹配 <code>&lt;%xxxxxx%&gt;</code> 正则表达式对象</p>
+<p><strong>构造函数</strong></p>
+<pre><code><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%]+%&gt;'</span>,g);
+</code></pre><p><strong>字面量</strong></p>
+<pre><code>var reg=/&lt;<span class="variable">%[</span>^<span class="variable">%]</span>+<span class="variable">%&gt;</span>/g;
+</code></pre><ol>
+<li>g: global, 全文搜索，不声明默认只搜索第一个结果就停止</li>
+<li>i: ignore case，忽略大小写，不声明默认大小写敏感</li>
+<li>m: mutiple lines, 多行搜索
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
+            <a href="/2014/10/14/javascript正则表达式1/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/javascript模版引擎优化/" data-id="0dbaufqesecpo905" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式1/" data-id="z6sz6t40k4uidbfq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
 
     </footer>
   </div>
@@ -375,11 +365,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/zindex/">z-index</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/promise/">promise</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
           </li>
         
           <li>
@@ -387,7 +373,15 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
           </li>
         
           <li>
@@ -399,19 +393,15 @@
           </li>
         
           <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
             <a href="/2014/10/14/media queries/">media queries</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
           </li>
         
           <li>
@@ -419,11 +409,15 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
           </li>
         
           <li>
@@ -431,15 +425,11 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/history对象/">history</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
           </li>
         
       </ul>
@@ -454,7 +444,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2014 Byron Sun<br>
+      &copy; 2014 色拉油<br>
       Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>

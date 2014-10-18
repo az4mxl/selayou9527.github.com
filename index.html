@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>lsly1989</title>
+  <title>色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="靡不有初，鲜克有终">
 <meta property="og:type" content="website">
-<meta property="og:title" content="lsly1989">
-<meta property="og:url" content="https://github.com/lsly1989//">
-<meta property="og:site_name" content="lsly1989">
+<meta property="og:title" content="色拉油的技术博客">
+<meta property="og:url" content="https://github.com/selayou9527//">
+<meta property="og:site_name" content="色拉油的技术博客">
 <meta property="og:description" content="靡不有初，鲜克有终">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lsly1989">
+<meta name="twitter:title" content="色拉油的技术博客">
 <meta name="twitter:description" content="靡不有初，鲜克有终">
 
   
-    <link rel="alternative" href="/atom.xml" title="lsly1989" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="色拉油的技术博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -34,7 +34,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">lsly1989</a>
+        <a href="/" id="logo">色拉油的技术博客</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -61,7 +61,7 @@
           <input name=tn type=hidden value="bds">
           <input name=cl type=hidden value="3">
           <input name=ct type=hidden value="2097152">
-          <input type="hidden" name="si" value="github.com/lsly1989/">
+          <input type="hidden" name="si" value="github.com/selayou9527/">
         </form>
       </div>
     </div>
@@ -108,7 +108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/17/使用border做三角形/" data-id="uor3rihzfgniyqzj" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/17/使用border做三角形/" data-id="tkl0yss17dn7dq44" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -155,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/17/Intro to CSS 3D transforms/" data-id="c0k95x9cxigfi28p" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/17/Intro to CSS 3D transforms/" data-id="uwkrrkmyrrr5pqni" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -204,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/16/css3Transforms&Animations/" data-id="61lodhamwo5htb45" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/16/css3Transforms&Animations/" data-id="leps76zndqrava8g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -216,14 +216,14 @@
 
 
   
-    <article id="post-zindex" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-requestAnimationFrame高效动画" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/zindex/" class="article-date">
+    <a href="/2014/10/14/requestAnimationFrame高效动画/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -234,7 +234,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/zindex/">z-index</a>
+      <a class="article-title" href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
     </h1>
   
 
@@ -242,20 +242,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>做页面布局的同学对z-index属性应该是很熟悉了，z-index是针对网页显示中的一个特殊属性。因为显示器是显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别。表示一个元素在叠加顺序上的上下立体关系</p>
-<p>z-index值较大的元素将叠加在z-index值较小的元素之上。对于未指定此属性的定位对象，z-index 值为正数的对象会在其之上，而 z-index 值为负数的对象在其之下<br>
+        <h2 id="对比">对比</h2>
+<p>在之前博客中提到了requestAnimationFrame优于setTimeout，看到Internet Explorer Dev Center中一个对比的示例做的很有意思，搬过来学习一下，先看看效果<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/zindex/#more">Read More</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/zindex/" data-id="wnw2ql23cbsz4jlz" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame高效动画/" data-id="p7xpce0aai9gemrp" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -264,14 +264,14 @@
 
 
   
-    <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-requestAnimationFrame" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/promise/" class="article-date">
+    <a href="/2014/10/14/requestAnimationFrame/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/es6/">es6</a>
+    <a class="article-category-link" href="/categories/animation/">animation</a>
   </div>
 
   </div>
@@ -282,7 +282,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/promise/">promise</a>
+      <a class="article-title" href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
     </h1>
   
 
@@ -290,20 +290,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作</p>
-
+        <h2 id="requestAnimationFrame是什么">requestAnimationFrame是什么</h2>
+<blockquote>
+<p>window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN</p>
+<p>requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —— Internet Explorer Dev Center<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/promise/#more">Read More</a>
+            <a href="/2014/10/14/requestAnimationFrame/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/lsly1989/2014/10/14/promise/" data-id="zb3vovjmpcankw32" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame/" data-id="g5h46aapmv570dbe" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
 
     </footer>
   </div>
@@ -358,11 +360,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/zindex/">z-index</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/promise/">promise</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
           </li>
         
           <li>
@@ -370,7 +368,15 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+            <a href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
           </li>
         
           <li>
@@ -382,19 +388,15 @@
           </li>
         
           <li>
+            <a href="/2014/10/14/nodejs调试/">nodejs 调试</a>
+          </li>
+        
+          <li>
             <a href="/2014/10/14/media queries/">media queries</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+            <a href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
           </li>
         
           <li>
@@ -402,11 +404,15 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
           </li>
         
           <li>
@@ -414,15 +420,11 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/history对象/">history</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
           </li>
         
       </ul>
@@ -437,7 +439,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2014 Byron Sun<br>
+      &copy; 2014 色拉油<br>
       Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
