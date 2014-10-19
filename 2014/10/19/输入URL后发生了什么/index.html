@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>输入页面URL后发生了什么 | 色拉油的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在FEX上看到从输入 URL 到页面加载完成的过程中都发生了什么事情？，感觉作者侧重于底层实现，这是一个很有意思的问题，据说面试常见，通吃前后端，本文侧重于前端方面聊聊，总体而言有几步
+
+根据url查找服务器主机资源位置
+发送请求
+服务器处理请求，生成响应，返回给客户端
+浏览器根据HTML文本获取css、js、image等媒体资源，生成DOM树、渲染树渲染页面
+发送Ajax请求，继续渲染页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="输入页面URL后发生了什么">
+<meta property="og:url" content="https://github.com/selayou9527/2014/10/19/输入URL后发生了什么/">
+<meta property="og:site_name" content="色拉油的技术博客">
+<meta property="og:description" content="在FEX上看到从输入 URL 到页面加载完成的过程中都发生了什么事情？，感觉作者侧重于底层实现，这是一个很有意思的问题，据说面试常见，通吃前后端，本文侧重于前端方面聊聊，总体而言有几步
+
+根据url查找服务器主机资源位置
+发送请求
+服务器处理请求，生成响应，返回给客户端
+浏览器根据HTML文本获取css、js、image等媒体资源，生成DOM树、渲染树渲染页面
+发送Ajax请求，继续渲染页面">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/Render-Process.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="输入页面URL后发生了什么">
+<meta name="twitter:description" content="在FEX上看到从输入 URL 到页面加载完成的过程中都发生了什么事情？，感觉作者侧重于底层实现，这是一个很有意思的问题，据说面试常见，通吃前后端，本文侧重于前端方面聊聊，总体而言有几步
+
+根据url查找服务器主机资源位置
+发送请求
+服务器处理请求，生成响应，返回给客户端
+浏览器根据HTML文本获取css、js、image等媒体资源，生成DOM树、渲染树渲染页面
+发送Ajax请求，继续渲染页面">
+
+  
+    <link rel="alternative" href="/atom.xml" title="色拉油的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">色拉油的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/selayou9527">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-输入URL后发生了什么" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/19/输入URL后发生了什么/" class="article-date">
+  <time datetime="2014-10-19T04:32:51.000Z" itemprop="datePublished">Oct 19 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/综合/">综合</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      输入页面URL后发生了什么
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查询缓存"><span class="toc-number">1.</span> <span class="toc-text">查询缓存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DNS查询"><span class="toc-number">2.</span> <span class="toc-text">DNS查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器向服务器发送HTTP请求"><span class="toc-number">3.</span> <span class="toc-text">浏览器向服务器发送HTTP请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重定向"><span class="toc-number">4.</span> <span class="toc-text">重定向</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器接收请求、生成响应"><span class="toc-number">5.</span> <span class="toc-text">服务器接收请求、生成响应</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器发送响应"><span class="toc-number">6.</span> <span class="toc-text">服务器发送响应</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器渲染页面"><span class="toc-number">7.</span> <span class="toc-text">浏览器渲染页面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器加载和渲染html的顺序"><span class="toc-number">7.1.</span> <span class="toc-text">浏览器加载和渲染html的顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS的加载"><span class="toc-number">7.2.</span> <span class="toc-text">JS的加载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ajax请求"><span class="toc-number">8.</span> <span class="toc-text">ajax请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <p>在FEX上看到<a href="http://fex.baidu.com/blog/2014/05/what-happen/" target="_blank" rel="external">从输入 URL 到页面加载完成的过程中都发生了什么事情？</a>，感觉作者侧重于底层实现，这是一个很有意思的问题，据说面试常见，通吃前后端，本文侧重于前端方面聊聊，总体而言有几步</p>
+<ol>
+<li>根据url查找服务器主机资源位置</li>
+<li>发送请求</li>
+<li>服务器处理请求，生成响应，返回给客户端</li>
+<li>浏览器根据HTML文本获取css、js、image等媒体资源，生成DOM树、渲染树渲染页面</li>
+<li>发送Ajax请求，继续渲染页面<a id="more"></a>
+
+</li>
+</ol>
+<h1 id="查询缓存">查询缓存</h1>
+<p>虽然我们写的第一步时查找主机，但是这是针对第一次访问的时候，如果浏览器已经访问过该资源，在缓存未实效的时候可以直接使用本地资源，然后跳到步骤<strong>渲染页面</strong>部分</p>
+<h1 id="DNS查询">DNS查询</h1>
+<p>如果没有缓存会根据url先解析主机IP，这就需要DNS了</p>
+<ol>
+<li>浏览器缓存，如果之前访问过该主机（不是url指定的资源），浏览器会缓存DNS一段时间，这样就可以直接使用浏览器缓存的DNS，至于一段时间是多久没要求，浏览器自行决定</li>
+<li>系统缓存，如果浏览器缓存里没有记录，浏览器会做系统调用，获取系统中缓存纪录</li>
+<li>路由器缓存，如果系统缓存同样没有命中，那就需要查询路由器缓存了</li>
+<li>ISP DNS 缓存，路由器缓存未命中会查询ISP（Internet Service Provider），一般域名在这里都可以找到了</li>
+<li>递归搜索， 我们使用的ISP的DNS记录里面如果还没有的话，那么就会从顶级域名服务器的根域名服务器开始递归查询，这个肯定会查到了</li>
+</ol>
+<h1 id="浏览器向服务器发送HTTP请求">浏览器向服务器发送HTTP请求</h1>
+<p>一个get请求看起来是这样的</p>
+<pre><code>GET http:<span class="comment">//google.com/ HTTP/1.1</span>
+user-agent:Mozilla<span class="regexp">/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/</span><span class="number">537.36</span> (KHTML, like Gecko) Chrome<span class="regexp">/38.0.2125.104 Safari/</span><span class="number">537.36</span>
+accept:text<span class="regexp">/html,application/</span>xhtml+xml,application<span class="regexp">/xml;q=0.9,image/</span>webp,*<span class="comment">/*;q=0.8
+accept-encoding:gzip,deflate
+accept-language:en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4,zh-TW;q=0.2,ja;q=0.2
+cache-control:max-age=0
+connection: Keep-Alive
+cookie:xxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+</code></pre><p>请求中包括了url和请求方法还有cookie等，这就是浏览器想服务器发送的HTTP报文</p>
+<p>一般浏览器都是通过使用的TCP协议，UDP不可靠，所以浏览器得到的response要么是全的，要么得不到。浏览器拿到URL会解析出url中对应主机的IP和端口号，然后建立到服务器的TCP连接，发送报文</p>
+<h1 id="重定向">重定向</h1>
+<p>服务器接到请求后可能会生成重定向响应，也就是常说的301状态码，浏览器得到301响应后会根据响应地址重新发一条请求，下次有同样的请求后会自动重定向，不发两次请求</p>
+<h1 id="服务器接收请求、生成响应">服务器接收请求、生成响应</h1>
+<p>这就是服务器的工作了，根据URL及参数，找到正确的处理方式，比如图片、js、css、html等讲台文件，可能直接读取结果发回给客户端，对于<code>.php</code>等动态文件，调取响应的处理程序，调用数据库数据。。。。。</p>
+<p>生成静态文本，然后设置cookie啊什么的</p>
+<h1 id="服务器发送响应">服务器发送响应</h1>
+<p>服务器生成的响应包括header和content，content就是我们看到的HTML，header一般包括</p>
+<pre><code>HTTP/1.1 200 OK
+ <span class="operator"><span class="keyword">Cache</span>-Control: private, <span class="keyword">no</span>-store, <span class="keyword">no</span>-<span class="keyword">cache</span>, must-revalidate, post-<span class="keyword">check</span>=<span class="number">0</span>,
+ pre-<span class="keyword">check</span>=<span class="number">0</span>
+ Expires: Sat, <span class="number">01</span> Jan <span class="number">2100</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> GMT
+ P3P: CP=<span class="string">"DSP LAW"</span>
+ <span class="keyword">Pragma</span>: <span class="keyword">no</span>-<span class="keyword">cache</span>
+ Content-Encoding: gzip
+ Content-Type: <span class="built_in">text</span>/html;</span> charset=utf-8
+ X-Cnection: close
+ Transfer-Encoding: chunked
+ Date: Fri, 10 Feb 2014 09:05:55 GMT
+</code></pre><p> 当然cookie同样拿得到，浏览器会根据content-type句顶怎么处理资源，比如html就会直接渲染，pdf就会去下载</p>
+<h1 id="浏览器渲染页面">浏览器渲染页面</h1>
+<p>浏览器会从上到下解释渲染页面，所以在CPU呗高度占用的情况下我们可以看到页面从上到下显示的过程</p>
+<p>关于浏览器是怎么渲染页面的可以读读<a href="http://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/" target="_blank" rel="external">浏览器的工作原理：新式网络浏览器幕后揭秘</a>，如果能坚持看完，肯定大有裨益</p>
+<p>简单步骤有</p>
+<ol>
+<li>解析html生成DOM树</li>
+<li>解析HTML中的CSS，生成渲染树</li>
+<li>解析JavaScript，解析到的时候执行</li>
+</ol>
+<p>DOM树和渲染树都是边解析边生成页面的，所以会随着下面的页面内容不断调整</p>
+<p><img src="http://lsly1989.qiniudn.com/Render-Process.jpg" alt=""></p>
+<h2 id="浏览器加载和渲染html的顺序">浏览器加载和渲染html的顺序</h2>
+<ol>
+<li>浏览器下载的顺序是从上到下，渲染的顺序也是从上到下，下载和渲染是同时进行的。</li>
+<li>在渲染到页面的某一部分时，其上面的所有部分都已经下载完成（并不是说所有相关联的元素都已经下载完）</li>
+<li>如果遇到语义解释性的标签嵌入文件（JS脚本，CSS样式），那么此时IE的下载过程会启用单独连接进行下载。</li>
+<li>在下载后进行解析，解析过程中，停止页面所有往下元素的下载。阻塞加载<br>样式表在下载完成后，将和以前下载的所有样式表一起进行解析，解析完成后，将对此前所有元素（含以前已经渲染的）重新进行渲染。</li>
+<li>JS、CSS中如有重定义，后定义函数将覆盖前定义函数</li>
+</ol>
+<h2 id="JS的加载">JS的加载</h2>
+<p>js不能并行的下载和解析，采用阻塞的方式。当页面引用了JS的时候浏览器发送请求后会一直阻塞知道得到响应，因为浏览器需要1个稳定的DOM树结构，而JS中很有可能有代码直接改变了DOM树结构，浏览器为了防止出现JS修改DOM树，需要重新构建DOM树的情况，所以就会阻塞其他的下载和呈现。</p>
+<h1 id="ajax请求">ajax请求</h1>
+<p>这个大家都懂得，在渲染过程中出现了ajax请求，需要执行和上面类似的步骤</p>
+<h1 id="参考">参考</h1>
+<p><a href="http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/" target="_blank" rel="external">What really happens when you navigate to a URL</a></p>
+<p><a href="http://edusagar.com/articles/view/70/What-happens-when-you-type-a-URL-in-browser" target="_blank" rel="external">What happens when you type a URL in browser</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/19/输入URL后发生了什么/" data-id="7qontb3fzpx0cfnu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/10/18/postMessage使用场景/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">postMessage的使用场景</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.00px;">canvas</a><a href="/tags/css/" style="font-size: 18.00px;">css</a><a href="/tags/css3/" style="font-size: 16.00px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 12.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.00px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/node/" style="font-size: 12.00px;">node</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 14.00px;">动画</a><a href="/tags/模版引擎/" style="font-size: 12.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.00px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/19/输入URL后发生了什么/">输入页面URL后发生了什么</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/css垂直居中/">CSS 垂直居中</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/使用border做三角形/">使用border做三角形</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/Intro to CSS 3D transforms/">Intro to CSS 3D transforms[翻译部分]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">node 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 色拉油<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
