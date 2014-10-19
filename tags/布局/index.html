@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: shell | 色拉油的技术博客</title>
+  <title>Tag: 布局 | 色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="靡不有初，鲜克有终">
 <meta property="og:type" content="website">
 <meta property="og:title" content="色拉油的技术博客">
-<meta property="og:url" content="https://github.com/selayou9527/categories/shell/">
+<meta property="og:url" content="https://github.com/selayou9527/tags/布局/">
 <meta property="og:site_name" content="色拉油的技术博客">
 <meta property="og:description" content="靡不有初，鲜克有终">
 <meta name="twitter:card" content="summary">
@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-有趣的Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-负边距在布局中的使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/有趣的Linux命令/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+    <a href="/2014/10/19/负边距在布局中的使用/" class="article-date">
+  <time datetime="2014-10-19T09:34:01.000Z" itemprop="datePublished">Oct 19 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/shell/">shell</a>
+    <a class="article-category-link" href="/categories/css/">css</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+      <a class="article-title" href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
     </h1>
   
 
@@ -94,25 +94,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="find命令的xargs">find命令的xargs</h1>
-<p>在Linux上find命令的曝光率很高，我们希望对find查找出的文件进行过滤或者操作怎么办呢，这时候就可以利用<code>xargs</code>了，它可以把find结果当作下一个指令的参数传入</p>
-<pre><code><span class="keyword">find</span> . -name * | xargs <span class="keyword">grep</span> <span class="string">'.'</span>
-</code></pre><p>查找文件夹下包含<code>.</code> 的文件</p>
-<pre><code><span class="title">find</span> . -name <span class="regexp">*.txt</span> | xargs rm -rf
-</code></pre><p>删除所有.txt文件</p>
-
+        <p>负边距既<code>margin</code>属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现</p>
+<ul>
+<li>当<code>margin-top</code>、<code>margin-left</code>为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与<code>position:relative</code>的元素设置top、left后元素还占据原来位置不同</li>
+<li>当<code>margin-bottom</code>、<code>margin-right</code>设为负值的时候，元素本身没有位置变化，后面的元素会下移、右移</li>
+</ul>
+<p>看几个应用场景<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/有趣的Linux命令/#more">Read More</a>
+            <a href="/2014/10/19/负边距在布局中的使用/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/有趣的Linux命令/" data-id="ut9lijrsp9o3q41y" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/19/负边距在布局中的使用/" data-id="9bd6hy0jh7o9i6e8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/布局/">布局</a></li></ul>
 
     </footer>
   </div>

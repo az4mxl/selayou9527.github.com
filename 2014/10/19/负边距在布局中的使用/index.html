@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>负边距在布局中的使用 | 色拉油的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="负边距既margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
+
+当margin-top、margin-left为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与position:relative的元素设置top、left后元素还占据原来位置不同
+当margin-bottom、margin-right设为负值的时候，元素本身没">
+<meta property="og:type" content="article">
+<meta property="og:title" content="负边距在布局中的使用">
+<meta property="og:url" content="https://github.com/selayou9527/2014/10/19/负边距在布局中的使用/">
+<meta property="og:site_name" content="色拉油的技术博客">
+<meta property="og:description" content="负边距既margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
+
+当margin-top、margin-left为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与position:relative的元素设置top、left后元素还占据原来位置不同
+当margin-bottom、margin-right设为负值的时候，元素本身没">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="负边距在布局中的使用">
+<meta name="twitter:description" content="负边距既margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
+
+当margin-top、margin-left为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与position:relative的元素设置top、left后元素还占据原来位置不同
+当margin-bottom、margin-right设为负值的时候，元素本身没">
+
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">色拉油的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/selayou9527">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-负边距在布局中的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/19/负边距在布局中的使用/" class="article-date">
+  <time datetime="2014-10-19T09:34:01.000Z" itemprop="datePublished">Oct 19 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      负边距在布局中的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#绝对定位元素"><span class="toc-number">1.</span> <span class="toc-text">绝对定位元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#float元素"><span class="toc-number">2.</span> <span class="toc-text">float元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浮动元素负边距"><span class="toc-number">2.1.</span> <span class="toc-text">浮动元素负边距</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多列布局"><span class="toc-number">2.2.</span> <span class="toc-text">多列布局</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#普通元素"><span class="toc-number">3.</span> <span class="toc-text">普通元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多列列表"><span class="toc-number">3.1.</span> <span class="toc-text">多列列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#放大元素"><span class="toc-number">3.2.</span> <span class="toc-text">放大元素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#带有右边距的浮动子元素列表"><span class="toc-number">4.</span> <span class="toc-text">带有右边距的浮动子元素列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <p>负边距既<code>margin</code>属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现</p>
+<ul>
+<li>当<code>margin-top</code>、<code>margin-left</code>为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与<code>position:relative</code>的元素设置top、left后元素还占据原来位置不同</li>
+<li>当<code>margin-bottom</code>、<code>margin-right</code>设为负值的时候，元素本身没有位置变化，后面的元素会下移、右移</li>
+</ul>
+<p>看几个应用场景<br><a id="more"></a></p>
+<h1 id="绝对定位元素">绝对定位元素</h1>
+<p>当元素被设置为绝对定位的时候其top、right、bottom、left值是指离最近的非static元素的距离，经典的垂直居中的一种方式正是利用的绝对定位元素的负边距实现的</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="class">.wrap4</span><span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value">relative</span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">10px</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">200px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">200px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value">dashed <span class="number">1px</span> orange</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.wrap4</span> <span class="class">.content</span><span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">50%</span></span></span>;
+    <span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">50%</span></span></span>;
+    <span class="rule"><span class="attribute">margin-top</span>:<span class="value">-<span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value">-<span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value">orange</span></span>;
+<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"wrap4"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>把元素设置为绝对定位，然后设置top和left为50%，这时候元素的上边、左边就到了父元素的50%处，再对元素设置其自身高度、长度一般的负边距，使元素中心移动到父元素中心，实现居中对其</p>
+<style>
+.wrap4{
+    position:relative;
+    margin:10px;
+    width:200px;
+    height:200px;
+    border:dashed 1px orange;
+}
+
+.wrap4 .content{
+    position:absolute;
+    width:100px;
+    height:100px;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+    background:orange;
+}
+</style>
+
+<div class="wrap4"><br>    <div class="content"></div><br></div>
+
+<h1 id="float元素">float元素</h1>
+<p>负边距对float元素的影响也是按照上面说的，不过有其特殊性，我们看个例子就很清楚了</p>
+<h2 id="浮动元素负边距">浮动元素负边距</h2>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="class">.float</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">280px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value">dashed <span class="number">1px</span> orange</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.float</span> <span class="class">.item</span><span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.float</span> <span class="class">.item</span><span class="pseudo">:nth-child(1)</span><span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value">red</span></span>;
+<span class="rule">}</span></span>
+<span class="class">.float</span> <span class="class">.item</span><span class="pseudo">:nth-child(2)</span><span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value">grey</span></span>;
+<span class="rule">}</span></span>
+<span class="class">.float</span> <span class="class">.item</span><span class="pseudo">:nth-child(3)</span><span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value">blue</span></span>;
+<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"float"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>在一个宽度为<code>280px</code>的div中右3个<code>float:left</code>的子元素，宽度为<code>100px</code>，由于一排放不下，最后一个陪移动到了下一行</p>
+<style>
+.float{
+    overflow:hidden;
+    width:280px;
+    border:dashed 1px orange;
+}
+
+.float .item{
+    width:100px;
+    height:100px;
+    float:left;
+}
+
+.float .item:nth-child(1){
+    background:red;
+}
+.float .item:nth-child(2){
+    background:grey;
+}
+.float .item:nth-child(3){
+    background:blue;
+}
+</style>
+
+<div class="float"><br>    <div class="item"></div><br>    <div class="item"></div><br>    <div class="item"></div><br></div>
+
+
+<p>我们对代码稍作修改</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="class">.float</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">280px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value">dashed <span class="number">1px</span> orange</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.float</span> <span class="class">.item</span><span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.float</span> <span class="class">.item</span><span class="pseudo">:nth-child(1)</span><span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value">red</span></span>;
+<span class="rule">}</span></span>
+<span class="class">.float</span> <span class="class">.item</span><span class="pseudo">:nth-child(2)</span><span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value">grey</span></span>;
+<span class="rule">}</span></span>
+<span class="class">.float</span> <span class="class">.item</span><span class="pseudo">:nth-child(3)</span><span class="rules">{
+    <span class="rule"><span class="attribute">background</span>:<span class="value">blue</span></span>;
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value">-<span class="number">20px</span></span></span>;
+<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"float"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>第三个元素添加<code>-20px</code>的负边距</p>
+<style>
+.float .n{
+    margin-left:-20px;
+}
+</style>
+
+<div class="float"><br>    <div class="item"></div><br>    <div class="item"></div><br>    <div class="item n"></div><br></div>
+
+<p>这时候发现第三个元素移上去了，并且覆盖了第二个元素<code>20px</code>，经典的多列布局正是利用此原理</p>
+<h2 id="多列布局">多列布局</h2>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="class">.body</span><span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">500px</span></span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">10px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value">dashed <span class="number">1px</span> orange</span></span>;
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.wrap3</span><span class="rules">{
+    <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100%</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.wrap3</span> <span class="class">.content</span><span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">200px</span></span></span>;
+    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">rgba</span>(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>)</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.body</span> <span class="class">.right</span><span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">200px</span></span></span>;
+    <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value">-<span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">rgba</span>(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>,<span class="number">0.5</span>)
+</span></span></span>}
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"body"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"wrap3"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>
+            Content Content Content Content Content Content Content 
+            Content Content Content Content Content Content Content Content
+        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span>Right<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>代码很简单</p>
+<ol>
+<li>为content元素添加父元素，设置左浮动，宽度<code>100%</code></li>
+<li>content元素设置右边距，值等于right的宽度</li>
+<li>right左浮动，然后设置其宽度的负边距</li>
+</ol>
+<p>本来right应该在第二行显示了，但是其宽度的左浮动使它到了第一行的最右边，覆盖了wrap的一部分，但是content有right宽度的右边距，覆盖区域没有内容，这样就实现了两列布局</p>
+<style>
+.body{
+    width:500px;
+    margin:10px;
+    border:dashed 1px orange;
+    overflow:hidden;
+}
+
+.wrap3{
+    float:left;
+    width:100%;
+}
+
+.wrap3 .content{
+    height:200px;
+    margin-right:100px;
+    background:rgba(255,0,0,0.5);
+}
+
+.body .right{
+    width:100px;
+    height:200px;
+    float:left;
+    margin-left:-100px;
+    background:rgba(0,255,0,0.5)
+}
+</style>
+
+<div class="body"><br>    <div class="wrap3"><br>        <div class="content"><br>            Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content<br>        </div><br>    </div><br>    <div class="right">Right</div><br></div>
+
+<p>PS. 其它此类更复杂的布局原理类似，感兴趣的同学可以看<a href="http://blog.html.it/layoutgala/" target="_blank" rel="external">这里</a>学40种。。。</p>
+<h1 id="普通元素">普通元素</h1>
+<p>负边距对不同块元素的影响很有意思，我们通过几个例子来看一下</p>
+<h2 id="多列列表">多列列表</h2>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="tag">li</span><span class="rules">{
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">2em</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.col2</span><span class="rules">{
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">150px</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.col3</span><span class="rules">{
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">300px</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="tag">li</span><span class="class">.top</span><span class="rules">{
+    <span class="rule"><span class="attribute">margin-top</span>:<span class="value">-<span class="number">6em</span></span></span>;
+<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col1"</span>&gt;</span>aaa<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col1"</span>&gt;</span>bbb<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col1"</span>&gt;</span>ccc<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col2 top"</span>&gt;</span>ddd<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col2"</span>&gt;</span>eee<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col2"</span>&gt;</span>fff<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col3 top"</span>&gt;</span>ggg<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col3"</span>&gt;</span>hhh<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"col3"</span>&gt;</span>iii<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</code></pre><p>定义一个列表，三列显示</p>
+<style>
+li{
+    line-height:2em;
+}
+
+.col2{
+    margin-left:150px;
+}
+
+.col3{
+    margin-left:300px;
+}
+
+li.top{
+    margin-top:-6em;
+}
+</style>
+
+<ul><br>    <li class="col1">aaa</li><br>    <li class="col1">bbb</li><br>    <li class="col1">ccc</li><br>    <li class="col2 top">ddd</li><br>    <li class="col2">eee</li><br>    <li class="col2">fff</li><br>    <li class="col3 top">ggg</li><br>    <li class="col3">hhh</li><br>    <li class="col3">iii</li><br></ul>
+
+<p>普通的做法我们肯定是通过浮动实现，通过刚才介绍的知识应该不难理解为什么这样也行。看起来在普通元素上没什么稀奇的</p>
+<h2 id="放大元素">放大元素</h2>
+<p>什么？负边距还可以放大元素！！！</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="class">.wrap</span><span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">300px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value">dashed <span class="number">5px</span> orange</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.wrap</span> <span class="class">.inner</span><span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span> -<span class="number">50px</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value">blue</span></span>;
+    <span class="rule"><span class="attribute">opacity</span>:<span class="value"><span class="number">0.5</span></span></span>;
+<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"wrap0"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"inner0"</span>&gt;</span>
+      inner inner inner inner inner inner inner inner inner inner inner inner 
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>这个例子看起来平淡无奇，效果却很惊人，内层的div设置了水平的负边距后竟然变大了</p>
+<style>
+.wrap0{
+    width:300px;
+    margin:50px;
+    border:dashed 5px orange;
+}
+
+.wrap0 .inner0{
+    height:50px;
+    margin:0 -50px;
+    background:rgba(0,0,255,0.5);
+}
+</style>
+
+<div class="wrap0"><br>  <div class="inner0">inner inner inner inner inner inner inner inner inner inner inner inner inner </div><br></div>
+
+<p>PS. 效果能实现的前提是元素的宽度不能设置为<code>auto</code>以外的值</p>
+<h1 id="带有右边距的浮动子元素列表">带有右边距的浮动子元素列表</h1>
+<style>
+.wrap2{
+    width:320px;
+    border:dashed 1px orange;
+}
+
+.wrap2 .inner2{
+  overflow:hidden;
+  margin-right:-10px;
+}
+
+.wrap2 .item{
+    float:left;
+    width:100px;
+    height:100px;
+    margin:10px 10px 10px 0;
+    background:blue;
+}
+</style>
+
+<div class="wrap2"><br>    <div class="inner2"><br>        <div class="item"></div><br>        <div class="item"></div><br>        <div class="item"></div><br>        <div class="item"></div><br>        <div class="item"></div><br>        <div class="item"></div><br>  </div><br></div>
+
+<p>看到这种效果你第一想法是什么？会不会是子元素设置margin-right，在遍历的时候nth-child(3n)还要设置为0，看看利用上面知识我们可以怎样处理</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="class">.wrap2</span><span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">320px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value">dashed <span class="number">1px</span> orange</span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.wrap2</span> <span class="class">.inner</span><span class="rules">{
+  <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+  <span class="rule"><span class="attribute">margin-right</span>:<span class="value">-<span class="number">10px</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="class">.wrap2</span> <span class="class">.item</span><span class="rules">{
+    <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value">blue</span></span>;
+<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"wrap2"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"inner"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>我们没有设置nth-child(3n)的边距为0，而是通过负边距使父元素“变大”。</p>
+<p>负边距是不是很有意思，不很了解的少年们学起来吧！</p>
+<h1 id="参考">参考</h1>
+<p><a href="http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html" target="_blank" rel="external">CSS布局奇淫巧计之-强大的负边距</a></p>
+<script>
+$('br').remove();
+</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/19/负边距在布局中的使用/" data-id="9bd6hy0jh7o9i6e8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/布局/">布局</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/10/19/输入URL后发生了什么/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">输入页面URL后发生了什么</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/canvas/" style="font-size: 12.00px;">canvas</a><a href="/tags/css/" style="font-size: 18.00px;">css</a><a href="/tags/css3/" style="font-size: 16.00px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 12.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.00px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/node/" style="font-size: 12.00px;">node</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 14.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 12.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.00px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/输入URL后发生了什么/">输入页面URL后发生了什么</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/css垂直居中/">CSS 垂直居中</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/使用border做三角形/">使用border做三角形</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/Intro to CSS 3D transforms/">Intro to CSS 3D transforms[翻译部分]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">node 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/zindex/">z-index</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 色拉油<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
