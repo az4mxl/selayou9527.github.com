@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Go (1)：Hello World! | 色拉油的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="自从转了前端后一直在和各种动态语言打交道，突发奇想学门静态语言开开眼界，各种纠结之后选了Go，记录一下学习过程
+安装
+关于Go语言的安装网上教程多的是，也很简单，不介绍了，我用的Mac，就偷懒直接使用Homebrew安装了
+官网下载安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go (1)：Hello World!">
+<meta property="og:url" content="https://github.com/selayou9527/2014/10/20/GO(1):hello world!/">
+<meta property="og:site_name" content="色拉油的技术博客">
+<meta property="og:description" content="自从转了前端后一直在和各种动态语言打交道，突发奇想学门静态语言开开眼界，各种纠结之后选了Go，记录一下学习过程
+安装
+关于Go语言的安装网上教程多的是，也很简单，不介绍了，我用的Mac，就偷懒直接使用Homebrew安装了
+官网下载安装">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Go (1)：Hello World!">
+<meta name="twitter:description" content="自从转了前端后一直在和各种动态语言打交道，突发奇想学门静态语言开开眼界，各种纠结之后选了Go，记录一下学习过程
+安装
+关于Go语言的安装网上教程多的是，也很简单，不介绍了，我用的Mac，就偷懒直接使用Homebrew安装了
+官网下载安装">
+
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">色拉油的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/selayou9527">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-GO(1):hello world!" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/20/GO(1):hello world!/" class="article-date">
+  <time datetime="2014-10-20T11:19:45.000Z" itemprop="datePublished">Oct 20 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Go/">Go</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Go (1)：Hello World!
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDE"><span class="toc-number">2.</span> <span class="toc-text">IDE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#环境"><span class="toc-number">3.</span> <span class="toc-text">环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Workspaces"><span class="toc-number">3.1.</span> <span class="toc-text">Workspaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GOPATH"><span class="toc-number">3.2.</span> <span class="toc-text">GOPATH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package路径"><span class="toc-number">3.3.</span> <span class="toc-text">package路径</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hello_World!"><span class="toc-number">4.</span> <span class="toc-text">Hello World!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编写linrary"><span class="toc-number">5.</span> <span class="toc-text">编写linrary</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Package_名字"><span class="toc-number">6.</span> <span class="toc-text">Package 名字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试"><span class="toc-number">7.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#远程package"><span class="toc-number">8.</span> <span class="toc-text">远程package</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <p>自从转了前端后一直在和各种动态语言打交道，突发奇想学门静态语言开开眼界，各种纠结之后选了Go，记录一下学习过程</p>
+<h1 id="安装">安装</h1>
+<p>关于Go语言的安装网上教程多的是，也很简单，不介绍了，我用的Mac，就偷懒直接使用Homebrew安装了</p>
+<p><a href="http://golang.org/doc/install" target="_blank" rel="external">官网下载安装</a><br><a id="more"></a></p>
+<h1 id="IDE">IDE</h1>
+<p>关于IDE的抉择又是一个痛苦的过程，主要有</p>
+<ol>
+<li>LiteIDE: 专门为Go语言定制的IDE</li>
+<li>Sublime Text＋GoSublime插件</li>
+<li>Vim/Emacs</li>
+<li>Eclipse+goclipse</li>
+<li>IntelliJ IDEA+Golang</li>
+</ol>
+<p>这个萝卜白菜各有所爱，没有最好的之说，我用的Sublime Text＋GoSublime，做前端习惯了Sublime</p>
+<p>下面基本就是翻译Go官方文档了</p>
+<h1 id="环境">环境</h1>
+<p>在开始写代码之前我们需要了解Go的运行环境</p>
+<h2 id="Workspaces">Workspaces</h2>
+<p>Go的代码必须在一个<code>workspace</code>中，workspace的目录结构</p>
+<ul>
+<li>src 包含组织到package的Go代码文件，一个package对应一个文件夹</li>
+<li>pkg 包含各种package</li>
+<li>bin 可运行文件</li>
+</ul>
+<p>看个例子</p>
+<pre><code>bin/
+    streak                         # <span class="keyword">command</span> <span class="built_in">executable</span>
+    todo                           # <span class="keyword">command</span> <span class="built_in">executable</span>
+pkg/
+    linux_amd64/
+        code.google.<span class="keyword">com</span>/<span class="keyword">p</span>/goauth2/
+            oauth.<span class="keyword">a</span>                # package object
+        github.<span class="keyword">com</span>/nf/todo/
+            task.<span class="keyword">a</span>                 # package object
+src/
+    code.google.<span class="keyword">com</span>/<span class="keyword">p</span>/goauth2/
+        .hg/                       # mercurial repository metadata
+        oauth/
+            oauth.<span class="keyword">go</span>               # package <span class="keyword">source</span>
+            oauth_test.<span class="keyword">go</span>          # test <span class="keyword">source</span>
+    github.<span class="keyword">com</span>/nf/
+        streak/
+            .git/                  # git repository metadata
+            oauth.<span class="keyword">go</span>               # <span class="keyword">command</span> <span class="keyword">source</span>
+            streak.<span class="keyword">go</span>              # <span class="keyword">command</span> <span class="keyword">source</span>
+        todo/
+            .git/                  # git repository metadata
+            task/
+                task.<span class="keyword">go</span>            # package <span class="keyword">source</span>
+            todo.<span class="keyword">go</span>                # <span class="keyword">command</span> <span class="keyword">source</span>
+</code></pre><h2 id="GOPATH">GOPATH</h2>
+<p>和Java、python等一样Go也需要配置环境变量，其中GOPATH不是Go的bin目录，而是workspace目录。这也是Go需要的唯一的环境变量，workspace可以设置到任何非GO安装路径的地方</p>
+<pre><code><span class="variable">$ </span>mkdir <span class="variable">$HOME</span>/go
+<span class="variable">$ </span>export <span class="constant">GOPATH</span>=<span class="variable">$HOME</span>/go
+</code></pre><p>为了方便编译后的可执行文件运行，可以把workspace的bin目录配置到PATH中</p>
+<pre><code>$ <span class="keyword">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/bin
+</code></pre><h2 id="package路径">package路径</h2>
+<p>系统package都有了比较短的名字<code>fmt</code>、<code>net/http</code>等，自定义的package自己要组织好路径，像Java一样使用域名活着自己github的名字等</p>
+<h1 id="Hello_World!">Hello World!</h1>
+<p>一切都准备妥当了，终于可以开始写<code>Hello World!</code>了，在src目录下创建合适目录结构</p>
+<pre><code>$ mkdir <span class="variable">$GOPATH</span>/src/github.com/<span class="literal">user</span>/hello
+</code></pre><p>创建hello.go测试文件</p>
+<pre><code>package main
+
+<span class="keyword">import</span> <span class="string">"fmt"</span>
+
+<span class="func"><span class="keyword">func</span></span> main() {
+    fmt.<span class="type">Printf</span>(<span class="string">"Hello, world.\n"</span>)
+}
+</code></pre><p>用过Java的同学一看就知道什么意思，编译执行一下文件</p>
+<pre><code>$ <span class="keyword">go</span> install github.<span class="keyword">com</span>/user/hello
+</code></pre><p>这句命令可以在任何地方运行，Go会根据GOPATH查找源文件，当然也可以进代码目录后编译</p>
+<pre><code>$ <span class="keyword">cd</span> $GOPATH/src/github.<span class="keyword">com</span>/user/hello
+$ <span class="keyword">go</span> install
+</code></pre><p>这句命令在workspace的bin目录下编译出一个可执行文件，只有在遇到错误的时候终端才会有显示，没显示就说明编译成功，这样就能够运行了</p>
+<pre><code><span class="variable">$ </span><span class="variable">$GOPATH</span>/bin/hello
+<span class="constant">Hello</span>, world.
+</code></pre><p>如果把workspace的bin目录添加到PATH变量中了，就更方便了</p>
+<pre><code>$ hello
+<span class="variable">Hello</span>, world.
+</code></pre><h1 id="编写linrary">编写linrary</h1>
+<p>所谓library就是库函数，供程序复用。第一步同样是创建一个package</p>
+<pre><code>$ mkdir <span class="variable">$GOPATH</span>/src/github.com/<span class="literal">user</span>/newmath
+</code></pre><p>然后创建 <code>sqrt.go</code> 文件，语法先不计较</p>
+<pre><code><span class="comment">// Package newmath is a trivial example package.</span>
+<span class="keyword">package</span> newmath
+
+<span class="comment">// Sqrt returns an approximation to the square root of x.</span>
+<span class="keyword">func</span> Sqrt(x <span class="typename">float64</span>) <span class="typename">float64</span> {
+    z :=<span class="number"> 1.0</span>
+    <span class="keyword">for</span> i :=<span class="number"> 0</span>; i &lt;<span class="number"> 1000</span>; i++ {
+        z -= (z*z - x) / <span class="number">(2</span> * z)
+    }
+    <span class="keyword">return</span> z
+}
+</code></pre><p>单独编译一下这个文件</p>
+<pre><code>$ <span class="keyword">go</span> build github.<span class="keyword">com</span>/user/newmath
+</code></pre><p>如果就在当前目录下</p>
+<pre><code>$ <span class="keyword">go</span> build
+</code></pre><p>这样不会有任何文件生成，需要使用install命令，这样会把package对象放到pkg文件夹内</p>
+<p>这时候可以稍微修改一下<code>hello.go</code></p>
+<pre><code>package main
+
+<span class="function"><span class="title">import</span> <span class="params">(
+    <span class="string">"fmt"</span>
+
+    <span class="string">"github.com/user/newmath"</span>
+)</span>
+
+<span class="title">func</span> <span class="title">main</span><span class="params">()</span> {
+    <span class="title">fmt</span>.P<span class="title">rintf</span><span class="params">(<span class="string">"Hello, world.  Sqrt(2) = %v\n"</span>, newmath.<span class="variable">Sqrt</span>(<span class="number">2</span>)</span>)
+}</span>
+</code></pre><p>Go会自动处理依赖关系，所以</p>
+<pre><code>$ <span class="keyword">go</span> install github.<span class="keyword">com</span>/user/hello
+</code></pre><p>这样<code>newmath</code>也会被安装，运行一下新版本的hello world</p>
+<pre><code><span class="attribute">$ hello
+Hello, world.  Sqrt(2) </span>=<span class="string"> 1.414213562373095</span>
+</code></pre><p>这时候目录结构会变成大概这样</p>
+<pre><code>bin/
+    hello              # <span class="keyword">command</span> <span class="built_in">executable</span>
+pkg/
+    linux_amd64/       # this will reflect your OS <span class="built_in">and</span> architecture
+        github.<span class="keyword">com</span>/user/
+            newmath.<span class="keyword">a</span>  # package object
+src/
+    github.<span class="keyword">com</span>/user/
+        hello/
+            hello.<span class="keyword">go</span>   # <span class="keyword">command</span> <span class="keyword">source</span>
+        newmath/
+            <span class="built_in">sqrt</span>.<span class="keyword">go</span>    # package <span class="keyword">source</span>
+</code></pre><p>pkg 文件夹内的<code>newmath.a</code>就是编译出的library文件</p>
+<h1 id="Package_名字">Package 名字</h1>
+<p>Go语言代码文件的第一句都是</p>
+<pre><code><span class="keyword">package</span> name
+</code></pre><p>name用来表示package和被其他文件引用，<strong>在一个package文件夹下的文佳必须使用同样的package名称</strong>，可执行文件的package名称必须是<code>main</code>，package的名字可以重复，只要路径＋名称唯一即可，引用的时候也是岸路径＋名称引用的</p>
+<h1 id="测试">测试</h1>
+<p>测试时写代码的好习惯，Go自带轻量级的测试框架，使用<code>go test</code>命令和<code>testing</code>package。测试文件命名用<code>_test.go</code>结尾，里面方法名使用<code>TestXXX</code>，方法签名是<code>func (t *testing.T)</code>，创建一个看看</p>
+<p>测试刚才写的newmath package，创建文件<code>$GOPATH/src/github.com/user/newmath/sqrt_test.go</code></p>
+<pre><code><span class="keyword">package</span> newmath
+
+<span class="keyword">import</span> <span class="string">"testing"</span>
+
+func TestSqrt(t *testing.T) {
+    <span class="keyword">const</span> <span class="keyword">in</span>, <span class="keyword">out</span> = <span class="number">4</span>, <span class="number">2</span>
+    <span class="keyword">if</span> x := Sqrt(<span class="keyword">in</span>); x != <span class="keyword">out</span> {
+        t.Errorf(<span class="string">"Sqrt(%v) = %v, want %v"</span>, <span class="keyword">in</span>, x, <span class="keyword">out</span>)
+    }
+}
+</code></pre><p>使用<code>go test</code>运行测试命令</p>
+<pre><code>$ <span class="keyword">go</span> test github.<span class="keyword">com</span>/user/newmath
+PASS
+ok      github.<span class="keyword">com</span>/user/newmath <span class="number">0.165</span><span class="keyword">s</span>
+</code></pre><p>当然在package目录下的话，直接运行也可以</p>
+<pre><code>$ <span class="keyword">go</span> test
+PASS
+ok      github.<span class="keyword">com</span>/user/newmath <span class="number">0.165</span><span class="keyword">s</span>
+</code></pre><h1 id="远程package">远程package</h1>
+<p>import package的时候路径也可以写远程路径，install时Go会自动获取远程package</p>
+<pre><code>$ <span class="keyword">go</span> <span class="built_in">get</span> code.google.<span class="keyword">com</span>/<span class="keyword">p</span>/<span class="keyword">go</span>.example/hello
+$ $GOPATH/bin/hello
+Hello, world.  Sqrt(<span class="number">2</span>) = <span class="number">1.414213562373095</span>
+</code></pre><p>如果package不在workspace里，Go会把它放到GOPATH配置的workspace中，用了上面的命令，目录结构变成</p>
+<pre><code>bin/
+    hello                 # <span class="keyword">command</span> <span class="built_in">executable</span>
+pkg/
+    linux_amd64/
+        code.google.<span class="keyword">com</span>/<span class="keyword">p</span>/<span class="keyword">go</span>.example/
+            newmath.<span class="keyword">a</span>     # package object
+        github.<span class="keyword">com</span>/user/
+            newmath.<span class="keyword">a</span>     # package object
+src/
+    code.google.<span class="keyword">com</span>/<span class="keyword">p</span>/<span class="keyword">go</span>.example/
+        hello/
+            hello.<span class="keyword">go</span>      # <span class="keyword">command</span> <span class="keyword">source</span>
+        newmath/
+            <span class="built_in">sqrt</span>.<span class="keyword">go</span>       # package <span class="keyword">source</span>
+            sqrt_test.<span class="keyword">go</span>  # test <span class="keyword">source</span>
+    github.<span class="keyword">com</span>/user/
+        hello/
+            hello.<span class="keyword">go</span>      # <span class="keyword">command</span> <span class="keyword">source</span>
+        newmath/
+            <span class="built_in">sqrt</span>.<span class="keyword">go</span>       # package <span class="keyword">source</span>
+            sqrt_test.<span class="keyword">go</span>  # test <span class="keyword">source</span>
+</code></pre><p>也可以这样用</p>
+<pre><code><span class="keyword">import</span> <span class="string">"code.google.com/p/go.example/newmath"</span>
+</code></pre><p>使用远程package和前端使用代码托管用类似的思想</p>
+<p>今天就介绍到这里，看源代码的同学可以去我的github项目<a href="https://github.com/selayou9527/golang" target="_blank" rel="external">golang</a></p>
+<h1 id="参考">参考</h1>
+<p><a href="http://golang.org/doc/code.html" target="_blank" rel="external">How to Write Go Code</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/20/GO(1):hello world!/" data-id="mysvhd4p1nira4zv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/10/19/负边距在布局中的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">负边距在布局中的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Go/" style="font-size: 10.00px;">Go</a><a href="/tags/canvas/" style="font-size: 12.00px;">canvas</a><a href="/tags/css/" style="font-size: 18.00px;">css</a><a href="/tags/css3/" style="font-size: 16.00px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 12.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.00px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/node/" style="font-size: 12.00px;">node</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 14.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 12.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.00px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/20/GO(1):hello world!/">Go (1)：Hello World!</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/输入URL后发生了什么/">输入页面URL后发生了什么</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/css垂直居中/">CSS 垂直居中</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/使用border做三角形/">使用border做三角形</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/Intro to CSS 3D transforms/">Intro to CSS 3D transforms[翻译部分]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">node 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/iconfont/">icon font</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 色拉油<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

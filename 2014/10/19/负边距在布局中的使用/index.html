@@ -5,7 +5,7 @@
   
   <title>负边距在布局中的使用 | 色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="负边距既margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
+  <meta name="description" content="负边距即margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
 
 当margin-top、margin-left为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与position:relative的元素设置top、left后元素还占据原来位置不同
 当margin-bottom、margin-right设为负值的时候，元素本身没">
@@ -13,13 +13,13 @@
 <meta property="og:title" content="负边距在布局中的使用">
 <meta property="og:url" content="https://github.com/selayou9527/2014/10/19/负边距在布局中的使用/">
 <meta property="og:site_name" content="色拉油的技术博客">
-<meta property="og:description" content="负边距既margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
+<meta property="og:description" content="负边距即margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
 
 当margin-top、margin-left为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与position:relative的元素设置top、left后元素还占据原来位置不同
 当margin-bottom、margin-right设为负值的时候，元素本身没">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="负边距在布局中的使用">
-<meta name="twitter:description" content="负边距既margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
+<meta name="twitter:description" content="负边距即margin属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现
 
 当margin-top、margin-left为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与position:relative的元素设置top、left后元素还占据原来位置不同
 当margin-bottom、margin-right设为负值的时候，元素本身没">
@@ -105,7 +105,7 @@
           <strong class="toc-title">文章目录</strong>
           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#绝对定位元素"><span class="toc-number">1.</span> <span class="toc-text">绝对定位元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#float元素"><span class="toc-number">2.</span> <span class="toc-text">float元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浮动元素负边距"><span class="toc-number">2.1.</span> <span class="toc-text">浮动元素负边距</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多列布局"><span class="toc-number">2.2.</span> <span class="toc-text">多列布局</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#普通元素"><span class="toc-number">3.</span> <span class="toc-text">普通元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多列列表"><span class="toc-number">3.1.</span> <span class="toc-text">多列列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#放大元素"><span class="toc-number">3.2.</span> <span class="toc-text">放大元素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#带有右边距的浮动子元素列表"><span class="toc-number">4.</span> <span class="toc-text">带有右边距的浮动子元素列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
         </div>
-        <p>负边距既<code>margin</code>属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现</p>
+        <p>负边距即<code>margin</code>属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现</p>
 <ul>
 <li>当<code>margin-top</code>、<code>margin-left</code>为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与<code>position:relative</code>的元素设置top、left后元素还占据原来位置不同</li>
 <li>当<code>margin-bottom</code>、<code>margin-right</code>设为负值的时候，元素本身没有位置变化，后面的元素会下移、右移</li>
@@ -137,7 +137,7 @@
 <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"wrap4"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-</code></pre><p>把元素设置为绝对定位，然后设置top和left为50%，这时候元素的上边、左边就到了父元素的50%处，再对元素设置其自身高度、长度一般的负边距，使元素中心移动到父元素中心，实现居中对其</p>
+</code></pre><p>把元素设置为绝对定位，然后设置top和left为50%，这时候元素的上边、左边就到了父元素的50%处，再对元素设置其自身高度、长度一般的负边距，使元素中心移动到父元素中心，实现居中对齐</p>
 <style>
 .wrap4{
     position:relative;
@@ -495,7 +495,7 @@ $('br').remove();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/19/负边距在布局中的使用/" data-id="9bd6hy0jh7o9i6e8" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/19/负边距在布局中的使用/" data-id="m2hrg8n68feqf9ly" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/布局/">布局</a></li></ul>
@@ -505,6 +505,15 @@ $('br').remove();
   
     
 <nav id="article-nav">
+  
+    <a href="/2014/10/20/GO(1):hello world!/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Go (1)：Hello World!
+        
+      </div>
+    </a>
   
   
     <a href="/2014/10/19/输入URL后发生了什么/" id="article-nav-older" class="article-nav-link-wrap">
@@ -542,7 +551,7 @@ $('br').remove();
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/canvas/" style="font-size: 12.00px;">canvas</a><a href="/tags/css/" style="font-size: 18.00px;">css</a><a href="/tags/css3/" style="font-size: 16.00px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 12.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.00px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/node/" style="font-size: 12.00px;">node</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 14.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 12.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.00px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+      <a href="/tags/Go/" style="font-size: 10.00px;">Go</a><a href="/tags/canvas/" style="font-size: 12.00px;">canvas</a><a href="/tags/css/" style="font-size: 18.00px;">css</a><a href="/tags/css3/" style="font-size: 16.00px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 12.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.00px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/node/" style="font-size: 12.00px;">node</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 14.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 12.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.00px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
     </div>
   </div>
 
@@ -551,7 +560,7 @@ $('br').remove();
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -561,6 +570,10 @@ $('br').remove();
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/20/GO(1):hello world!/">Go (1)：Hello World!</a>
+          </li>
         
           <li>
             <a href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
@@ -595,19 +608,11 @@ $('br').remove();
           </li>
         
           <li>
-            <a href="/2014/10/14/promise/">promise</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/14/nodejs调试/">node 调试</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+            <a href="/2014/10/14/promise/">promise</a>
           </li>
         
           <li>
@@ -615,19 +620,23 @@ $('br').remove();
           </li>
         
           <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
             <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/zindex/">z-index</a>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
           </li>
         
           <li>
@@ -635,7 +644,7 @@ $('br').remove();
           </li>
         
           <li>
-            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+            <a href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
           </li>
         
           <li>

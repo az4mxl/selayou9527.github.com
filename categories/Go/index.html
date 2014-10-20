@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>色拉油的技术博客</title>
+  <title>Category: Go | 色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="靡不有初，鲜克有终">
 <meta property="og:type" content="website">
 <meta property="og:title" content="色拉油的技术博客">
-<meta property="og:url" content="https://github.com/selayou9527/page/4/">
+<meta property="og:url" content="https://github.com/selayou9527/categories/Go/">
 <meta property="og:site_name" content="色拉油的技术博客">
 <meta property="og:description" content="靡不有初，鲜克有终">
 <meta name="twitter:card" content="summary">
@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-D2报名页面的一些小效果" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-GO(1):hello world!" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/D2报名页面的一些小效果/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+    <a href="/2014/10/20/GO(1):hello world!/" class="article-date">
+  <time datetime="2014-10-20T11:19:45.000Z" itemprop="datePublished">Oct 20 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/Go/">Go</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+      <a class="article-title" href="/2014/10/20/GO(1):hello world!/">Go (1)：Hello World!</a>
     </h1>
   
 
@@ -94,19 +94,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近看到了阿里巴巴D2前段论坛的<a href="http://d2forum.alibaba-inc.com/" target="_blank" rel="external">报名页面</a>，有几个有意思的小技巧，都是关于CSS3的，总结一下，万一哪天也用到了呢<br>
+        <p>自从转了前端后一直在和各种动态语言打交道，突发奇想学门静态语言开开眼界，各种纠结之后选了Go，记录一下学习过程</p>
+<h1 id="安装">安装</h1>
+<p>关于Go语言的安装网上教程多的是，也很简单，不介绍了，我用的Mac，就偷懒直接使用Homebrew安装了</p>
+<p><a href="http://golang.org/doc/install" target="_blank" rel="external">官网下载安装</a><br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/D2报名页面的一些小效果/#more">Read More</a>
+            <a href="/2014/10/20/GO(1):hello world!/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/D2报名页面的一些小效果/" data-id="er6b1cl7arcjrzmo" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/20/GO(1):hello world!/" data-id="mysvhd4p1nira4zv" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码/">源码</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
 
     </footer>
   </div>
@@ -115,211 +118,6 @@
 
 
   
-    <article id="post-有趣的Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/有趣的Linux命令/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/shell/">shell</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="find命令的xargs">find命令的xargs</h1>
-<p>在Linux上find命令的曝光率很高，我们希望对find查找出的文件进行过滤或者操作怎么办呢，这时候就可以利用<code>xargs</code>了，它可以把find结果当作下一个指令的参数传入</p>
-<pre><code><span class="keyword">find</span> . -name * | xargs <span class="keyword">grep</span> <span class="string">'.'</span>
-</code></pre><p>查找文件夹下包含<code>.</code> 的文件</p>
-<pre><code><span class="title">find</span> . -name <span class="regexp">*.txt</span> | xargs rm -rf
-</code></pre><p>删除所有.txt文件</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/有趣的Linux命令/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/有趣的Linux命令/" data-id="j1vjxgt0r3ex162r" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript模版引擎" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>听说Javascript模版引擎很久了，也用过ejs、handlebars等，某天无意在网上看到jQuery作者John Resig几行代码写的一个最简单的Javascript模版引擎，忍不住看了一下，原来模版引擎可以这么简单，写篇博客推倒一下大神的思路，实现个最简单的Javascript模版引擎<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="uwcwns2h9glszlhh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-css布局" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/css布局/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>页面布局，或者是在页面上做些小效果的时候经常会用到 display,position和float 属性，如果对它们不是很了解的话，很容易出现一些莫名其妙的效果，痛定思痛读了《CSS Mastery》后总结一下</p>
-<p>让我们从基础的CSS知识谈起，相信很多初学者和小弟一样不明白CSS原理，一味追求效果，结果页面漏洞百出，错误匪夷所思，关于盒模型我就不多说了，网上很多，注意一下IE和其他浏览器（W3C规范）的区别就好了<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/css布局/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/css布局/" data-id="r75vtlo307knnego" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-iconfont" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/iconfont/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/css3/">css3</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/iconfont/">icon font</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>所谓icon font是指将页面上使用的icon不使用图片，而是做成字体一样的东西。这是基于各个浏览器都对CSS3的 <code>@font-face</code>的支持，我们将icon也用font实现。</p>
-<h2 id="为什么使用iconfont">为什么使用iconfont</h2>
-<ol>
-<li>字体文件比图片小</li>
-<li>矢量图形，在普通屏幕上适配，到高清屏幕后不会模糊</li>
-<li>在更换theme等操作的时候可以简单通过CSS控制就可以改变icon的大小，颜色等</li>
-<li>透明效果也兼容IE6
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/iconfont/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="b92yjggvg5s1bwlx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
-    </nav>
   
 </section>
         
