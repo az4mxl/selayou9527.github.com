@@ -68,6 +68,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-前nginx后Apache＋Node反向代理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/26/前nginx后Apache＋Node反向代理/" class="article-date">
+  <time datetime="2014-10-26T07:35:53.000Z" itemprop="datePublished">Oct 26 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/配置/">配置</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/26/前nginx后Apache＋Node反向代理/">前nginx后Apache＋Node反向代理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前几天一直在被一个问题困扰，机器上跑的站点太多了，Apache上面有十几个，NodeJS的也有一堆，记端口号都要烦死，于是萌生了使用反向代理的想法。出发点貌似太low了，完全不是出于负载均衡、高并发什么的考虑，就是为了不记端口号</p>
+<p>最开始是使用Apache做的，因为使用的Mac安装mod_proxy及繁杂的配置搞得要死，关键是还失败了。。。（失败原因另说），江湖传言nginx做反向代理配置简单，尝试了一下nginx，果不其然</p>
+
+        
+          <p class="article-more-link">
+            <a href="/2014/10/26/前nginx后Apache＋Node反向代理/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/26/前nginx后Apache＋Node反向代理/" data-id="qvcal0pzan3qouiy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Mac下nginx配置PHP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/26/Mac下nginx配置PHP/" class="article-date">
+  <time datetime="2014-10-26T06:34:29.000Z" itemprop="datePublished">Oct 26 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/配置/">配置</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/26/Mac下nginx配置PHP/">Mac nginx PHP支持</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果选用Apache做PHP web服务器配置很简单，只需要load php5_module 模块就可以了，但使用Apache也有一些缺点，Apache是多线程的，没来一个请求酒会打开一个线程处理，随着流量的增加，内存就不够用了。</p>
+<p>即使使用Apache很多人也会选择不使用php5_module模块，而使用spawn-fcgi，因为使用php5_module模块的话Apache处理PHP的时候会load所有的库，这是一个巨大的开销。</p>
+
+        
+          <p class="article-more-link">
+            <a href="/2014/10/26/Mac下nginx配置PHP/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/26/Mac下nginx配置PHP/" data-id="7qcwvth6d3ah22r1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Mac MySQL使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/26/Mac MySQL使用/" class="article-date">
@@ -229,113 +327,9 @@
 
 
   
-    <article id="post-Velocity语法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/21/Velocity语法/" class="article-date">
-  <time datetime="2014-10-21T10:51:35.000Z" itemprop="datePublished">Oct 21 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Velocity/">Velocity</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/Velocity语法/">Velocity语法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本">基本</h1>
-<ol>
-<li><code>#</code>用来标示Velocity脚本语句 <code>#if</code> <code>#include</code> <code>#macro</code></li>
-<li><code>$</code>用来标示变量或对象 <code>$i</code> ‘$people.name’</li>
-<li><code>{}</code>用来明确标示Velocity变量 <code>${a}b</code> 应对和字符串连写情况，加以区分</li>
-<li><code>!</code> 把不存在变量显示为空白，当页面<code>$v</code>变量存在是显示变量值，不存在的时候默认显示原内容——字符串 $v，但是<code>$!v</code>会显示空白</li>
-</ol>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/21/Velocity语法/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/21/Velocity语法/" data-id="sl2xkjbu3z8fe0qt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Velocity/">Velocity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-GO(1):hello world!" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/20/GO(1):hello world!/" class="article-date">
-  <time datetime="2014-10-20T11:19:45.000Z" itemprop="datePublished">Oct 20 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Go/">Go</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/20/GO(1):hello world!/">Go (1)：Hello World!</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>自从转了前端后一直在和各种动态语言打交道，突发奇想学门静态语言开开眼界，各种纠结之后选了Go，记录一下学习过程</p>
-<h1 id="安装">安装</h1>
-<p>关于Go语言的安装网上教程多的是，也很简单，不介绍了，我用的Mac，就偷懒直接使用Homebrew安装了</p>
-<p><a href="http://golang.org/doc/install" target="_blank" rel="external">官网下载安装</a><br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/20/GO(1):hello world!/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/20/GO(1):hello world!/" data-id="eijm6xtlqem60qz8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2014/page/2/">2</a><a class="page-number" href="/archives/2014/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2014/page/7/">7</a><a class="extend next" rel="next" href="/archives/2014/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2014/page/2/">2</a><a class="page-number" href="/archives/2014/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2014/page/8/">8</a><a class="extend next" rel="next" href="/archives/2014/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -346,7 +340,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Go/" style="font-size: 10.00px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/canvas/" style="font-size: 12.00px;">canvas</a><a href="/tags/css/" style="font-size: 18.00px;">css</a><a href="/tags/css3/" style="font-size: 16.00px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 12.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.00px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 10.00px;">nginx</a><a href="/tags/node/" style="font-size: 12.00px;">node</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 14.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 14.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.00px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 12.00px;">配置</a>
+      <a href="/tags/Go/" style="font-size: 10.00px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.67px;">canvas</a><a href="/tags/css/" style="font-size: 18.33px;">css</a><a href="/tags/css3/" style="font-size: 16.67px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 11.67px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.67px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a><a href="/tags/node/" style="font-size: 11.67px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 15.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.67px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
     </div>
   </div>
 
@@ -355,7 +349,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -365,6 +359,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/26/前nginx后Apache＋Node反向代理/">前nginx后Apache＋Node反向代理</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac下nginx配置PHP/">Mac nginx PHP支持</a>
+          </li>
         
           <li>
             <a href="/2014/10/26/Mac MySQL使用/">Mac MySQL使用</a>
@@ -419,7 +421,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
           </li>
         
           <li>
@@ -431,19 +433,11 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+            <a href="/2014/10/14/media queries/">media queries</a>
           </li>
         
       </ul>

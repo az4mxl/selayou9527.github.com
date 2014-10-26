@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>前nginx后Apache＋Node反向代理 | 色拉油的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前几天一直在被一个问题困扰，机器上跑的站点太多了，Apache上面有十几个，NodeJS的也有一堆，记端口号都要烦死，于是萌生了使用反向代理的想法。出发点貌似太low了，完全不是出于负载均衡、高并发什么的考虑，就是为了不记端口号
+最开始是使用Apache做的，因为使用的Mac安装mod_proxy及繁杂的配置搞得要死，关键是还失败了。。。（失败原因另说），江湖传言nginx做反向代理配置简单，尝试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前nginx后Apache＋Node反向代理">
+<meta property="og:url" content="https://github.com/selayou9527/2014/10/26/前nginx后Apache＋Node反向代理/">
+<meta property="og:site_name" content="色拉油的技术博客">
+<meta property="og:description" content="前几天一直在被一个问题困扰，机器上跑的站点太多了，Apache上面有十几个，NodeJS的也有一堆，记端口号都要烦死，于是萌生了使用反向代理的想法。出发点貌似太low了，完全不是出于负载均衡、高并发什么的考虑，就是为了不记端口号
+最开始是使用Apache做的，因为使用的Mac安装mod_proxy及繁杂的配置搞得要死，关键是还失败了。。。（失败原因另说），江湖传言nginx做反向代理配置简单，尝试">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/29790130e924b899d75632d56c061d950b7bf6b2.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前nginx后Apache＋Node反向代理">
+<meta name="twitter:description" content="前几天一直在被一个问题困扰，机器上跑的站点太多了，Apache上面有十几个，NodeJS的也有一堆，记端口号都要烦死，于是萌生了使用反向代理的想法。出发点貌似太low了，完全不是出于负载均衡、高并发什么的考虑，就是为了不记端口号
+最开始是使用Apache做的，因为使用的Mac安装mod_proxy及繁杂的配置搞得要死，关键是还失败了。。。（失败原因另说），江湖传言nginx做反向代理配置简单，尝试">
+
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">色拉油的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/selayou9527">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-前nginx后Apache＋Node反向代理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/26/前nginx后Apache＋Node反向代理/" class="article-date">
+  <time datetime="2014-10-26T07:35:53.000Z" itemprop="datePublished">Oct 26 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/配置/">配置</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前nginx后Apache＋Node反向代理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#工作原理"><span class="toc-number">1.</span> <span class="toc-text">工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正向代理"><span class="toc-number">1.1.</span> <span class="toc-text">正向代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反向代理"><span class="toc-number">1.2.</span> <span class="toc-text">反向代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区别&用途"><span class="toc-number">1.3.</span> <span class="toc-text">区别&用途</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Apache配置各个站点"><span class="toc-number">2.</span> <span class="toc-text">Apache配置各个站点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改httpd-conf"><span class="toc-number">2.1.</span> <span class="toc-text">修改httpd.conf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改httpd-vhosts-conf"><span class="toc-number">2.2.</span> <span class="toc-text">修改httpd-vhosts.conf</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改hosts文件"><span class="toc-number">3.</span> <span class="toc-text">修改hosts文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改nginx配置文件"><span class="toc-number">4.</span> <span class="toc-text">修改nginx配置文件</span></a></li></ol>
+        </div>
+        <p>前几天一直在被一个问题困扰，机器上跑的站点太多了，Apache上面有十几个，NodeJS的也有一堆，记端口号都要烦死，于是萌生了使用反向代理的想法。出发点貌似太low了，完全不是出于负载均衡、高并发什么的考虑，就是为了不记端口号</p>
+<p>最开始是使用Apache做的，因为使用的Mac安装mod_proxy及繁杂的配置搞得要死，关键是还失败了。。。（失败原因另说），江湖传言nginx做反向代理配置简单，尝试了一下nginx，果不其然</p>
+<a id="more"></a>
+
+<h1 id="工作原理">工作原理</h1>
+<p>刚入行的小伙伴可能会问什么事反向代理？为什么使用反向代理就不用急端口号了？</p>
+<h2 id="正向代理">正向代理</h2>
+<p>了解反向代理之前先了解一下正向代理，正向代理就是我们平时理解的代理，举个例子</p>
+<ol>
+<li>在国内我不能访问caoliu  </li>
+<li>但是我有一台在美国的VPS，可以访问各种xxoo网站  </li>
+<li>于是我向VPS发请求，我要看caoliu  </li>
+<li>VPS获取caoliu内容，然后返回给我  </li>
+</ol>
+<p>VPS就是代理，这个过程就是正向代理</p>
+<p>正向代理 是一个位于客户端和原始服务器之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理</p>
+<p><img src="http://lsly1989.qiniudn.com/29790130e924b899d75632d56c061d950b7bf6b2.jpg" alt=""></p>
+<h2 id="反向代理">反向代理</h2>
+<p>还是举个例子，caoliu的域名经常会变，而且会提供多个域名，一个域名被墙掉了，可以用其它的，但是访问每个域名返回的内容都是一样的，而且页面也没有重定向</p>
+<p>其实我们访问xx.xxx.cl的时候，该域名的web服务器没有向我们直接返回内容，而是自己向caoliu的真正主机发送请求，然后把请求结果给我们</p>
+<p>反向代理对于客户端而言它就像是原始服务器，并且客户端不需要进行任何特别的设置。客户端向反向代理的命名空间中的内容发送普通请求，接着反向代理将判断向何处(原始服务器)转交请求，并将获得的内容返回给客户端，就像这些内容 原本就是它自己的一样</p>
+<h2 id="区别&amp;用途">区别&amp;用途</h2>
+<p>其实明白了原理两者的区别很明显了，可以简单的这样区分正向代理和反向代理</p>
+<p>反向代理对访问者时透明的（你觉得xx.xxx.cl就是caoliu的服务器地址了，实际不是，你看不出来），正向代理访问着需要特殊设置（不然怎么看youtube）</p>
+<p>正向代理的典型用途是为在防火墙内的局域网客户端提供访问Internet的途径。正向代理还可以使用缓冲特性减少网络使用率。反向代理的典型用途是将 防火墙后面的服务器提供给Internet用户访问。反向代理还可以为后端的多台服务器提供负载平衡，或为后端较慢的服务器提供缓冲服务。</p>
+<p>看到这里是不是明白了我想怎么做？</p>
+<p>原来我有三个网站</p>
+<ol>
+<li>localhost:8080</li>
+<li>localhost:9000</li>
+<li>localhost:8000</li>
+</ol>
+<p>我要使用nginx做个设置，都使用80端口，免去我输入端口号的苦恼</p>
+<ol>
+<li>当我访问 <code>xxx</code>的时候给我代理到<code>localhost:8080</code></li>
+<li>当我访问 <code>yyy</code>的时候给我代理到<code>localhost:9000</code></li>
+<li>当我访问 <code>zzz</code>的时候给我代理到<code>localhost:8000</code></li>
+</ol>
+<h1 id="Apache配置各个站点">Apache配置各个站点</h1>
+<h2 id="修改httpd-conf">修改httpd.conf</h2>
+<p>Mac 下Apache的配置文件在 </p>
+<pre><code>/etc/apache2/httpd.<span class="keyword">conf</span>
+</code></pre><p>我们设置三个虚拟主机，修改配置文件，去掉加载虚拟主机配置的注释<code>#</code></p>
+<pre><code><span class="keyword">Include</span> <span class="regexp">/private/</span>etc<span class="regexp">/apache2/</span>extra<span class="regexp">/httpd-vhosts.conf</span>
+</code></pre><p>监听对应的端口（不要监听80了，一会儿交给nginx）</p>
+<pre><code><span class="keyword">Listen</span> <span class="number">8000</span>
+<span class="keyword">Listen</span> <span class="number">8080</span>
+<span class="keyword">Listen</span> <span class="number">9000</span>
+</code></pre><h2 id="修改httpd-vhosts-conf">修改httpd-vhosts.conf</h2>
+<p>虚拟主机的配置文件在</p>
+<pre><code><span class="regexp">/etc/</span>apache2<span class="regexp">/extra/</span>httpd-vhosts.conf
+</code></pre><p>添加虚拟主机节点，类似这样来三个</p>
+<pre><code> <span class="tag">&lt;VirtualHost *:8080&gt;</span>
+          <span class="keyword"><span class="common">DocumentRoot</span></span> <span class="string">"/path"</span>
+          <span class="keyword"><span class="common">ServerName</span></span> xxx
+          <span class="tag">&lt;Directory "/path"&gt;</span>
+          <span class="keyword"><span class="common">Options</span></span> Indexes FollowSymLinks
+          <span class="keyword">AllowOverride</span> <span class="literal">All</span>
+          <span class="keyword"><span class="common">Order</span></span> deny,allow
+          <span class="keyword"><span class="common">Allow</span></span> from <span class="literal">all</span>
+          <span class="tag">&lt;/Directory&gt;</span>
+ <span class="tag">&lt;/VirtualHost&gt;</span>
+</code></pre><h1 id="修改hosts文件">修改hosts文件</h1>
+<p>如果服务器在本地，我们还需要把域名配置到localhost，Mac下hosts的配置文件在</p>
+<pre><code><span class="regexp">/etc/</span>hosts
+</code></pre><p>简单添加一下我们的三个主机</p>
+<pre><code><span class="title">localhost</span> xxx yyy zzz
+</code></pre><h1 id="修改nginx配置文件">修改nginx配置文件</h1>
+<p>Mac下使用homebrew安装的nginx配置文件在</p>
+<pre><code><span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>nginx<span class="regexp">/nginx.conf</span>
+</code></pre><p>然后添加Server节点</p>
+<pre><code><span class="title">server</span> {
+    <span class="title">listen</span> <span class="number">80</span>;
+    <span class="title">server_name</span> xxx;
+    <span class="title">location</span> /{
+        <span class="title">proxy_pass</span> <span class="url">http://127.0.0.1:8080</span>;
+        <span class="title">proxy_set_header</span> Host <span class="variable">$host</span>;
+    }
+}
+</code></pre><p><code>proxy_set_header Host $host</code>可以使url始终保持配置的xxx等 </p>
+<p>这样重启nginx、Apache后在浏览器上输入<code>xxx/</code>就可以直接代理到<code>http://127.0.0.1:8080</code>了，不用端口号了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/26/前nginx后Apache＋Node反向代理/" data-id="qvcal0pzan3qouiy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/10/26/Mac下nginx配置PHP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac nginx PHP支持</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Go/" style="font-size: 10.00px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.67px;">canvas</a><a href="/tags/css/" style="font-size: 18.33px;">css</a><a href="/tags/css3/" style="font-size: 16.67px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 11.67px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.67px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a><a href="/tags/node/" style="font-size: 11.67px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 15.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.67px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/26/前nginx后Apache＋Node反向代理/">前nginx后Apache＋Node反向代理</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac下nginx配置PHP/">Mac nginx PHP支持</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac MySQL使用/">Mac MySQL使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac下nginx监听80端口开机自启/">Mac nginx 80端口开机自启</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/22/handlebars语法/">handlebars语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/21/Velocity语法/">Velocity语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/20/GO(1):hello world!/">Go (1)：Hello World!</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/输入URL后发生了什么/">输入页面URL后发生了什么</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/css垂直居中/">CSS 垂直居中</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/使用border做三角形/">使用border做三角形</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/Intro to CSS 3D transforms/">Intro to CSS 3D transforms[翻译部分]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/media queries/">media queries</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 色拉油<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
