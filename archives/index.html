@@ -68,6 +68,167 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Mac MySQL使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/26/Mac MySQL使用/" class="article-date">
+  <time datetime="2014-10-26T04:05:46.000Z" itemprop="datePublished">Oct 26 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/配置/">配置</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/26/Mac MySQL使用/">Mac MySQL使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装&amp;启动">安装&amp;启动</h1>
+<p>在Mac下安装命令为主的软件自然是使用神器<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">homebrew</a></p>
+<pre><code>brew <span class="operator"><span class="keyword">install</span> mysql</span>
+</code></pre><p>安装完成后homewbrew会提示一些命令，如果想开机自启MySQL</p>
+
+        
+          <p class="article-more-link">
+            <a href="/2014/10/26/Mac MySQL使用/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/26/Mac MySQL使用/" data-id="lkv2ni8f2g6rdvr9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Mac下nginx监听80端口开机自启" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/26/Mac下nginx监听80端口开机自启/" class="article-date">
+  <time datetime="2014-10-26T02:57:48.000Z" itemprop="datePublished">Oct 26 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/配置/">配置</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/26/Mac下nginx监听80端口开机自启/">Mac nginx 80端口开机自启</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装">安装</h1>
+<p>再Mac下安装nginx很简单，使用神器<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">homebrew</a></p>
+<pre><code>brew <span class="operator"><span class="keyword">install</span> nginx</span>
+</code></pre><p>这样nginx就会安装到目录</p>
+<pre><code><span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>nginx
+</code></pre><p>配置文件在</p>
+<pre><code><span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>nginx<span class="regexp">/nginx.conf</span>
+</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/26/Mac下nginx监听80端口开机自启/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/26/Mac下nginx监听80端口开机自启/" data-id="akdi8f58i7gz1j3x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-handlebars语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/22/handlebars语法/" class="article-date">
+  <time datetime="2014-10-22T03:06:09.000Z" itemprop="datePublished">Oct 22 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/22/handlebars语法/">handlebars语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>handlebars是众多前端模版引擎的一个，语法上和<code>Mustache</code>几乎兼容</p>
+<h1 id="Getting_Start">Getting Start</h1>
+<p>handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars的表达式</p>
+<pre><code><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span>&gt;</span></span><span class="expression">{{<span class="variable">title</span>}}</span><span class="xml"><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"body"</span>&gt;</span>
+    </span><span class="expression">{{<span class="variable">body</span>}}</span><span class="xml">
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span>
+</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/22/handlebars语法/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/22/handlebars语法/" data-id="jp54sdz1oki9gwie" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Velocity语法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/21/Velocity语法/" class="article-date">
@@ -110,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/21/Velocity语法/" data-id="7anmwo3ui44b3r98" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/21/Velocity语法/" data-id="sl2xkjbu3z8fe0qt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Velocity/">Velocity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
@@ -160,163 +321,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/20/GO(1):hello world!/" data-id="q1mzrgurzefrp4wr" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/20/GO(1):hello world!/" data-id="eijm6xtlqem60qz8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-负边距在布局中的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/19/负边距在布局中的使用/" class="article-date">
-  <time datetime="2014-10-19T09:34:01.000Z" itemprop="datePublished">Oct 19 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>负边距即<code>margin</code>属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现</p>
-<ul>
-<li>当<code>margin-top</code>、<code>margin-left</code>为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与<code>position:relative</code>的元素设置top、left后元素还占据原来位置不同</li>
-<li>当<code>margin-bottom</code>、<code>margin-right</code>设为负值的时候，元素本身没有位置变化，后面的元素会下移、右移</li>
-</ul>
-<p>看几个应用场景<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/19/负边距在布局中的使用/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/19/负边距在布局中的使用/" data-id="v1m9xdrta53pdn1a" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/布局/">布局</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-输入URL后发生了什么" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/19/输入URL后发生了什么/" class="article-date">
-  <time datetime="2014-10-19T04:32:51.000Z" itemprop="datePublished">Oct 19 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/综合/">综合</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/19/输入URL后发生了什么/">输入页面URL后发生了什么</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在FEX上看到<a href="http://fex.baidu.com/blog/2014/05/what-happen/" target="_blank" rel="external">从输入 URL 到页面加载完成的过程中都发生了什么事情？</a>，感觉作者侧重于底层实现，这是一个很有意思的问题，据说面试常见，通吃前后端，本文侧重于前端方面聊聊，总体而言有几步</p>
-<ol>
-<li>根据url查找服务器主机资源位置</li>
-<li>发送请求</li>
-<li>服务器处理请求，生成响应，返回给客户端</li>
-<li>浏览器根据HTML文本获取css、js、image等媒体资源，生成DOM树、渲染树渲染页面</li>
-<li>发送Ajax请求，继续渲染页面
-        
-          <p class="article-more-link">
-            <a href="/2014/10/19/输入URL后发生了什么/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/19/输入URL后发生了什么/" data-id="vj0y52f3ofkvlsg5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-postMessage使用场景" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/18/postMessage使用场景/" class="article-date">
-  <time datetime="2014-10-18T13:21:33.000Z" itemprop="datePublished">Oct 18 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/html5/">html5</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>postMessage时html5提出的信API，通过和message事件结合使用，可以实现安全的跨源通信、web worker父子消息传递、web socket通信、Server-Send通信等</p>
-<p>在html5中可以通过postMessage方法发送消息，同时监听message事件接受消息，看几个典型应用场景<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/18/postMessage使用场景/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/18/postMessage使用场景/" data-id="7aw70m6y3mwk5har" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postMessage/">postMessage</a></li></ul>
 
     </footer>
   </div>
@@ -338,7 +346,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Go/" style="font-size: 10.00px;">Go</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/canvas/" style="font-size: 11.67px;">canvas</a><a href="/tags/css/" style="font-size: 18.33px;">css</a><a href="/tags/css3/" style="font-size: 16.67px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 11.67px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.67px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/node/" style="font-size: 11.67px;">node</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 13.33px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.67px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a>
+      <a href="/tags/Go/" style="font-size: 10.00px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/canvas/" style="font-size: 12.00px;">canvas</a><a href="/tags/css/" style="font-size: 18.00px;">css</a><a href="/tags/css3/" style="font-size: 16.00px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html5/" style="font-size: 12.00px;">html5</a><a href="/tags/jQuery/" style="font-size: 12.00px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 10.00px;">nginx</a><a href="/tags/node/" style="font-size: 12.00px;">node</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 14.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 14.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 12.00px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 12.00px;">配置</a>
     </div>
   </div>
 
@@ -347,7 +355,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -357,6 +365,18 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/26/Mac MySQL使用/">Mac MySQL使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac下nginx监听80端口开机自启/">Mac nginx 80端口开机自启</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/22/handlebars语法/">handlebars语法</a>
+          </li>
         
           <li>
             <a href="/2014/10/21/Velocity语法/">Velocity语法</a>
@@ -399,19 +419,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/zindex/">z-index</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/promise/">promise</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/nodejs调试/">node 调试</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
           </li>
         
           <li>
@@ -423,11 +431,11 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
           </li>
         
           <li>
@@ -435,7 +443,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
           </li>
         
       </ul>
