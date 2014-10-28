@@ -3,29 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>npm 实用命令 | 色拉油的技术博客</title>
+  <title>Go (2)：关键字、变量、类型 | 色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="node升级到最新版本
-node有一个模块叫n，是专门用来管理node.js的版本的，在控制台升级node到最新稳定版本只需要三条命令
- sudo npm cache clean -f
-sudo npm install -g n
-sudo n stable">
+  <meta name="description" content="简单回顾
+回顾一下GO的几个要点
+
+命令式的静态语言，需要编译执行，但编译速度十分快
+自动处理垃圾回收
+任何地方都是utf-8的，包括代码本身
+所有Go文件以 package &lt;packagename&gt; 开始，独立执行的文件必须是 package main，入口函数一定是 main
+语句结束不用;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm 实用命令">
-<meta property="og:url" content="https://github.com/selayou9527/2014/10/18/npm实用命令/">
+<meta property="og:title" content="Go (2)：关键字、变量、类型">
+<meta property="og:url" content="https://github.com/selayou9527/2014/10/28/Go (2)：关键字、变量、类型/">
 <meta property="og:site_name" content="色拉油的技术博客">
-<meta property="og:description" content="node升级到最新版本
-node有一个模块叫n，是专门用来管理node.js的版本的，在控制台升级node到最新稳定版本只需要三条命令
- sudo npm cache clean -f
-sudo npm install -g n
-sudo n stable">
+<meta property="og:description" content="简单回顾
+回顾一下GO的几个要点
+
+命令式的静态语言，需要编译执行，但编译速度十分快
+自动处理垃圾回收
+任何地方都是utf-8的，包括代码本身
+所有Go文件以 package &lt;packagename&gt; 开始，独立执行的文件必须是 package main，入口函数一定是 main
+语句结束不用;">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/574e9258d109b3de82885475cfbf6c81800a4cf3.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm 实用命令">
-<meta name="twitter:description" content="node升级到最新版本
-node有一个模块叫n，是专门用来管理node.js的版本的，在控制台升级node到最新稳定版本只需要三条命令
- sudo npm cache clean -f
-sudo npm install -g n
-sudo n stable">
+<meta name="twitter:title" content="Go (2)：关键字、变量、类型">
+<meta name="twitter:description" content="简单回顾
+回顾一下GO的几个要点
+
+命令式的静态语言，需要编译执行，但编译速度十分快
+自动处理垃圾回收
+任何地方都是utf-8的，包括代码本身
+所有Go文件以 package &lt;packagename&gt; 开始，独立执行的文件必须是 package main，入口函数一定是 main
+语句结束不用;">
 
   
     <link rel="icon" href="/favicon.png">
@@ -78,14 +88,14 @@ sudo n stable">
 <script src="/js/jquery.min.js"></script>
 
       <div class="outer">
-        <section id="main"><article id="post-npm实用命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Go (2)：关键字、变量、类型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/18/npm实用命令/" class="article-date">
-  <time datetime="2014-10-18T12:15:29.000Z" itemprop="datePublished">Oct 18 2014</time>
+    <a href="/2014/10/28/Go (2)：关键字、变量、类型/" class="article-date">
+  <time datetime="2014-10-28T13:07:03.000Z" itemprop="datePublished">Oct 28 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/node/">node</a>
+    <a class="article-category-link" href="/categories/Go/">Go</a>
   </div>
 
   </div>
@@ -96,7 +106,7 @@ sudo n stable">
         
   
     <h1 class="article-title" itemprop="name">
-      npm 实用命令
+      Go (2)：关键字、变量、类型
     </h1>
   
 
@@ -106,34 +116,101 @@ sudo n stable">
       
         <div id="toc" class="toc-article">
           <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node升级到最新版本"><span class="toc-number">1.</span> <span class="toc-text">node升级到最新版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装模块"><span class="toc-number">2.</span> <span class="toc-text">安装模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#管理模块"><span class="toc-number">3.</span> <span class="toc-text">管理模块</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简单回顾"><span class="toc-number">1.</span> <span class="toc-text">简单回顾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关键字"><span class="toc-number">2.</span> <span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#定义变量"><span class="toc-number">3.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常量"><span class="toc-number">4.</span> <span class="toc-text">常量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型"><span class="toc-number">5.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean"><span class="toc-number">5.1.</span> <span class="toc-text">Boolean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数值类型"><span class="toc-number">5.2.</span> <span class="toc-text">数值类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#整型"><span class="toc-number">5.2.1.</span> <span class="toc-text">整型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮点数"><span class="toc-number">5.2.2.</span> <span class="toc-text">浮点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复数"><span class="toc-number">5.2.3.</span> <span class="toc-text">复数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串"><span class="toc-number">6.</span> <span class="toc-text">字符串</span></a></li></ol>
         </div>
-        <h1 id="node升级到最新版本">node升级到最新版本</h1>
-<p>node有一个模块叫<code>n</code>，是专门用来管理node.js的版本的，在控制台升级node到最新稳定版本只需要三条命令</p>
-<pre><code> <span class="built_in">sudo</span> npm cache clean <span class="operator">-f</span>
-<span class="built_in">sudo</span> npm install -g n
-<span class="built_in">sudo</span> n stable
-</code></pre><a id="more"></a>
+        <h1 id="简单回顾">简单回顾</h1>
+<p>回顾一下GO的几个要点</p>
+<ol>
+<li>命令式的静态语言，需要编译执行，但编译速度十分快</li>
+<li>自动处理垃圾回收</li>
+<li>任何地方都是utf-8的，包括代码本身</li>
+<li>所有Go文件以 <code>package &lt;packagename&gt;</code> 开始，独立执行的文件必须是 <code>package main</code>，入口函数一定是 main</li>
+<li>语句结束不用<code>;</code><a id="more"></a>
 
-<h1 id="安装模块">安装模块</h1>
-<p><code>npm install &lt;name&gt; -g</code> 把模块安装到全局</p>
-<p><code>npm init</code>  引导创建<code>package.json</code>文件，包括名称、版本、作者信息等</p>
-<p><code>npm install &lt;name&gt; --save</code> 安装模块的同时把信息写到<code>package.json</code>中</p>
-<p><code>npm install &lt;name&gt; --save-dev</code> 安装模块的同时把模块和版本号添加到<code>devdependencies</code>部分</p>
-<h1 id="管理模块">管理模块</h1>
-<p><code>npm remove &lt;name&gt;</code> 移除模块</p>
-<p><code>npm update &lt;name&gt;</code> 更新模块</p>
-<p><code>npm ls</code> 列出当前安装的了所有模块</p>
-<p><code>npm root</code> 查看当前模块的安装路径</p>
-<p><code>npm root -g</code>  查看全局模块的安装路径</p>
+</li>
+</ol>
+<h1 id="关键字">关键字</h1>
+<p>Go语言有25个关键字</p>
+<p><img src="http://lsly1989.qiniudn.com/574e9258d109b3de82885475cfbf6c81800a4cf3.jpg" alt=""></p>
+<p>大部分看一眼就知道什么意思</p>
+<ul>
+<li>func 定义函数</li>
+<li>go 用于并行</li>
+<li>select 用于选择不同类型的通讯</li>
+<li>interface 定义接口</li>
+<li>struct 定义抽象数据类型</li>
+<li>chan 用于channel通讯</li>
+<li>type 声明自定义类型</li>
+<li>map 一种数据类型</li>
+</ul>
+<p>其它也以后都会介绍到</p>
+<h1 id="定义变量">定义变量</h1>
+<p><code>var</code>关键字是Go最基本的定义变量方式，与其它多数语言不同的是，Go 变量类型在变量名之后</p>
+<pre><code>var name <span class="class"><span class="keyword">type</span></span>
+</code></pre><p>定义多个相同类型的变量，Go会为其赋值为该类型的默认值</p>
+<pre><code>var name1, name2, name3 <span class="class"><span class="keyword">type</span></span>
+</code></pre><p>定义变量并初始化</p>
+<pre><code>var name <span class="class"><span class="keyword">type</span> </span>= <span class="keyword">value</span>
+</code></pre><p>初始化多个相同类型的变量</p>
+<pre><code>var name1, name2,m name3 <span class="keyword">type</span> = value1, value2, value3
+</code></pre><p>也可以去掉类型，Go会根据值自动判断类型</p>
+<pre><code><span class="attribute">var name1, name2,m name3 </span>=<span class="string"> value1, value2, value3</span>
+</code></pre><p>在函数内部还可以这样</p>
+<pre><code><span class="attribute">name1, name2, name3 </span>=<span class="string"> value1, value2, value3</span>
+</code></pre><p>多个声明可以分组</p>
+<pre><code>var (
+    name1    <span class="built_in">type</span>1
+    name2    <span class="built_in">type</span>2
+    name3    <span class="built_in">type</span>3
+)        
+</code></pre><p>一个特殊的变量名是 <code>_</code>，任何赋给它的值都会被丢弃</p>
+<pre><code><span class="attribute">_, b :</span>=<span class="string"> 34, 35</span>
+</code></pre><p>35 赋值给 b,同时丢弃 34</p>
+<p>Go编译器对声明了却没有使用的变量会报错</p>
+<pre><code><span class="keyword">package</span> main 
 
+<span class="keyword">func</span> main() {
+     <span class="keyword">var</span> i <span class="typename">int</span>
+}
+</code></pre><h1 id="常量">常量</h1>
+<p>常量就是编译期间就能确定值的量，初始化后程序不能改变值</p>
+<pre><code><span class="keyword">const</span> name <span class="keyword">type</span> = value
+</code></pre><p>也可以忽略类型</p>
+<pre><code><span class="keyword">const</span> <span class="built_in">Pi</span> = <span class="number">3.14</span>
+</code></pre><p>可以定义数字、布尔、字符串类型的常量</p>
+<h1 id="数据类型">数据类型</h1>
+<h2 id="Boolean">Boolean</h2>
+<p>布尔值的类型为<code>bool</code>，值为<code>true</code>或<code>false</code>，默认是<code>false</code></p>
+<h2 id="数值类型">数值类型</h2>
+<h3 id="整型">整型</h3>
+<p>数值类型分为有符号（uint）和无符号（int）两种。Go里面直接定义好位数类型：rune, int8, int16, int32, int64和byte, uint8, uint16, uint32, uint64。其中rune是int32的别称，byte是uint8的别称</p>
+<p>赋值可以用八进制、十六进制或科学计数法:077,0xFF,1e3 或者 6.022e23 这些都 是合法的</p>
+<h3 id="浮点数">浮点数</h3>
+<p>浮点数的类型有float32和float64两种，默认是float64</p>
+<h3 id="复数">复数</h3>
+<p>Go支持复数，默认类型是complex128（64位实数+64位虚数）。还有complex64(32位实数+32位虚数)。</p>
+<p>复数的形式为RE + IMi，其中RE是实数部分，IM是虚数部分，而最后的i是虚数单位</p>
+<pre><code><span class="keyword">var</span> <span class="built_in">c</span> complex64 = <span class="number">5</span>+5i
+</code></pre><p>类型的变量之间不允许互相赋值或操作，不然会在编译时引起编译器报错</p>
+<h1 id="字符串">字符串</h1>
+<p>Go中的字符都使用UTF-8编码，字符串通过双引号<code>&quot;</code>定义，类型是string</p>
+<pre><code><span class="keyword">var</span> s= <span class="string">"xxxxxxx"</span>
+</code></pre><p>Go中字符串时不可变的，强行改变会编译报错</p>
+<pre><code><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"hello"</span>
+s[<span class="number">0</span>] = <span class="string">'c'</span>  ／／cannot assign to s[<span class="number">0</span>]
+</code></pre><p>使用<code>+</code>链接字符串，使用 ` 定义多行字符串</p>
+<pre><code><span class="reserved">var</span> s = <span class="string">"hello"</span> + <span class="string">"K"</span>
+
+<span class="reserved">var</span> b = `<span class="javascript">hello
+        world</span>`
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/18/npm实用命令/" data-id="6mii4655b673ko6k" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/28/Go (2)：关键字、变量、类型/" data-id="rjdnb4vvaicln7nu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
 
     </footer>
   </div>
@@ -141,19 +218,10 @@ sudo n stable">
     
 <nav id="article-nav">
   
-    <a href="/2014/10/18/postMessage使用场景/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          postMessage的使用场景
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/10/18/css垂直居中/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/10/26/前nginx后Apache＋Node反向代理/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CSS 垂直居中</div>
+      <div class="article-nav-title">前nginx后Apache＋Node反向代理</div>
     </a>
   
 </nav>
