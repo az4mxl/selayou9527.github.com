@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-history对象" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript节流与防抖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/history对象/" class="article-date">
+    <a href="/2014/10/14/javascript节流与防抖/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/html5/">html5</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/history对象/">history</a>
+      <a class="article-title" href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
     </h1>
   
 
@@ -94,172 +94,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="history对象">history对象</h1>
-<p>javascript中history对象用来管理浏览器浏览历史</p>
-<p><img src="http://lsly1989.qiniudn.com/history%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2019.27.41.png" alt=""></p>
-
+        <p>函数节流和函数去抖听起来很高端，实际上实现起来并不是很复杂。两个方法都是为了减少函数频繁调用的次数产生的，限看一下概念</p>
+<p><strong>函数节流(throttle)</strong> 当方法被重复调用时，只会在指定的间隔时间内执行一次</p>
+<p><strong>函数去抖(debounce)</strong> 当方法被重复调用时，如果距上次方法被调用的时间小于指定时间，推迟方法执行</p>
+<p>也就是说当函数<code>fn</code>以频率10ms/次的频率被调用1s的时候，正常情况下会被调用100次。我们设定<code>wait</code>时间为200ms，使用函数节流<code>fn</code>只会被调用5次，使用函数去抖，<code>fn</code>只会在1s后等200ms被调用一次<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/history对象/#more">Read More</a>
+            <a href="/2014/10/14/javascript节流与防抖/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/history对象/" data-id="mstave5vorder9r4" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript节流与防抖/" data-id="8tmujosw928x5y7m" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-nodejs调试" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/nodejs调试/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node/">node</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/nodejs调试/">node 调试</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>nodejs的调试问题困扰了很多刚热门的同学，仿佛又回到了<code>alert</code>时代，区别仅仅是换做了<code>console.log</code>，这让习惯了强大的Eclipse、Visual Studio的我们情何以堪。 其实nodejs本身也支持调试，简单介绍一下几种方法<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/nodejs调试/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/nodejs调试/" data-id="qh8dvbq07hayq8sx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-css容易忽略的特性" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/css容易忽略的特性/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑</p>
-<h2 id="大小写不敏感">大小写不敏感</h2>
-<p>虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的</p>
-<pre><code><span class="class">.test</span><span class="rules">{
-    <span class="rule"><span class="attribute">background-COLOR</span>:<span class="value"><span class="hexcolor">#a00</span></span></span>;
-    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/css容易忽略的特性/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/css容易忽略的特性/" data-id="vpis6cx9qplqiktf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/promise/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/es6/">es6</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/promise/">promise</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/promise/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/promise/" data-id="pog9oj2igcodxdmh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -306,10 +156,156 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame/" data-id="ragbaozjbz41m6ja" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame/" data-id="lev9x4trogbb9n36" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-media queries" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/media queries/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/media queries/">media queries</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们可能见过这样的代码</p>
+<pre><code>  &lt;link <span class="variable">href=</span><span class="string">"css/reset.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"screen"</span> /&gt;
+  &lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
+</code></pre><p>其中的<code>media</code>属性是指媒体类型，在CSS2中允许通过<code>media</code>属性指定CSS的作用范围，<code>media=&quot;print&quot;</code>表示css在打印的时候生效，其它时候不生效，所有媒体类型<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank" rel="external">Recognized media types</a><br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/media queries/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="dv3i6m7dkif5cq64" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript逗号冒号括号" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript逗号冒号括号/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下</p>
+<h2 id="逗号">逗号</h2>
+<p>逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/javascript逗号冒号括号/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript逗号冒号括号/" data-id="rzhjhtaimvon4uol" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-attribute与property" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/attribute与property/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Query1.6中新添加了一个prop方法，看起来和用起来都和attr方法一样，这两个方法有什么区别呢？这要从HTMl 的attribute与property区别说起，attr与prop正是这两个东西的缩写。<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/attribute与property/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/attribute与property/" data-id="htw3yjzdeuk1f77p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -416,19 +412,19 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+            <a href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/promise/">promise</a>
           </li>
         
       </ul>
