@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>EDM制作要点 | 色拉油的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="EDM是Email Direct Marketing的缩写，虽然也是html，但是和我们在网页上使用的html不同，因为安全原因，各大邮箱服务商级邮件客户端都会对邮件内容进行一定程度上的处理，不会按照你写的原本的html展示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EDM制作要点">
+<meta property="og:url" content="https://github.com/selayou9527/2014/11/01/EDM制作要点/">
+<meta property="og:site_name" content="色拉油的技术博客">
+<meta property="og:description" content="EDM是Email Direct Marketing的缩写，虽然也是html，但是和我们在网页上使用的html不同，因为安全原因，各大邮箱服务商级邮件客户端都会对邮件内容进行一定程度上的处理，不会按照你写的原本的html展示">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EDM制作要点">
+<meta name="twitter:description" content="EDM是Email Direct Marketing的缩写，虽然也是html，但是和我们在网页上使用的html不同，因为安全原因，各大邮箱服务商级邮件客户端都会对邮件内容进行一定程度上的处理，不会按照你写的原本的html展示">
+
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">色拉油的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/selayou9527">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-EDM制作要点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/01/EDM制作要点/" class="article-date">
+  <time datetime="2014-11-01T07:15:14.000Z" itemprop="datePublished">Nov 1 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EDM制作要点
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#避免垃圾邮件"><span class="toc-number">1.</span> <span class="toc-text">避免垃圾邮件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本准则"><span class="toc-number">2.</span> <span class="toc-text">基本准则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#table布局"><span class="toc-number">2.1.</span> <span class="toc-text">table布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#body之外的内容几乎没用"><span class="toc-number">2.2.</span> <span class="toc-text">body之外的内容几乎没用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量使用內联样式"><span class="toc-number">2.3.</span> <span class="toc-text">尽量使用內联样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#能使用属性就不用样式"><span class="toc-number">2.4.</span> <span class="toc-text">能使用属性就不用样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#table"><span class="toc-number">2.4.1.</span> <span class="toc-text">table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#td"><span class="toc-number">2.4.2.</span> <span class="toc-text">td</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#img"><span class="toc-number">2.4.3.</span> <span class="toc-text">img</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#样式书写"><span class="toc-number">3.</span> <span class="toc-text">样式书写</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#属性的支持"><span class="toc-number">3.1.</span> <span class="toc-text">属性的支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承与简写"><span class="toc-number">3.2.</span> <span class="toc-text">继承与简写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元素的特殊性"><span class="toc-number">3.3.</span> <span class="toc-text">元素的特殊性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#table-1"><span class="toc-number">3.3.1.</span> <span class="toc-text">table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#img-1"><span class="toc-number">3.3.2.</span> <span class="toc-text">img</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p"><span class="toc-number">3.3.3.</span> <span class="toc-text">p</span></a></li></ol></li></ol></li></ol>
+        </div>
+        <p>EDM是Email Direct Marketing的缩写，虽然也是html，但是和我们在网页上使用的html不同，因为安全原因，各大邮箱服务商级邮件客户端都会对邮件内容进行一定程度上的处理，不会按照你写的原本的html展示<br><a id="more"></a></p>
+<h1 id="避免垃圾邮件">避免垃圾邮件</h1>
+<p>即使邮件做的再精美，被邮箱自动识别为垃圾邮件也白费，每个邮箱都有自己的垃圾邮件识别规则，了解一下可以避免EDM被当作垃圾邮件，关于这点知乎上哟个经典的问题<a href="http://www.zhihu.com/question/19574247" target="_blank" rel="external">怎么样才能让自己服务器发出的邮件不被 Gmail、Hotmail、163、QQ 等邮箱放入垃圾箱？</a></p>
+<p>绝大多数是服务器设置、发送频率等，前端需要注意的主要是邮件内容部分</p>
+<ol>
+<li>图文比例，图片比例过大或者只是简单切图组成的邮件称为垃圾邮件的概率很大，多数邮箱对图片大小也有限制，一般图片超过150k后几乎所有邮箱都不会默认加载邮件中的图片，这也是需要注意的地方</li>
+<li>标题，标题中带有链接或者明显是推销字眼如发票、促销、免费等关键字也容易被判断为垃圾邮件</li>
+<li>内容中出现大面积黄色、红色强调的文字，或者字号超大的文字也是判断垃圾邮件的依据之一</li>
+<li>链接、图片地址尽量使用短而有意义的字符</li>
+<li>邮件中包含附件或者js代码也会加大被识别为垃圾邮件的概率</li>
+<li>标题字符全部大写，带有过多感叹号等也是垃圾邮件的标志</li>
+</ol>
+<blockquote>
+<p>常见的垃圾关键词包含：发票、发财、致富、代开、薪水、交友、支付、商机、法宝、宝典等，还有政治敏感词汇</p>
+</blockquote>
+<h1 id="基本准则">基本准则</h1>
+<p>在编写EDM的时候有几个不同于页面的基本准则</p>
+<h2 id="table布局">table布局</h2>
+<p>这几乎是EDM与普通页面html最大的区别，因为各个邮箱对div＋css这一套布局的解析问题很大，基本各大邮箱都会解析混乱，所以老式的table布局时上乘之选</p>
+<p>这就意味着EDM中几乎只有这几个元素table、tr、td、span、img、a，计量避免使用div、p或是其他标签</p>
+<p>使用table布局需要注意的一点是并不是所有邮箱很支持colspan、rowspan属性，尽量使用table嵌套解决</p>
+<h2 id="body之外的内容几乎没用">body之外的内容几乎没用</h2>
+<p>我们知道完整的html包括DOCTYPE声明、html标签、head标签及其内容、body标签，对于在一个iframe中显示邮件内容的邮箱还好，会保留上述结构，但是大多数邮件都是在div中直接包含EDM，这就对安全要求极为苛刻，后续讲的几个要点基本原因这是安全</p>
+<p>安全原因邮箱会默认把上述结构做删除处理，所以在大多数情况下写了几乎没有作用，不要试图以来head标签内的meta或者其他内容，在可能的情况下尽量把内容写到body内，甚至很多EDM的建议是从table开写，直接放弃DOCTYPE、html、head、body标签</p>
+<h2 id="尽量使用內联样式">尽量使用內联样式</h2>
+<p>写html就离不开css，EDM并不支持外部的style文件，上面讲到head标签极有可能被删除，所以不要试图在head标签内写style标签。</p>
+<p>在body内写style标签是不是就保险了呢？ 也不是，典型的就是Gmail邮箱，会把EDM内所有style标签删除，这就意味着只有內联的style属性内的CSS是唯一可靠的样式信息</p>
+<h2 id="能使用属性就不用样式">能使用属性就不用样式</h2>
+<p>并不是使用style属性就保险了，很多邮箱会对特定标签的属性做强制改造，比如把所有td的<code>line-height</code>设成1.2等，使用style属性并不是保险的，所以在有属性能够实现样式的时候尽量使用属性，常见的属性有</p>
+<h3 id="table">table</h3>
+<ul>
+<li>width</li>
+<li>bgcolor</li>
+<li>align</li>
+</ul>
+<h3 id="td">td</h3>
+<ul>
+<li>align</li>
+<li>valign</li>
+<li>bgcolor</li>
+<li>height</li>
+<li>width</li>
+</ul>
+<h3 id="img">img</h3>
+<ul>
+<li>width</li>
+<li>height</li>
+</ul>
+<p>对于加粗字体我们可以使用<code>b</code>标签而不是css的<code>font-weight</code></p>
+<h1 id="样式书写">样式书写</h1>
+<p>EDM的样式书写也有很多让人吃惊的地方</p>
+<h2 id="属性的支持">属性的支持</h2>
+<p>EDM对CSS支持的匮乏是令人震惊的，普遍支持的几乎就剩支持文字、背景颜色相关的属性，我们可以在<a href="https://www.campaignmonitor.com/css/" target="_blank" rel="external">The Ultimate Guide to CSS</a>看到具体支持情况</p>
+<ul>
+<li><p>Gmail对所有的style标签都不支持</p>
+</li>
+<li><p>稍微高级的选择器Yahoo和Gmail普遍不支持，这个对于针对国内市场的同学还能接受国际市场的就悲剧了</p>
+</li>
+<li><p>文字相关的CSS2的基本都支持，但是<code>font-size</code>、<code>font-family</code>基本各个客户端都有默认值，保险起见，写上自己的；<code>text-indent</code>只对块元素生效，基本使用td的<code>padding</code>可以解决</p>
+</li>
+<li><p>background支持比较好的就是color，不要为EDM添加背景图片，多数邮箱不支持</p>
+</li>
+<li><p>box相关的border的支持不错，height和width也基本可以，padding和margin的支持并不尽如人意，一个好的建议是不使用margin，主要靠空的、有width和height的td与其padding解决间距问题</p>
+</li>
+<li><p>位置、显示相关的基本EDM很少设计，不要使用float、position属性即可</p>
+</li>
+</ul>
+<p>如果想写出在各个邮箱上看起来都不错的邮件，能用的CSS极其有限，也许看到这里就能明白为什么很多EDM的代码看起来很挫，但是这还没完，套用美剧中常出现的“It’s just the beginning”</p>
+<h2 id="继承与简写">继承与简写</h2>
+<p>在写页面的时候利用CSS的继承和简写会为我们带来很多便利，但是到了EDM，一切都要NO！</p>
+<p>首先是继承，其实继承规则依旧有效，但是多数邮箱都会有一套自己的规则，比如<code>line-height</code>，如果我们的元素没有设置，它会以內联样式的形式自动添加，这就造成我们不能轻易依赖继承规则，所有几乎有问题的td都要写</p>
+<pre><code><span class="variable">style=</span><span class="string">"color:#333;font-size:12px;font-family:Arial;line-height:1.5;"</span>
+</code></pre><p>然后是简写问题</p>
+<pre><code><span class="attribute">padding</span><span class="value">:<span class="number">4px</span>;</span>
+<span class="attribute">border</span><span class="value">:solid <span class="number">1px</span> <span class="hexcolor">#999</span>;</span>
+</code></pre><p>类似的代码很常见，但是鉴于EDM的特殊性，建议大家不要这么写，color的代码也要写成六位，而不是简写为3位</p>
+<pre><code>padding-top:4px;
+padding-<span class="keyword">...</span>
+<span class="keyword">...</span>
+border-width:1px;
+border-style:style;
+border-color:<span class="comment">#999999;</span>
+</code></pre><h2 id="元素的特殊性">元素的特殊性</h2>
+<h3 id="table-1">table</h3>
+<ul>
+<li>上面有提到<code>colspan</code>、<code>rowspan</code>属性并不能很好的得到支持，所以尽量使用table嵌套解决此类问题</li>
+<li>所有的table一定要写的几个属性<code>cellpadding</code>、<code>cellspacing</code>、<code>border</code>，不同的浏览器、邮箱对此的默认值不同，写成我们希望的</li>
+<li>table使用border的时候添加border-collapse的属性值为collapse</li>
+<li>使用<code>bgcolor</code>定义table的背景颜色</li>
+<li>td的内容默认是水平左对齐、垂直居中对齐</li>
+<li>td的属性十分丰富，对其、尺寸、背景</li>
+</ul>
+<h3 id="img-1">img</h3>
+<ul>
+<li>做好图片默认不被加载的预期，Gmail非通讯录邮箱的邮件图片默认都不加载，所以要写上width、height与alt属性</li>
+<li>仅包含图片的td把<code>line-height</code>设置为0，否则会有间隙，在图片并列的时候尤为明显，很多人也建议设置样式<code>display:block</code>，虽然一样能实现，但是不推荐</li>
+<li>很多时候邮箱会为图片默认加上边框，确认不需要的话将其<code>border</code>属性设置为0</li>
+</ul>
+<h3 id="p">p</h3>
+<p>少用p标签，hotmail会先过滤掉p标签的margin然后再加上hotmail系统默认设置的值；qqmail会给p设定一个line-height值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/11/01/EDM制作要点/" data-id="e998xj4x4dxv1ddf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EDM/">EDM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/10/28/Go (2)：关键字、变量、类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Go (2)：关键字、变量、类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/EDM/" style="font-size: 10.00px;">EDM</a><a href="/tags/Go/" style="font-size: 11.67px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.67px;">canvas</a><a href="/tags/css/" style="font-size: 18.33px;">css</a><a href="/tags/css3/" style="font-size: 16.67px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/html5/" style="font-size: 11.67px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.67px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a><a href="/tags/node/" style="font-size: 11.67px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 15.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.67px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/11/01/EDM制作要点/">EDM制作要点</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/28/Go (2)：关键字、变量、类型/">Go (2)：关键字、变量、类型</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/前nginx后Apache＋Node反向代理/">前nginx后Apache＋Node反向代理</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac下nginx配置PHP/">Mac nginx PHP支持</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac MySQL使用/">Mac MySQL使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac下nginx监听80端口开机自启/">Mac nginx 80端口开机自启</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/22/handlebars语法/">handlebars语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/21/Velocity语法/">Velocity语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/20/GO(1):hello world!/">Go (1)：Hello World!</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/输入URL后发生了什么/">输入页面URL后发生了什么</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/css垂直居中/">CSS 垂直居中</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/使用border做三角形/">使用border做三角形</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/Intro to CSS 3D transforms/">Intro to CSS 3D transforms[翻译部分]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/nodejs调试/">node 调试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 色拉油<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
