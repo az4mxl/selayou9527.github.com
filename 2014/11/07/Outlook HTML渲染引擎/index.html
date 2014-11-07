@@ -5,18 +5,24 @@
   
   <title>Outlook HTML渲染引擎 | 色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址 http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010
-OutLook始终不离不弃
+  <meta name="description" content="OutLook始终不离不弃
 是不是很讨厌为Email代码兼容Outlook？ 太遗憾了！虽然光都有尽头，但Outlook始终存在。
-为了应付Email的怪癖，我们">
+为了应付Email的怪癖，我们花了很多时间测试，确保我们搞定了所有Outlook的坑洼沟洄。在这个指导中，我们会分享一下数年来我们应付这种烦人的邮件客户端的编程经验，主要包括四个部分
+
+Outlook必知的17个tricks
+移除table间距的3种办法
+移除Outl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Outlook HTML渲染引擎">
 <meta property="og:url" content="https://github.com/selayou9527/2014/11/07/Outlook HTML渲染引擎/">
 <meta property="og:site_name" content="色拉油的技术博客">
-<meta property="og:description" content="原文地址 http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010
-OutLook始终不离不弃
+<meta property="og:description" content="OutLook始终不离不弃
 是不是很讨厌为Email代码兼容Outlook？ 太遗憾了！虽然光都有尽头，但Outlook始终存在。
-为了应付Email的怪癖，我们">
+为了应付Email的怪癖，我们花了很多时间测试，确保我们搞定了所有Outlook的坑洼沟洄。在这个指导中，我们会分享一下数年来我们应付这种烦人的邮件客户端的编程经验，主要包括四个部分
+
+Outlook必知的17个tricks
+移除table间距的3种办法
+移除Outl">
 <meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 14.39.35.png">
 <meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 15.05.17.png">
 <meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 15.53.23.png">
@@ -24,10 +30,13 @@ OutLook始终不离不弃
 <meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 17.00.46.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Outlook HTML渲染引擎">
-<meta name="twitter:description" content="原文地址 http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010
-OutLook始终不离不弃
+<meta name="twitter:description" content="OutLook始终不离不弃
 是不是很讨厌为Email代码兼容Outlook？ 太遗憾了！虽然光都有尽头，但Outlook始终存在。
-为了应付Email的怪癖，我们">
+为了应付Email的怪癖，我们花了很多时间测试，确保我们搞定了所有Outlook的坑洼沟洄。在这个指导中，我们会分享一下数年来我们应付这种烦人的邮件客户端的编程经验，主要包括四个部分
+
+Outlook必知的17个tricks
+移除table间距的3种办法
+移除Outl">
 
   
     <link rel="icon" href="/favicon.png">
@@ -83,7 +92,7 @@ OutLook始终不离不弃
         <section id="main"><article id="post-Outlook HTML渲染引擎" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/07/Outlook HTML渲染引擎/" class="article-date">
-  <time datetime="2014-11-07T09:19:53.000Z" itemprop="datePublished">Nov 7 2014</time>
+  <time datetime="2014-11-07T09:21:54.000Z" itemprop="datePublished">Nov 7 2014</time>
 </a>
     
   <div class="article-category">
@@ -110,8 +119,7 @@ OutLook始终不离不弃
           <strong class="toc-title">文章目录</strong>
           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OutLook始终不离不弃"><span class="toc-number">1.</span> <span class="toc-text">OutLook始终不离不弃</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Outlook必知的17个tricks"><span class="toc-number">2.</span> <span class="toc-text">Outlook必知的17个tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook忽略图片的margin和padding"><span class="toc-number">2.1.</span> <span class="toc-text">Outlook忽略图片的margin和padding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本不自动折行"><span class="toc-number">2.2.</span> <span class="toc-text">文本不自动折行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook自动为table_cell_添加1px_border"><span class="toc-number">2.3.</span> <span class="toc-text">Outlook自动为table cell 添加1px border</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook有时忽略link的样式"><span class="toc-number">2.4.</span> <span class="toc-text">Outlook有时忽略link的样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#间距很重要的话用table实现"><span class="toc-number">2.5.</span> <span class="toc-text">间距很重要的话用table实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用cellpadding和cellspacing做间距"><span class="toc-number">2.6.</span> <span class="toc-text">使用cellpadding和cellspacing做间距</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook有时会移除padding"><span class="toc-number">2.7.</span> <span class="toc-text">Outlook有时会移除padding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用_MSO_控制行高"><span class="toc-number">2.8.</span> <span class="toc-text">使用 MSO 控制行高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook按字面解释"><span class="toc-number">2.9.</span> <span class="toc-text">Outlook按字面解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook有时忽略width和height"><span class="toc-number">2.10.</span> <span class="toc-text">Outlook有时忽略width和height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#td有最矮2px的限制"><span class="toc-number">2.11.</span> <span class="toc-text">td有最矮2px的限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景图片需要使用vml"><span class="toc-number">2.12.</span> <span class="toc-text">背景图片需要使用vml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook把一些div转换为p"><span class="toc-number">2.13.</span> <span class="toc-text">Outlook把一些div转换为p</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook使用word渲染引擎"><span class="toc-number">2.14.</span> <span class="toc-text">Outlook使用word渲染引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#太高的图片会被剪切"><span class="toc-number">2.15.</span> <span class="toc-text">太高的图片会被剪切</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义了尺寸的图片核能渲染不正确"><span class="toc-number">2.16.</span> <span class="toc-text">定义了尺寸的图片核能渲染不正确</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带动画的gif不支持"><span class="toc-number">2.17.</span> <span class="toc-text">带动画的gif不支持</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#移除table间距的3种办法"><span class="toc-number">3.</span> <span class="toc-text">移除table间距的3种办法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#移除Outlook2013图片间距"><span class="toc-number">4.</span> <span class="toc-text">移除Outlook2013图片间距</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Outlook_2007、2010中的CSS_padding"><span class="toc-number">5.</span> <span class="toc-text">Outlook 2007、2010中的CSS padding</span></a></li></ol>
         </div>
-        <p>原文地址 <a href="http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010" target="_blank" rel="external">http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010</a></p>
-<h1 id="OutLook始终不离不弃">OutLook始终不离不弃</h1>
+        <h1 id="OutLook始终不离不弃">OutLook始终不离不弃</h1>
 <p>是不是很讨厌为Email代码兼容Outlook？ 太遗憾了！虽然光都有尽头，但Outlook始终存在。</p>
 <p>为了应付Email的怪癖，我们花了很多时间测试，确保我们搞定了所有Outlook的坑洼沟洄。在这个指导中，我们会分享一下数年来我们应付这种烦人的邮件客户端的编程经验，主要包括四个部分</p>
 <ol>
@@ -354,11 +362,12 @@ NEW FASHIONS
 <span class="tag">&lt;<span class="title">o:p</span>&gt;</span><span class="tag">&lt;/<span class="title">o:p</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">span</span>&gt;</span>     </span>
 </code></pre><p>转换之后本来对块元素设置的css到了span上，很多就不好使了，为了避免作者建议使用margin，其实我觉得还是老老实实使用table得了</p>
+<p>原文地址 <a href="http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010" target="_blank" rel="external">http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/07/Outlook HTML渲染引擎/" data-id="e3s18hupeyjp7x6x" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/07/Outlook HTML渲染引擎/" data-id="7g4wcmtx8vxxqcxj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EDM/">EDM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
@@ -502,7 +511,7 @@ NEW FASHIONS
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+            <a href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
           </li>
         
       </ul>
