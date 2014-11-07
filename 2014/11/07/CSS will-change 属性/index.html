@@ -76,7 +76,7 @@
         <section id="main"><article id="post-CSS will-change 属性" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/07/CSS will-change 属性/" class="article-date">
-  <time datetime="2014-11-07T01:47:12.000Z" itemprop="datePublished">Nov 7 2014</time>
+  <time datetime="2014-11-07T01:48:45.000Z" itemprop="datePublished">Nov 7 2014</time>
 </a>
     
   <div class="article-category">
@@ -101,7 +101,7 @@
       
         <div id="toc" class="toc-article">
           <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU、GPU和硬件加速"><span class="toc-number">2.</span> <span class="toc-text">CPU、GPU和硬件加速</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#translateZ()_(or_translate3d())_Hack"><span class="toc-number">3.</span> <span class="toc-text">translateZ() (or translate3d()) Hack</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#牛逼的_will-change属性"><span class="toc-number">4.</span> <span class="toc-text">牛逼的 will-change属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#合理使用"><span class="toc-number">5.</span> <span class="toc-text">合理使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不要声明太多属性或为太多元素声明"><span class="toc-number">5.1.</span> <span class="toc-text">不要声明太多属性或为太多元素声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给浏览器足够的时间工作"><span class="toc-number">5.2.</span> <span class="toc-text">给浏览器足够的时间工作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变化完成后移除will-change"><span class="toc-number">6.</span> <span class="toc-text">变化完成后移除will-change</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#will-change属性的值"><span class="toc-number">7.</span> <span class="toc-text">will-change属性的值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器兼容性"><span class="toc-number">8.</span> <span class="toc-text">浏览器兼容性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束语"><span class="toc-number">9.</span> <span class="toc-text">结束语</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU、GPU和硬件加速"><span class="toc-number">2.</span> <span class="toc-text">CPU、GPU和硬件加速</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#translateZ()_(or_translate3d())_Hack"><span class="toc-number">3.</span> <span class="toc-text">translateZ() (or translate3d()) Hack</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#牛逼的_will-change属性"><span class="toc-number">4.</span> <span class="toc-text">牛逼的 will-change属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#合理使用"><span class="toc-number">5.</span> <span class="toc-text">合理使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不要声明太多属性或为太多元素声明"><span class="toc-number">5.1.</span> <span class="toc-text">不要声明太多属性或为太多元素声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给浏览器足够的时间工作"><span class="toc-number">5.2.</span> <span class="toc-text">给浏览器足够的时间工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变化完成后移除will-change"><span class="toc-number">5.3.</span> <span class="toc-text">变化完成后移除will-change</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#will-change属性的值"><span class="toc-number">5.4.</span> <span class="toc-text">will-change属性的值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器兼容性"><span class="toc-number">6.</span> <span class="toc-text">浏览器兼容性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束语"><span class="toc-number">7.</span> <span class="toc-text">结束语</span></a></li></ol>
         </div>
         <p>原文地址 <a href="https://dev.opera.com/articles/css-will-change-property/" target="_blank" rel="external">CSS will-change 属性</a></p>
 <h1 id="介绍">介绍</h1>
@@ -168,7 +168,7 @@
     <span class="rule"><span class="attribute">opacity</span>:<span class="value"> .<span class="number">5</span></span></span>;
 <span class="rule">}</span></span>
 </code></pre><p>其实核心思想就是让浏览器有时间去准备</p>
-<h1 id="变化完成后移除will-change">变化完成后移除will-change</h1>
+<h2 id="变化完成后移除will-change">变化完成后移除will-change</h2>
 <p>对于一般的优化，当变化完成的时候浏览器会撤销优化，恢复普通模式，但是如果使用了will-change会导致该优化迟迟不能释放，这就要求我们用完了就释放</p>
 <p>这时候我们需要借助JavaScript</p>
 <pre><code><span class="comment">// Rough generic example</span>
@@ -189,7 +189,7 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
     <span class="keyword">this</span>.style.willChange = <span class="string">'auto'</span>;
 }
 </code></pre><p>当然对于用户会反复触发的操作放在style中不移除也可以</p>
-<h1 id="will-change属性的值">will-change属性的值</h1>
+<h2 id="will-change属性的值">will-change属性的值</h2>
 <ol>
 <li>auto 表示没有明确的意图; 无论是启发式和最优化，用户代理应该应用都和正常情况相同</li>
 <li>scroll-position 表示开发者期望去在接下来去改变或者有动画应用元素的滚动位置</li>
@@ -215,7 +215,7 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/07/CSS will-change 属性/" data-id="tta1irdqewo6t6zw" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/07/CSS will-change 属性/" data-id="2t4yhcgk9e87x80v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -355,11 +355,11 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
           </li>
         
           <li>
-            <a href="/2014/10/14/nodejs调试/">node 调试</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
           </li>
         
           <li>
-            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
           </li>
         
       </ul>
