@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Outlook HTML渲染引擎 | 色拉油的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文地址 http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010
+OutLook始终不离不弃
+是不是很讨厌为Email代码兼容Outlook？ 太遗憾了！虽然光都有尽头，但Outlook始终存在。
+为了应付Email的怪癖，我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Outlook HTML渲染引擎">
+<meta property="og:url" content="https://github.com/selayou9527/2014/11/07/Outlook HTML渲染引擎/">
+<meta property="og:site_name" content="色拉油的技术博客">
+<meta property="og:description" content="原文地址 http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010
+OutLook始终不离不弃
+是不是很讨厌为Email代码兼容Outlook？ 太遗憾了！虽然光都有尽头，但Outlook始终存在。
+为了应付Email的怪癖，我们">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 14.39.35.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 15.05.17.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 15.53.23.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 16.04.54.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 17.00.46.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Outlook HTML渲染引擎">
+<meta name="twitter:description" content="原文地址 http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010
+OutLook始终不离不弃
+是不是很讨厌为Email代码兼容Outlook？ 太遗憾了！虽然光都有尽头，但Outlook始终存在。
+为了应付Email的怪癖，我们">
+
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">色拉油的技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">It always seems impossible until it&#39;s done.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="github.com/selayou9527">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/jquery.min.js"></script>
+
+      <div class="outer">
+        <section id="main"><article id="post-Outlook HTML渲染引擎" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/07/Outlook HTML渲染引擎/" class="article-date">
+  <time datetime="2014-11-07T09:19:53.000Z" itemprop="datePublished">Nov 7 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Outlook HTML渲染引擎
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OutLook始终不离不弃"><span class="toc-number">1.</span> <span class="toc-text">OutLook始终不离不弃</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Outlook必知的17个tricks"><span class="toc-number">2.</span> <span class="toc-text">Outlook必知的17个tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook忽略图片的margin和padding"><span class="toc-number">2.1.</span> <span class="toc-text">Outlook忽略图片的margin和padding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本不自动折行"><span class="toc-number">2.2.</span> <span class="toc-text">文本不自动折行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook自动为table_cell_添加1px_border"><span class="toc-number">2.3.</span> <span class="toc-text">Outlook自动为table cell 添加1px border</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook有时忽略link的样式"><span class="toc-number">2.4.</span> <span class="toc-text">Outlook有时忽略link的样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#间距很重要的话用table实现"><span class="toc-number">2.5.</span> <span class="toc-text">间距很重要的话用table实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用cellpadding和cellspacing做间距"><span class="toc-number">2.6.</span> <span class="toc-text">使用cellpadding和cellspacing做间距</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook有时会移除padding"><span class="toc-number">2.7.</span> <span class="toc-text">Outlook有时会移除padding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用_MSO_控制行高"><span class="toc-number">2.8.</span> <span class="toc-text">使用 MSO 控制行高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook按字面解释"><span class="toc-number">2.9.</span> <span class="toc-text">Outlook按字面解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook有时忽略width和height"><span class="toc-number">2.10.</span> <span class="toc-text">Outlook有时忽略width和height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#td有最矮2px的限制"><span class="toc-number">2.11.</span> <span class="toc-text">td有最矮2px的限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景图片需要使用vml"><span class="toc-number">2.12.</span> <span class="toc-text">背景图片需要使用vml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook把一些div转换为p"><span class="toc-number">2.13.</span> <span class="toc-text">Outlook把一些div转换为p</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Outlook使用word渲染引擎"><span class="toc-number">2.14.</span> <span class="toc-text">Outlook使用word渲染引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#太高的图片会被剪切"><span class="toc-number">2.15.</span> <span class="toc-text">太高的图片会被剪切</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义了尺寸的图片核能渲染不正确"><span class="toc-number">2.16.</span> <span class="toc-text">定义了尺寸的图片核能渲染不正确</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带动画的gif不支持"><span class="toc-number">2.17.</span> <span class="toc-text">带动画的gif不支持</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#移除table间距的3种办法"><span class="toc-number">3.</span> <span class="toc-text">移除table间距的3种办法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#移除Outlook2013图片间距"><span class="toc-number">4.</span> <span class="toc-text">移除Outlook2013图片间距</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Outlook_2007、2010中的CSS_padding"><span class="toc-number">5.</span> <span class="toc-text">Outlook 2007、2010中的CSS padding</span></a></li></ol>
+        </div>
+        <p>原文地址 <a href="http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010" target="_blank" rel="external">http://www.emailonacid.com/blog/details/C13/removing_unwanted_spacing_or_gaps_between_tables_in_outlook_2007_2010</a></p>
+<h1 id="OutLook始终不离不弃">OutLook始终不离不弃</h1>
+<p>是不是很讨厌为Email代码兼容Outlook？ 太遗憾了！虽然光都有尽头，但Outlook始终存在。</p>
+<p>为了应付Email的怪癖，我们花了很多时间测试，确保我们搞定了所有Outlook的坑洼沟洄。在这个指导中，我们会分享一下数年来我们应付这种烦人的邮件客户端的编程经验，主要包括四个部分</p>
+<ol>
+<li>Outlook必知的17个tricks</li>
+<li>移除table间距的3种办法</li>
+<li>移除Outlook2013图片间距</li>
+<li>Outlook 2007、2010中的CSS padding</li>
+</ol>
+<a id="more"></a>
+
+<h1 id="Outlook必知的17个tricks">Outlook必知的17个tricks</h1>
+<p>为Outlook设计就像追逐行踪飘忽的大白鲸。我们花费了数小时研究，跟踪缺陷和故障，努力在一个不完善的环境中实现像素级别的完美展示。虽然Outlook时最难啃的骨头，但是搞定它仍是当务之急。</p>
+<p>下面是17条改善Outlook上Email的建议</p>
+<h2 id="Outlook忽略图片的margin和padding">Outlook忽略图片的margin和padding</h2>
+<p>Outlook 2007-2013不支持image的margin与padding样式，必要的时候尝试<code>hspace</code>和<code>vspace</code></p>
+<pre><code>￼&lt;img <span class="variable">src=</span><span class="string">"http://www.emailonacid.com/example.jpg"</span> <span class="variable">align=</span><span class="string">"left"</span> <span class="variable">vspace=</span><span class="string">"10"</span> <span class="variable">hspace=</span><span class="string">"10"</span> /&gt;
+</code></pre><p>或者为图片本身添加额外的空间（这个台low了，实在不推荐）</p>
+<h2 id="文本不自动折行">文本不自动折行</h2>
+<p>对于table中的文字，比如<code>aaaaaaaaaaaaaaaaa</code>，如果希望它们自动折行，需要这样</p>
+<pre><code><span class="tag">&lt;<span class="title">td</span> <span class="attribute">style</span>=<span class="value">"word-break:break-all;"</span>&gt;</span>
+</code></pre><p>下面的例子对比一下就看到效果了</p>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 14.39.35.png" alt="image"></p>
+<h2 id="Outlook自动为table_cell_添加1px_border">Outlook自动为table cell 添加1px border</h2>
+<p>如果table使用了背景颜色可以看到<code>td</code>有1px的白边，在内嵌的style中加入样式</p>
+<pre><code> <span class="tag">table</span> <span class="tag">td</span> <span class="rules">{ <span class="rule"><span class="attribute">border-collapse</span>:<span class="value"> collapse</span></span>; <span class="rule">}</span></span>
+</code></pre><p>或者使用内联样式</p>
+<pre><code>&lt;td style=<span class="string">"border-collapse: collapse;"</span>&gt;<span class="keyword">...</span> &lt;/td&gt;
+</code></pre><h2 id="Outlook有时忽略link的样式">Outlook有时忽略link的样式</h2>
+<p>如果a标签没有<code>href</code>属性，那么Outlook 2007和 2013将不支持其内联样式</p>
+<pre><code><span class="tag">&lt;<span class="title">a</span> <span class="attribute">style</span>=<span class="value">"font-size: 20px; color: #004990;"</span>&gt;</span>Shop Flooring <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+</code></pre><p>这种没有作用，应该修改为</p>
+<pre><code>￼<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.test.com"</span> <span class="attribute">style</span>=<span class="value">"font-size: 20px; 
+    color: #004990;"</span>&gt;</span>Shop Flooring <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+</code></pre><h2 id="间距很重要的话用table实现">间距很重要的话用table实现</h2>
+<p>Email中最安全的呈现间距就是使用table</p>
+<pre><code><span class="tag">&lt;<span class="title">table</span> <span class="attribute">cellpadding</span>=<span class="value">"2"</span> <span class="attribute">cellspacing</span>=<span class="value">"2"</span> <span class="attribute">border</span>=<span class="value">"0"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">td</span> <span class="attribute">valign</span>=<span class="value">"top"</span>&gt;</span>â€¢<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">td</span>&gt;</span>Test<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">td</span> <span class="attribute">valign</span>=<span class="value">"top"</span>&gt;</span>1.<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">td</span>&gt;</span>Test<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+</code></pre><h2 id="使用cellpadding和cellspacing做间距">使用cellpadding和cellspacing做间距</h2>
+<p>不要在table上使用<code>margin</code>和<code>padding</code>，cellpadding和cellspacing是比较安全的方式，可以达到padding和margin的效果</p>
+<p>如果使用table的<code>align</code>属性</p>
+<pre><code>&lt;<span class="built_in">table</span> align=<span class="string">"left"</span>&gt;
+</code></pre><p>情况会有些小复杂，后续提到</p>
+<p>注意；对table的对齐属性要额外的小心，你永远不知道这会对其渲染引擎（Word rending engine）造成什么影响。我们见识过它会尝试使用自己的定位</p>
+<h2 id="Outlook有时会移除padding">Outlook有时会移除padding</h2>
+<p>Outlook 07 和 10 会把<code>div</code>和<code>h1~h6</code>转换为<code>p</code>并包裹上span，这个会把html的容器从块元素转换为内联元素</p>
+<pre><code><span class="tag">&lt;<span class="title">h2</span> <span class="attribute">style</span>=<span class="value">"font-size: 15px; font-weight: bold; margin: 0; padding: 17px 0 0 0;"</span>&gt;</span>
+    NEW FASHIONS
+<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+</code></pre><p>会被转换为</p>
+<pre><code><span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>= <span class="attribute">style</span>=<span class="value">'mso-outline-level:3'</span>&gt;</span> 
+    <span class="tag">&lt;<span class="title">b</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">'font-size:11.5pt'</span>&gt;</span>
+            NEW FASHIONS<span class="tag">&lt;<span class="title">o:p</span>&gt;</span><span class="tag">&lt;/<span class="title">o:p</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">b</span>&gt;</span> 
+<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><p>下面的例子可以看到padding设置在Thunderbird上有效，Outlook 2007上无效</p>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 15.05.17.png" alt="image"></p>
+<p>一个解决办法就是把padding加到td上</p>
+<pre><code><span class="tag">&lt;<span class="title">td</span> <span class="attribute">style</span>=<span class="value">"padding: 17px 0 0 0"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h2</span> <span class="attribute">style</span>=<span class="value">"font-size: 15px; font-weight: bold; margin: 0"</span>&gt;</span>
+        NEWFASHIONS
+    <span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+</code></pre><p>另外一个解决办法就是不使用div和h1~h6，使用p</p>
+<h2 id="使用_MSO_控制行高">使用 MSO 控制行高</h2>
+<p>在使用行高前添加<code>mso-line-height-rule:exactly</code></p>
+<pre><code><span class="tag">&lt;<span class="title">td</span> <span class="attribute">style</span>=<span class="value">"mso-line-height-rule:exactly; line-height:50px;"</span>&gt;</span>
+</code></pre><p>这只在块元素上有效，所以想在font或span中用就洗洗睡了吧，这只是微软的CSS属性，对其他客户端没影响</p>
+<h2 id="Outlook按字面解释">Outlook按字面解释</h2>
+<p>确保td的<code>rowspan</code>属性    被设置了正确的值，大部分浏览器对错误设着的rowspan宽大处理了，但是Outlook 07 和10 会按照你声明的值解释渲染，如果声明多了就悲剧了，即使table中没有那么多也一样渲染</p>
+<h2 id="Outlook有时忽略width和height">Outlook有时忽略width和height</h2>
+<p>带有width喝height的块元素可能显示和预期不一致，如果水平和垂直空间时由email内容决定的，要了解有时候自定义的空间和对齐不好使，为了最好效果，使用透明的图片占位或者table cell的height属性</p>
+<h2 id="td有最矮2px的限制">td有最矮2px的限制</h2>
+<p>在Outlook 07和10中，td最小高度被限制为2px，如果使用td里面是1px的透明gif和背景颜色，还会出现一个水平条</p>
+<h2 id="背景图片需要使用vml">背景图片需要使用vml</h2>
+<p>在Outlook 07、10、13中背景图片不使用VML的话是不起作用的。VML是一个基于XML的过时的二维矢量图形文件格式，是Office Open XML标准的一部分。这个问题很难搞定，可以看看<a href="http://www.emailonacid.com/blog/details/C13/emailology_vector_markup_language_and_backgrounds" target="_blank" rel="external">这篇博客</a>看看真么使用VML搞定背景图片</p>
+<p>也可以使用<a href="http://backgrounds.cm/" target="_blank" rel="external">Bulletproof background images</a>搞定</p>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 15.53.23.png" alt="image"></p>
+<h2 id="Outlook把一些div转换为p">Outlook把一些div转换为p</h2>
+<p>Outlook经常会把div转换为p，这个我们真心不理解什么时候和为什么，你知道的话跟我们聊聊</p>
+<h2 id="Outlook使用word渲染引擎">Outlook使用word渲染引擎</h2>
+<p>Outlook使用<code>text boundaries</code> 和<code>page breaks</code>略微有些不同，Text boundaries被用来在打印页面的时候分离页面元素。并不输出HTML代码</p>
+<p>根据我们研究，我们了解到text boundaries 最大可以拉伸到23.7英寸高（1790px），超过了就会自动插入分割线然后创建新的text boundary。因此如果email中的table的高度高于1790px，它就会变成多个</p>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 16.04.54.png" alt="image"></p>
+<p>最好的解决办法就是不要搞这么高的table，每次添加新的table都会创建新的text boundry，只要table不超过1790px就不会创建多个text boundry</p>
+<p>使用table嵌套的时候要注意内层的table别超过了，适当拆分一下，重构比较麻烦，设计的时候注意最好</p>
+<h2 id="太高的图片会被剪切">太高的图片会被剪切</h2>
+<p>在Outlook中图片最高1728px，超过1728 的部分会被截掉（怎么会有人这么丧心病狂在Email中放这么高的图片）</p>
+<p>我们也见过Outlook自动缩小图片，使其最高位1827px</p>
+<p>我们建议你剪裁图片，堆叠在一起</p>
+<h2 id="定义了尺寸的图片核能渲染不正确">定义了尺寸的图片核能渲染不正确</h2>
+<p>拉伸图片可能不会正确的渲染，所有的图形应该设置正确的尺寸在属性中。不要依赖于HTML定义图片尺寸这点对于Email很重要</p>
+<h2 id="带动画的gif不支持">带动画的gif不支持</h2>
+<p>Outlook不支持带动画的gif，只会展示第一帧</p>
+<h1 id="移除table间距的3种办法">移除table间距的3种办法</h1>
+<p>当我们尝试左右并列table或者上下堆叠table的时候会发现Outlook 07 和 10 有些小问题，如果发现不想要的间距，你就来对地方了</p>
+<p><strong>步骤1</strong> 在css中添加<code>border-collapse</code>属性</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+       <span class="tag">table</span> <span class="rules">{<span class="rule"><span class="attribute">border-collapse</span>:<span class="value"> collapse</span></span>;<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><p>￼<br><strong>步骤2</strong> border、cellpadding、cellspacing设为0</p>
+<pre><code>&lt;table <span class="variable">border=</span><span class="string">"0"</span> <span class="variable">cellpadding=</span><span class="string">"0"</span> <span class="variable">cellspacing=</span><span class="string">"0"</span>&gt;
+</code></pre><p><strong>步骤3</strong> 如果为table添加了<code>align</code>属性里还需要做些事情</p>
+<p>在这种情况下，可能会发现table间十分大的间距，下面说一下解决办法</p>
+<ol>
+<li>为td添加bgcolor属性，根据你的布局选颜色</li>
+<li>为table添加1px的border，颜色和td一样</li>
+<li>为了适应border，减少table的宽度2px</li>
+<li>把第一个td的内容用p包裹，添加样式<code>mso-table-lspace:0;mso-table-rspace:0;</code></li>
+</ol>
+<p>&nbsp;</p>
+<pre><code><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"><span class="tag">table</span> <span class="rules">{<span class="rule"><span class="attribute">border-collapse</span>:<span class="value"> collapse</span></span>;<span class="rule">}</span></span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">table</span> <span class="attribute">border</span>=<span class="value">"0"</span> <span class="attribute">width</span>=<span class="value">"600"</span> <span class="attribute">cellspacing</span>=<span class="value">"0"</span> <span class="attribute">cellpadding</span>=<span class="value">"0"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">td</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">table</span> <span class="attribute">align</span>=<span class="value">"left"</span> <span class="attribute">width</span>=<span class="value">"198"</span> <span class="attribute">border</span>=<span class="value">"0"</span> <span class="attribute">cellpadding</span>=<span class="value">"0"</span> <span class="attribute">cellspacing</span>=<span class="value">"0"</span> <span class="attribute">style</span>=<span class="value">"border:1px solid #00CC99"</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span> <span class="attribute">bgcolor</span>=<span class="value">"#00CC99"</span>&gt;</span>
+                        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"mso-table-lspace:0;mso-table-
+rspace:0;"</span>&gt;</span>Content in 1<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+                    <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span> <span class="attribute">bgcolor</span>=<span class="value">"#00CC99"</span>&gt;</span>Content in 1<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">table</span> <span class="attribute">align</span>=<span class="value">"left"</span> <span class="attribute">width</span>=<span class="value">"198"</span> <span class="attribute">border</span>=<span class="value">"0"</span> <span class="attribute">cellpadding</span>=<span class="value">"0"</span> <span class="attribute">cellspacing</span>=<span class="value">"0"</span> <span class="attribute">style</span>=<span class="value">"border:1px solid #33FFFF"</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span> <span class="attribute">bgcolor</span>=<span class="value">"#33FFFF"</span>&gt;</span>
+                        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"mso-table-lspace:0;mso-table-
+rspace:0;"</span>&gt;</span>Content in 2<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+                    <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span> <span class="attribute">bgcolor</span>=<span class="value">"#33FFFF"</span>&gt;</span>Content in 2<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">table</span> <span class="attribute">align</span>=<span class="value">"left"</span> <span class="attribute">width</span>=<span class="value">"198"</span> <span class="attribute">border</span>=<span class="value">"0"</span> <span class="attribute">cellpadding</span>=<span class="value">"0"</span> <span class="attribute">cellspacing</span>=<span class="value">"0"</span> <span class="attribute">style</span>=<span class="value">"border:1px solid #993366"</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span> <span class="attribute">bgcolor</span>=<span class="value">"#993366"</span>&gt;</span>
+                        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"mso-table-lspace:0;mso-table-
+rspace:0;"</span>&gt;</span>Content in 3<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+                    <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span> <span class="attribute">bgcolor</span>=<span class="value">"#993366"</span>&gt;</span>Content in 3<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+</code></pre><p>关于这种方法的说明</p>
+<ol>
+<li>这个问题只会在在table的align被设置为left｜right的时候发生</li>
+<li>只需要把第一个td的内容用p包裹</li>
+<li>如果table cells有不同颜色就得再套一层table了</li>
+<li>这种方法对于image堆叠不起作用，最好把图片做成一个这种情况</li>
+</ol>
+<h1 id="移除Outlook2013图片间距">移除Outlook2013图片间距</h1>
+<p>Outlook2013填了一些坑，但又挖了新坑。堆叠的图片会显示大概10px的间距</p>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-07 17.00.46.png" alt="image"></p>
+<p>这个问题只在图片高度小于20px的时候出现，开心的是通过简单的小技巧就可以解决：为td设置和图片高度一样的行高</p>
+<p>虽然作者说不知道为什么，我们可以大胆猜测一下，image时行内元素，Outlook为td设置了1.3之类的行高，这样上下就会有间距，设了行高就行了，也有人提到行高设为0或者image设为<code>display:block</code>都能解决</p>
+<pre><code>&lt;td <span class="variable">width=</span><span class="string">"600"</span> <span class="variable">height=</span><span class="string">"80"</span> <span class="variable">style=</span><span class="string">"line-height: 80px;"</span> &gt;
+    &lt;img <span class="variable">height=</span><span class="string">"80"</span> <span class="variable">src=</span><span class="string">"http://www.website.com/images/Nature_01.jpg"</span>
+        <span class="variable">width=</span><span class="string">"600"</span> /&gt;
+&lt;/td&gt;
+</code></pre><h1 id="Outlook_2007、2010中的CSS_padding">Outlook 2007、2010中的CSS padding</h1>
+<p>针对Outlook设计的人清楚已经被table绑定了，只能用很少的css，但是你可能不知道Outlook会把你的代码转换为微软的代码</p>
+<p>比较重要的一个就是Outlook经常去掉div核h1~h6，换为p和span，有时候保留外部的container有时候删除</p>
+<pre><code><span class="tag">&lt;<span class="title">h2</span> <span class="attribute">style</span>=<span class="value">"font-size: 15px; font-weight: bold; margin: 0; padding: 17px 0
+0 0;"</span>&gt;</span>NEW FASHIONS<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"font-size: 15px; font-weight: bold; margin: 0; padding: 17px 0 0 0;"</span>&gt;</span>NEW FASHIONS<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"font-size: 15px; font-weight: bold; margin: 0; padding: 17px 0 0 0;"</span>&gt;</span>NEW FASHIONS<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><p>会转换为</p>
+<pre><code><span class="xml">￼<span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+<span class="tag">p</span><span class="class">.MsoNormal</span>, <span class="tag">li</span><span class="class">.MsoNormal</span>, <span class="tag">div</span><span class="class">.MsoNormal</span>
+ <span class="rules">{<span class="rule"><span class="attribute">mso-style-unhide</span>:<span class="value">no</span></span>;
+ <span class="rule"><span class="attribute">mso-style-qformat</span>:<span class="value">yes</span></span>;
+ <span class="rule"><span class="attribute">mso-style-parent</span>:<span class="value"><span class="string">""</span></span></span>;
+ <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0in</span></span></span>;
+ <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value">.<span class="number">0001pt</span></span></span>;
+ <span class="rule"><span class="attribute">mso-pagination</span>:<span class="value">widow-orphan</span></span>;
+ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12.0pt</span></span></span>;
+ <span class="rule"><span class="attribute">font-family</span>:<span class="value"><span class="string">"Times New Roman"</span>,<span class="string">"serif"</span></span></span>;
+ <span class="rule"><span class="attribute">mso-fareast-font-family</span>:<span class="value"><span class="string">"Times New Roman"</span></span></span>;
+ <span class="rule"><span class="attribute">mso-fareast-theme-font</span>:<span class="value">minor-fareast</span></span>;<span class="rule">}</span></span>
+<span class="tag">h2</span>
+ <span class="rules">{<span class="rule"><span class="attribute">mso-style-priority</span>:<span class="value"><span class="number">9</span></span></span>;
+ <span class="rule"><span class="attribute">mso-style-unhide</span>:<span class="value">no</span></span>;
+ <span class="rule"><span class="attribute">mso-style-qformat</span>:<span class="value">yes</span></span>;
+ <span class="rule"><span class="attribute">mso-style-link</span>:<span class="value"><span class="string">"Heading 2 Char"</span></span></span>;
+ <span class="rule"><span class="attribute">mso-margin-top-alt</span>:<span class="value">auto</span></span>;
+ <span class="rule"><span class="attribute">margin-right</span>:<span class="value"><span class="number">0in</span></span></span>;
+ <span class="rule"><span class="attribute">mso-margin-bottom-alt</span>:<span class="value">auto</span></span>;
+ <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">0in</span></span></span>;
+ <span class="rule"><span class="attribute">mso-pagination</span>:<span class="value">widow-orphan</span></span>;
+ <span class="rule"><span class="attribute">mso-outline-level</span>:<span class="value"><span class="number">2</span></span></span>;
+ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">18.0pt</span></span></span>;
+ <span class="rule"><span class="attribute">font-family</span>:<span class="value"><span class="string">"Times New Roman"</span>,<span class="string">"serif"</span></span></span>;
+ <span class="rule"><span class="attribute">mso-fareast-font-family</span>:<span class="value"><span class="string">"Times New Roman"</span></span></span>;
+ <span class="rule"><span class="attribute">mso-fareast-theme-font</span>:<span class="value">minor-fareast</span></span>;<span class="rule">}</span></span>
+<span class="tag">p</span>
+ <span class="rules">{<span class="rule"><span class="attribute">mso-style-noshow</span>:<span class="value">yes</span></span>;
+ <span class="rule"><span class="attribute">mso-style-priority</span>:<span class="value"><span class="number">99</span></span></span>;
+ <span class="rule"><span class="attribute">mso-margin-top-alt</span>:<span class="value">auto</span></span>;
+ <span class="rule"><span class="attribute">margin-right</span>:<span class="value"><span class="number">0in</span></span></span>;
+ <span class="rule"><span class="attribute">mso-margin-bottom-alt</span>:<span class="value">auto</span></span>;
+ <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">0in</span></span></span>;
+ <span class="rule"><span class="attribute">mso-pagination</span>:<span class="value">widow-orphan</span></span>;
+ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12.0pt</span></span></span>;
+ <span class="rule"><span class="attribute">font-family</span>:<span class="value"><span class="string">"Times New Roman"</span>,<span class="string">"serif"</span></span></span>;
+ <span class="rule"><span class="attribute">mso-fareast-font-family</span>:<span class="value"><span class="string">"Times New Roman"</span></span></span>;
+ <span class="rule"><span class="attribute">mso-fareast-theme-font</span>:<span class="value">minor-fareast</span></span>;<span class="rule">}</span></span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">h2</span> <span class="attribute">style</span>=<span class="value">'margin:0in;margin-bottom:.0001pt'</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">'font-size:11.5pt; mso-fareast-font-family:"Times New Roman"'</span>&gt;</span> NEW FASHIONS
+<span class="tag">&lt;<span class="title">o:p</span>&gt;</span><span class="tag">&lt;/<span class="title">o:p</span>&gt;</span>
+     <span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+ <span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span>&gt;</span>
+       <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">MsoNormal</span>&gt;</span>
+<span class="tag">&lt;<span class="title">b</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">'font-size:11.5pt;mso-fareast-font-family:"Times New Roman"'</span>&gt;</span>
+NEW FASHIONS
+<span class="tag">&lt;<span class="title">o:p</span>&gt;</span><span class="tag">&lt;/<span class="title">o:p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span> <span class="tag">&lt;/<span class="title">b</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">p</span>&gt;</span> <span class="tag">&lt;/<span class="title">div</span>&gt;</span><span class="tag">&lt;<span class="title">
+</span>&lt;<span class="attribute">p</span> <span class="attribute">style</span>=<span class="value">'margin:0in;margin-bottom:.0001pt'</span>&gt;</span> <span class="tag">&lt;<span class="title">b</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">'font-size:11.5pt'</span>&gt;</span> NEW FASHIONS
+<span class="tag">&lt;<span class="title">o:p</span>&gt;</span><span class="tag">&lt;/<span class="title">o:p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span>     </span>
+</code></pre><p>转换之后本来对块元素设置的css到了span上，很多就不好使了，为了避免作者建议使用margin，其实我觉得还是老老实实使用table得了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/11/07/Outlook HTML渲染引擎/" data-id="e3s18hupeyjp7x6x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EDM/">EDM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/11/07/CSS will-change 属性/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS will-change 属性</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/EDM/" style="font-size: 11.67px;">EDM</a><a href="/tags/Go/" style="font-size: 11.67px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.67px;">canvas</a><a href="/tags/css/" style="font-size: 18.33px;">css</a><a href="/tags/css3/" style="font-size: 16.67px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 11.67px;">html</a><a href="/tags/html5/" style="font-size: 11.67px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.67px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a><a href="/tags/node/" style="font-size: 11.67px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 15.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.67px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/11/07/Outlook HTML渲染引擎/">Outlook HTML渲染引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/07/CSS will-change 属性/">CSS will-change 属性</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/02/EDM制作要点/">EDM制作要点</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/28/Go (2)：关键字、变量、类型/">Go (2)：关键字、变量、类型</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/前nginx后Apache＋Node反向代理/">前nginx后Apache＋Node反向代理</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac下nginx配置PHP/">Mac nginx PHP支持</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac MySQL使用/">Mac MySQL使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/26/Mac下nginx监听80端口开机自启/">Mac nginx 80端口开机自启</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/22/handlebars语法/">handlebars语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/21/Velocity语法/">Velocity语法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/20/GO(1):hello world!/">Go (1)：Hello World!</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/19/输入URL后发生了什么/">输入页面URL后发生了什么</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/18/css垂直居中/">CSS 垂直居中</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/使用border做三角形/">使用border做三角形</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/17/Intro to CSS 3D transforms/">Intro to CSS 3D transforms[翻译部分]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/16/css3Transforms&Animations/">CSS 3D Transforms and Animations[译]</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 色拉油<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape+</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

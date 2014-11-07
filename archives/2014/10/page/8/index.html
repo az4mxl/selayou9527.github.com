@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-javascript正则表达式1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-D2报名页面的一些小效果" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript正则表达式1/" class="article-date">
+    <a href="/2014/10/14/D2报名页面的一些小效果/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+      <a class="article-title" href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
     </h1>
   
 
@@ -94,28 +94,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="创建对象">创建对象</h2>
-<p>JavaScript可以通过两种方式创建一个匹配 <code>&lt;%xxxxxx%&gt;</code> 正则表达式对象</p>
-<p><strong>构造函数</strong></p>
-<pre><code><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%]+%&gt;'</span>,g);
-</code></pre><p><strong>字面量</strong></p>
-<pre><code>var reg=/&lt;<span class="variable">%[</span>^<span class="variable">%]</span>+<span class="variable">%&gt;</span>/g;
-</code></pre><ol>
-<li>g: global, 全文搜索，不声明默认只搜索第一个结果就停止</li>
-<li>i: ignore case，忽略大小写，不声明默认大小写敏感</li>
-<li>m: mutiple lines, 多行搜索
+        <p>最近看到了阿里巴巴D2前段论坛的<a href="http://d2forum.alibaba-inc.com/" target="_blank" rel="external">报名页面</a>，有几个有意思的小技巧，都是关于CSS3的，总结一下，万一哪天也用到了呢<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript正则表达式1/#more">Read More</a>
+            <a href="/2014/10/14/D2报名页面的一些小效果/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式1/" data-id="ljr1jrpxql9jthq3" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/D2报名页面的一些小效果/" data-id="0nlx8edxouc7bibe" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码/">源码</a></li></ul>
 
     </footer>
   </div>
@@ -124,14 +115,14 @@
 
 
   
-    <article id="post-iconfont" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-jQuery deferred" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/iconfont/" class="article-date">
+    <a href="/2014/10/14/jQuery deferred/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css3/">css3</a>
+    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
   </div>
 
   </div>
@@ -142,7 +133,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/iconfont/">icon font</a>
+      <a class="article-title" href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
     </h1>
   
 
@@ -150,25 +141,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>所谓icon font是指将页面上使用的icon不使用图片，而是做成字体一样的东西。这是基于各个浏览器都对CSS3的 <code>@font-face</code>的支持，我们将icon也用font实现。</p>
-<h2 id="为什么使用iconfont">为什么使用iconfont</h2>
-<ol>
-<li>字体文件比图片小</li>
-<li>矢量图形，在普通屏幕上适配，到高清屏幕后不会模糊</li>
-<li>在更换theme等操作的时候可以简单通过CSS控制就可以改变icon的大小，颜色等</li>
-<li>透明效果也兼容IE6
+        <p>Deferred对象是Promise/A规范的一种实现，是jQuery1.5引入的，通过调用<code>jQuery.Deferred()</code>构造函数创建，提供了链式调用回调函数的功能，它能够注册回调函数到一个队列中, 依次调用该队列中的回调函数,并且能够将调链中上一个函数(同步或者异步)的返回状态传递到下一个回调函数中</p>
+
         
           <p class="article-more-link">
-            <a href="/2014/10/14/iconfont/#more">Read More</a>
+            <a href="/2014/10/14/jQuery deferred/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="0g7lhnckpclbg4zn" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="1k96jh86hb1terzz" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -190,7 +176,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/EDM/" style="font-size: 10.00px;">EDM</a><a href="/tags/Go/" style="font-size: 11.67px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.67px;">canvas</a><a href="/tags/css/" style="font-size: 18.33px;">css</a><a href="/tags/css3/" style="font-size: 16.67px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/html5/" style="font-size: 11.67px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.67px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a><a href="/tags/node/" style="font-size: 11.67px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 15.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.67px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
+      <a href="/tags/EDM/" style="font-size: 11.67px;">EDM</a><a href="/tags/Go/" style="font-size: 11.67px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.67px;">canvas</a><a href="/tags/css/" style="font-size: 18.33px;">css</a><a href="/tags/css3/" style="font-size: 16.67px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 11.67px;">html</a><a href="/tags/html5/" style="font-size: 11.67px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.67px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a><a href="/tags/node/" style="font-size: 11.67px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.00px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 15.00px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.67px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
     </div>
   </div>
 
@@ -199,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -209,6 +195,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/11/07/Outlook HTML渲染引擎/">Outlook HTML渲染引擎</a>
+          </li>
         
           <li>
             <a href="/2014/11/07/CSS will-change 属性/">CSS will-change 属性</a>
@@ -283,11 +273,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+            <a href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
           </li>
         
       </ul>
