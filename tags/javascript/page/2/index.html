@@ -68,110 +68,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-javascript正则表达式1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/javascript正则表达式1/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="创建对象">创建对象</h2>
-<p>JavaScript可以通过两种方式创建一个匹配 <code>&lt;%xxxxxx%&gt;</code> 正则表达式对象</p>
-<p><strong>构造函数</strong></p>
-<pre><code><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%]+%&gt;'</span>,g);
-</code></pre><p><strong>字面量</strong></p>
-<pre><code>var reg=/&lt;<span class="variable">%[</span>^<span class="variable">%]</span>+<span class="variable">%&gt;</span>/g;
-</code></pre><ol>
-<li>g: global, 全文搜索，不声明默认只搜索第一个结果就停止</li>
-<li>i: ignore case，忽略大小写，不声明默认大小写敏感</li>
-<li>m: mutiple lines, 多行搜索
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/javascript正则表达式1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式1/" data-id="pcjj9eev2f5nqmyk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-requestAnimationFrame高效动画" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/requestAnimationFrame高效动画/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="对比">对比</h2>
-<p>在之前博客中提到了requestAnimationFrame优于setTimeout，看到Internet Explorer Dev Center中一个对比的示例做的很有意思，搬过来学习一下，先看看效果<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/requestAnimationFrame高效动画/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame高效动画/" data-id="b23yt8crwewabkbp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-javascript节流与防抖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/14/javascript节流与防抖/" class="article-date">
@@ -210,10 +106,119 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript节流与防抖/" data-id="b0ltb3nchrgcb0r6" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript节流与防抖/" data-id="3vmjrkqzciejg7q5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-requestAnimationFrame" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/requestAnimationFrame/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/animation/">animation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="requestAnimationFrame是什么">requestAnimationFrame是什么</h2>
+<blockquote>
+<p>window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN</p>
+<p>requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —— Internet Explorer Dev Center<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/requestAnimationFrame/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame/" data-id="1ttxxc0lycdx6mhz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
+<pre><code>function tmpl(id,data){
+    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
+    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
+        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
+        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
+        .replace(/&lt;%/g,<span class="string">"');"</span>)
+        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
+        +<span class="string">"');}return p.join('');"</span>;
+    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
+    <span class="keyword">return</span> fn(data);
+}
+</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎优化/" data-id="zrafdaj4h7j5btry" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
 
     </footer>
   </div>
@@ -257,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="q0l5l69akz2oojp8" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="6xdfj77hjkz5kzfq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
@@ -305,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="6sq0spkmnebqvc8c" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="62l44l0tfoixpspa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -351,7 +356,7 @@
       <ul>
         
           <li>
-            <a href="/2014/11/06/CSS will-change 属性/">CSS will-change 属性</a>
+            <a href="/2014/11/07/CSS will-change 属性/">CSS will-change 属性</a>
           </li>
         
           <li>
@@ -423,7 +428,7 @@
           </li>
         
           <li>
-            <a href="/2014/10/14/media queries/">media queries</a>
+            <a href="/2014/10/14/nodejs调试/">node 调试</a>
           </li>
         
           <li>

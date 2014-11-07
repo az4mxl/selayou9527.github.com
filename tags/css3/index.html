@@ -70,8 +70,8 @@
   
     <article id="post-CSS will-change 属性" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/06/CSS will-change 属性/" class="article-date">
-  <time datetime="2014-11-06T13:32:55.000Z" itemprop="datePublished">Nov 6 2014</time>
+    <a href="/2014/11/07/CSS will-change 属性/" class="article-date">
+  <time datetime="2014-11-07T01:47:12.000Z" itemprop="datePublished">Nov 7 2014</time>
 </a>
     
   <div class="article-category">
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/06/CSS will-change 属性/">CSS will-change 属性</a>
+      <a class="article-title" href="/2014/11/07/CSS will-change 属性/">CSS will-change 属性</a>
     </h1>
   
 
@@ -94,123 +94,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div id="toc" class="toc-article">
-          <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU、GPU和硬件加速"><span class="toc-number">2.</span> <span class="toc-text">CPU、GPU和硬件加速</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#translateZ()_(or_translate3d())_Hack"><span class="toc-number">3.</span> <span class="toc-text">translateZ() (or translate3d()) Hack</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#牛逼的_will-change属性"><span class="toc-number">4.</span> <span class="toc-text">牛逼的 will-change属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#合理使用"><span class="toc-number">5.</span> <span class="toc-text">合理使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不要声明太多属性或为太多元素声明"><span class="toc-number">5.1.</span> <span class="toc-text">不要声明太多属性或为太多元素声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给浏览器足够的时间工作"><span class="toc-number">5.2.</span> <span class="toc-text">给浏览器足够的时间工作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变化完成后移除will-change"><span class="toc-number">6.</span> <span class="toc-text">变化完成后移除will-change</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#will-change属性的值"><span class="toc-number">7.</span> <span class="toc-text">will-change属性的值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器兼容性"><span class="toc-number">8.</span> <span class="toc-text">浏览器兼容性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束语"><span class="toc-number">9.</span> <span class="toc-text">结束语</span></a></li></ol>
-        </div>
         <p>原文地址 <a href="https://dev.opera.com/articles/css-will-change-property/" target="_blank" rel="external">CSS will-change 属性</a></p>
 <h1 id="介绍">介绍</h1>
-<p>如果你注意到在webkit的浏览器上“flicker”一些CSS操作（尤其是变形和动画方面的）的表现，你很可能之前就注意过<code>硬件加速</code>了</p>
-<h1 id="CPU、GPU和硬件加速">CPU、GPU和硬件加速</h1>
-<p><code>硬件加速</code>意味着<strong>Graphics Processing Unit</strong>（GPU）会通过代替<strong>Central Processing Unit</strong> (CPU)做一些负荷比较大的事情，来协助浏览器快速渲染页面，当CSS操作使用硬件加速的时候，通常会使页面渲染速度加快</p>
-<p>顾名思义，CPU和GPU都是计算机处理单元。CPU在电脑主板，几乎处理电脑的一切操作，有电脑大脑之称；GPU在显卡上，负责处理和渲染图形。此外GPU通过特殊的设计，使其擅长于渲染图形所需的数学和几何运算。因此把操作转嫁到GPU可以获得显著的性能提升，同时也可以减少移动设备CPU的争用。</p>
-<p>硬件加速（或者说GPU加速）依赖于浏览器渲染页面使用的<code>layering model</code>，当特定的操作（CSS 3D变形）作用于页面上的一个元素，元素移动到它自己的<code>layer</code>，在这个layer中元素合一不受页面其他元素的干扰独立渲染，然后复合到页面中去。在这种隔离内容渲染的工作方式下，如果页面的变化仅仅是该元素的变形，其余部分不必被重新渲染，这会带来显著的速度优势。值得注意的是只有3D变形会有自己的layer，2D变形不会。</p>
-<p>CSS的动画、变形、渐变并不会自动的触发GPU加速，而是使用浏览器稍慢的软件渲染引擎。然而一些浏览器提供了<a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/" target="_blank" rel="external">hardware acceleration by means of certain properties</a>来获取更高的渲染性能。 举个例子，<code>opacity</code>属性是几个能够加速的属性之一，因为GPU可以方便的处理。基本上任何层的透明度渐变浏览器都会交给GPU处理来加速。除了opacity能够使用GPU处理的就是CSS 3D变形了</p>
-<h1 id="translateZ()_(or_translate3d())_Hack">translateZ() (or translate3d()) Hack</h1>
-<p>很长一段时间内我们都通过<code>translateZ()</code>或者<code>translate3d()</code> hack来骗取浏览器触发硬件加速，具体做法就是为元素添加没有变化的3D变形，比如元素在2维空间可以通过添加以下CSS来硬件加速</p>
-<pre><code><span class="attribute">transform</span><span class="value">: <span class="function">translate3d</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span>
-</code></pre><p>所谓硬件加速就是创建了一个被传递到GPU处理的层的操作，然而强制使用hack方式创建layer并不是长久之计，创建layer的技术可以使页面加速，但是也有代价：它们占用RAM和GPU存储空间（考虑到移动设备的存储容量有限），所以必须呗小心使用，确保这么做真的对页面渲染有所帮助</p>
-<p>为了避免创建layer的hacks，一个允许我们提前通知浏览器我们将对元素做何种变化的CSS属性被引入，这样浏览器可以优化处理元素渲染的方式，为元素提前准备昂贵的动画处理操作，这就是<code>wiil-change</code>属性</p>
-<h1 id="牛逼的_will-change属性">牛逼的 will-change属性</h1>
-<p>will-change属性可以提前通知浏览器我们要对元素做什么动画，这样浏览器可以提前准备合适的优化设置。这样可以避免对页面响应速度有重要影响的昂贵成本。元素可以更快的被改变，渲染的也更快，这样页面可以快速更新，表现的更加流畅。</p>
-<p>举个例子，当对于素使用 CSS 3D变形时，元素及其内容可以在合成到页面之前被创建到我们之前说的layer。然而把元素放到layer中是个昂贵的操作，这将会导致变形动画延迟一个课件的瞬间，也就是<code>flicker</code></p>
-<p>为了避免这种延时，我们可以在发生之前通知浏览器，这样浏览器会有一定的时间去准备这些变化，当发生的时候layer已经准备好了，这样动画酒会很流畅，不会闪屏</p>
-<p>使用will-change提示浏览器关于即将发生的变形十分简单，添加个CSS属性就行</p>
-<pre><code><span class="attribute">will-change</span>: <span class="string">transform;</span>
-</code></pre><p>也可以告诉浏览器要改变元素的滚动条位置，或者多个要变化的属性，写下属性的名字就行，也可以写多个，逗号隔开</p>
-<pre><code><span class="attribute">will-change</span>: <span class="string">transform, opacity;</span>
-</code></pre><p>声明了元素即将进行的变化会让浏览器在渲染页面时做更好的决定，这明显比之前说的3D hacks要好。</p>
-<h1 id="合理使用">合理使用</h1>
-<p>了解了will-change的行为，为浏览器上一切元素设置will-change是不是效率会变高？答案是否定的，will-change如果被滥用会使页面崩溃。</p>
-<p>will-change也有副作用，虽然并不直接可见，毕竟它只是在背后和浏览器说悄悄话，为了合理使用will-change，给一些小建议</p>
-<h2 id="不要声明太多属性或为太多元素声明">不要声明太多属性或为太多元素声明</h2>
-<pre><code>*,
-*<span class="pseudo">::before</span>,
-*<span class="pseudo">::after</span> <span class="rules">{
-    <span class="rule"><span class="attribute">will-change</span>:<span class="value"> all</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>虽然看起来很屌，但其实对页面渲染伤害很大，这样的规则设了和没设没什么区别，浏览器本来就尝试最优的渲染所有元素，就等于你让老师重点照顾班里每个同学一样，就是废话！</p>
-<p>其实这甚至是有害的，因为一些操作会占用太多的资源，甚至会导致页面奔溃，就等于强制要求老师为每个学生补课，累死了。。。</p>
-<h2 id="给浏览器足够的时间工作">给浏览器足够的时间工作</h2>
-<p>will-change顾名思义，通知浏览器<strong>即将</strong>发生的变化，而不是<strong>正在</strong>发生的变化。使用will-change，我们要求浏览器重点照顾我们声明的元素，为了这个浏览器需要一定的时间来组织优化操作，这样当变化发生的时候，优化才能没有延迟的作用到元素</p>
-<p>在变化前立即为元素添加will-change几乎没有作用，可能还不如不设置，因为会导致新的layer创建</p>
-<pre><code><span class="class">.element</span><span class="pseudo">:hover</span> <span class="rules">{
-    <span class="rule"><span class="attribute">will-change</span>:<span class="value"> transform</span></span>;
-    <span class="rule"><span class="attribute">transition</span>:<span class="value"> transform <span class="number">2s</span></span></span>;
-    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">30deg</span>) <span class="function">scale</span>(<span class="number">1.5</span>)</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>这样的设置就没什么用，我们需要给浏览器足够的时间，下面这样就是有用的，感受一下</p>
-<pre><code><span class="class">.element</span> <span class="rules">{
-    <span class="comment">/* style rules */</span>
-    <span class="rule"><span class="attribute">transition</span>:<span class="value"> transform <span class="number">1s</span> ease-out</span></span>;
-<span class="rule">}</span></span>
-<span class="class">.element</span><span class="pseudo">:hover</span> <span class="rules">{
-    <span class="rule"><span class="attribute">will-change</span>:<span class="value"> transform</span></span>;
-<span class="rule">}</span></span>
-<span class="class">.element</span><span class="pseudo">:active</span> <span class="rules">{
-    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateY</span>(<span class="number">180deg</span>)</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>如果一定要hover的时候，也有技巧</p>
-<pre><code><span class="class">.element</span> <span class="rules">{
-    <span class="rule"><span class="attribute">transition</span>:<span class="value"> opacity .<span class="number">3s</span> linear</span></span>;
-<span class="rule">}</span></span>
-<span class="comment">/* declare changes on the element when the mouse enters / hovers its ancestor */</span>
-<span class="class">.ancestor</span><span class="pseudo">:hover</span> <span class="class">.element</span> <span class="rules">{
-    <span class="rule"><span class="attribute">will-change</span>:<span class="value"> opacity</span></span>;
-<span class="rule">}</span></span>
-<span class="comment">/* apply change when element is hovered */</span>
-<span class="class">.element</span><span class="pseudo">:hover</span> <span class="rules">{
-    <span class="rule"><span class="attribute">opacity</span>:<span class="value"> .<span class="number">5</span></span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>其实核心思想就是让浏览器有时间去准备</p>
-<h1 id="变化完成后移除will-change">变化完成后移除will-change</h1>
-<p>对于一般的优化，当变化完成的时候浏览器会撤销优化，恢复普通模式，但是如果使用了will-change会导致该优化迟迟不能释放，这就要求我们用完了就释放</p>
-<p>这时候我们需要借助JavaScript</p>
-<pre><code><span class="comment">// Rough generic example</span>
-<span class="comment">// Get the element that is going to be animated on click, for example</span>
-<span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'element'</span>);
-
-<span class="comment">// Set will-change when the element is hovered</span>
-el.addEventListener(<span class="string">'mouseenter'</span>, hintBrowser);
-el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
-
-<span class="function"><span class="keyword">function</span> <span class="title">hintBrowser</span><span class="params">()</span> </span>{
-    <span class="comment">// The optimizable properties that are going to change</span>
-    <span class="comment">// in the animation's keyframes block</span>
-    <span class="keyword">this</span>.style.willChange = <span class="string">'transform, opacity'</span>;
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">removeHint</span><span class="params">()</span> </span>{
-    <span class="keyword">this</span>.style.willChange = <span class="string">'auto'</span>;
-}
-</code></pre><p>当然对于用户会反复触发的操作放在style中不移除也可以</p>
-<h1 id="will-change属性的值">will-change属性的值</h1>
-<ol>
-<li>auto 表示没有明确的意图; 无论是启发式和最优化，用户代理应该应用都和正常情况相同</li>
-<li>scroll-position 表示开发者期望去在接下来去改变或者有动画应用元素的滚动位置</li>
-<li>contents 表示开发者期望去在接下来去改变或者有动画应用元素的内容</li>
-<li><p><custom-ident> 用来排除关键字 will-change, none, all, auto, scroll-position, and contents, 从<custom-ident>之外增加一些通用的关键字</custom-ident></custom-ident></p>
-<p> will-change： transform：<br> will-change： opacity：<br> will-change： top, left, bottom, right：</p>
-</li>
-</ol>
-<p>如果一个属性无最初的值,在这个元素上这个属性将创建一个堆栈的内容, 明确规定在will-change的属性必须在这个元素上创建一个堆栈的内容.</p>
-<p>如果一个属性无最初的值, 这个属性将造成这个元素产生一个包含区块的固定定位的元素, 明确规定在 will-change的属性必须造成这个元素产生一个包含区块的固定定位的元素</p>
-<h1 id="浏览器兼容性">浏览器兼容性</h1>
-<p>这个目前<a href="http://caniuse.com/#feat=will-change" target="_blank" rel="external">不乐观</a>，相信以后会好</p>
-<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-06 21.23.22.png" alt="image"></p>
-<h1 id="结束语">结束语</h1>
-<p>will-change可以帮助我们摆脱hack的硬件加速，但是能力越大、责任越大</p>
-<p>Tab Atkins Jr</p>
-<blockquote>
-<p>Set will-change to the properties you’ll actually change, on the elements that are actually changing. And remove it when they stop.</p>
-</blockquote>
-<p>PS.本文只是看了原文后一个简单的翻译，个人觉得作者重复的话太多，删除了一些</p>
-<p>真正的翻译 <a href="http://blog.csdn.net/postd_cn/article/details/38679901" target="_blank" rel="external">关于CSS“可变属性”（will-change），你需要知道所有的事情</a></p>
-
+<p>如果你注意到在webkit的浏览器上“flicker”一些CSS操作（尤其是变形和动画方面的）的表现，你很可能之前就注意过<code>硬件加速</code>了<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/07/CSS will-change 属性/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/06/CSS will-change 属性/" data-id="yohb4xmczfumwvql" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/07/CSS will-change 属性/" data-id="tta1irdqewo6t6zw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -257,7 +152,7 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/17/Intro to CSS 3D transforms/" data-id="5zdx33qp4upzvgf6" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/17/Intro to CSS 3D transforms/" data-id="qrwrzdzrz77jlj43" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -306,7 +201,7 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/16/css3Transforms&Animations/" data-id="q83v6dn0hwsd6tj7" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/16/css3Transforms&Animations/" data-id="h1cs9nvax61lqezo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -356,7 +251,7 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="03mvwjy7f15dl6o1" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="fy9wwy3jh1r6l8wc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -409,7 +304,7 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="njgz59qmhf6slly6" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="84qkcwjmet5dw7ja" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -455,7 +350,7 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
       <ul>
         
           <li>
-            <a href="/2014/11/06/CSS will-change 属性/">CSS will-change 属性</a>
+            <a href="/2014/11/07/CSS will-change 属性/">CSS will-change 属性</a>
           </li>
         
           <li>
@@ -527,7 +422,7 @@ el.addEventListener(<span class="string">'animationEnd'</span>, removeHint);
           </li>
         
           <li>
-            <a href="/2014/10/14/media queries/">media queries</a>
+            <a href="/2014/10/14/nodejs调试/">node 调试</a>
           </li>
         
           <li>
