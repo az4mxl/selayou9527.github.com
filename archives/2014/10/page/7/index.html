@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-有趣的Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/有趣的Linux命令/" class="article-date">
+    <a href="/2014/10/14/promise/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/shell/">shell</a>
+    <a class="article-category-link" href="/categories/es6/">es6</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+      <a class="article-title" href="/2014/10/14/promise/">promise</a>
     </h1>
   
 
@@ -94,25 +94,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="find命令的xargs">find命令的xargs</h1>
-<p>在Linux上find命令的曝光率很高，我们希望对find查找出的文件进行过滤或者操作怎么办呢，这时候就可以利用<code>xargs</code>了，它可以把find结果当作下一个指令的参数传入</p>
-<pre><code><span class="keyword">find</span> . -name * | xargs <span class="keyword">grep</span> <span class="string">'.'</span>
-</code></pre><p>查找文件夹下包含<code>.</code> 的文件</p>
-<pre><code><span class="title">find</span> . -name <span class="regexp">*.txt</span> | xargs rm -rf
-</code></pre><p>删除所有.txt文件</p>
+        <p>Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作</p>
 
         
           <p class="article-more-link">
-            <a href="/2014/10/14/有趣的Linux命令/#more">Read More</a>
+            <a href="/2014/10/14/promise/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/有趣的Linux命令/" data-id="lj4njr3jfu97cwcj" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/promise/" data-id="b7s13madd8t05r9n" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -121,14 +116,14 @@
 
 
   
-    <article id="post-media queries" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-requestAnimationFrame" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/media queries/" class="article-date">
+    <a href="/2014/10/14/requestAnimationFrame/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css3/">css3</a>
+    <a class="article-category-link" href="/categories/animation/">animation</a>
   </div>
 
   </div>
@@ -139,7 +134,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/media queries/">media queries</a>
+      <a class="article-title" href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
     </h1>
   
 
@@ -147,22 +142,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们可能见过这样的代码</p>
-<pre><code>  &lt;link <span class="variable">href=</span><span class="string">"css/reset.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"screen"</span> /&gt;
-  &lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
-</code></pre><p>其中的<code>media</code>属性是指媒体类型，在CSS2中允许通过<code>media</code>属性指定CSS的作用范围，<code>media=&quot;print&quot;</code>表示css在打印的时候生效，其它时候不生效，所有媒体类型<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank" rel="external">Recognized media types</a><br>
+        <h2 id="requestAnimationFrame是什么">requestAnimationFrame是什么</h2>
+<blockquote>
+<p>window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN</p>
+<p>requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —— Internet Explorer Dev Center<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/media queries/#more">Read More</a>
+            <a href="/2014/10/14/requestAnimationFrame/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="sqq09sprjm6v4q3n" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame/" data-id="6gcunp6a4c92jc6c" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
 
     </footer>
   </div>
@@ -171,14 +166,14 @@
 
 
   
-    <article id="post-D2报名页面的一些小效果" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-requestAnimationFrame高效动画" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/D2报名页面的一些小效果/" class="article-date">
+    <a href="/2014/10/14/requestAnimationFrame高效动画/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -189,7 +184,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+      <a class="article-title" href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
     </h1>
   
 
@@ -197,19 +192,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近看到了阿里巴巴D2前段论坛的<a href="http://d2forum.alibaba-inc.com/" target="_blank" rel="external">报名页面</a>，有几个有意思的小技巧，都是关于CSS3的，总结一下，万一哪天也用到了呢<br>
+        <h2 id="对比">对比</h2>
+<p>在之前博客中提到了requestAnimationFrame优于setTimeout，看到Internet Explorer Dev Center中一个对比的示例做的很有意思，搬过来学习一下，先看看效果<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/D2报名页面的一些小效果/#more">Read More</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/D2报名页面的一些小效果/" data-id="njlqqjaxwt3g6nkz" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame高效动画/" data-id="t82v7d8bipxet1ih" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码/">源码</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -254,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/zindex/" data-id="d84sb8tae2fxxz63" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/zindex/" data-id="w8q4o3bu8t1wwzrk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -266,14 +262,14 @@
 
 
   
-    <article id="post-css容易忽略的特性" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-有趣的Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/css容易忽略的特性/" class="article-date">
+    <a href="/2014/10/14/有趣的Linux命令/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
+    <a class="article-category-link" href="/categories/shell/">shell</a>
   </div>
 
   </div>
@@ -284,7 +280,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+      <a class="article-title" href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
     </h1>
   
 
@@ -292,27 +288,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑</p>
-<h2 id="大小写不敏感">大小写不敏感</h2>
-<p>虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的</p>
-<pre><code><span class="class">.test</span><span class="rules">{
-    <span class="rule"><span class="attribute">background-COLOR</span>:<span class="value"><span class="hexcolor">#a00</span></span></span>;
-    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>
+        <h1 id="find命令的xargs">find命令的xargs</h1>
+<p>在Linux上find命令的曝光率很高，我们希望对find查找出的文件进行过滤或者操作怎么办呢，这时候就可以利用<code>xargs</code>了，它可以把find结果当作下一个指令的参数传入</p>
+<pre><code><span class="keyword">find</span> . -name * | xargs <span class="keyword">grep</span> <span class="string">'.'</span>
+</code></pre><p>查找文件夹下包含<code>.</code> 的文件</p>
+<pre><code><span class="title">find</span> . -name <span class="regexp">*.txt</span> | xargs rm -rf
+</code></pre><p>删除所有.txt文件</p>
+
         
           <p class="article-more-link">
-            <a href="/2014/10/14/css容易忽略的特性/#more">Read More</a>
+            <a href="/2014/10/14/有趣的Linux命令/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/css容易忽略的特性/" data-id="irvjcpi45p30ljnb" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/有趣的Linux命令/" data-id="j9ux95uauen9pf4d" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
 
     </footer>
   </div>

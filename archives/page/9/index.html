@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/promise/" class="article-date">
+    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/es6/">es6</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/promise/">promise</a>
+      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
     </h1>
   
 
@@ -94,20 +94,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作</p>
-
+        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
+<pre><code>function tmpl(id,data){
+    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
+    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
+        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
+        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
+        .replace(/&lt;%/g,<span class="string">"');"</span>)
+        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
+        +<span class="string">"');}return p.join('');"</span>;
+    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
+    <span class="keyword">return</span> fn(data);
+}
+</code></pre>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/promise/#more">Read More</a>
+            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/promise/" data-id="r1dfm66jii1t0j3y" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎优化/" data-id="r4x4k7kvld0xeofq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
 
     </footer>
   </div>
