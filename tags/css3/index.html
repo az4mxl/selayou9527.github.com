@@ -71,7 +71,7 @@
     <article id="post-CSS3 filter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/09/CSS3 filter/" class="article-date">
-  <time datetime="2014-11-09T06:27:52.000Z" itemprop="datePublished">Nov 9 2014</time>
+  <time datetime="2014-11-09T13:54:35.000Z" itemprop="datePublished">Nov 9 2014</time>
 </a>
     
   <div class="article-category">
@@ -119,7 +119,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/09/CSS3 filter/" data-id="mzwizpa2fizzo5jl" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/09/CSS3 filter/" data-id="esus554hfk3b7x3l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -168,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/07/CSS will-change 属性/" data-id="53rgiqjuaofttukk" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/07/CSS will-change 属性/" data-id="bi90ed5tb68bp89t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -215,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/17/Intro to CSS 3D transforms/" data-id="j0t2vzr0n2n9pq2i" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/17/Intro to CSS 3D transforms/" data-id="97ffhnzmrnwbu89m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -264,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/16/css3Transforms&Animations/" data-id="h9g96ychosmhhuqz" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/16/css3Transforms&Animations/" data-id="8g2v0oygd1z2jl7o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -276,14 +276,14 @@
 
 
   
-    <article id="post-D2报名页面的一些小效果" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-media queries" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/D2报名页面的一些小效果/" class="article-date">
+    <a href="/2014/10/14/media queries/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/css3/">css3</a>
   </div>
 
   </div>
@@ -294,7 +294,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/D2报名页面的一些小效果/">D2报名页面的一些小效果</a>
+      <a class="article-title" href="/2014/10/14/media queries/">media queries</a>
     </h1>
   
 
@@ -302,19 +302,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近看到了阿里巴巴D2前段论坛的<a href="http://d2forum.alibaba-inc.com/" target="_blank" rel="external">报名页面</a>，有几个有意思的小技巧，都是关于CSS3的，总结一下，万一哪天也用到了呢<br>
+        <p>我们可能见过这样的代码</p>
+<pre><code>  &lt;link <span class="variable">href=</span><span class="string">"css/reset.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"screen"</span> /&gt;
+  &lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
+</code></pre><p>其中的<code>media</code>属性是指媒体类型，在CSS2中允许通过<code>media</code>属性指定CSS的作用范围，<code>media=&quot;print&quot;</code>表示css在打印的时候生效，其它时候不生效，所有媒体类型<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank" rel="external">Recognized media types</a><br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/D2报名页面的一些小效果/#more">Read More</a>
+            <a href="/2014/10/14/media queries/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/D2报名页面的一些小效果/" data-id="g6zfzpkh2yriheq7" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="axe01umpgtuy6jpr" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码/">源码</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
 
     </footer>
   </div>
@@ -357,11 +360,11 @@
       <ul>
         
           <li>
-            <a href="/2014/11/09/unicode-bidi/">文字书写方向</a>
+            <a href="/2014/11/09/CSS3 filter/">CSS3 滤镜</a>
           </li>
         
           <li>
-            <a href="/2014/11/09/CSS3 filter/">CSS3 滤镜</a>
+            <a href="/2014/11/09/unicode-bidi/">文字书写方向</a>
           </li>
         
           <li>
