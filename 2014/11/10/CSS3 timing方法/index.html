@@ -3,17 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: es6 | 色拉油的技术博客</title>
+  <title>Transition Timing Functions | 色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="靡不有初，鲜克有终">
-<meta property="og:type" content="website">
-<meta property="og:title" content="色拉油的技术博客">
-<meta property="og:url" content="https://github.com/selayou9527/categories/es6/">
+  <meta name="description" content="之前博客CSS 实现打字效果中提到了CSS3 动画中的重要属性animation-timing-function，因为主要侧重打字效果的实现没有细说，这里详细聊聊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Transition Timing Functions">
+<meta property="og:url" content="https://github.com/selayou9527/2014/11/10/CSS3 timing方法/">
 <meta property="og:site_name" content="色拉油的技术博客">
-<meta property="og:description" content="靡不有初，鲜克有终">
+<meta property="og:description" content="之前博客CSS 实现打字效果中提到了CSS3 动画中的重要属性animation-timing-function，因为主要侧重打字效果的实现没有细说，这里详细聊聊">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/dd310292.silverlight2-03-01(zh-tw).png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.33.35.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.37.05.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.37.51.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.38.53.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.40.35.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.41.50.png">
+<meta property="og:image" content="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.43.04.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="色拉油的技术博客">
-<meta name="twitter:description" content="靡不有初，鲜克有终">
+<meta name="twitter:title" content="Transition Timing Functions">
+<meta name="twitter:description" content="之前博客CSS 实现打字效果中提到了CSS3 动画中的重要属性animation-timing-function，因为主要侧重打字效果的实现没有细说，这里详细聊聊">
 
   
     <link rel="icon" href="/favicon.png">
@@ -66,16 +74,14 @@
 <script src="/js/jquery.min.js"></script>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CSS3 timing方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/promise/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+    <a href="/2014/11/10/CSS3 timing方法/" class="article-date">
+  <time datetime="2014-11-10T13:31:34.000Z" itemprop="datePublished">Nov 10 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/es6/">es6</a>
+    <a class="article-category-link" href="/categories/css3/">css3</a>
   </div>
 
   </div>
@@ -85,8 +91,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/promise/">promise</a>
+    <h1 class="article-title" itemprop="name">
+      Transition Timing Functions
     </h1>
   
 
@@ -94,29 +100,153 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Promise 是ES6新增对象，可以将异步操作以同步操作的流程表达出来，避免了嵌套的回调函数层次太多的问题。Promise对象还提供了一系列接口，可以方便的控制异步操作</p>
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是timing_function"><span class="toc-number">1.</span> <span class="toc-text">什么是timing function</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#steps"><span class="toc-number">3.</span> <span class="toc-text">steps</span></a></li></ol>
+        </div>
+        <p>之前博客<a href="http://selayou9527.github.io/2014/11/10/CSS%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C/" target="_blank" rel="external">CSS 实现打字效果</a>中提到了CSS3 动画中的重要属性<code>animation-timing-function</code>，因为主要侧重打字效果的实现没有细说，这里详细聊聊</p>
+<a id="more"></a>
 
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/promise/#more">Read More</a>
-          </p>
-        
+<h1 id="什么是timing_function">什么是timing function</h1>
+<p>timing function用来定义动画过程中属性值随着时间怎么变化，我们中学的时候画过很多曲线，尤其是在物理中接触过很多时间相关的曲线，我们可以方便的看到物体位移和时间的关系</p>
+<p>同时我们也了解到，并不是所有的位移和时间都是线性关系，那是匀速运动，自由落体是加速运动</p>
+<p><img src="http://lsly1989.qiniudn.com/dd310292.silverlight2-03-01(zh-tw).png"></p>
+<p>随着时间的增加单位时间内的位移增加，位移变化显著，说人话就是速度原来越快，单位时间内下降的距离原来越大</p>
+<p>除了自由落体还有很多种<code>时间－位移</code>曲线，CSS可以帮我们模拟这些曲线</p>
+<p>那么为什么要模仿这些曲线呢，所有的渐变都用线性渐变不行吗？举个简单的例子，我们做动画的时候要模拟自由落体不用CSS咋搞？</p>
+<p>在CSS3中通过<code>animation-timing-function</code>可以指定属性随时间的变化方式</p>
+<h1 id="使用">使用</h1>
+<p>我们平时在CSS中这样使用动画</p>
+<pre><code>@keyframe ani-name{
+  <span class="number">0</span>% <span class="decorator">{...}</span>,
+  <span class="number">50</span>% <span class="decorator">{...}</span>
+  <span class="number">100</span>% <span class="decorator">{...}</span>
+}
+
+.move{
+  animation: ani-name <span class="number">2</span>s infinite;
+}
+</code></pre><p>我们对<code>animation</code>属性进行了合写，分开看有下面几个</p>
+<ol>
+<li>animation-name</li>
+<li>animation-duration</li>
+<li>animation-timing-function</li>
+<li>animation-delay</li>
+<li>animation-iteration-count</li>
+<li>animation-direction</li>
+</ol>
+<p>其中animation-timing-function属性有下列值</p>
+<ol>
+<li>ease</li>
+<li>linear</li>
+<li>ease-in</li>
+<li>ease-out</li>
+<li>ease-in-out</li>
+<li>step-start</li>
+<li>step-end</li>
+<li>steps</li>
+<li>cubic-bezier</li>
+</ol>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/timing-function" target="_blank" rel="external">MDN</a> 为每个画了相应的曲线，其实所有的效果都是不同参数的二阶贝塞尔曲线，感兴趣可以自己用神器<a href="http://cubic-bezier.com/#.13,.81,.59,.35" target="_blank" rel="external">cubic-bezier</a>看看效果</p>
+<ul>
+<li>ease <code>cubic-bezier(0.25, 0.1, 0.25, 1.0)</code></li>
+</ul>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.33.35.png" alt="image"></p>
+<ul>
+<li>liner <code>cubic-bezier(0.0, 0.0, 1.0, 1.0)</code></li>
+</ul>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.37.05.png" alt="image"></p>
+<ul>
+<li>ease-in <code>cubic-bezier(0.42, 0.0, 1.0, 1.0)</code></li>
+</ul>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.37.51.png" alt="image"></p>
+<ul>
+<li>ease-out <code>cubic-bezier(0.0, 0.0, 0.58, 1.0)</code></li>
+</ul>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.38.53.png" alt="image"></p>
+<ul>
+<li>ease-in-out <code>cubic-bezier(0.42, 0.0, 0.58, 1.0)</code></li>
+</ul>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.40.35.png" alt="image"></p>
+<ul>
+<li>step-start <code>steps(1,start)</code></li>
+</ul>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.41.50.png" alt="image"></p>
+<ul>
+<li>step-end <code>steps(1,end)</code></li>
+</ul>
+<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 20.43.04.png" alt="image"></p>
+<ul>
+<li>cubic-bezier </li>
+</ul>
+<p>这个就没图了，随便弄，撸个demo看看效果</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/puguza/1/embed?css,output" target="_blank" rel="external">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+<h1 id="steps">steps</h1>
+<p>从上面demo中可以清楚看到steps效果，其实就是分步，和俄罗斯方块往下掉一样，一帧一帧的动，而<code>step-start</code>相当于<code>steps(1,start)</code>，<code>step-end</code>相当于<code>steps(1,end)</code></p>
+<p>steps有两个参数</p>
+<ol>
+<li>第一个肯定是分几步执行完</li>
+<li>第二个油两个值<ul>
+<li><strong>start</strong> 第一帧是第一步动画结束</li>
+<li><strong>end</strong> 第一帧是第一步动画开始    </li>
+</ul>
+</li>
+</ol>
+<p>steps可以做出的效果之前博客里也有提到，复制过来</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/yogovo/2/embed?output" target="_blank" rel="external">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script> </p>
+<p><a class="jsbin-embed" href="http://jsbin.com/xabecu/1/embed?output" target="_blank" rel="external">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/promise/" data-id="4abfbk1lr1llrufx" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/10/CSS3 timing方法/" data-id="jx5supbnksigc4rq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
 
     </footer>
   </div>
   
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/10/CSS打字效果/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS 实现打字效果
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/10/unicode-bidi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">direction和unicode-bidi</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-  
-  
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sunnyxx"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
 </section>
         
           <aside id="sidebar">
