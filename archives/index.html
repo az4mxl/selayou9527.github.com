@@ -68,6 +68,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS打字效果" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/10/CSS打字效果/" class="article-date">
+  <time datetime="2014-11-10T10:29:58.000Z" itemprop="datePublished">Nov 10 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/10/CSS打字效果/">CSS 实现打字效果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JS实现">JS实现</h1>
+<p>最近做项目的时候需要实现一个字符逐个出现的打字效果，在网上一搜有个不错的jQuery插件<a href="http://www.mattboldt.com/demos/typed-js/" target="_blank" rel="external">Typed.js</a>，效果很赞</p>
+<p><img src="http://lsly1989.qiniudn.com/xxxasddbgfbUntitled.gif" alt="image"></p>
+
+        
+          <p class="article-more-link">
+            <a href="/2014/11/10/CSS打字效果/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/11/10/CSS打字效果/" data-id="3au3kxcbc8oysno2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-unicode-bidi" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/10/unicode-bidi/" class="article-date">
@@ -104,168 +154,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/10/unicode-bidi/" data-id="gyxlj15pz6ncljyg" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/10/unicode-bidi/" data-id="vpbzvz9miuzecl7g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS打字效果" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/10/CSS打字效果/" class="article-date">
-  <time datetime="2014-11-10T10:25:01.000Z" itemprop="datePublished">Nov 10 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/css3/">css3</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/10/CSS打字效果/">CSS 实现打字效果</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div id="toc" class="toc-article">
-          <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS实现"><span class="toc-number">1.</span> <span class="toc-text">JS实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS实现"><span class="toc-number">2.</span> <span class="toc-text">CSS实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#animation-timing-function"><span class="toc-number">2.1.</span> <span class="toc-text">animation-timing-function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#steps"><span class="toc-number">2.2.</span> <span class="toc-text">steps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#走两步"><span class="toc-number">2.3.</span> <span class="toc-text">走两步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打字效果"><span class="toc-number">2.4.</span> <span class="toc-text">打字效果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
-        </div>
-        <h1 id="JS实现">JS实现</h1>
-<p>最近做项目的时候需要实现一个字符逐个出现的打字效果，在网上一搜有个不错的jQuery插件<a href="http://www.mattboldt.com/demos/typed-js/" target="_blank" rel="external">Typed.js</a>，效果很赞</p>
-<p><img src="http://lsly1989.qiniudn.com/xxxasddbgfbUntitled.gif" alt="image"></p>
-<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"element"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"typed.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
-  $(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-      $(<span class="string">".element"</span>).typed({
-        strings: [<span class="string">"First sentence."</span>, <span class="string">"Second sentence."</span>],
-        typeSpeed: <span class="number">0</span>
-      });
-  });
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</code></pre><p>具体用法可以看看<a href="https://github.com/mattboldt/typed.js/" target="_blank" rel="external">项目地址</a>，带注释的源码200多行，不算复杂</p>
-<p>实现方法也不神奇，大多数人肯容易可以想到，用js逐个向容器内添加字符，作者做了很多字符的出来还有速度神马的，我们可以撸一个简单的</p>
-<pre><code><span class="keyword">var</span> s = <span class="string">'Hello World! Hello World! Hello World!'</span>;
-<span class="keyword">var</span> con = $(<span class="string">'.container'</span>);
-<span class="keyword">var</span> index = <span class="number">0</span>;
-<span class="keyword">var</span> length = s.length;
-<span class="keyword">var</span> tId = <span class="literal">null</span>;
-
-<span class="function"><span class="keyword">function</span> <span class="title">start</span><span class="params">()</span></span>{
-  con.text(<span class="string">''</span>);
-
-  tId=setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-    con.append(s.charAt(index));
-    <span class="keyword">if</span>(index++ === length){
-    clearInterval(tId);
-    index = <span class="number">0</span>;
-    start()
-    }
-  },<span class="number">100</span>);
-}
-
-start();
-</code></pre><p><a class="jsbin-embed" href="http://jsbin.com/rekocu/2/embed?output" target="_blank" rel="external">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
-<h1 id="CSS实现">CSS实现</h1>
-<p>如果对细节和浏览器兼容性要求的不是很严格，我们可以通过CSS3实现</p>
-<h2 id="animation-timing-function">animation-timing-function</h2>
-<p>CSS3的动画都接触过，我们平时这么用</p>
-<pre><code><span class="attribute">animation</span>: <span class="string">animation-name animation-duration animation-iteration-count</span>
-
-<span class="http"><span class="attribute">animation</span>: <span class="string">name 5s infinite;</span></span>
-</code></pre><p>其实完整版的animation参数很多，也可以写成分别的属性</p>
-<ol>
-<li>animation-name</li>
-<li>animation-duration</li>
-<li>animation-timing-function</li>
-<li>animation-delay</li>
-<li>animation-iteration-count</li>
-<li>animation-direction</li>
-</ol>
-<p>今天我们就要关注一下<code>animation-timing-function</code>，大多数动画在时间轴上时线性变化的，jQuery动画的时候我们用的<code>liner</code>参数就是这意思，但CSS3提供了一些其它的变化方式由<code>animation-timing-function</code>属性指定</p>
-<ol>
-<li>ease</li>
-<li>linear</li>
-<li>ease-in</li>
-<li>ease-out</li>
-<li>ease-in-out</li>
-<li>step-start</li>
-<li>step-end</li>
-<li>steps</li>
-<li>cubic-bezier</li>
-</ol>
-<p>每种动画效果都可以对应一种贝塞尔曲线 <a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="external">cubic-bezier</a>可以帮我直观的看一下贝塞尔曲线效果，这里不多说了</p>
-<h2 id="steps">steps</h2>
-<p>我们看一下<code>steps</code>的效果，其实顾名思义就可以想到steps什么意思，就像俄罗斯方块的小格子往下掉也是动画，但是不是连续的，更像是逐帧的，steps就是实现这种效果的</p>
-<p>steps的语法</p>
-<pre><code>steps(number_of_steps, [<span class="operator"><span class="keyword">start</span>|<span class="keyword">end</span>])</span>
-</code></pre><ul>
-<li><code>number_of_steps</code> 动画分为多少步执行</li>
-<li><code>direction</code> 动画显示状态，end：默认值，第一帧结束后显示，start：第一帧开始的时候显示</li>
-</ul>
-<p>看个科学的图片帮助理解</p>
-<p><img src="http://lsly1989.qiniudn.com/屏幕快照 2014-11-10 17.38.25.png" alt="image"></p>
-<h2 id="走两步">走两步</h2>
-<p>有了这些我们就能做个好玩儿的效果了</p>
-<p><a class="jsbin-embed" href="http://jsbin.com/xabecu/1/embed?output" target="_blank" rel="external">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
-<pre><code><span class="class">.walk</span> <span class="rules">{
-  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">125px</span></span></span>;
-  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">150px</span></span></span>;
-  <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">url</span>(http://lsly1989.qiniudn.com/xxxasddbgfbwalk.jpg) left</span></span>;
-  <span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value">anima <span class="number">1s</span> <span class="function">steps</span>(<span class="number">16</span>) infinite </span></span>;
-<span class="rule">}</span></span>
-
-<span class="at_rule">@<span class="keyword">-webkit-keyframes</span> anima</span>{
-    <span class="tag">from</span> <span class="rules">{ <span class="rule"><span class="attribute">background-position</span>:<span class="value"><span class="number">2000px</span> <span class="number">0</span></span></span>;<span class="rule">}</span></span>
-    <span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background-position</span>:<span class="value"><span class="number">0px</span> <span class="number">0</span></span></span>;<span class="rule">}</span></span>
-}
-</code></pre><h2 id="打字效果">打字效果</h2>
-<p>打字效果也就可想而知了，改变容器宽度即可（只能单行使用，还得做到每步增加长度和字母宽度一致，还是js好其实）</p>
-<pre><code><span class="class">.typing</span><span class="rules">{
-    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">250px</span></span></span>;
-    <span class="rule"><span class="attribute">white-space</span>:<span class="value">nowrap</span></span>;
-    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
-    <span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value"> type <span class="number">3s</span> <span class="function">steps</span>(<span class="number">50</span>, end) infinite</span></span>;
-  <span class="rule"><span class="attribute">animation</span>:<span class="value"> type <span class="number">3s</span> <span class="function">steps</span>(<span class="number">50</span>, end) infinite</span></span>;
-<span class="rule">}</span></span>
-
-
-<span class="at_rule">@<span class="keyword">-webkit-keyframes</span> type</span>{
-    <span class="tag">from</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">0</span></span></span>;<span class="rule">}</span></span>
-}
-
-<span class="at_rule">@<span class="keyword">keyframes</span> type</span>{
-    <span class="tag">from</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">0</span></span></span>;<span class="rule">}</span></span>
-}
-</code></pre><p><a class="jsbin-embed" href="http://jsbin.com/yogovo/2/embed?output" target="_blank" rel="external">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>  </p>
-<h1 id="参考">参考</h1>
-<p><strong>MDN: </strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/timing-function" target="_blank" rel="external">timing-function</a></p>
-<p><a href="http://www.smashingmagazine.com/2014/04/15/understanding-css-timing-functions/" target="_blank" rel="external">Understanding CSS Timing Functions</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/10/CSS打字效果/" data-id="229bwmvp9sr51e03" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
 
     </footer>
   </div>
@@ -325,7 +217,7 @@ start();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/09/CSS3 filter/" data-id="psngdkq8lwry1wof" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/09/CSS3 filter/" data-id="bbcni4iceysyak9q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -381,7 +273,7 @@ start();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/07/Outlook HTML渲染引擎/" data-id="so5vek0dqss1uwvy" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/07/Outlook HTML渲染引擎/" data-id="hn3mobmn2kx4cq76" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EDM/">EDM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
@@ -430,7 +322,7 @@ start();
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/07/CSS will-change 属性/" data-id="zcb52sj8k76mxkxs" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/07/CSS will-change 属性/" data-id="lzwohx98umkp6y8q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -476,11 +368,11 @@ start();
       <ul>
         
           <li>
-            <a href="/2014/11/10/unicode-bidi/">direction和unicode-bidi</a>
+            <a href="/2014/11/10/CSS打字效果/">CSS 实现打字效果</a>
           </li>
         
           <li>
-            <a href="/2014/11/10/CSS打字效果/">CSS 实现打字效果</a>
+            <a href="/2014/11/10/unicode-bidi/">direction和unicode-bidi</a>
           </li>
         
           <li>
