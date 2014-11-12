@@ -8,7 +8,7 @@
   <meta name="description" content="在做多语言页面，接触过阿利伯语、希伯来语的同学肯定了解书写方向的重要性，包括我们五四运动前的书写顺序也是从右到左的。css中 unicode-bidi和direction属性决定了HTML或XML文字渲染方向，两个属性结合使用可以改变文字书写顺序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="direction和unicode-bidi">
-<meta property="og:url" content="https://github.com/selayou9527/2014/11/10/unicode-bidi/">
+<meta property="og:url" content="https://github.com/selayou9527/2014/11/12/unicode-bidi/">
 <meta property="og:site_name" content="色拉油的技术博客">
 <meta property="og:description" content="在做多语言页面，接触过阿利伯语、希伯来语的同学肯定了解书写方向的重要性，包括我们五四运动前的书写顺序也是从右到左的。css中 unicode-bidi和direction属性决定了HTML或XML文字渲染方向，两个属性结合使用可以改变文字书写顺序">
 <meta name="twitter:card" content="summary">
@@ -68,8 +68,8 @@
       <div class="outer">
         <section id="main"><article id="post-unicode-bidi" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/10/unicode-bidi/" class="article-date">
-  <time datetime="2014-11-10T10:26:27.000Z" itemprop="datePublished">Nov 10 2014</time>
+    <a href="/2014/11/12/unicode-bidi/" class="article-date">
+  <time datetime="2014-11-12T03:58:48.000Z" itemprop="datePublished">Nov 12 2014</time>
 </a>
     
   <div class="article-category">
@@ -94,7 +94,7 @@
       
         <div id="toc" class="toc-article">
           <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#direction"><span class="toc-number">1.</span> <span class="toc-text">direction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#unicode-bidi"><span class="toc-number">2.</span> <span class="toc-text">unicode-bidi</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#direction"><span class="toc-number">1.</span> <span class="toc-text">direction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#unicode-bidi"><span class="toc-number">2.</span> <span class="toc-text">unicode-bidi</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小疑惑"><span class="toc-number">3.</span> <span class="toc-text">小疑惑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
         </div>
         <p>在做多语言页面，接触过阿利伯语、希伯来语的同学肯定了解书写方向的重要性，包括我们五四运动前的书写顺序也是从右到左的。css中 <code>unicode-bidi</code>和<code>direction</code>属性决定了HTML或XML文字渲染方向，两个属性结合使用可以改变文字书写顺序</p>
 <a id="more"></a>
@@ -107,51 +107,61 @@
 <li><code>rtl</code> right to left 从右到左</li>
 </ol>
 <p>我们默认的书写顺序是从左到右的，不用做特殊设置，但是对于阿拉伯语是从右到左的，这时候就需要设置direction属性来正确展示了</p>
-<div style="direction:rtl;"><br>طهيس يس تآخت تهات يس وريتتآن فروم ريغت تو لآفت تهات يس وسآد<br></div>
+<p>防止浏览器重写<code>text-align</code>我们做一下默认设置</p>
+<div style="direction:rtl;text-align: initial;"><br>طهيس يس تآخت تهات يس وريتتآن فروم ريغت تو لآفت تهات يس وسآد<br></div>
 
-<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;"</span>&gt;
+<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;text-align: initial;"</span>&gt;
     طهيس يس تآخت تهات يس وريتتآن فروم ريغت تو لآفت تهات يس وسآد    
 &lt;/<span class="keyword">div</span>&gt;
 </code></pre><p>对应的也有个html属性dir可以设置</p>
-<pre><code>&lt;<span class="keyword">div</span> dir=<span class="string">"rtl"</span>&gt;
+<pre><code>&lt;<span class="keyword">div</span> dir=<span class="string">"rtl"</span> dtyle=<span class="string">"text-align: initial;"</span>&gt;
     طهيس يس تآخت تهات يس وريتتآن فروم ريغت تو لآفت تهات يس وسآد    
 &lt;/<span class="keyword">div</span>&gt;
-</code></pre><div dir="rtl"><br>        طهيس يس تآخت تهات يس وريتتآن فروم ريغت تو لآفت تهات يس وسآد<br></div>
+</code></pre><div dir="rtl" style="text-align: initial;"><br>        طهيس يس تآخت تهات يس وريتتآن فروم ريغت تو لآفت تهات يس وسآد<br></div>
 
-<p>direction属性局定了默认的对齐方式</p>
+<p>direction属性局定了默认的书写顺序这是和<code>text-align</code>的区别，后者是对其方向，书写书写顺序不变</p>
+<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"direction: rtl;text-align: initial;"</span>&gt;<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>。&lt;/<span class="keyword">div</span>&gt;
+&lt;<span class="keyword">div</span> style=<span class="string">"text-align:right;"</span>&gt;<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>。&lt;/<span class="keyword">div</span>&gt;
+</code></pre><div style="direction: rtl;text-align: initial;">1 2 3 4 5 6。</div><br><div style="text-align:right;">1 2 3 4 5 6。</div>
+
 <h1 id="unicode-bidi">unicode-bidi</h1>
 <p>貌似有direction就可以应付书写方向的问题了，<code>unicode-bidi</code>是做什么的呢？</p>
 <p>浏览器通常根据<code>lang</code>属性或者特殊的<code>font-family</code>决定书写方向，但是如果一句话中同时包括两种方向的文案的时候就需要用到unicode-bidi属性了</p>
 <p>unicode-bidi 有三个广泛支持的值</p>
 <ol>
-<li><code>normal</code> 原来是什么方向就使用什么方向</li>
+<li><code>normal</code> 原来是什么顺序就使用什么顺序</li>
 <li><code>embed</code> 作用于inline元素，direction属性的值指定嵌入层，在对象内部进行隐式重排序</li>
 <li><code>bidi-override</code> 严格按照direction属性的值重排序。忽略隐式双向运算规则</li>
 </ol>
 <p>说实话这么解释我也看不懂，看个例子</p>
-<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;"</span>&gt;this <span class="keyword">is</span> a test&lt;/<span class="keyword">div</span>&gt;
+<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;text-align: initial;"</span>&gt;this <span class="keyword">is</span> a test&lt;/<span class="keyword">div</span>&gt;
 
-&lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;unicode-bidi:bidi-override;"</span>&gt;
+&lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;unicode-bidi:bidi-override;text-align: initial;"</span>&gt;
     this <span class="keyword">is</span> a test
 &lt;/<span class="keyword">div</span>&gt;
 
-&lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;unicode-bidi:bidi-override;"</span>&gt;
+&lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;unicode-bidi:bidi-override;text-align: initial;"</span>&gt;
     this &lt;span style=<span class="string">"unicode-bidi:embed;"</span>&gt;<span class="keyword">is</span> a&lt;/span&gt; test
 &lt;/<span class="keyword">div</span>&gt;
-</code></pre><div style="direction:rtl;">this is a test</div><br><div style="direction:rtl;unicode-bidi:bidi-override;">this is a test</div><br><div style="direction:rtl;unicode-bidi:bidi-override;">this <span style="unicode-bidi:embed;">is a</span> test</div>
+</code></pre><div style="direction:rtl;text-align: initial;">this is a test</div><br><div style="direction:rtl;unicode-bidi:bidi-override;text-align: initial;">this is a test</div><br><div style="direction:rtl;unicode-bidi:bidi-override;text-align: initial;">this <span style="unicode-bidi:embed;">is a</span> test</div>
 
 
-<p>第一行就是简单的右对齐，其实这是direction的默认效果，文字不会倒着写</p>
-<p>第二行两个属性结合使用，不但右对齐而且真的是从右到左书写了，这才是正经的阿拉伯语写法</p>
+<p>第一行就是简单的右对齐，文字不会倒着写（阿拉伯语会，后面有解释）</p>
+<p>第二行两个属性结合使用，不但右对左书写而且真的是从右到左书写了，这才是正经的阿拉伯语写法</p>
 <p>第三行的效果奇妙之处在于在第二行的基础上加了样式<code>unicode-bidi:embed;</code>不会倒着写了，按着正常的书写顺序在写</p>
-<h1 id="参考">参考</h1>
+<h1 id="小疑惑">小疑惑</h1>
+<p>为什么对于阿拉伯语只设置<code>direction</code>就能正确展示了，但是英文单词却只有右对齐效果，不会从右到左书写，只有设置了<code>unicode-bidi:bidi-override;</code>才好使呢</p>
+<p>这和具体语言有关，浏览器会自动设置，对于阿拉伯语和希伯来语自动就好使了，单个数字、字母浏览器不能判断语言就用rtl默认设置了</p>
+<p>在声明的时候制指定语言为阿拉伯语页面会自动书写顺序rtl</p>
+<pre><code><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"ar"</span>&gt;</span>
+</code></pre><h1 id="参考">参考</h1>
 <p><a href="http://css-tricks.com/almanac/properties/u/unicode-bidi/" target="_blank" rel="external">unicode-bidi</a></p>
 <p><a href="http://css-tricks.com/almanac/properties/d/direction/" target="_blank" rel="external">direction</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/10/unicode-bidi/" data-id="6fiz4x6rosasavra" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/12/unicode-bidi/" data-id="27qtryfyivb2gmf7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -162,19 +172,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/11/10/CSS3 timing方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Transition Timing Functions
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/11/07/Outlook HTML渲染引擎/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/11/11/CSS3 filter/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Outlook HTML渲染引擎</div>
+      <div class="article-nav-title">CSS3 滤镜</div>
     </a>
   
 </nav>
@@ -228,6 +229,10 @@
       <ul>
         
           <li>
+            <a href="/2014/11/12/unicode-bidi/">direction和unicode-bidi</a>
+          </li>
+        
+          <li>
             <a href="/2014/11/11/CSS3 filter/">CSS3 滤镜</a>
           </li>
         
@@ -237,10 +242,6 @@
         
           <li>
             <a href="/2014/11/10/CSS3 timing方法/">Transition Timing Functions</a>
-          </li>
-        
-          <li>
-            <a href="/2014/11/10/unicode-bidi/">direction和unicode-bidi</a>
           </li>
         
           <li>
