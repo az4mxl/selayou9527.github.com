@@ -69,7 +69,7 @@
         <section id="main"><article id="post-unicode-bidi" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/12/unicode-bidi/" class="article-date">
-  <time datetime="2014-11-12T03:58:48.000Z" itemprop="datePublished">Nov 12 2014</time>
+  <time datetime="2014-11-12T04:00:53.000Z" itemprop="datePublished">Nov 12 2014</time>
 </a>
     
   <div class="article-category">
@@ -143,7 +143,7 @@
 &lt;<span class="keyword">div</span> style=<span class="string">"direction:rtl;unicode-bidi:bidi-override;text-align: initial;"</span>&gt;
     this &lt;span style=<span class="string">"unicode-bidi:embed;"</span>&gt;<span class="keyword">is</span> a&lt;/span&gt; test
 &lt;/<span class="keyword">div</span>&gt;
-</code></pre><div style="direction:rtl;text-align: initial;">this is a test</div><br><div style="direction:rtl;unicode-bidi:bidi-override;text-align: initial;">this is a test</div><br><div style="direction:rtl;unicode-bidi:bidi-override;text-align: initial;">this <span style="unicode-bidi:embed;">is a</span> test</div>
+</code></pre><div style="direction:rtl;text-align: initial;">this is a test</div><br><div style="direction:rtl;text-align: initial;unicode-bidi:bidi-override;">this is a test</div><br><div style="direction:rtl;text-align: initial;unicode-bidi:bidi-override;">this <span style="unicode-bidi:embed;">is a</span> test</div>
 
 
 <p>第一行就是简单的右对齐，文字不会倒着写（阿拉伯语会，后面有解释）</p>
@@ -151,8 +151,8 @@
 <p>第三行的效果奇妙之处在于在第二行的基础上加了样式<code>unicode-bidi:embed;</code>不会倒着写了，按着正常的书写顺序在写</p>
 <h1 id="小疑惑">小疑惑</h1>
 <p>为什么对于阿拉伯语只设置<code>direction</code>就能正确展示了，但是英文单词却只有右对齐效果，不会从右到左书写，只有设置了<code>unicode-bidi:bidi-override;</code>才好使呢</p>
-<p>这和具体语言有关，浏览器会自动设置，对于阿拉伯语和希伯来语自动就好使了，单个数字、字母浏览器不能判断语言就用rtl默认设置了</p>
-<p>在声明的时候制指定语言为阿拉伯语页面会自动书写顺序rtl</p>
+<p>这和具体语言有关，对于阿拉伯语和希伯来语自动就好使了，单个数字、字母浏览器不能判断语言就用rtl默认设置了，英语等还是使用默认的左到右的方式，只能用<code>unicode-bidi</code>重写</p>
+<p>在声明的时候指定语言为阿拉伯语页面会自动书写顺序rtl</p>
 <pre><code><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"ar"</span>&gt;</span>
 </code></pre><h1 id="参考">参考</h1>
 <p><a href="http://css-tricks.com/almanac/properties/u/unicode-bidi/" target="_blank" rel="external">unicode-bidi</a></p>
@@ -161,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/12/unicode-bidi/" data-id="27qtryfyivb2gmf7" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/12/unicode-bidi/" data-id="uvtlvhdm4qn2yui2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
