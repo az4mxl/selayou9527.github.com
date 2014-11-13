@@ -112,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式1/" data-id="aekr3u1dcmy7lpvu" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式1/" data-id="gs62o47o2kddlgic" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
@@ -160,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/promise/" data-id="5uqe0thurab8ax1t" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/promise/" data-id="wtparlukth493aa9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -172,9 +172,9 @@
 
 
   
-    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript节流与防抖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
+    <a href="/2014/10/14/javascript节流与防抖/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -190,7 +190,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+      <a class="article-title" href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
     </h1>
   
 
@@ -198,31 +198,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
-<pre><code>function tmpl(id,data){
-    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
-    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
-        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
-        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
-        .replace(/&lt;%/g,<span class="string">"');"</span>)
-        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
-        +<span class="string">"');}return p.join('');"</span>;
-    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
-    <span class="keyword">return</span> fn(data);
-}
-</code></pre>
+        <p>函数节流和函数去抖听起来很高端，实际上实现起来并不是很复杂。两个方法都是为了减少函数频繁调用的次数产生的，限看一下概念</p>
+<p><strong>函数节流(throttle)</strong> 当方法被重复调用时，只会在指定的间隔时间内执行一次</p>
+<p><strong>函数去抖(debounce)</strong> 当方法被重复调用时，如果距上次方法被调用的时间小于指定时间，推迟方法执行</p>
+<p>也就是说当函数<code>fn</code>以频率10ms/次的频率被调用1s的时候，正常情况下会被调用100次。我们设定<code>wait</code>时间为200ms，使用函数节流<code>fn</code>只会被调用5次，使用函数去抖，<code>fn</code>只会在1s后等200ms被调用一次<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
+            <a href="/2014/10/14/javascript节流与防抖/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎优化/" data-id="e79lk6jm1aelwnvk" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript节流与防抖/" data-id="7ucwufry0o1q75jk" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -266,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="z7ph60e94n57gwo5" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="wznr6rwyx9sagjbr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
@@ -314,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="4mgqxfqa8zqrwr6k" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="9ep28nju0qynmufv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>

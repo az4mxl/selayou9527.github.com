@@ -68,9 +68,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript模版引擎" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
+    <a href="/2014/10/14/javascript模版引擎/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
+      <a class="article-title" href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
     </h1>
   
 
@@ -94,28 +94,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
-<pre><code>function tmpl(id,data){
-    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
-    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
-        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
-        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
-        .replace(/&lt;%/g,<span class="string">"');"</span>)
-        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
-        +<span class="string">"');}return p.join('');"</span>;
-    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
-    <span class="keyword">return</span> fn(data);
-}
-</code></pre>
+        <p>听说Javascript模版引擎很久了，也用过ejs、handlebars等，某天无意在网上看到jQuery作者John Resig几行代码写的一个最简单的Javascript模版引擎，忍不住看了一下，原来模版引擎可以这么简单，写篇博客推倒一下大神的思路，实现个最简单的Javascript模版引擎<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
+            <a href="/2014/10/14/javascript模版引擎/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎优化/" data-id="e79lk6jm1aelwnvk" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="wznr6rwyx9sagjbr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
@@ -165,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript节流与防抖/" data-id="t8alvmwgbkhh3ot5" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript节流与防抖/" data-id="7ucwufry0o1q75jk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -215,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame/" data-id="3bxcwcg0totidpno" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame/" data-id="5ee63qhu85k5zxqa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -263,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/promise/" data-id="5uqe0thurab8ax1t" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/promise/" data-id="wtparlukth493aa9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -275,14 +263,14 @@
 
 
   
-    <article id="post-requestAnimationFrame高效动画" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-zindex" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/requestAnimationFrame高效动画/" class="article-date">
+    <a href="/2014/10/14/zindex/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/css/">css</a>
   </div>
 
   </div>
@@ -293,7 +281,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
+      <a class="article-title" href="/2014/10/14/zindex/">z-index</a>
     </h1>
   
 
@@ -301,20 +289,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="对比">对比</h2>
-<p>在之前博客中提到了requestAnimationFrame优于setTimeout，看到Internet Explorer Dev Center中一个对比的示例做的很有意思，搬过来学习一下，先看看效果<br>
+        <p>做页面布局的同学对z-index属性应该是很熟悉了，z-index是针对网页显示中的一个特殊属性。因为显示器是显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别。表示一个元素在叠加顺序上的上下立体关系</p>
+<p>z-index值较大的元素将叠加在z-index值较小的元素之上。对于未指定此属性的定位对象，z-index 值为正数的对象会在其之上，而 z-index 值为负数的对象在其之下<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/requestAnimationFrame高效动画/#more">Read More</a>
+            <a href="/2014/10/14/zindex/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame高效动画/" data-id="567n34t2306vmgwh" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/zindex/" data-id="j0qjfqn2q804r6t0" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
 
     </footer>
   </div>

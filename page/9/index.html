@@ -68,54 +68,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-zindex" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/zindex/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/zindex/">z-index</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>做页面布局的同学对z-index属性应该是很熟悉了，z-index是针对网页显示中的一个特殊属性。因为显示器是显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别。表示一个元素在叠加顺序上的上下立体关系</p>
-<p>z-index值较大的元素将叠加在z-index值较小的元素之上。对于未指定此属性的定位对象，z-index 值为正数的对象会在其之上，而 z-index 值为负数的对象在其之下<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/zindex/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/zindex/" data-id="scbkszdye8i778oa" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-D2报名页面的一些小效果" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/14/D2报名页面的一些小效果/" class="article-date">
@@ -151,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/D2报名页面的一些小效果/" data-id="4sqq3lvprjwx77oa" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/D2报名页面的一些小效果/" data-id="z21ujqww6kqjxb5j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码/">源码</a></li></ul>
@@ -163,9 +115,9 @@
 
 
   
-    <article id="post-javascript正则表达式1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-requestAnimationFrame高效动画" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript正则表达式1/" class="article-date">
+    <a href="/2014/10/14/requestAnimationFrame高效动画/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -181,7 +133,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+      <a class="article-title" href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
     </h1>
   
 
@@ -189,28 +141,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="创建对象">创建对象</h2>
-<p>JavaScript可以通过两种方式创建一个匹配 <code>&lt;%xxxxxx%&gt;</code> 正则表达式对象</p>
-<p><strong>构造函数</strong></p>
-<pre><code><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%]+%&gt;'</span>,g);
-</code></pre><p><strong>字面量</strong></p>
-<pre><code>var reg=/&lt;<span class="variable">%[</span>^<span class="variable">%]</span>+<span class="variable">%&gt;</span>/g;
-</code></pre><ol>
-<li>g: global, 全文搜索，不声明默认只搜索第一个结果就停止</li>
-<li>i: ignore case，忽略大小写，不声明默认大小写敏感</li>
-<li>m: mutiple lines, 多行搜索
+        <h2 id="对比">对比</h2>
+<p>在之前博客中提到了requestAnimationFrame优于setTimeout，看到Internet Explorer Dev Center中一个对比的示例做的很有意思，搬过来学习一下，先看看效果<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript正则表达式1/#more">Read More</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式1/" data-id="aekr3u1dcmy7lpvu" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame高效动画/" data-id="5ov83ywlxsns2vf2" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -219,14 +163,14 @@
 
 
   
-    <article id="post-jQuery deferred" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/jQuery deferred/" class="article-date">
+    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -237,7 +181,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
+      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
     </h1>
   
 
@@ -245,20 +189,84 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Deferred对象是Promise/A规范的一种实现，是jQuery1.5引入的，通过调用<code>jQuery.Deferred()</code>构造函数创建，提供了链式调用回调函数的功能，它能够注册回调函数到一个队列中, 依次调用该队列中的回调函数,并且能够将调链中上一个函数(同步或者异步)的返回状态传递到下一个回调函数中</p>
-
+        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
+<pre><code>function tmpl(id,data){
+    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
+    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
+        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
+        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
+        .replace(/&lt;%/g,<span class="string">"');"</span>)
+        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
+        +<span class="string">"');}return p.join('');"</span>;
+    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
+    <span class="keyword">return</span> fn(data);
+}
+</code></pre>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/jQuery deferred/#more">Read More</a>
+            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="4mgqxfqa8zqrwr6k" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎优化/" data-id="u9kbilbh0wpfakxh" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iconfont" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/iconfont/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/iconfont/">icon font</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>所谓icon font是指将页面上使用的icon不使用图片，而是做成字体一样的东西。这是基于各个浏览器都对CSS3的 <code>@font-face</code>的支持，我们将icon也用font实现。</p>
+<h2 id="为什么使用iconfont">为什么使用iconfont</h2>
+<ol>
+<li>字体文件比图片小</li>
+<li>矢量图形，在普通屏幕上适配，到高清屏幕后不会模糊</li>
+<li>在更换theme等操作的时候可以简单通过CSS控制就可以改变icon的大小，颜色等</li>
+<li>透明效果也兼容IE6
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/iconfont/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="x5kprlb1iwy1y397" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
 
     </footer>
   </div>
@@ -305,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="m456c7eiyliz8by9" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="tadh9if8ofhupuog" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
