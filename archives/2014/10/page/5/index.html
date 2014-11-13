@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-css布局" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nodejs调试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/css布局/" class="article-date">
+    <a href="/2014/10/14/nodejs调试/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
+    <a class="article-category-link" href="/categories/node/">node</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+      <a class="article-title" href="/2014/10/14/nodejs调试/">node 调试</a>
     </h1>
   
 
@@ -94,20 +94,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>页面布局，或者是在页面上做些小效果的时候经常会用到 display,position和float 属性，如果对它们不是很了解的话，很容易出现一些莫名其妙的效果，痛定思痛读了《CSS Mastery》后总结一下</p>
-<p>让我们从基础的CSS知识谈起，相信很多初学者和小弟一样不明白CSS原理，一味追求效果，结果页面漏洞百出，错误匪夷所思，关于盒模型我就不多说了，网上很多，注意一下IE和其他浏览器（W3C规范）的区别就好了<br>
+        <p>nodejs的调试问题困扰了很多刚热门的同学，仿佛又回到了<code>alert</code>时代，区别仅仅是换做了<code>console.log</code>，这让习惯了强大的Eclipse、Visual Studio的我们情何以堪。 其实nodejs本身也支持调试，简单介绍一下几种方法<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/css布局/#more">Read More</a>
+            <a href="/2014/10/14/nodejs调试/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/css布局/" data-id="ctqz01zurwoffo7a" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/nodejs调试/" data-id="4aqsnlnuccs3hwos" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
 
     </footer>
   </div>
@@ -116,14 +115,14 @@
 
 
   
-    <article id="post-css容易忽略的特性" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-canvas简单介绍" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/css容易忽略的特性/" class="article-date">
+    <a href="/2014/10/14/canvas简单介绍/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
+    <a class="article-category-link" href="/categories/animation/">animation</a>
   </div>
 
   </div>
@@ -134,7 +133,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+      <a class="article-title" href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
     </h1>
   
 
@@ -142,27 +141,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑</p>
-<h2 id="大小写不敏感">大小写不敏感</h2>
-<p>虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的</p>
-<pre><code><span class="class">.test</span><span class="rules">{
-    <span class="rule"><span class="attribute">background-COLOR</span>:<span class="value"><span class="hexcolor">#a00</span></span></span>;
-    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>
+        <h2 id="初识canvas">初识canvas</h2>
+<p>canvas是html5引入的新标签，可以通过Javascript API 在HTML上绘制图形、图像，在页面上创建canvas只需要使用canvas标签就行<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/css容易忽略的特性/#more">Read More</a>
+            <a href="/2014/10/14/canvas简单介绍/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/css容易忽略的特性/" data-id="073kqhc3i2jfvpy4" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/canvas简单介绍/" data-id="izmgp2tfotg4wn5l" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-attribute与property" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/attribute与property/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/attribute与property/">jQuery的attr与prop</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Query1.6中新添加了一个prop方法，看起来和用起来都和attr方法一样，这两个方法有什么区别呢？这要从HTMl 的attribute与property区别说起，attr与prop正是这两个东西的缩写。<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/attribute与property/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/attribute与property/" data-id="4bk77zz8gishny5c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -212,60 +251,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/有趣的Linux命令/" data-id="k4je5reekvd5ml5u" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/有趣的Linux命令/" data-id="g988xn1z62vh5p0b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-history对象" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/history对象/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/html5/">html5</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/history对象/">history</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="history对象">history对象</h1>
-<p>javascript中history对象用来管理浏览器浏览历史</p>
-<p><img src="http://lsly1989.qiniudn.com/history%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2019.27.41.png" alt=""></p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/history对象/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/history对象/" data-id="8f4w6lsggmo1s9u1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -315,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="sbq2mm4i0p2j243m" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="7aiw39fm1khmir3v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -349,7 +338,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -359,6 +348,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/11/13/七个你可能没注意的CSS单位/">你可能没注意的CSS单位</a>
+          </li>
         
           <li>
             <a href="/2014/11/12/unicode-bidi/">direction和unicode-bidi</a>
@@ -434,10 +427,6 @@
         
           <li>
             <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/18/css垂直居中/">CSS 垂直居中</a>
           </li>
         
       </ul>

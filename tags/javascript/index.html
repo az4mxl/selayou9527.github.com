@@ -97,7 +97,7 @@
         <p>handlebars是众多前端模版引擎的一个，语法上和<code>Mustache</code>几乎兼容</p>
 <h1 id="Getting_Start">Getting Start</h1>
 <p>handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars的表达式</p>
-<pre><code><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span>
+<pre><code><span class="xml"><span class="tag">&lt;<span class="attribute">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span>
   <span class="tag">&lt;<span class="title">h1</span>&gt;</span></span><span class="expression">{{<span class="variable">title</span>}}</span><span class="xml"><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"body"</span>&gt;</span>
     </span><span class="expression">{{<span class="variable">body</span>}}</span><span class="xml">
@@ -112,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/22/handlebars语法/" data-id="d2i8yvhqru0jj3z7" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/22/handlebars语法/" data-id="0m26ryz6gdv9hdcy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
@@ -124,9 +124,9 @@
 
 
   
-    <article id="post-javascript正则表达式1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-requestAnimationFrame高效动画" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript正则表达式1/" class="article-date">
+    <a href="/2014/10/14/requestAnimationFrame高效动画/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -142,7 +142,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript正则表达式1/">JavaScript正则表达式——基本语法</a>
+      <a class="article-title" href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
     </h1>
   
 
@@ -150,25 +150,115 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="创建对象">创建对象</h2>
-<p>JavaScript可以通过两种方式创建一个匹配 <code>&lt;%xxxxxx%&gt;</code> 正则表达式对象</p>
-<p><strong>构造函数</strong></p>
-<pre><code><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%]+%&gt;'</span>,g);
-</code></pre><p><strong>字面量</strong></p>
-<pre><code>var reg=/&lt;<span class="variable">%[</span>^<span class="variable">%]</span>+<span class="variable">%&gt;</span>/g;
-</code></pre><ol>
-<li>g: global, 全文搜索，不声明默认只搜索第一个结果就停止</li>
-<li>i: ignore case，忽略大小写，不声明默认大小写敏感</li>
-<li>m: mutiple lines, 多行搜索
+        <h2 id="对比">对比</h2>
+<p>在之前博客中提到了requestAnimationFrame优于setTimeout，看到Internet Explorer Dev Center中一个对比的示例做的很有意思，搬过来学习一下，先看看效果<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript正则表达式1/#more">Read More</a>
+            <a href="/2014/10/14/requestAnimationFrame高效动画/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式1/" data-id="8jsoj6vnakzguoo2" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame高效动画/" data-id="567n34t2306vmgwh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-requestAnimationFrame" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/requestAnimationFrame/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/animation/">animation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/requestAnimationFrame/">requestAnimationFrame</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="requestAnimationFrame是什么">requestAnimationFrame是什么</h2>
+<blockquote>
+<p>window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。 —— MDN</p>
+<p>requestAnimationFrame方法通过在系统准备好绘制动画帧时调用该帧，从而为创建动画网页提供了一种更平滑更高效的方法。 —— Internet Explorer Dev Center<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/requestAnimationFrame/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame/" data-id="3bxcwcg0totidpno" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript正则表达式2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript正则表达式2/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上篇博客<a href="http://lsly1989.github.io/2014/08/24/javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F1/" target="_blank" rel="external">JavaScript 正则表达式——基本语法</a>介绍了JavaScript正则表达式的语法，有了这些基本知识，可以看看正则表达式在JavaScript的应用了，在一切开始之前，看看RegExp实例的几个属性</p>
+<p><img src="http://lsly1989.qiniudn.com/1.png" alt=""><br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/javascript正则表达式2/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式2/" data-id="an8r6djks9qhfok2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
@@ -180,9 +270,9 @@
 
 
   
-    <article id="post-javascript模版引擎" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript逗号冒号括号" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎/" class="article-date">
+    <a href="/2014/10/14/javascript逗号冒号括号/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -198,7 +288,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+      <a class="article-title" href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
     </h1>
   
 
@@ -206,117 +296,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>听说Javascript模版引擎很久了，也用过ejs、handlebars等，某天无意在网上看到jQuery作者John Resig几行代码写的一个最简单的Javascript模版引擎，忍不住看了一下，原来模版引擎可以这么简单，写篇博客推倒一下大神的思路，实现个最简单的Javascript模版引擎<br>
+        <p>在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下</p>
+<h2 id="逗号">逗号</h2>
+<p>逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎/#more">Read More</a>
+            <a href="/2014/10/14/javascript逗号冒号括号/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="wzzdsh5kjyy085zr" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript逗号冒号括号/" data-id="ox57s36xzswyzeh2" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jQuery deferred" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/jQuery deferred/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Deferred对象是Promise/A规范的一种实现，是jQuery1.5引入的，通过调用<code>jQuery.Deferred()</code>构造函数创建，提供了链式调用回调函数的功能，它能够注册回调函数到一个队列中, 依次调用该队列中的回调函数,并且能够将调链中上一个函数(同步或者异步)的返回状态传递到下一个回调函数中</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/jQuery deferred/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="ioere4eiltvd22qj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-history对象" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/history对象/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/html5/">html5</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/history对象/">history</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="history对象">history对象</h1>
-<p>javascript中history对象用来管理浏览器浏览历史</p>
-<p><img src="http://lsly1989.qiniudn.com/history%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2019.27.41.png" alt=""></p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/history对象/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/history对象/" data-id="8f4w6lsggmo1s9u1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -347,7 +341,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -357,6 +351,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/11/13/七个你可能没注意的CSS单位/">你可能没注意的CSS单位</a>
+          </li>
         
           <li>
             <a href="/2014/11/12/unicode-bidi/">direction和unicode-bidi</a>
@@ -432,10 +430,6 @@
         
           <li>
             <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/18/css垂直居中/">CSS 垂直居中</a>
           </li>
         
       </ul>

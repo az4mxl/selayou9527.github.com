@@ -3,35 +3,47 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mac nginx 80端口开机自启 | 色拉油的技术博客</title>
+  <title>你可能没注意的CSS单位 | 色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装
-再Mac下安装nginx很简单，使用神器homebrew
-brew install nginx
-这样nginx就会安装到目录
-/usr/local/Cellar/nginx
-配置文件在
-/usr/local/etc/nginx/nginx.conf">
+  <meta name="description" content="扶今追昔
+CSS中的单位我们经常用到px、pt、em、百分比，px和pt不用多说
+em
+em是相对单位，参考物是父元素的font-size，具有继承的特点
+如果字体大小是16px（浏览器的默认值），那么 1em = 16px
+这样使用换算很复杂，尤其是和px对应，大家总结出了经验
+body {
+    font-size: 62.5%;
+
+} 
+这样之后 1em = 10px 在布局等使用的时候好">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac nginx 80端口开机自启">
-<meta property="og:url" content="https://github.com/selayou9527/2014/10/26/Mac下nginx监听80端口开机自启/">
+<meta property="og:title" content="你可能没注意的CSS单位">
+<meta property="og:url" content="https://github.com/selayou9527/2014/11/13/七个你可能没注意的CSS单位/">
 <meta property="og:site_name" content="色拉油的技术博客">
-<meta property="og:description" content="安装
-再Mac下安装nginx很简单，使用神器homebrew
-brew install nginx
-这样nginx就会安装到目录
-/usr/local/Cellar/nginx
-配置文件在
-/usr/local/etc/nginx/nginx.conf">
+<meta property="og:description" content="扶今追昔
+CSS中的单位我们经常用到px、pt、em、百分比，px和pt不用多说
+em
+em是相对单位，参考物是父元素的font-size，具有继承的特点
+如果字体大小是16px（浏览器的默认值），那么 1em = 16px
+这样使用换算很复杂，尤其是和px对应，大家总结出了经验
+body {
+    font-size: 62.5%;
+
+} 
+这样之后 1em = 10px 在布局等使用的时候好">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac nginx 80端口开机自启">
-<meta name="twitter:description" content="安装
-再Mac下安装nginx很简单，使用神器homebrew
-brew install nginx
-这样nginx就会安装到目录
-/usr/local/Cellar/nginx
-配置文件在
-/usr/local/etc/nginx/nginx.conf">
+<meta name="twitter:title" content="你可能没注意的CSS单位">
+<meta name="twitter:description" content="扶今追昔
+CSS中的单位我们经常用到px、pt、em、百分比，px和pt不用多说
+em
+em是相对单位，参考物是父元素的font-size，具有继承的特点
+如果字体大小是16px（浏览器的默认值），那么 1em = 16px
+这样使用换算很复杂，尤其是和px对应，大家总结出了经验
+body {
+    font-size: 62.5%;
+
+} 
+这样之后 1em = 10px 在布局等使用的时候好">
 
   
     <link rel="icon" href="/favicon.png">
@@ -84,14 +96,14 @@ brew install nginx
 <script src="/js/jquery.min.js"></script>
 
       <div class="outer">
-        <section id="main"><article id="post-Mac下nginx监听80端口开机自启" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-七个你可能没注意的CSS单位" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/26/Mac下nginx监听80端口开机自启/" class="article-date">
-  <time datetime="2014-10-26T02:57:48.000Z" itemprop="datePublished">Oct 26 2014</time>
+    <a href="/2014/11/13/七个你可能没注意的CSS单位/" class="article-date">
+  <time datetime="2014-11-13T07:49:29.000Z" itemprop="datePublished">Nov 13 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/配置/">配置</a>
+    <a class="article-category-link" href="/categories/css3/">css3</a>
   </div>
 
   </div>
@@ -102,7 +114,7 @@ brew install nginx
         
   
     <h1 class="article-title" itemprop="name">
-      Mac nginx 80端口开机自启
+      你可能没注意的CSS单位
     </h1>
   
 
@@ -112,55 +124,87 @@ brew install nginx
       
         <div id="toc" class="toc-article">
           <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开机自启"><span class="toc-number">2.</span> <span class="toc-text">开机自启</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决办法"><span class="toc-number">3.</span> <span class="toc-text">解决办法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附"><span class="toc-number">4.</span> <span class="toc-text">附</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx常用命令"><span class="toc-number">4.1.</span> <span class="toc-text">nginx常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#homebrew常用命令"><span class="toc-number">4.2.</span> <span class="toc-text">homebrew常用命令</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#扶今追昔"><span class="toc-number">1.</span> <span class="toc-text">扶今追昔</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#em"><span class="toc-number">1.1.</span> <span class="toc-text">em</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#百分比"><span class="toc-number">1.2.</span> <span class="toc-text">百分比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#相对于谁"><span class="toc-number">1.2.1.</span> <span class="toc-text">相对于谁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#意外"><span class="toc-number">1.2.2.</span> <span class="toc-text">意外</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS3开启新时代"><span class="toc-number">2.</span> <span class="toc-text">CSS3开启新时代</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rem"><span class="toc-number">2.1.</span> <span class="toc-text">rem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vw和vh"><span class="toc-number">2.2.</span> <span class="toc-text">vw和vh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vmin和vmax"><span class="toc-number">2.3.</span> <span class="toc-text">vmin和vmax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ch和ex"><span class="toc-number">2.4.</span> <span class="toc-text">ch和ex</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器兼容性"><span class="toc-number">2.5.</span> <span class="toc-text">浏览器兼容性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
         </div>
-        <h1 id="安装">安装</h1>
-<p>再Mac下安装nginx很简单，使用神器<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">homebrew</a></p>
-<pre><code>brew <span class="operator"><span class="keyword">install</span> nginx</span>
-</code></pre><p>这样nginx就会安装到目录</p>
-<pre><code><span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>nginx
-</code></pre><p>配置文件在</p>
-<pre><code><span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>nginx<span class="regexp">/nginx.conf</span>
-</code></pre><a id="more"></a>
+        <h1 id="扶今追昔">扶今追昔</h1>
+<p>CSS中的单位我们经常用到<code>px</code>、<code>pt</code>、<code>em</code>、<code>百分比</code>，px和pt不用多说</p>
+<h2 id="em">em</h2>
+<p>em是相对单位，参考物是父元素的<code>font-size</code>，具有继承的特点</p>
+<p>如果字体大小是16px（浏览器的默认值），那么 <code>1em = 16px</code></p>
+<p>这样使用换算很复杂，尤其是和px对应，大家总结出了经验</p>
+<pre><code><span class="tag">body</span> <span class="rules">{
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">62.5%</span></span></span>;
 
-<h1 id="开机自启">开机自启</h1>
-<p>安装完成后homebrew会给出启动命令及开机启动的配置</p>
-<pre><code>mkdir -p ~<span class="regexp">/Library/</span><span class="constant">LaunchAgents</span>/  
+<span class="rule">}</span></span> 
+</code></pre><p>这样之后 <code>1em = 10px</code> 在布局等使用的时候好换算了很多</p>
+<a id="more"></a>
 
-cp /usr/local/<span class="constant">Cellar</span>/nginx/<span class="number">1.6</span>.<span class="number">2</span>/homebrew.mxcl.nginx.plist ~<span class="regexp">/Library/</span><span class="constant">LaunchAgents</span>/
-
-launchctl load -w ~<span class="regexp">/Library/</span><span class="constant">LaunchAgents</span>/homebrew.mxcl.nginx.plist
-</code></pre><p>正常情况下这样就可以，但是如果我们使用nginx监听80端口则不行，只能每次手工使用root账号或者sudo启动</p>
-<pre><code><span class="built_in">sudo</span> nginx
-</code></pre><h1 id="解决办法">解决办法</h1>
-<p>其实解决办法很简单，给nginx管理员权限即可</p>
-<pre><code>sudo <span class="keyword">chown</span> root:wheel /usr/<span class="keyword">local</span>/Cellar/nginx/<span class="number">1.6</span>.<span class="number">2</span>/bin/nginx  
-sudo <span class="keyword">chmod</span> u+<span class="keyword">s</span> /usr/<span class="keyword">local</span>/Cellar/nginx/<span class="number">1.6</span>.<span class="number">2</span>/bin/nginx
-</code></pre><h1 id="附">附</h1>
-<h2 id="nginx常用命令">nginx常用命令</h2>
+<h2 id="百分比">百分比</h2>
+<p>百分比也是很常见的用法，看似简单其实有些初学者可能注意不到的知识</p>
+<h3 id="相对于谁">相对于谁</h3>
+<p>首先要明确百分比是相对于谁，一般宽泛的将是父元素，但是并不是十分准确</p>
+<ol>
+<li>对于普通元素</li>
+<li>对于<code>position: absolute;</code>的元素是相对于已定位的父元素（offset parent）</li>
+<li>对于<code>position: fixed;</code>的元素是相对于 ViewPort</li>
+</ol>
+<p>viewport：可视窗口，也就是浏览器的window那么大</p>
+<h3 id="意外">意外</h3>
+<ol>
+<li>padding、margin 如果设置了百分比，会发现左右时正常的，用的父元素宽度的百分比，但是发现上下用的不是父元素的高度百分比，用的也是宽度百分比</li>
+<li>继承的时候起后代元素继承的是百分比计算后的值，而不是比例，这个对于<code>line-height</code>的时候经常会遇到坑，还有这样的面试题问你<code>line-height</code>设置为<code>120%</code>和<code>1.2</code>的区别</li>
+</ol>
+<h1 id="CSS3开启新时代">CSS3开启新时代</h1>
+<h2 id="rem">rem</h2>
+<p>em诗歌很不错的单位，但是有个问题就是可能会带来混乱，因为em依赖于父元素的字体大小，这样带来布局上很大的不确定性</p>
+<p><code>rem</code> font size of the root element</p>
+<p>rem相对于根元素<code>html</code>（网页），这样使用起来就安全了很多</p>
+<pre><code><span class="tag">html</span> <span class="rules">{<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">62.5%</span></span></span>; <span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span><span class="rule">}</span></span>
+<span class="tag">body</span> <span class="rules">{<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">1.4rem</span></span></span>; <span class="comment">/*1.4 × 10px = 14px */</span><span class="rule">}</span></span>
+<span class="tag">h1</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">2.4rem</span></span></span>; <span class="comment">/*2.4 × 10px = 24px*/</span><span class="rule">}</span></span>
+</code></pre><p>IE+ 和现代浏览器都已经支持了</p>
+<h2 id="vw和vh">vw和vh</h2>
 <ul>
-<li>nginx  #启动nginx</li>
-<li>nginx -s reload ＃重新加载nginx</li>
-<li>nginx -s stop  #关闭nginx</li>
-<li>ps -ef|grep nginx #查找nginx进程</li>
+<li><code>vw</code> ViewPort宽度，1vw 等于viewport宽度的1%</li>
+<li><code>vh</code> Viewport高度，1vh 等于viewport高的的1%</li>
 </ul>
-<h2 id="homebrew常用命令">homebrew常用命令</h2>
+<p>vw和vh会随着viewport变化自动变化，再也不用js控制全屏神马的了</p>
+<p>甚至有些人丧心病狂的字体大小都用vw和vh控制，来达到字体和viewport大小同步的效果</p>
+<p>IE10＋ 和现代浏览器都支持这两个单位</p>
+<h2 id="vmin和vmax">vmin和vmax</h2>
+<p>这两个单位是针对vw和vh</p>
 <ul>
-<li>brew install <formula>   #安装</formula></li>
-<li>brew uninstall <formula> #卸载</formula></li>
-<li>brew serach <formula> #查找</formula></li>
-<li>brew list #列出使用homebrew安装的包</li>
-<li>brew upgrade  #升级使用homebrew安装的包</li>
-<li>brew update #升级homebrew</li>
+<li><code>vmin</code> vw和vh中比较<strong>小</strong>的值</li>
+<li><code>vmax</code> vw和vh中比较<strong>大</strong>的值</li>
 </ul>
+<p>这两个属性也会随着viewport变化</p>
+<p>IE10+ 和现代浏览器都已经支持vmin</p>
+<p>webkit浏览器之前不支持vmax，现在已经支持，所有现代浏览器已经支持，但是IE<strong>全部</strong>不支持vmax</p>
+<h2 id="ch和ex">ch和ex</h2>
+<p>这两个单位时根据<strong>当前<code>font-family</code></strong>的相对单位</p>
+<ul>
+<li><code>ch</code> 字符<code>0</code>的宽度</li>
+<li><code>ex</code> 小写字符<code>x</code>的高度</li>
+</ul>
+<p>当<code>font-family</code>改变的时候这两个单位的值也会变化，不同字体表现的样式不一样</p>
+<p>IE9+ 和现代浏览器都已经支持</p>
+<h2 id="浏览器兼容性">浏览器兼容性</h2>
+<p>写的时候介绍了一些，大神写了测试页面可以帮我们直观的看到</p>
+<p><a href="http://s.codepen.io/chriscoyier/fullgrid/CiwFD?type=embed&amp;safe=true" target="_blank" rel="external">http://s.codepen.io/chriscoyier/fullgrid/CiwFD?type=embed&amp;safe=true
+</a></p>
+<iframe height="680" width="100%" src="http://s.codepen.io/chriscoyier/fullgrid/CiwFD?type=embed&safe=true"></iframe>
+
+<h1 id="参考">参考</h1>
+<p><a href="http://webdesign.tutsplus.com/articles/7-css-units-you-might-not-know-about--cms-22573" target="_blank" rel="external">7 CSS Units You Might Not Know About</a></p>
+<p><a href="http://www.w3cplus.com/css/the-lengths-of-css.html" target="_blank" rel="external">CSS的长度单位</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/26/Mac下nginx监听80端口开机自启/" data-id="yzipbap5fcp67kqh" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/13/七个你可能没注意的CSS单位/" data-id="psn6waov49dgo66x" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
 
     </footer>
   </div>
@@ -168,19 +212,10 @@ sudo <span class="keyword">chmod</span> u+<span class="keyword">s</span> /usr/<s
     
 <nav id="article-nav">
   
-    <a href="/2014/10/26/Mac MySQL使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Mac MySQL使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/10/22/handlebars语法/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/11/12/unicode-bidi/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">handlebars语法</div>
+      <div class="article-nav-title">direction和unicode-bidi</div>
     </a>
   
 </nav>
