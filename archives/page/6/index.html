@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-nodejs调试" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript节流与防抖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/nodejs调试/" class="article-date">
+    <a href="/2014/10/14/javascript节流与防抖/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/node/">node</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/nodejs调试/">node 调试</a>
+      <a class="article-title" href="/2014/10/14/javascript节流与防抖/">函数节流与函数去抖</a>
     </h1>
   
 
@@ -94,19 +94,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>nodejs的调试问题困扰了很多刚热门的同学，仿佛又回到了<code>alert</code>时代，区别仅仅是换做了<code>console.log</code>，这让习惯了强大的Eclipse、Visual Studio的我们情何以堪。 其实nodejs本身也支持调试，简单介绍一下几种方法<br>
+        <p>函数节流和函数去抖听起来很高端，实际上实现起来并不是很复杂。两个方法都是为了减少函数频繁调用的次数产生的，限看一下概念</p>
+<p><strong>函数节流(throttle)</strong> 当方法被重复调用时，只会在指定的间隔时间内执行一次</p>
+<p><strong>函数去抖(debounce)</strong> 当方法被重复调用时，如果距上次方法被调用的时间小于指定时间，推迟方法执行</p>
+<p>也就是说当函数<code>fn</code>以频率10ms/次的频率被调用1s的时候，正常情况下会被调用100次。我们设定<code>wait</code>时间为200ms，使用函数节流<code>fn</code>只会被调用5次，使用函数去抖，<code>fn</code>只会在1s后等200ms被调用一次<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/nodejs调试/#more">Read More</a>
+            <a href="/2014/10/14/javascript节流与防抖/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/nodejs调试/" data-id="2ukc6eemmn00446b" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript节流与防抖/" data-id="1i6hsqjal1ojqm8g" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -115,14 +118,14 @@
 
 
   
-    <article id="post-css布局" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript逗号冒号括号" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/css布局/" class="article-date">
+    <a href="/2014/10/14/javascript逗号冒号括号/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -133,7 +136,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
+      <a class="article-title" href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
     </h1>
   
 
@@ -141,20 +144,71 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>页面布局，或者是在页面上做些小效果的时候经常会用到 display,position和float 属性，如果对它们不是很了解的话，很容易出现一些莫名其妙的效果，痛定思痛读了《CSS Mastery》后总结一下</p>
-<p>让我们从基础的CSS知识谈起，相信很多初学者和小弟一样不明白CSS原理，一味追求效果，结果页面漏洞百出，错误匪夷所思，关于盒模型我就不多说了，网上很多，注意一下IE和其他浏览器（W3C规范）的区别就好了<br>
+        <p>在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下</p>
+<h2 id="逗号">逗号</h2>
+<p>逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/css布局/#more">Read More</a>
+            <a href="/2014/10/14/javascript逗号冒号括号/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/css布局/" data-id="wqbj98t4cotnrbrt" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript逗号冒号括号/" data-id="6s0vsk7hlcfxlhau" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-history对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/history对象/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html5/">html5</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/history对象/">history</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="history对象">history对象</h1>
+<p>javascript中history对象用来管理浏览器浏览历史</p>
+<p><img src="http://lsly1989.qiniudn.com/history%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2019.27.41.png" alt=""></p>
+
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/history对象/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/history对象/" data-id="kw6ewenhvcnxn96m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -206,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/css容易忽略的特性/" data-id="1uln04av1mqu0to4" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/css容易忽略的特性/" data-id="1norit1rz0irqi26" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -218,14 +272,14 @@
 
 
   
-    <article id="post-history对象" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-iconfont" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/history对象/" class="article-date">
+    <a href="/2014/10/14/iconfont/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/html5/">html5</a>
+    <a class="article-category-link" href="/categories/css3/">css3</a>
   </div>
 
   </div>
@@ -236,7 +290,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/history对象/">history</a>
+      <a class="article-title" href="/2014/10/14/iconfont/">icon font</a>
     </h1>
   
 
@@ -244,71 +298,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="history对象">history对象</h1>
-<p>javascript中history对象用来管理浏览器浏览历史</p>
-<p><img src="http://lsly1989.qiniudn.com/history%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202014-09-28%2019.27.41.png" alt=""></p>
-
+        <p>所谓icon font是指将页面上使用的icon不使用图片，而是做成字体一样的东西。这是基于各个浏览器都对CSS3的 <code>@font-face</code>的支持，我们将icon也用font实现。</p>
+<h2 id="为什么使用iconfont">为什么使用iconfont</h2>
+<ol>
+<li>字体文件比图片小</li>
+<li>矢量图形，在普通屏幕上适配，到高清屏幕后不会模糊</li>
+<li>在更换theme等操作的时候可以简单通过CSS控制就可以改变icon的大小，颜色等</li>
+<li>透明效果也兼容IE6
         
           <p class="article-more-link">
-            <a href="/2014/10/14/history对象/#more">Read More</a>
+            <a href="/2014/10/14/iconfont/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/history对象/" data-id="kv9n5jkyctb09cnl" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="vbge16cst61j6jx4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript逗号冒号括号" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/javascript逗号冒号括号/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript逗号冒号括号/">关于逗号、冒号、括号那点儿事儿</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Javascript中逗号、冒号和括号随处可见，但是我们可能并不是十分清楚它们在不同语境下的含义，网上很多流行的Javascript小测验也喜欢在这三个符号上做文章，简单分析一下</p>
-<h2 id="逗号">逗号</h2>
-<p>逗号我们常见的用法就是在连续声明一些变量的时候，可以少些很多var<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/javascript逗号冒号括号/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript逗号冒号括号/" data-id="p68wykskd8wme22u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
 
     </footer>
   </div>
@@ -319,7 +327,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/7/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -330,7 +338,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/EDM/" style="font-size: 11.43px;">EDM</a><a href="/tags/Go/" style="font-size: 11.43px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a><a href="/tags/css/" style="font-size: 17.14px;">css</a><a href="/tags/css3/" style="font-size: 18.57px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 11.43px;">html</a><a href="/tags/html5/" style="font-size: 11.43px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.43px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a><a href="/tags/node/" style="font-size: 11.43px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.71px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 14.29px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.43px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 14.29px;">配置</a>
+      <a href="/tags/EDM/" style="font-size: 11.25px;">EDM</a><a href="/tags/Go/" style="font-size: 11.25px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.25px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 18.75px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 11.25px;">html</a><a href="/tags/html5/" style="font-size: 11.25px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.25px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 12.50px;">nginx</a><a href="/tags/node/" style="font-size: 11.25px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 16.25px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 13.75px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.25px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
     </div>
   </div>
 
@@ -339,7 +347,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -349,6 +357,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/11/14/Sublime打开加入右键菜单/">Sublime打开加入右键菜单</a>
+          </li>
         
           <li>
             <a href="/2014/11/14/七个你可能没注意的CSS单位/">你可能没注意的CSS单位</a>
@@ -424,10 +436,6 @@
         
           <li>
             <a href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
           </li>
         
       </ul>

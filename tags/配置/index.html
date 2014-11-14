@@ -68,6 +68,81 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Sublime打开加入右键菜单" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/14/Sublime打开加入右键菜单/" class="article-date">
+  <time datetime="2014-11-14T08:17:32.000Z" itemprop="datePublished">Nov 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/配置/">配置</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/14/Sublime打开加入右键菜单/">Sublime打开加入右键菜单</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#windows"><span class="toc-number">1.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac"><span class="toc-number">2.</span> <span class="toc-text">Mac</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+        <h1 id="windows">windows</h1>
+<p>Window比较简单，网上各种方法，基本原理就是往注册表里写入</p>
+<pre><code>Windows Registry Editor Version 5.00
+
+<span class="special">[</span>HKEY_CLASSES_ROOT<span class="command">\*</span><span class="command">\shell</span><span class="command">\SubLime</span><span class="special">]</span>
+@="edit with Sublime Text"
+
+<span class="special">[</span>HKEY_CLASSES_ROOT<span class="command">\*</span><span class="command">\shell</span><span class="command">\SubLime</span><span class="command">\Command</span><span class="special">]</span>
+@="C:<span class="command">\\</span>Program Files<span class="command">\\</span>Sublime Text 3<span class="command">\\</span>sublime_text.exe <span class="command">\"</span><span class="comment">%1\""</span>
+
+<span class="special">[</span>HKEY_CLASSES_ROOT<span class="command">\Directory</span><span class="command">\shell</span><span class="command">\SubLime</span><span class="special">]</span>
+@="edit with Sublime Text"
+
+<span class="special">[</span>HKEY_CLASSES_ROOT<span class="command">\Directory</span><span class="command">\shell</span><span class="command">\SubLime</span><span class="command">\Command</span><span class="special">]</span>
+@="C:<span class="command">\\</span>Program Files<span class="command">\\</span>Sublime Text 3<span class="command">\\</span>sublime_text.exe -a <span class="command">\"</span><span class="comment">%1\""</span>
+</code></pre><p>把安装路径改成自己机器的，然后把文件保存为<code>.reg</code>，双击就可以了</p>
+<h1 id="Mac">Mac</h1>
+<p><strong>1 打开Automator</strong></p>
+<p>用<code>Spotlight</code>搜索就行</p>
+<p><strong>2 Choose a type for your document时选择Service</strong></p>
+<p><img src="http://lsly1989.qiniudn.com/xxxasddbgfbSnip20140424_2.png" alt="image"></p>
+<p><strong>3 搜索<code>Open Finder Items</code></strong>，鼠标选中拖到右边</p>
+<p><strong>4 <code>Open with</code>选择 Sublime Text</strong></p>
+<p><img src="http://lsly1989.qiniudn.com/xxxasddbgfbSnip20140424_3.png" alt="image"></p>
+<p><strong>5 <code>Command + S</code>保存，写上名字<code>使用Sublime Text打开</code></strong></p>
+<p>搞定！</p>
+<h1 id="参考">参考</h1>
+<p><a href="http://www.chenyudong.com/archives/content-menu-edit-width-sublime-text.html" target="_blank" rel="external">将sublime text添加到右键菜单中</a></p>
+<p><a href="http://liuzhichao.com/p/1927.html" target="_blank" rel="external">OS X右键Services集成Sublime text</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/11/14/Sublime打开加入右键菜单/" data-id="0jsdo617ywlvzyrh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-前nginx后Apache＋Node反向代理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/26/前nginx后Apache＋Node反向代理/" class="article-date">
@@ -105,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/26/前nginx后Apache＋Node反向代理/" data-id="tmflk4ieoqoaseyk" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/26/前nginx后Apache＋Node反向代理/" data-id="1ubmmvehvjfvbc6i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
@@ -154,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/26/Mac下nginx配置PHP/" data-id="68f0d4yhcxe8sj1r" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/26/Mac下nginx配置PHP/" data-id="1khdw4na4wvrfiwc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
@@ -205,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/26/Mac MySQL使用/" data-id="05l62nfikhphjl72" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/26/Mac MySQL使用/" data-id="7qwzyo7c65hduejd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
@@ -259,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/26/Mac下nginx监听80端口开机自启/" data-id="hvou6tt42ziat8kp" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/26/Mac下nginx监听80端口开机自启/" data-id="eat17cg676rentp3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
@@ -280,7 +355,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/EDM/" style="font-size: 11.43px;">EDM</a><a href="/tags/Go/" style="font-size: 11.43px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a><a href="/tags/css/" style="font-size: 17.14px;">css</a><a href="/tags/css3/" style="font-size: 18.57px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 11.43px;">html</a><a href="/tags/html5/" style="font-size: 11.43px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.43px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a><a href="/tags/node/" style="font-size: 11.43px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 15.71px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 14.29px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.43px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 14.29px;">配置</a>
+      <a href="/tags/EDM/" style="font-size: 11.25px;">EDM</a><a href="/tags/Go/" style="font-size: 11.25px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.25px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 18.75px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 11.25px;">html</a><a href="/tags/html5/" style="font-size: 11.25px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.25px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 12.50px;">nginx</a><a href="/tags/node/" style="font-size: 11.25px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 16.25px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 13.75px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.25px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
     </div>
   </div>
 
@@ -289,7 +364,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -299,6 +374,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/11/14/Sublime打开加入右键菜单/">Sublime打开加入右键菜单</a>
+          </li>
         
           <li>
             <a href="/2014/11/14/七个你可能没注意的CSS单位/">你可能没注意的CSS单位</a>
@@ -374,10 +453,6 @@
         
           <li>
             <a href="/2014/10/18/postMessage使用场景/">postMessage的使用场景</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/18/npm实用命令/">npm 实用命令</a>
           </li>
         
       </ul>
