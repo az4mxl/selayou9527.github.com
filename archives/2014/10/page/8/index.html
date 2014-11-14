@@ -68,9 +68,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-javascript模版引擎" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎/" class="article-date">
+    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎/">最简单的JavaScript模版引擎</a>
+      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
     </h1>
   
 
@@ -94,16 +94,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>听说Javascript模版引擎很久了，也用过ejs、handlebars等，某天无意在网上看到jQuery作者John Resig几行代码写的一个最简单的Javascript模版引擎，忍不住看了一下，原来模版引擎可以这么简单，写篇博客推倒一下大神的思路，实现个最简单的Javascript模版引擎<br>
+        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
+<pre><code>function tmpl(id,data){
+    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
+    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
+        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
+        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
+        .replace(/&lt;%/g,<span class="string">"');"</span>)
+        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
+        +<span class="string">"');}return p.join('');"</span>;
+    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
+    <span class="keyword">return</span> fn(data);
+}
+</code></pre>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎/#more">Read More</a>
+            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎/" data-id="viqi1ok6getesfx9" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎优化/" data-id="m3pj5qxuvjklmmfy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
@@ -115,14 +127,14 @@
 
 
   
-    <article id="post-media queries" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-jQuery deferred" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/media queries/" class="article-date">
+    <a href="/2014/10/14/jQuery deferred/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css3/">css3</a>
+    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
   </div>
 
   </div>
@@ -133,7 +145,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/media queries/">media queries</a>
+      <a class="article-title" href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
     </h1>
   
 
@@ -141,22 +153,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们可能见过这样的代码</p>
-<pre><code>  &lt;link <span class="variable">href=</span><span class="string">"css/reset.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"screen"</span> /&gt;
-  &lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
-</code></pre><p>其中的<code>media</code>属性是指媒体类型，在CSS2中允许通过<code>media</code>属性指定CSS的作用范围，<code>media=&quot;print&quot;</code>表示css在打印的时候生效，其它时候不生效，所有媒体类型<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank" rel="external">Recognized media types</a><br>
+        <p>Deferred对象是Promise/A规范的一种实现，是jQuery1.5引入的，通过调用<code>jQuery.Deferred()</code>构造函数创建，提供了链式调用回调函数的功能，它能够注册回调函数到一个队列中, 依次调用该队列中的回调函数,并且能够将调链中上一个函数(同步或者异步)的返回状态传递到下一个回调函数中</p>
+
         
           <p class="article-more-link">
-            <a href="/2014/10/14/media queries/#more">Read More</a>
+            <a href="/2014/10/14/jQuery deferred/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="vlapown11p4nhg1k" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="tkhd5h5f07369eeo" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
