@@ -18,7 +18,7 @@ body {
 这样之后 1em = 10px 在布局等使用的时候好">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你可能没注意的CSS单位">
-<meta property="og:url" content="https://github.com/selayou9527/2014/11/13/七个你可能没注意的CSS单位/">
+<meta property="og:url" content="https://github.com/selayou9527/2014/11/14/七个你可能没注意的CSS单位/">
 <meta property="og:site_name" content="色拉油的技术博客">
 <meta property="og:description" content="扶今追昔
 CSS中的单位我们经常用到px、pt、em、百分比，px和pt不用多说
@@ -99,8 +99,8 @@ body {
       <div class="outer">
         <section id="main"><article id="post-七个你可能没注意的CSS单位" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/13/七个你可能没注意的CSS单位/" class="article-date">
-  <time datetime="2014-11-13T07:57:41.000Z" itemprop="datePublished">Nov 13 2014</time>
+    <a href="/2014/11/14/七个你可能没注意的CSS单位/" class="article-date">
+  <time datetime="2014-11-14T01:54:12.000Z" itemprop="datePublished">Nov 14 2014</time>
 </a>
     
   <div class="article-category">
@@ -143,31 +143,31 @@ body {
 <h2 id="百分比">百分比</h2>
 <p>百分比也是很常见的用法，看似简单其实有些初学者可能注意不到的知识</p>
 <h3 id="相对于谁">相对于谁</h3>
-<p>首先要明确百分比是相对于谁，一般宽泛的将是父元素，但是并不是十分准确</p>
+<p>首先要明确百分比是相对于谁，宽泛的讲是父元素，但是并不是十分准确</p>
 <ol>
-<li>对于普通元素</li>
+<li>对于普通定位元素就是我们理解的父元素</li>
 <li>对于<code>position: absolute;</code>的元素是相对于已定位的父元素（offset parent）</li>
 <li>对于<code>position: fixed;</code>的元素是相对于 ViewPort</li>
 </ol>
 <p>viewport：可视窗口，也就是浏览器的window那么大</p>
 <h3 id="意外">意外</h3>
 <ol>
-<li>padding、margin 如果设置了百分比，会发现左右时正常的，用的父元素宽度的百分比，但是发现上下用的不是父元素的高度百分比，用的也是宽度百分比</li>
-<li>继承的时候起后代元素继承的是百分比计算后的值，而不是比例，这个对于<code>line-height</code>的时候经常会遇到坑，还有这样的面试题问你<code>line-height</code>设置为<code>120%</code>和<code>1.2</code>的区别</li>
+<li>padding、margin 如果设置了百分比，会发现左右和预期一样，用的父元素宽度的百分比，但是用的也是<strong>宽度</strong>百分比，而不是想象中的高度的百分比</li>
+<li>后代元素继承的是百分比<strong>计算后的值</strong>，而不是原百分比，这个对于<code>line-height</code>的时候经常会遇到坑，还有这样的面试题问你<code>line-height</code>设置为<code>120%</code>和<code>1.2</code>的区别</li>
 </ol>
 <h1 id="CSS3开启新时代">CSS3开启新时代</h1>
 <h2 id="rem">rem</h2>
-<p>em诗歌很不错的单位，但是有个问题就是可能会带来混乱，因为em依赖于父元素的字体大小，这样带来布局上很大的不确定性</p>
+<p>em是个很不错的单位，但是有个问题就是可能会带来混乱，因为em依赖于父元素的字体大小，各个元素父元素的字体尺寸不一定一样，会带来布局上很大的不确定性</p>
 <p><code>rem</code> font size of the root element</p>
 <p>rem相对于根元素<code>html</code>（网页），这样使用起来就安全了很多</p>
 <pre><code><span class="tag">html</span> <span class="rules">{<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">62.5%</span></span></span>; <span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span><span class="rule">}</span></span>
 <span class="tag">body</span> <span class="rules">{<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">1.4rem</span></span></span>; <span class="comment">/*1.4 × 10px = 14px */</span><span class="rule">}</span></span>
 <span class="tag">h1</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">2.4rem</span></span></span>; <span class="comment">/*2.4 × 10px = 24px*/</span><span class="rule">}</span></span>
-</code></pre><p>IE+ 和现代浏览器都已经支持了</p>
+</code></pre><p>IE9+ 和现代浏览器都已经支持了</p>
 <h2 id="vw和vh">vw和vh</h2>
 <ul>
-<li><code>vw</code> ViewPort宽度，1vw 等于viewport宽度的1%</li>
-<li><code>vh</code> Viewport高度，1vh 等于viewport高的的1%</li>
+<li><code>vw</code> Viewport宽度，<strong>1vw</strong> 等于viewport宽度的1%</li>
+<li><code>vh</code> Viewport高度，<strong>1vh</strong> 等于viewport高的的1%</li>
 </ul>
 <p>vw和vh会随着viewport变化自动变化，再也不用js控制全屏神马的了</p>
 <p>甚至有些人丧心病狂的字体大小都用vw和vh控制，来达到字体和viewport大小同步的效果</p>
@@ -203,7 +203,7 @@ body {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/11/13/七个你可能没注意的CSS单位/" data-id="w9npv5bup40qwru6" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/14/七个你可能没注意的CSS单位/" data-id="hc60ip5ke4k4xeyq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -271,7 +271,7 @@ body {
       <ul>
         
           <li>
-            <a href="/2014/11/13/七个你可能没注意的CSS单位/">你可能没注意的CSS单位</a>
+            <a href="/2014/11/14/七个你可能没注意的CSS单位/">你可能没注意的CSS单位</a>
           </li>
         
           <li>

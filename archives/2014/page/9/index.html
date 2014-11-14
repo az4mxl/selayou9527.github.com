@@ -68,6 +68,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-javascript正则表达式2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/javascript正则表达式2/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/javascript正则表达式2/">JavaScript正则表达式——相关方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上篇博客<a href="http://lsly1989.github.io/2014/08/24/javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F1/" target="_blank" rel="external">JavaScript 正则表达式——基本语法</a>介绍了JavaScript正则表达式的语法，有了这些基本知识，可以看看正则表达式在JavaScript的应用了，在一切开始之前，看看RegExp实例的几个属性</p>
+<p><img src="http://lsly1989.qiniudn.com/1.png" alt=""><br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/javascript正则表达式2/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript正则表达式2/" data-id="430zqm3xmrgi21fb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-D2报名页面的一些小效果" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/14/D2报名页面的一些小效果/" class="article-date">
@@ -103,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/D2报名页面的一些小效果/" data-id="z21ujqww6kqjxb5j" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/D2报名页面的一些小效果/" data-id="fu43ro2evhxs1ue5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码/">源码</a></li></ul>
@@ -115,14 +163,14 @@
 
 
   
-    <article id="post-requestAnimationFrame高效动画" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-有趣的Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/requestAnimationFrame高效动画/" class="article-date">
+    <a href="/2014/10/14/有趣的Linux命令/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/shell/">shell</a>
   </div>
 
   </div>
@@ -133,7 +181,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/requestAnimationFrame高效动画/">requestAnimationFrame高效动画</a>
+      <a class="article-title" href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
     </h1>
   
 
@@ -141,79 +189,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="对比">对比</h2>
-<p>在之前博客中提到了requestAnimationFrame优于setTimeout，看到Internet Explorer Dev Center中一个对比的示例做的很有意思，搬过来学习一下，先看看效果<br>
+        <h1 id="find命令的xargs">find命令的xargs</h1>
+<p>在Linux上find命令的曝光率很高，我们希望对find查找出的文件进行过滤或者操作怎么办呢，这时候就可以利用<code>xargs</code>了，它可以把find结果当作下一个指令的参数传入</p>
+<pre><code><span class="keyword">find</span> . -name * | xargs <span class="keyword">grep</span> <span class="string">'.'</span>
+</code></pre><p>查找文件夹下包含<code>.</code> 的文件</p>
+<pre><code><span class="title">find</span> . -name <span class="regexp">*.txt</span> | xargs rm -rf
+</code></pre><p>删除所有.txt文件</p>
+
         
           <p class="article-more-link">
-            <a href="/2014/10/14/requestAnimationFrame高效动画/#more">Read More</a>
+            <a href="/2014/10/14/有趣的Linux命令/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/requestAnimationFrame高效动画/" data-id="5ov83ywlxsns2vf2" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/有趣的Linux命令/" data-id="720u1zoy6a63zf32" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
-<pre><code>function tmpl(id,data){
-    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
-    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
-        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
-        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
-        .replace(/&lt;%/g,<span class="string">"');"</span>)
-        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
-        +<span class="string">"');}return p.join('');"</span>;
-    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
-    <span class="keyword">return</span> fn(data);
-}
-</code></pre>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎优化/" data-id="u9kbilbh0wpfakxh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
 
     </footer>
   </div>
@@ -263,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="x5kprlb1iwy1y397" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/iconfont/" data-id="s4ff98ifu8wzt76l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
@@ -275,14 +269,14 @@
 
 
   
-    <article id="post-media queries" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-canvas简单介绍" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/media queries/" class="article-date">
+    <a href="/2014/10/14/canvas简单介绍/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/css3/">css3</a>
+    <a class="article-category-link" href="/categories/animation/">animation</a>
   </div>
 
   </div>
@@ -293,7 +287,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/media queries/">media queries</a>
+      <a class="article-title" href="/2014/10/14/canvas简单介绍/">Canvas简单介绍</a>
     </h1>
   
 
@@ -301,22 +295,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们可能见过这样的代码</p>
-<pre><code>  &lt;link <span class="variable">href=</span><span class="string">"css/reset.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"screen"</span> /&gt;
-  &lt;link <span class="variable">href=</span><span class="string">"css/print.css"</span> <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">type=</span><span class="string">"text/css"</span> <span class="variable">media=</span><span class="string">"print"</span> /&gt;
-</code></pre><p>其中的<code>media</code>属性是指媒体类型，在CSS2中允许通过<code>media</code>属性指定CSS的作用范围，<code>media=&quot;print&quot;</code>表示css在打印的时候生效，其它时候不生效，所有媒体类型<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank" rel="external">Recognized media types</a><br>
+        <h2 id="初识canvas">初识canvas</h2>
+<p>canvas是html5引入的新标签，可以通过Javascript API 在HTML上绘制图形、图像，在页面上创建canvas只需要使用canvas标签就行<br>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/media queries/#more">Read More</a>
+            <a href="/2014/10/14/canvas简单介绍/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/media queries/" data-id="tadh9if8ofhupuog" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/canvas简单介绍/" data-id="795n1ptyx4dkbn7d" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
 
     </footer>
   </div>
@@ -359,7 +351,7 @@
       <ul>
         
           <li>
-            <a href="/2014/11/13/七个你可能没注意的CSS单位/">你可能没注意的CSS单位</a>
+            <a href="/2014/11/14/七个你可能没注意的CSS单位/">你可能没注意的CSS单位</a>
           </li>
         
           <li>
