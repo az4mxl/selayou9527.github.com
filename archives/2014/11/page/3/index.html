@@ -3,35 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>handlebars语法 | 色拉油的技术博客</title>
+  <title>Archives: 2014/11 | 色拉油的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="handlebars是众多前端模版引擎的一个，语法上和Mustache几乎兼容
-Getting Start
-handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars的表达式
-&lt;div class='entry'&gt;
-  &lt;h1&gt;{{title}}&lt;/h1&gt;
-  &lt;div class='body'&gt;
-    {{body}}">
-<meta property="og:type" content="article">
-<meta property="og:title" content="handlebars语法">
-<meta property="og:url" content="https://github.com/selayou9527/2014/10/22/handlebars语法/">
+  <meta name="description" content="靡不有初，鲜克有终">
+<meta property="og:type" content="website">
+<meta property="og:title" content="色拉油的技术博客">
+<meta property="og:url" content="https://github.com/selayou9527/archives/2014/11/page/3/">
 <meta property="og:site_name" content="色拉油的技术博客">
-<meta property="og:description" content="handlebars是众多前端模版引擎的一个，语法上和Mustache几乎兼容
-Getting Start
-handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars的表达式
-&lt;div class='entry'&gt;
-  &lt;h1&gt;{{title}}&lt;/h1&gt;
-  &lt;div class='body'&gt;
-    {{body}}">
+<meta property="og:description" content="靡不有初，鲜克有终">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="handlebars语法">
-<meta name="twitter:description" content="handlebars是众多前端模版引擎的一个，语法上和Mustache几乎兼容
-Getting Start
-handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars的表达式
-&lt;div class='entry'&gt;
-  &lt;h1&gt;{{title}}&lt;/h1&gt;
-  &lt;div class='body'&gt;
-    {{body}}">
+<meta name="twitter:title" content="色拉油的技术博客">
+<meta name="twitter:description" content="靡不有初，鲜克有终">
 
   
     <link rel="icon" href="/favicon.png">
@@ -84,14 +66,16 @@ handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars�
 <script src="/js/jquery.min.js"></script>
 
       <div class="outer">
-        <section id="main"><article id="post-handlebars语法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-EDM制作要点" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/22/handlebars语法/" class="article-date">
-  <time datetime="2014-10-22T03:06:09.000Z" itemprop="datePublished">Oct 22 2014</time>
+    <a href="/2014/11/02/EDM制作要点/" class="article-date">
+  <time datetime="2014-11-02T09:55:57.000Z" itemprop="datePublished">Nov 2 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/html/">html</a>
   </div>
 
   </div>
@@ -101,8 +85,8 @@ handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars�
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      handlebars语法
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/02/EDM制作要点/">EDM制作要点</a>
     </h1>
   
 
@@ -110,80 +94,32 @@ handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div id="toc" class="toc-article">
-          <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Getting_Start"><span class="toc-number">1.</span> <span class="toc-text">Getting Start</span></a></li></ol>
-        </div>
-        <p>handlebars是众多前端模版引擎的一个，语法上和<code>Mustache</code>几乎兼容</p>
-<h1 id="Getting_Start">Getting Start</h1>
-<p>handlebars模版看起来和平常的HTML一样，只是包含一些handlerbars的表达式</p>
-<pre><code><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">h1</span>&gt;</span></span><span class="expression">{{<span class="variable">title</span>}}</span><span class="xml"><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"body"</span>&gt;</span>
-    </span><span class="expression">{{<span class="variable">body</span>}}</span><span class="xml">
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span>
-</code></pre><a id="more"></a>
-
-<p>handlerbars的表达式使用<code>{{</code>content<code>}}</code>的形式，我们可以通过在<code>script</code>标签中放模版内容</p>
-<pre><code>&lt;script id=<span class="string">"entry-template"</span> <span class="keyword">type</span>=<span class="string">"text/x-handlebars-template"</span>&gt;
-  <span class="keyword">template</span> content
-&lt;/script&gt;
-</code></pre><p>使用<code>Handlebars.compile</code>来编译模版</p>
-<pre><code><span class="keyword">var</span> source   = $(<span class="string">"#entry-template"</span>).html();
-<span class="keyword">var</span> <span class="keyword">template</span> = <span class="type">Handlebars</span>.compile(source);
-</code></pre>
+        <p>EDM是Email Direct Marketing的缩写，虽然也是html，但是和我们在网页上使用的html不同，因为安全原因，各大邮箱服务商级邮件客户端都会对邮件内容进行一定程度上的处理，不会按照你写的原本的html展示<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/02/EDM制作要点/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/22/handlebars语法/" data-id="ijubsf3n9do11fzi" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/11/02/EDM制作要点/" data-id="71l81ovp37qw2wq4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EDM/">EDM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
 
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2014/10/26/Mac下nginx监听80端口开机自启/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Mac nginx 80端口开机自启
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/10/21/Velocity语法/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Velocity语法</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
 
-<section id="comments">
-  <!-- Duoshuo Comment BEGIN -->
-  <div class="ds-thread"></div>
-    <script type="text/javascript">
-      var duoshuoQuery = {short_name:"sunnyxx"};
-        (function() {
-          var ds = document.createElement('script');
-          ds.type = 'text/javascript';ds.async = true;
-          ds.src = 'http://static.duoshuo.com/embed.js';
-          ds.charset = 'UTF-8';
-          (document.getElementsByTagName('head')[0]
-          || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
-  </script>
-<!-- Duoshuo Comment END -->
-</section>
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2014/11/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2014/11/">1</a><a class="page-number" href="/archives/2014/11/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 </section>
         
           <aside id="sidebar">

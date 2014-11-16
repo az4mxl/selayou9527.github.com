@@ -68,6 +68,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Intro to CSS 3D transforms" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/17/Intro to CSS 3D transforms/" class="article-date">
+  <time datetime="2014-10-17T02:35:17.000Z" itemprop="datePublished">Oct 17 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css3/">css3</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/17/Intro to CSS 3D transforms/">Intro to CSS 3D transforms[翻译部分]</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文地址：<a href="http://desandro.github.io/3dtransforms/" target="_blank" rel="external">Intro to CSS 3D transforms</a>，本文只是翻译了其中的一部分，省去了作者写文章的原因浏览器兼容部分（已经过时）<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/17/Intro to CSS 3D transforms/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/17/Intro to CSS 3D transforms/" data-id="p1czyvstwor7i4ue" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-css3Transforms&amp;Animations" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/16/css3Transforms&Animations/" class="article-date">
@@ -105,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/16/css3Transforms&Animations/" data-id="eoytrgdz29h5pdvs" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/16/css3Transforms&Animations/" data-id="v4uxqlazilypltoh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
@@ -117,14 +164,14 @@
 
 
   
-    <article id="post-有趣的Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript模版引擎优化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/14/有趣的Linux命令/" class="article-date">
+    <a href="/2014/10/14/javascript模版引擎优化/" class="article-date">
   <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/shell/">shell</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -135,7 +182,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/有趣的Linux命令/">有趣的Linux命令</a>
+      <a class="article-title" href="/2014/10/14/javascript模版引擎优化/">简单JavaScript模版引擎优化</a>
     </h1>
   
 
@@ -143,25 +190,86 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="find命令的xargs">find命令的xargs</h1>
-<p>在Linux上find命令的曝光率很高，我们希望对find查找出的文件进行过滤或者操作怎么办呢，这时候就可以利用<code>xargs</code>了，它可以把find结果当作下一个指令的参数传入</p>
-<pre><code><span class="keyword">find</span> . -name * | xargs <span class="keyword">grep</span> <span class="string">'.'</span>
-</code></pre><p>查找文件夹下包含<code>.</code> 的文件</p>
-<pre><code><span class="title">find</span> . -name <span class="regexp">*.txt</span> | xargs rm -rf
-</code></pre><p>删除所有.txt文件</p>
-
+        <p>在上篇博客<a href="">最简单的JavaScript模板引擎</a> 说了一下一个最简单的JavaScript模版引擎的原理与实现，作出了一个简陋的版本，今天优化一下，使之能够胜任日常拼接html工作，先把上次写的模版函数粘出来</p>
+<pre><code>function tmpl(id,data){
+    <span class="keyword">var</span> html=document.getElementById(id).innerHTML;
+    <span class="keyword">var</span> <span class="literal">result</span>=<span class="string">"var p=[];with(obj){p.push('"</span>
+        +html.replace(/[\r\n\t]/g,<span class="string">" "</span>)
+        .replace(/&lt;%=(.*?)%&gt;/g,<span class="string">"');p.push($1);p.push('"</span>)
+        .replace(/&lt;%/g,<span class="string">"');"</span>)
+        .replace(/%&gt;/g,<span class="string">"p.push('"</span>)
+        +<span class="string">"');}return p.join('');"</span>;
+    <span class="keyword">var</span> fn=new <span class="type">Function</span>(<span class="string">"obj"</span>,<span class="literal">result</span>);
+    <span class="keyword">return</span> fn(data);
+}
+</code></pre>
         
           <p class="article-more-link">
-            <a href="/2014/10/14/有趣的Linux命令/#more">Read More</a>
+            <a href="/2014/10/14/javascript模版引擎优化/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/有趣的Linux命令/" data-id="ht5tw149yajydl6u" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/javascript模版引擎优化/" data-id="wmk4jznsyea6mevx" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模版引擎/">模版引擎</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css容易忽略的特性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/14/css容易忽略的特性/" class="article-date">
+  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/14/css容易忽略的特性/">容易被忽略CSS特性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS初学感觉很简单，但随着学习的深入才感觉CSS的水由多深，平常总会遇到各种坑，先总结一些经常遇到的坑</p>
+<h2 id="大小写不敏感">大小写不敏感</h2>
+<p>虽然我们平时在写CSS的时候都是用小写，但其实CSS并不是大小写敏感的</p>
+<pre><code><span class="class">.test</span><span class="rules">{
+    <span class="rule"><span class="attribute">background-COLOR</span>:<span class="value"><span class="hexcolor">#a00</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>
+        
+          <p class="article-more-link">
+            <a href="/2014/10/14/css容易忽略的特性/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/selayou9527/2014/10/14/css容易忽略的特性/" data-id="3hesfvqy1p1euuww" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
 
     </footer>
   </div>
@@ -208,106 +316,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/history对象/" data-id="xrbwwmi2v3nxu1t8" class="article-share-link">Share</a>
+      <a data-url="https://github.com/selayou9527/2014/10/14/history对象/" data-id="4bpo5z3tbdidf8m2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jQuery deferred" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/jQuery deferred/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/jQuery deferred/">jQuery deferred</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Deferred对象是Promise/A规范的一种实现，是jQuery1.5引入的，通过调用<code>jQuery.Deferred()</code>构造函数创建，提供了链式调用回调函数的功能，它能够注册回调函数到一个队列中, 依次调用该队列中的回调函数,并且能够将调链中上一个函数(同步或者异步)的返回状态传递到下一个回调函数中</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/jQuery deferred/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/jQuery deferred/" data-id="20o8mrrhg013otd5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-css布局" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/css布局/" class="article-date">
-  <time datetime="2014-10-14T04:18:27.000Z" itemprop="datePublished">Oct 14 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/css/">css</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/css布局/">CSS布局 ——从display，position， float属性谈起</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>页面布局，或者是在页面上做些小效果的时候经常会用到 display,position和float 属性，如果对它们不是很了解的话，很容易出现一些莫名其妙的效果，痛定思痛读了《CSS Mastery》后总结一下</p>
-<p>让我们从基础的CSS知识谈起，相信很多初学者和小弟一样不明白CSS原理，一味追求效果，结果页面漏洞百出，错误匪夷所思，关于盒模型我就不多说了，网上很多，注意一下IE和其他浏览器（W3C规范）的区别就好了<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/14/css布局/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/selayou9527/2014/10/14/css布局/" data-id="f2kd1onf06gs5bji" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
 
     </footer>
   </div>
@@ -329,7 +341,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/EDM/" style="font-size: 12.50px;">EDM</a><a href="/tags/Go/" style="font-size: 11.25px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.25px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 18.75px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 11.25px;">html</a><a href="/tags/html5/" style="font-size: 11.25px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.25px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 12.50px;">nginx</a><a href="/tags/node/" style="font-size: 11.25px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 16.25px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 13.75px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.25px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
+      <a href="/tags/EDM/" style="font-size: 12.50px;">EDM</a><a href="/tags/Go/" style="font-size: 11.25px;">Go</a><a href="/tags/MySQL/" style="font-size: 10.00px;">MySQL</a><a href="/tags/Velocity/" style="font-size: 10.00px;">Velocity</a><a href="/tags/apache/" style="font-size: 10.00px;">apache</a><a href="/tags/canvas/" style="font-size: 11.25px;">canvas</a><a href="/tags/css/" style="font-size: 17.50px;">css</a><a href="/tags/css3/" style="font-size: 18.75px;">css3</a><a href="/tags/es6/" style="font-size: 10.00px;">es6</a><a href="/tags/html/" style="font-size: 12.50px;">html</a><a href="/tags/html5/" style="font-size: 11.25px;">html5</a><a href="/tags/jQuery/" style="font-size: 11.25px;">jQuery</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/nginx/" style="font-size: 12.50px;">nginx</a><a href="/tags/node/" style="font-size: 11.25px;">node</a><a href="/tags/php/" style="font-size: 10.00px;">php</a><a href="/tags/postMessage/" style="font-size: 10.00px;">postMessage</a><a href="/tags/shell/" style="font-size: 10.00px;">shell</a><a href="/tags/动画/" style="font-size: 16.25px;">动画</a><a href="/tags/布局/" style="font-size: 10.00px;">布局</a><a href="/tags/模版引擎/" style="font-size: 13.75px;">模版引擎</a><a href="/tags/正则表达式/" style="font-size: 11.25px;">正则表达式</a><a href="/tags/浏览器/" style="font-size: 10.00px;">浏览器</a><a href="/tags/源码/" style="font-size: 10.00px;">源码</a><a href="/tags/配置/" style="font-size: 15.00px;">配置</a>
     </div>
   </div>
 
@@ -338,7 +350,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Velocity/">Velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/animation/">animation</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码分析/">源码分析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合/">综合</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置/">配置</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -348,6 +360,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/11/15/HTML特殊字符/">HTML特殊字符</a>
+          </li>
         
           <li>
             <a href="/2014/11/15/EDM响应式/">响应式EDM制作</a>
@@ -423,10 +439,6 @@
         
           <li>
             <a href="/2014/10/19/负边距在布局中的使用/">负边距在布局中的使用</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/19/输入URL后发生了什么/">输入页面URL后发生了什么</a>
           </li>
         
       </ul>
